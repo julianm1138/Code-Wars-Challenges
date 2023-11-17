@@ -1,0 +1,12 @@
+function boolToWord( bool ){
+  
+  if (bool == true) {
+    return "Yes"
+  }
+  else return "No";
+}
+
+
+//Instructions: Complete the method that takes a boolean value and return a "Yes" string for true, or a "No" string for false.
+
+//This one was easy and self explanatory, but it is a peak at using conditionals and booleans to get solutions. 
