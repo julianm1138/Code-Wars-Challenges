@@ -1,0 +1,39 @@
+function countPositivesSumNegatives(input) {
+  
+  
+  if (!input || input.length === 0) {
+  
+  return [];
+  //iterate input check for positive numbers and negative numbers and if positive count them and return the count, else sum the negative numbers and return the sum
+   }
+let positive = 0;
+let negative = 0;
+  
+  for (let i = 0; i < input.length; i++){
+if (input[i] > 0)    {
+  positive++;
+  
+} else if (input[i] < 0) {
+  negative += input[i];
+}
+    
+  }
+return [positive, negative]
+}
+
+
+
+//Instructions: DESCRIPTION:
+Given an array of integers.
+
+Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers. 0 is neither positive nor negative.
+
+If the input is an empty array or is null, return an empty array.
+
+Example
+For input [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15], you should return [10, -65].
+
+
+//this one was more lengthy but still simple. Get an array as input, initalize a variable for positive and negative.
+//if the elements are positive count the elements, but if they are negative, get the sum of all negative elements. 
+//In other words, count all positives and sum all negatives.
