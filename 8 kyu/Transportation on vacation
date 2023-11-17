@@ -1,0 +1,23 @@
+function rentalCarCost(d) {
+  const baseCost = 40;
+  let total = d * baseCost;
+
+  total = d >= 7 ? total - 50 : d >= 3 ? total - 20 : total;
+
+  return total;
+}
+
+
+//instructions:
+
+You will need a rental car in order for you to get around in your vacation. The manager of the car rental makes you some good offers.
+
+Every day you rent the car costs $40. If you rent the car for 7 or more days, you get $50 off your total. Alternatively, if you rent the car for 3 or more days, you get $20 off your total.
+
+Write a code that gives out the total amount for different days(d).
+
+
+//Here's a good old fashioned word problem. I define my variables so that I can use them throughout the function and make it easier to read. 
+//Every day we rent the car it costs $40 so the basecost is $40. 
+//The total is the number of days * basecost. 
+//Then goes the conditional logic. If we rent for 7 or more days you get 50 off the total, else if we rent 3 or more days 20 off, else it stays the same. 
