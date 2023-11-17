@@ -1,0 +1,12 @@
+function basicOp(operation, value1, value2)
+{
+  return {'+': value1 + value2, '-': value1 - value2, '*': value1 * value2, '/': value1 / value2}[operation]
+  
+  
+  // Code
+}
+
+
+//This one was easy. I try to lean towards OOP when it feels right so I went ahead and made an object for this problem. 
+//Each arithemtic operation is in the object, and since the function takes 3 arguments we define each property to have the value arguments actually do the operation.
+// We use bracket notation to specifically access the inputted properties so it doesn't return every instance of value1 and value2. 
