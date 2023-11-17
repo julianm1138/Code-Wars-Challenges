@@ -1,0 +1,12 @@
+function filter_list(l) {
+  
+  const newList = l.filter((l) => typeof l === 'number' && l >= 0);
+  
+  return newList;
+  
+
+  // Return a new array with the strings filtered out
+}
+
+
+//We use filter method to return only what is specified inside filter and the goal is to return an array with no strings in it, therefore we specify that the type we want is a positive integer. 
