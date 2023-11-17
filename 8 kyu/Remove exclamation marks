@@ -1,0 +1,10 @@
+function removeExclamationMarks(s) {
+  return s.replace(/!/g, "" );
+}
+
+//DESCRIPTION:
+Write function RemoveExclamationMarks which removes all exclamation marks from a given string.
+
+
+//I don't normally go for regex because most are harder to remember but in this case it makes the code more concise and the regex actually used is not too complicated so I decided to use it here. 
+//Use delimiters to target exclamation marks. Use the global flag to target all instances of ! in the string. "" to replace all exclamation marks with nothing. Done.
