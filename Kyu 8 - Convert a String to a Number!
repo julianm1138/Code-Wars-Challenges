@@ -1,0 +1,7 @@
+const stringToNumber = function strToNum(str){
+  
+  return parseInt(str);
+  
+}
+
+//Super simple, I just had to look up parseInt method converts a string to a number and for this method you need to pass the function input as an argument to parseInt.  
