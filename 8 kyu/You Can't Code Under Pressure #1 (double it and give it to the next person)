@@ -1,0 +1,7 @@
+function doubleInteger(i) {
+  // i will be an integer. Double it and return it.
+  return i*2 ;
+}
+
+
+//This one was ridiculous. In fact it was so ridiculous I partly expected it to be wrong when I checked it against the test cases. Also double-it-and-give-it-to-the-next-person was on my mind the whole time. 
