@@ -1,0 +1,6 @@
+function sumArray(array) {
+  return (array && array.length > 1) ? array.reduce((acc, val) => acc + val, 0) - Math.min(...array) - Math.max(...array) : +0;
+}
+
+//So this one just wants us to return the sum of an input array excluding the min and max value of the input array. Thankfully, JS has a built in min and max method, so all we need to do is make instances of the array to pass into max and min so it doesn't affect the original array.  
+//I used ternary operator here to keep the code concise. If the array and the array length is greater than one, we sum the array excluding the min and max. Else return 0. 
