@@ -1,0 +1,19 @@
+function areYouPlayingBanjo(name) {
+  return name.toLowerCase().startsWith("r") ? name + " plays banjo" :
+name + " does not play banjo";
+}
+
+//People get really creative with making these coding challenges. 
+
+//Instructions: Create a function which answers the question "Are you playing banjo?".
+If your name starts with the letter "R" or lower case "r", you are playing banjo!
+
+The function takes a name as its only argument, and returns one of the following strings:
+
+name + " plays banjo" 
+name + " does not play banjo"
+
+//I'm not gonna lie this one was kind of scary at first especially for being an 8 kyu so I was thinking I need to create a loop or something, but nah. JS methods have my back yet again. 
+//Its clearly a conditional problem that returns strings based on either condition. 
+//The main condition is if it starts with "r" regardless of casing, name + the first string is printed. Else name + second string is printed. Sometimes Code Wars instructiosn are just confusing but the problem was easy. 
+//Shoutout to JS methods again featuring startsWith.
