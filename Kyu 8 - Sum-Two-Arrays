@@ -1,0 +1,21 @@
+function arrayPlusArray(array1, array2) {
+  // Use map to convert each element to a number (in case they are strings)
+  const convertedArray1 = array1.map(Number);
+  const convertedArray2 = array2.map(Number);
+
+  // Use reduce to calculate the sum of all elements in each array
+  const sum1 = convertedArray1.reduce((acc, current) => acc + current, 0);
+  const sum2 = convertedArray2.reduce((acc, current) => acc + current, 0);
+
+  // Calculate the total sum of both arrays
+  const totalSum = sum1 + sum2;
+
+  return totalSum;
+}
+
+
+//This challenge requires you to get the sum of the elements of two arrays. This was my first Code Wars challenge so I used chatGPT to help me out, but I do enjoy chatGPT's methodology to list pieces of code needed in varibales so those varibales can be reused and so that the code can be more readable. 
+//There is the edge case here that the inputs can be strings so we make sure to convert them to numbers first. 
+//Reduce is used to get the sum of the elements in the arrays for each array. I love methods, you just gotta learn them but then you're golden because it makes everything more concise. Reduce is invoked for each number array and its elements are added using the reduce arguments. We initialize to 0 before we start the addition process. 
+//The summed arrays are then summed and returned. 
+//This probably isn't the most efficient solution, but it gets the job done and is very clear. 
