@@ -1,0 +1,17 @@
+function oddOrEven(array) {
+  
+  const sum = array.reduce((acc, current) => acc + current, 0);
+  return sum % 2 === 0 ? "even" : "odd";
+   //enter code here
+}
+
+//instructions: Given a list of integers, determine whether the sum of its elements is odd or even.
+
+Give your answer as a string matching "odd" or "even".
+
+If the input array is empty consider it as: [0] (array with a zero).
+
+
+//I like to use varibales when I can to keep the code readable and organized. 
+//First we create the sum logic. 
+//Next we create logic to check if the sum is even or odd. Return it. Easy. 
