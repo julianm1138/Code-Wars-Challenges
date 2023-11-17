@@ -1,0 +1,25 @@
+function abbrevName(name){
+  
+  const words = name.split(' ');
+  
+  const initials = words.map(word => word.charAt(0).toUpperCase()).join('.');
+
+  return initials;
+
+}
+
+
+
+
+//Instructions: Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
+The output should be two capital letters with a dot separating them.
+
+It should look like this:
+
+Sam Harris => S.H
+
+patrick feeney => P.F
+
+//We make sure that the input is split into two elements in an array for easy manipulation and because its a requirement to have a space in between the names. Ex. If we input Sam Harris we have ['Sam','Harris'] so far. 
+//We then store the next step in its own variable and it contains the logic for getting the desired format. We use map to target the 0 index for each input, convert to uppercase, and join them back into a string with a period. 
+//Return the result. Pretty clean if you ask me. 
