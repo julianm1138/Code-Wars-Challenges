@@ -7,7 +7,7 @@ function reverseWords(str) {
 
 
 //I kept it concise as usual (when possible and when I don't want to or need to remember each part of the solution. Most of the time I want to to retain what I learn). 
-//I used method chaining and I will lay out what happens at each part of the code. Input: "Buttercup cupcakes" we use split and split by spaces to create an array of words ['Buttercup', 'cupcakes']
+//I used method chaining and I will lay out what happens at each part of the code. Input: "Buttercup cupcakes" we use split and split by spaces to create an array of words ['Buttercup', 'cupcakes'] and keep the spaces.
 //We use map to create a new array and the logic inside map will make an array of the current string, because reverse does not work on strings. We use split again to split per character. 
 //SO we have an array of however many characters/elements are inside Butterup cupcakes. It will reverse the elements/characters in the array and join them back into two elements. 
 //Finally, we join the two elements back into one string, reversed while maintaining all spaces. 
