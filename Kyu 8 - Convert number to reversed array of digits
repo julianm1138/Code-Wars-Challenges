@@ -1,0 +1,7 @@
+function digitize(n) {
+  return n.toString().split('').reverse().map(Number);
+}
+
+//For this one I decided to chain the methods to make it more concise. 
+//Convert input to a string, split it into individual digits, reverse them, and then make a new array of the reversed numbers.
+// If we wanted to be more particular we could have put the conversion to the array in its own variable but this seems simple and clear enough.
