@@ -1,0 +1,7 @@
+function reverseList(list) {
+const reverse = list.reverse();
+  return reverse;
+}
+
+//This one was very simple, but I like to once again store my code inside variables so I can orgnaize and reuse if necessary. 
+//For this problem I had to look up reverse so that I didn't have to use a loop or something unnecessarily complex, but its super simple, just invoke reverse method on the input and it does all the work. 
