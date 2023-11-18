@@ -1,0 +1,19 @@
+function positiveSum(arr) {
+  
+  return arr.reduce((accumulator, currentValue) => {
+  if (currentValue >= 0) {
+    return accumulator + currentValue;
+  } 
+  return accumulator;
+}, 0);
+  }
+
+DESCRIPTION:
+You get an array of numbers, return the sum of all of the positives ones.
+
+Example [1,-4,7,12] => 1 + 7 + 12 = 20
+
+Note: if there is nothing to sum, the sum is default to 0.
+
+//Easy. We use reduce to check if the value of the one being processed is positive and return the sum, else we return the accumulator alone. Initalized to 0.
+I always wished the intializer was at the beginning of the reduce method, but whatever. I'll take what I can get. 
