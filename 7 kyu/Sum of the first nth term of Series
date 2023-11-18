@@ -1,0 +1,36 @@
+function SeriesSum(n)
+{
+//need logic to return the sum of the series
+  if (n === 0) {
+    return '0.00'; 
+  }
+  let sum = 0; 
+  for (let i = 0; i < n; i++) {
+    sum += 1/(1 + i * 3);
+  }
+  return sum.toFixed(2);
+
+}
+
+
+//Task:
+Your task is to write a function which returns the sum of following series upto nth term(parameter).
+
+Series: 1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 +...
+Rules:
+You need to round the answer to 2 decimal places and return it as String.
+
+If the given value is 0 then it should return 0.00
+
+You will only be given Natural Numbers as arguments.
+
+
+
+
+
+//I got stuck on this one and used chatGPT to help get the solution. The keys to this solution are recognizing the patterns in the series and using some chatGPT magic, namely the formula 1/(1 + i * 3)
+
+//I didn't notice at first but the pattern in the series is that the denominator increases by 3 and for sure we need to iterate over n because its an nth term. 
+//Initialize the sum and for each nth term the formula 1/(1 + i * 3) works it out so that each term adds 3 to the denominator. 
+//How the formula is exactly derived, other than just memorizing it, I don't know but it works well. 
+//Return the sum rounded to 2 decimal places as a string using toFixed. 
