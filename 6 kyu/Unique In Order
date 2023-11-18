@@ -1,0 +1,17 @@
+var uniqueInOrder = function (iterable) {
+    return [...iterable].reduce((result, item, index) => {
+        if (index === 0 || item !== iterable[index - 1]) {
+            result.push(item);
+        }
+        return result;
+    }, []);
+};
+
+
+//Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original order of elements.
+
+//Kinda hairy at first. BUT I classify this as a conditional problem. I define conditional problems like this:  You can think of problems where you need to return a new array given specific conditions as a “condition factory” because each value from the array is passed through a condition and gets returned or not based on that condition. But the main idea is a boolean technique where if the condition is true it will push the value to the array, but if not then it disappears. 
+//So the conditional problem uses boolean logic inside of conditions. 
+//Use reduce to iterate over the input and process the accumulator, current value, and index.
+//if the index is 0 (first thing in the array) OR if the current value is not equal to the previous value (index - 1) push the current value to the empty array. 
+//This should give us an array of values with no equal values next to each other, and preverse original order of elements. And it does. 
