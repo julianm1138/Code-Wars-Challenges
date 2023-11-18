@@ -1,0 +1,12 @@
+function smash (words) {
+  
+   return words.join(" ")
+};
+
+
+//Write a function that takes an array of words and smashes them together into a sentence and returns the sentence. You can ignore any need to sanitize words or add punctuation, but you should add spaces between each word. Be careful, there shouldn't be a space at the beginning or the end of the sentence!
+
+
+
+//Pretty straightforward. We get an input array of separate strings as elements and we need to combine them or *cough cough* join them into a single string. 
+//Let's use join method to join per space in the array. Done. 
