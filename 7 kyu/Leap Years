@@ -1,0 +1,17 @@
+function isLeapYear(year) {
+ return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+}
+
+//Instructions: In this kata you should simply determine, whether a given year is a leap year or not. In case you don't know the rules, here they are:
+
+Years divisible by 4 are leap years,
+but years divisible by 100 are not leap years,
+but years divisible by 400 are leap years.
+Tested years are in range 1600 ≤ year ≤ 4000.
+
+//This one was straightforward because it just uses conditional logic and the rules are provided but figuring out a way to include all the logic in a boolean way was tricky. 
+//So the trick with this boolean problem is to create conditions where all return true which would verify if the year is a leap year. 
+//if the year is divisible by 4 it needs to return a tuthy value. 
+//if the year is not divisible by 100 it needs to return a truthy value. 
+//if the year is divisible by 400 it should return a truth value.
+//write it out. Done. 
