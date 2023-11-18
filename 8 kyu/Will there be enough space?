@@ -1,0 +1,15 @@
+function enough(cap, on, wait) {
+  const totalPassengers = on + wait;
+  
+  if (totalPassengers <= cap) {
+    return 0; 
+  } else {
+    return totalPassengers - cap; 
+  }
+}
+
+
+//This one was kinda crazy for me but it made me a better problem solver. What I failed to do for this one at first was to consider that instead of just considering the examples, that on + wait = totalpassangers.
+//I stored on + wait in a varibale to be reused in the function and make the function easier to read. 
+//I used logic to satisfy the instruction requirements: If there is enough space, return 0, and if there isn't, return the number of passengers he can't take. 
+//The passangers he can't take are the wait argument so totalpassengers - cap 
