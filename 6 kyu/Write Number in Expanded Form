@@ -1,0 +1,27 @@
+function expandedForm(num) {
+const numToStr = num.toString();
+  const numArr = Array.from(numToStr).map(Number);
+  
+  const placeValues = numArr.map((digit, i) => digit * Math.pow(10, numArr.length - 1 - i));
+  
+  return placeValues.filter(value => value !== 0).join(' + ');
+}
+
+
+
+//You will be given a number and you will need to return it as a string in Expanded Form. For example:
+
+expandedForm(12); // Should return '10 + 2'
+expandedForm(42); // Should return '40 + 2'
+expandedForm(70304); // Should return '70000 + 300 + 4'
+
+
+
+
+//This one needed some chatGPT magic in the form of using numArr.length - 1 - i to calculate place value. 
+//We turn the input into a string to make it easier to work with. 
+//We create an array of digits by using array.from to convert the string '345' (example) into ['3','4','5'] and use map to convert each string into numbers [3,4,5]. 
+//To get an array of place values, we use map to multiply each digit in the numArr by each power using Math.pow.
+//The formula numArr.length - 1 - i works out so that no matter how many digits there are it will get the place value for each digit. For example: length of the array is 3 - 1 - i (0) = 2 - 0 = 2. 3 * 10^2 = 300.
+//This process repeats for each digit in the array and returns an array of place values. Pretty cool. 
+//Finally, we filter out edge cases where the value is 0 and join them like the examples show. 
