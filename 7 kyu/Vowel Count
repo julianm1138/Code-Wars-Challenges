@@ -1,0 +1,18 @@
+function getCount(str) {
+  return str.split('').filter( char => 'aeiouAEIOU'.includes(char)).length;
+}
+
+//DESCRIPTION:
+Return the number (count) of vowels in the given string.
+
+We will consider a, e, i, o, u as vowels for this Kata (but not y).
+
+The input string will only consist of lower case letters and/or spaces.
+
+
+
+//this one is simple but you need to know you can use .length to get the count. I also ran into errors and failed tests without includes because without includes you have nothing to call length on that works.
+//I split the string into characters. 
+//I use filter to keep all vowels regardless of case. 
+//I use includes to only keep vowels and not all characters(because filter checks for truthy values and non-empty strings are truthy and we don't want to get every character in the array, just vowels. I honestly still don't completely understand it but I just know I get errors if I exclude it.) 
+//Return the length of the vowels. 
