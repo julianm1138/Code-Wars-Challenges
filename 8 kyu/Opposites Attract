@@ -1,0 +1,17 @@
+function lovefunc(flower1, flower2){
+  
+   return (flower1 % 2 === 0) !== (flower2 % 2 === 0);
+ }
+  
+  
+  // moment of truth
+
+
+//If one of the flowers has an even number of petals and the other has an odd number of petals it means they are in love.
+
+Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.
+
+//Honestly for a kyu 8 this one was pretty hairy. 
+
+//I try to classify all the problems I see to make future problems easier to solve and recognize and I refer to this as a boolean problem. 
+//This checks if the parameters are true or false based on the even condition and then compares them, and returns true or false depending on the outcome of the comparison. For example, based on the input + condition, if false !== false this is false because false === false, etc. 
