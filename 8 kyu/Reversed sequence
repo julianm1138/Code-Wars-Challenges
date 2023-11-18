@@ -1,0 +1,13 @@
+const reverseSeq = n => Array.from({ length: n }, (_, i) => n - i);
+
+
+Instructions: Build a function that returns an array of integers from n to 1 where n>0.
+
+Example : n=5 --> [5,4,3,2,1]
+
+
+//We know we need to iterate the input because its an nth term and we know we need to make a new array for the solution.
+// An arrow function is used to keep it short. I use Array.from to make the new array and  length: n to iterate over n. Array.from is pretty cool because it comes with map inside of it. 
+// For the nth term we know we need to count down so for the current index we take n - i. 
+Done. 
+
