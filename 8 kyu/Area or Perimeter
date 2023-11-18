@@ -1,0 +1,23 @@
+const areaOrPerimeter = function(l , w) {
+  
+const area = l * w;
+const perimeter = (l + w) * 2;
+  
+  const square = l === w; 
+  const rectangle = l !== w; 
+  
+  if (square) {
+    
+    return area;
+    }
+  else return perimeter;
+  
+};
+
+
+//You are given the length and width of a 4-sided polygon. The polygon can either be a rectangle or a square.
+If it is a square, return its area. If it is a rectangle, return its perimeter. Note: for the purposes of this kata you will assume that it is a square if its length and width are equal, otherwise it is a rectangle.
+
+//This one was easy. I opted for the variables approach. I defined what area and perimeter were. 
+//I defined what a square and rectangle are per the instructions and finally wrote out the logic. I liked this one because once you define the varibales you just plug everything you need in and its super readable.
+//Done. Easy. 
