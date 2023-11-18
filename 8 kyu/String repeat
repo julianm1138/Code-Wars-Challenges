@@ -1,0 +1,18 @@
+function repeatStr (n, s) {
+  
+  let result = '';
+ for (i = 0; i < n; i++) {
+    
+    result += s;
+    }
+  return result;
+}
+
+
+
+//Write a function that accepts an integer n and a string s as parameters, and returns a string of s repeated exactly n times.
+
+//Once again, this is an nth term problem so my brain goes to iterations for the n. I used a for loop for this one. 
+//We need to get a string for the result so we initalize an empty string for the result. 
+//Within the context of the for loop (which iterates n) we add s to the empty string and it should repeat that until the nth term is reached. 
+//Return the result. Done. 
