@@ -1,0 +1,7 @@
+function solution(str){
+  return str.split('').reverse().join('');
+}
+
+ //Complete the solution so that it reverses the string passed into it.
+
+//straightforward. Split into individual characters in an array, reverse the array, join back to a string. 
