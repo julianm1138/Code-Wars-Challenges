@@ -1,0 +1,27 @@
+function betterThanAverage(classPoints, yourPoints) {
+  
+  const sumOfPoints = classPoints.reduce((acc, currentValue)=> acc + currentValue, 0);
+  
+  const numOfPoints = classPoints.length;
+  
+  const averageofClassPoints = sumOfPoints/numOfPoints;
+  
+  return averageofClassPoints < yourPoints 
+  
+  }
+
+//You receive an array with your peers' test scores. Now calculate the average and compare your score!
+
+Return True if you're better, else False!
+
+Note:
+Your points are not included in the array of your class's points. For calculating the average point you may add your point to the given array!
+
+
+//I had to read this one like 1000 times to really get it and it still makes me dizzy (go Code Wars instructions). It was mainly unclear to me how many averages I needed to calculate, but I figured it out. 
+//We just need the average of the classPoints. So to get average we take the sum and divide it by the number of points. 
+//I stored each part in a variable for readability and reusability. 
+//Use reduce to get the sum of class points.
+//Use length to get the number of points. 
+//Divide sum by number to get the average. 
+//Finally I use a boolean condition to get the solution. If the average is less than yourpoints it should return true. Anything else would be false. Pretty clean if you ask me. 
