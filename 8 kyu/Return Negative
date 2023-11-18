@@ -1,0 +1,12 @@
+function makeNegative(num) {
+  if (typeof num === 'number' && num > 0) {
+    return -num; // Use the negative sign to convert to a negative number
+  } else {
+    return num; // Return the original number if it's not a positive number
+  }
+}
+
+
+//"DESCRIPTION: In this simple assignment you are given a number and have to make it negative. But maybe the number is already negative?" Man. Just tell me what you want. You're not being mysterious or clever by being ambiguous. 
+//anyway, they did end up giving me "The number can be negative already, in which case no change is required." Thank you. 
+//Simple conditional logic solves this problem. Check if the input is really a number and is a positive integer and if so return it as a negative iteger. Else, do nothing. Done. Next. 
