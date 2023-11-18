@@ -1,0 +1,19 @@
+function DNAtoRNA(dna) {
+  
+   
+  
+  return dna.replace(/T/g, 'U');
+
+  // create a function which returns an RNA sequence from the given DNA sequence
+}
+
+  //DESCRIPTION:
+Deoxyribonucleic acid, DNA is the primary information storage molecule in biological systems. It is composed of four nucleic acid bases Guanine ('G'), Cytosine ('C'), Adenine ('A'), and Thymine ('T').
+
+Ribonucleic acid, RNA, is the primary messenger molecule in cells. RNA differs slightly from DNA its chemical structure and contains no Thymine. In RNA Thymine is replaced by another nucleic acid Uracil ('U').
+
+Create a function which translates a given DNA string into RNA.
+
+
+//this one looked really scary at first because it looked like you needed background knowledge of biology. 
+//but we're simply using the rule that RNA does not have Thymine, only Uracil. SO we're replacing all T's with U's and using a regex makes sense here. We use the global flag to make sure we target all instances of T. Done. 
