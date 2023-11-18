@@ -1,0 +1,23 @@
+function paperwork(n, m) {
+  
+const totalPages = n * m;
+  
+  if (n < 0 || m < 0) {
+    
+    return 0;
+  } 
+  
+  return totalPages;
+}
+
+
+//Your classmates asked you to copy some paperwork for them. You know that there are 'n' classmates and the paperwork has 'm' pages.
+
+Your task is to calculate how many blank pages do you need. If n < 0 or m < 0 return 0.
+
+//this one's instructions made enough sense I guess, but the exmaples made no sense because let's say you have 5 classmates and 5 pages. How many blank pages do we need? I have no idea. So I went to the examples. 
+//Here's one: n= 5, m=5: 25
+//My question is how or why do we need 25 blank pages? If you have 5 pages then you would need 5 blank pages right? Wrong. This example says you need 25. But then again, I have no idea how many blank pages we need or how or why. 
+//But I'm not too worried about it because I used the example and reverse engineered it to get the solution and it works so whatever. 
+//So I simply used the example which is clearly 5 * 5 (no clue how or why you need this many blank pages or who the authority is on how many blank pages you need)
+//So n * m and then If n < 0 or m < 0 return 0. Return totalPages. Easy, but once again deriving the expression for how many blank pages you need without using the example seems a bit too ambiguous. 
