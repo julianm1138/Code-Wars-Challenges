@@ -1,0 +1,15 @@
+function quadrant(x, y) {
+ return x>0 && y>0? 1 : x<0 && y>0? 2 : x<0 && y<0? 3 : 4
+}
+
+
+
+
+//Given a point in a Euclidean plane (x and y), return the quadrant the point exists in: 1, 2, 3 or 4 (integer). x and y are non-zero integers, therefore the given point never lies on the axes.
+
+
+//At first I was confused and I asked myself: how am I going to make sure that the parameters select the correct quadrants? 
+//Then I looked at the nice coordinate plane with all the quadrants labeled and I realized all the quadrants have negative or positive x and or y coordinates. That's what controls what quadrant we're in. 
+//Then I realized this was easy. Make a conditional to check what quadrant we're in based on sign of the x or y. For example, if x is positive and y is positive we must be in 1st quadrant. 
+//The instructions are to return the quadrant number, so I chained everything in a ternary operator with return at the start and I went with greater or less than 0 to check for sign for each one. 
+//The last condition must be 4 by process of elimination. Done. 
