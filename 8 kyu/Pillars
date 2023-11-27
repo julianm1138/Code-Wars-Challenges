@@ -1,0 +1,28 @@
+function pillars(numPill, dist, width) {
+ 
+  if (numPill === 1) {
+    return 0; //handle case where there is no distance between the pillars because there is only one pillar
+  }
+  
+  const totalDistanceM = ((numPill * dist) - dist);
+  const totalWidthCm = (width * numPill) - (width * 2); //always exlude two of the widths (first and last pillar)
+  const totalDistanceCm = totalDistanceM * 100;
+  const totalDistance = totalDistanceCm + totalWidthCm
+  
+  
+  return totalDistance;
+  
+}
+
+
+ /*The problem asks us to find the distance between the first and the last pillar in cm excluding the width of the first and last pillar.
+  
+  In order to find distance between the first and the last pillar, you need to know the distance between each pillar.
+To find the distance between each pillar you need the number of pillars and the distance between each one. It helps to draw this out to easier visualize it, because if you do you will realize that the formula is not number of pillars * distance. 
+The formula is ((number of pillars * distance) - distance) because for example if you have 3 pillars there are only 2 spaces in between each one, and this is true for all counts of pillars. Therefore you must subtract one count of the distance.
+The problem accounts for width so we must add it to the total distance between the first and last pillar. 
+To find the total width we need to find the width for each pillar, excluding the two counts of the width (the first and last pillar).
+Formula is (width * number of pillars) - (width * 2)
+We then need to convert everything to cm so that's m * 100. 
+Now that the total distance between pillars is in cm and we have the width in cm, we can simply add both together. 
+Done. */
