@@ -1,0 +1,24 @@
+// Your function takes two arguments:
+
+current father's age (years)
+current age of his son (years)
+Сalculate how many years ago the father was twice as old as his son (or in how many years he will be twice as old). The answer is always greater or equal to 0, no matter if it was in the past or it is in the future.
+
+
+
+function twiceAsOld(dadYearsOld, sonYearsOld) {
+
+  const sonTwiceAsOld = (sonYearsOld * 2)
+  if (sonTwiceAsOld > dadYearsOld) {
+    return sonTwiceAsOld - dadYearsOld;
+  }
+  
+    return dadYearsOld - sonTwiceAsOld;
+  
+}
+
+//There are two ways to solve this for me, one is without the Math.Abs method and one is with it. I just went with no method. 
+/*This one was very simple. They wanted how many years ago the father was twice as old as the son, so my first question is how do you find twice the age of the son? Multiply son's age by 2. 
+I went ahead and factored it down and stored it in a variable. I try to store all calculations in variables to follow OOP better. 
+Anyway, the first expression twice the son's age - dad's age failed a test where it returned negative. I went ahead and just thought through the test case and my question was why is the output negative? 
+And it was due to the order of the son's double age and the father's age. So I went ahead and created cases for both orders and it passed the test case. Math.Abs would be most concise but I was happy to solve it second try.*/
