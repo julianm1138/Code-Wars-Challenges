@@ -1,0 +1,12 @@
+function logs(x , a, b){
+  return Math.log(a) / Math.log(x) + Math.log(b) / Math.log(x);
+}
+
+
+
+//Add two logs with base X, with the value of A and B. Example log A + log B where the base is X.
+
+/*This one was very straightforward. I needed a refresher on logs but they want the sum of two logs with different values, but with the same base.
+The change of base formula is a perfect fit, because with it you can specify which bases you want, including if they are the same bases. logb(x) = logc(x)/logc(b) 
+So we just have the sum of two of these change of base formulas and the function works as intended. 
+*/
