@@ -1,0 +1,25 @@
+Given three integers a ,b ,c, return the largest number obtained after inserting the following operators and brackets: +, *, ()
+In other words , try every combination of a,b,c with [*+()] , and return the Maximum Obtained
+
+
+
+/*This one was pretty simple. At first I tried a pattern using the test cases, ie. if a > c && b > c return a certain expression, but that didn't work and was too complicated.
+We just need every combination of a, b, and c with the operators and brackets, so I just went with an array to hold all possibilities, 
+which were all parameters added, then all multipied, then parenthesis on the left and right, then add mutliply, and multiply add and all variations of those two. 
+Finally, out of all the combinations, we use Math.max and return it. I use variables for code clarity. 
+
+
+
+function expressionMatter(a, b, c) {
+ const combinations = [
+    a + b + c,
+    a * b * c,
+   (a + b) * c,
+    a * (b + c),
+    a + (b * c),
+    (a * b) + c,
+   ];
+  const maxVal = Math.max(...combinations);
+  return maxVal;
+  
+  }
