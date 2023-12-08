@@ -1,0 +1,33 @@
+Your task is to find the nearest square number, nearest_sq(n) or nearestSq(n), of a positive integer n.
+
+For example, if n = 111, then nearest\_sq(n) (nearestSq(n)) equals 121, since 111 is closer to 121, the square of 11, than 100, the square of 10.
+
+If the n is already the perfect square (e.g. n = 144, n = 81, etc.), you need to just return n.
+
+
+
+
+/* I got stuck on this one because I thought the best way to solve it was to find a way to convert n to a number that was a perfect square if it was not already one. 
+I was on the right track, but the best way to solve it was to simply check the first part of the block and realize that in order to get a perfect square, the sqaure root of n needed to be an integer. 
+For example, the first condition works because n is a whole integer, and we can make the second condition work by rounding the decimal square root of the input to the nearest whole integer and then doing the inverse of square root.
+*/ 
+
+
+What I learned from this problem: 
+
+- It highly depends on the context of the problem, but sometimes you can use what already works in the function as a hint to solve the rest of a coding challenge. 
+- The square root of a perfect square is an integer.   Ex. sqrt(12) is not an integer, so it is not a perfect square, sqrt(9) is an integer, so it is a perfect square
+
+
+function nearestSq(n){
+  
+  const sqrt = Math.sqrt(n);
+  const float = sqrt !== Number.isInteger;
+  
+  if (sqrt === Number.isInteger){
+    return n;
+  } else if (float){ 
+    return Math.round(sqrt)** 2;
+    
+  }
+    }
