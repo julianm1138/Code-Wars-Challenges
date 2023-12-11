@@ -1,0 +1,39 @@
+
+/*This one was made very simple thanks to the includes method which conveniently allows you to use a conditional with it*/
+
+Things I learned: 
+
+-You are not allowed to store a conditional control flow in multiple variables and if you do store it in a variable, it is best to store it with let.
+
+
+
+
+
+function defineSuit(card) {
+  //depending on symbol return the suit of card 
+  
+ if(card.includes('♣')) {
+    return 'clubs';
+  }
+        
+  else if(card.includes('♦')) {
+    return 'diamonds';
+  }
+   else if(card.includes('♥')) {
+    return 'hearts';
+  }
+    
+  else if(card.includes('♠')) {
+    return 'spades'
+  }
+}
+
+
+Refactored for conciseness: 
+
+function defineSuit(card) {
+  return card.includes('♣') ? 'clubs' :
+         card.includes('♦') ? 'diamonds' :
+         card.includes('♥') ? 'hearts' :
+         card.includes('♠') ? 'spades' : null;
+}
