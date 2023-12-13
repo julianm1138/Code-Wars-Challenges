@@ -15,7 +15,9 @@ Some cases:
 returned array included elements from the input array that did not have a remainder.
  The test case where the element is 0 always returned 0 failed, so I included a condition just for that.*/
 
+Things I learned: 
 
+- to get an element from the input array to be returned as the result, simply set the element equaal to that element. 
 
 
 function multipleOfIndex(array) {
