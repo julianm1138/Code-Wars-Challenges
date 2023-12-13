@@ -8,4 +8,4 @@ function numberToString(num) {
 }
 
 
-//I get to look this one up the first time, but thankfully we have a JS method to convert a number into a string. 
+//I had to look this one up the first time, but thankfully we have a JS method to convert a number into a string. 
