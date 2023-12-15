@@ -1,0 +1,32 @@
+When it's spring Japanese cherries blossom, it's called "sakura" and it's admired a lot. The petals start to fall in late April.
+
+Suppose that the falling speed of a petal is 5 centimeters per second (5 cm/s), and it takes 80 seconds for the petal to reach the ground from a certain branch.
+
+Write a function that receives the speed (in cm/s) of a petal as input, and returns the time it takes for that petal to reach the ground from the same branch.
+
+Notes:
+
+The movement of the petal is quite complicated, so in this case we can see the velocity as a constant during its falling.
+Pay attention to the data types.
+If the initial velocity is non-positive, the return value should be 0
+
+
+
+
+
+/*This one took me a while due to the wording "from the same branch." I feel like the wording could have been "the distance traveled from the specific branch is always the same." Otherwise I did notice 
+the relaitonship between 1 second and 80 seconds per 5 cm traveled. So to solve this I kept in mind the relationship 5 cm per every second is proportional to 400 cm per every 80 seconds. 
+Then I realized that the distance traveled by the petal between the branch and the ground is always the same. So we can model the function logic as time = 400 / v because there are 3 variables: time, distance, and velocity and we needed time. 
+So I took time = 400 (the constant distance) / v (the only variable left to use). Edge case is when v === 0 because dividing by zero gives you positive infinity. */
+
+function sakuraFall(v) {
+  //time to reach the ground = 80 seconds from the same branch 
+ const time = 400 / v;
+  //the distance traveled is always the same 
+  if (v < 0 || v === 0){
+    return 0; 
+    } else {
+    return time; 
+  }
+    }
+  //return time for petal to reach the ground  
