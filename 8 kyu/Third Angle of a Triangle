@@ -1,0 +1,12 @@
+/*This one just needed an algebraic equation with a specific order of operations set with parentheses, but otherwise we just needed to know that all sides of a triangle equal 180 degrees. 
+
+
+function otherAngle(a, b) {
+  
+  //only positive integers are tested 
+  
+  //Function that finds the third angle of a triangle 
+  const thirdAngle = 180 - (a + b);
+ 
+  return thirdAngle;
+}
