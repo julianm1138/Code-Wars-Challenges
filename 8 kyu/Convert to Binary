@@ -1,0 +1,9 @@
+//Function that converts a number into its binary (base 2) form. 
+
+/*We can use toString method and pass the numerical base we want to convert the input to that base. Binary is base 2 so we pass 2 as an argument. It converts it to a binary string so we wrap the expression 
+in parseInt to turn it into an integer.*/
+
+
+function toBinary(n){
+  return parseInt(n.toString(2));
+}
