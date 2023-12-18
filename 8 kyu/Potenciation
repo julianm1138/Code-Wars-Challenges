@@ -1,0 +1,7 @@
+
+//This one simply needed us to raise x to the y power without using Math.pow() method. 
+
+
+function power(x,y){
+  return x ** y;
+}
