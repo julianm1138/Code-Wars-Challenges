@@ -1,0 +1,10 @@
+Pass the tests:
+
+a == false
+!a == false
+a == !a
+
+/* I tried to manually assign with let here but that wasn't the right move. 
+
+const a = []; 
+
