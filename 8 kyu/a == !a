@@ -4,7 +4,10 @@ a == false
 !a == false
 a == !a
 
-/* I tried to manually assign with let here but that wasn't the right move. 
+/* I tried to manually assign with let here but that wasn't the right move but the kata itself might have had an isssue. 
+For this one the test cases made no sense. For example in Test.assertEquals( a == false,  true, `a != false`); Two possible answers were const a = [] or const a = '0'. 
+Both evalulate to true. true == false is false, but the test case lists true. I'm probably not reading it right, I really don't know. But if you ignore everything except the string in the test case  `a != false` 
+and compare the values that way, all test cases work. */ 
 
 const a = []; 
 
