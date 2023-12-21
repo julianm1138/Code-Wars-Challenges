@@ -1,0 +1,22 @@
+A hero is on his way to the castle to complete his mission. However, he's been told that the castle is surrounded with a couple of powerful dragons! each dragon takes 2 bullets to be defeated, our hero has no idea how many bullets he should carry.. Assuming he's gonna grab a specific given number of bullets and move forward to fight another specific given number of dragons, will he survive?
+
+Return true if yes, false otherwise :)
+
+/* The test cases made a bit more sense than the description but right away I noticed there was a ratio of 1 dragon to 2 bullets, then when I checked the test cases I realized that at least two or more bullets, 
+then I wrote a conditional, ran the tests and they passed. */
+
+
+
+
+
+function hero(bullets, dragons){
+//1 dragon : 2 bullets 
+  //at least double the bullets as many dragons or more
+  
+ if (bullets >= (dragons * 2)){
+    return true; 
+  } else {
+    return false; 
+  }
+  //if he survives return true else return false 
+}
