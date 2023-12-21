@@ -1,0 +1,43 @@
+In this Kata, you will be given a string that may have mixed uppercase and lowercase letters and your task is to convert that string to either lowercase only or uppercase only based on:
+
+
+For example:
+
+solve("coDe") = "code". Lowercase characters > uppercase. Change only the "D" to lowercase.
+solve("CODe") = "CODE". Uppercase characters > lowecase. Change only the "e" to uppercase.
+solve("coDE") = "code". Upper == lowercase. Change all to lowercase.
+
+
+
+/* I knew we had to keep count of upperCase and lowerCase and then create a conditional based on that. I used reduce to keep count. 
+I then created a conditional that checks all possible scenarios. The first condition checks all scenarios that returns the string to lower case and the second returns the string to upper case because 
+the only other option is to convert to upper case after all scenarios that conert to lower case are exhausted. 
+*/ 
+
+
+
+
+function solve(s) {
+ 
+  const countLowerCase = Array.from(s).reduce((acc, currentVal) => {
+    if (currentVal === currentVal.toLowerCase()) {
+      return acc + 1;
+    }
+    return acc;
+  }, 0);
+
+  const countUpperCase = Array.from(s).reduce((acc, currentVal) => {
+    if (currentVal === currentVal.toUpperCase()) {
+      return acc + 1;
+    }
+    return acc;
+  }, 0);
+
+  
+  if (countLowerCase === countUpperCase || countLowerCase > countUpperCase) {
+    return s.toLowerCase();
+  } else {
+    return s.toUpperCase();
+  }
+}
+
