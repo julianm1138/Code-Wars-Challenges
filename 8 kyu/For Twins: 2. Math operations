@@ -1,0 +1,37 @@
+A magician in the subway showed you a trick, he put an ice brick in a bottle to impress you. The brick's length and width are equal, forming a square; its height may be different. Just for fun and also to impress the magician and people around, you decided to calculate the brick's volume. Write a function iceBrickVolume that will accept these parameters:
+
+radius - bottle's radius (always > 0);
+bottleLength - total bottle length (always > 0);
+rimLength - length from bottle top to brick (always < bottleLength);
+And return volume of ice brick that magician managed to put into a bottle.
+
+Note:
+All inputs are integers. Assume no irregularities to the cuboid brick. You may assume the bottle is shaped like a cylinder. The brick cannot fit inside the rim. The ice brick placed into the bottle is the largest possible cuboid that could actually fit inside the inner volume.
+
+
+/* So we start by finding the formula for volume which is l * w * h. You can tell by the illutsration included in the problem that the bottleLength - rimLength = height. Now we just need to find the width and length.
+They are both equal according to the instructions, but I had to reverse engineer the example and play with the calculations until I got the variable for length and width to be radius * radius * 2.
+The reason it is equal to that is because each radius in the equation represents the length and the width being determined by twice the radius. So now we have length * width * height and return it to solve the challenge. */ 
+
+<img src="https://i.imgur.com/E2bInQt.png">
+
+
+  /*length === width height is variable. 
+  Brick width is always > radius */
+  //radius always > 0
+  //bottlelength always > 0 
+  //rimLength always < bottlelength 
+
+
+
+
+function iceBrickVolume(radius, bottleLength, rimLength) {
+  
+  
+  const brickHeight = bottleLength - rimLength;
+  const brickLengthWidth = radius * (radius * 2);
+        
+        return brickHeight * brickLengthWidth;
+        
+  //return brick volume l * w * h 
+}
