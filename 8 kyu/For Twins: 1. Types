@@ -1,0 +1,18 @@
+function typeValidation(variable, type) {
+  //There are two parameters: variable and type.
+  //return true if type matches the typeof the variable, else return false 
+  
+ return typeof variable === type;
+  
+}
+
+
+
+/*This one tripped me up a little at first becuse I was checking if the typeof the variable (parameter) was equal to the typeof type (parameter) when I should have been checking if type of 1st parameter was equal
+to the second parameter. The second parameter could be anything theoretically, so the function implicitly handles edge cases by using implicit boolean return. At first I went with explicit conditional statement but refactored it. 
+*/ 
+
+Things I learned: 
+
+- typeof in JS is not a method but rather an operator. 
+- The value or expression passed into typeof operator is called an operand. 
