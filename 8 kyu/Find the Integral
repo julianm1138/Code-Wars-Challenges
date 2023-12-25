@@ -1,0 +1,35 @@
+Create a function that finds the integral of the expression passed.
+
+In order to find the integral all you need to do is add one to the exponent (the second argument), and divide the coefficient (the first argument) by that new number.
+
+For example for 3x^2, the integral would be 1x^3: we added 1 to the exponent, and divided the coefficient by that new number).
+
+Notes:
+
+The output should be a string.
+The coefficient and exponent is always a positive integer.
+
+//I confused myself with the directions and put the arguments division background which only led to passing one test, but when I flipped them around it passed all the tests. 
+//This problem was mainly a formatting one because the instructions tell you exactly what you need to do in terms of math. 
+
+
+
+
+
+function integrate(coefficient, exponent) {
+  //add +1 to the second parameter and divide first parameter by second parameter + 1 
+  //output string 
+  
+ return coefficient / (exponent + 1) + "x" + "^" +  (exponent + 1);
+  
+}
+
+
+
+Things I learned: 
+
+- You can use toString() method to convert expressions to a string before the method. So for example (5 + 3).toString(); 
+- in JS coersion applies when you use concatenation, so if a number is concantenated with a string the whole expression becomes a string. 
+
+
+
