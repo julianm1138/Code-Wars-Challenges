@@ -1,0 +1,31 @@
+An AI has infected a text with a character!!
+
+This text is now fully mutated to this character.
+
+If the text or the character are empty, return an empty string.
+There will never be a case when both are empty as nothing is going on!!
+
+Note: The character is a string of length 1 or an empty string.
+
+Example
+text before = "abc"
+character   = "z"
+text after  = "zzz"
+
+
+/*We can initialize an empty string and concatenate the char specified in the second argument for the length of the first argument.
+To do this we can run a loop for the length of the first argument and then add the second argument to the empty string for the length of the first argument.*/ 
+
+
+
+function contamination(text, char){
+  
+  let replacement = '';
+  
+  for (let i = 0; i < text.length; i++){
+   
+    replacement += char
+  }
+  
+ return replacement;
+}
