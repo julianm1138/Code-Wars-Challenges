@@ -1,0 +1,40 @@
+Create a function that takes 2 integers in form of a string as an input, and outputs the sum (also as a string):
+
+Example: (Input1, Input2 -->Output)
+
+"4",  "5" --> "9"
+"34", "5" --> "39"
+"", "" --> "0"
+"2", "" --> "2"
+"-5", "3" --> "-2"
+
+
+
+function sumStr(a, b) {
+  // Input 2 strings and output one string as the sum of the two inputs
+  // Edge case if both inputs are empty strings
+  if (a === '' && b === '') {
+    return '0';
+    // Edge case if one input is an empty string
+  } else if (a === '' || b === '') {
+    return (Number(a || b) + 0).toString();
+  } else {
+    // Main logic
+    return (Number(a) + Number(b)).toString();
+  }
+}
+
+
+Refactored version:
+
+
+function sumStr(a,b) {
+  const convertToNum = Number(a) + Number(b);
+     const result = convertToNum.toString();
+     return result; 
+}
+
+Things I learned: 
+
+- If an empty string is passed into Number(), then the empty string is coerced to 0. 
+- You can attach methods to expressions. 
