@@ -1,0 +1,27 @@
+Your code will show Full name of the neighbor and the truncated version of the name as an array. If the number of the characters in name is less than or equal to two, 
+it will return an array containing only the name as is"
+
+
+
+
+
+
+function whoIsPaying(name){
+
+//I started with the edge case
+  if (name.length <= 2) {
+    return [name];
+  } else {
+    return [name, name.slice(0, 2)];
+  }
+}
+
+
+//input string 
+  //remembers only 2 letters from the name
+  //truncate the name until 2 letters remain
+  //output name as a string and the truncated version as a string in an array
+  //if characters in name is <= 2 return array containing only the name
+
+Things I learned: 
+- truncate in the context of computer science means to shorten or trim
