@@ -1,0 +1,17 @@
+Remove an exclamation mark from the end of a string. For a beginner kata, you can assume that the input data is always a string, no need to verify it.
+
+
+//We check if the last character in the string is "!" and if so, use slice to remove it. 
+
+
+function remove (string) {
+  if(string[string.length - 1] === "!"){
+     return string.slice(0 , string.length - 1)
+  } else {
+  return string;
+}
+  }
+
+Things I learned: 
+
+- Slice and substring are used battle-ship like coordinates to remove parts of a string. 
