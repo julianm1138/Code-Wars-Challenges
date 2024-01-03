@@ -1,0 +1,15 @@
+Write a function that will compare two values, one will be a number and one will be a string. Return true if they are the same character (regardless of their different data types) and return false if they are not.
+
+To make this challange harder and to promp the challenger to read up about coercion I have disabled some of the built in methods including .toString(), .join(), .split(), parseInt and .Number().
+
+	//1st input is one number 2nd input is one string 
+  //return true if same character (regardless of type) return false if not 
+
+
+function add(a, b){
+  return a == b;
+}
+
+//We aren't allowed to use methods to normalize the input so I used implicit return to return true if they are the same character regardless of type
+//The equality operator performs type coercion so regardless of the type it will compare the character
+//If you put in like charcaters it should return true and different characters should return false
