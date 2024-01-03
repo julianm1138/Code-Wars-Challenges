@@ -1,0 +1,27 @@
+For every good kata idea there seem to be quite a few bad ones!
+
+In this kata you need to check the provided array (x) for good ideas 'good' and bad ideas 'bad'. If there are one or two good ideas, return 'Publish!', if there are more than 2 return 'I smell a series!'. If there are no good ideas, as is often the case, return 'Fail!'.
+
+
+//input is an array of 'good' and/or 'bad'
+//If count of 'good' <= 2 return 'publish'
+//If count of 'good' > 2 return 'I smell a series!'
+//Else return 'Fail!'
+//The first two cases are the only two cases with 'good' in it so the else case should work 
+
+
+
+function well(x) {
+ 
+  const count = x.filter(element => element === 'good').length;
+
+  if (count === 2 || count === 1) {
+    return 'Publish!';
+  } else if (count > 2) {
+    return 'I smell a series!';
+  } else {
+    return 'Fail!';
+  }
+}
+
+//I created a variable to act as the count for 'good' and used it in the conditional. 
