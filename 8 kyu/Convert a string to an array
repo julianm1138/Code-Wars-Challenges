@@ -1,0 +1,12 @@
+Write a function to split a string and convert it into an array of words.
+
+
+//using split, if we specify to place a comma at every place in the string a space occurs, it should create an element for each word in a sentence
+
+function stringToArray(string){
+  return string.split(' ');
+}
+
+//input string 
+//Convert to an array of words
+
