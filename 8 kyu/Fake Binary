@@ -1,0 +1,22 @@
+function fakeBin(x){
+  const convertedValues = x.split('').map(Number);
+  for (let i = 0; i < convertedValues.length; i++){
+    if (convertedValues[i] < 5){
+      convertedValues[i] = '0';
+    } else { 
+     (convertedValues[i])
+       convertedValues[i] = '1';
+      }
+    }
+    return convertedValues.join('');
+  }
+
+//input string of digits 
+  //if digit < 5 replace that digit with '0'
+  //if digit 5 >= replace with '1'
+  //concatenate any replacements 
+
+
+Things I learned: 
+- You can reassign/replace index values inside a conditional block
+
