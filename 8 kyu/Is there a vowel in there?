@@ -1,0 +1,27 @@
+Given an array of numbers, check if any of the numbers are the character codes for lower case vowels (a, e, i, o, u).
+
+If they are, change the array value to a string of that vowel.
+
+Return the resulting array.
+
+
+//I used String.fromCharCode() to convert the number to the unicodes for lowercase vowels
+
+
+
+
+
+function isVow(a) {
+  return a.map(number => {
+    if (number === 97 || number === 101 || number === 105 || number === 111 || number === 117) {
+      return String.fromCharCode(number);
+    } else {
+      return number;
+    }
+  });
+}
+  
+
+//input is an array 
+//check if number in the array has the char code for lower case vowels
+//return new array of lower case vowels if the number matches the unicode for lower case vowels, else return the original number in the array.
