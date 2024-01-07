@@ -20,6 +20,21 @@ function isVow(a) {
     }
   });
 }
+
+For OOP: 
+
+const isVow = a =>{
+  let map = {
+    97: 'a',
+    101: 'e',
+    105: 'i',
+    111: 'o',
+    117: 'u',
+  }
+  return a.map( num => map[num] ? map[num] : num);
+}
+
+//If the number in the input array is equal to the property inside our object, return the value of its property, otherwise return the original number. 
   
 
 //input is an array 
