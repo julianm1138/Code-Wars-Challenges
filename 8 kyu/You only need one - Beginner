@@ -22,3 +22,7 @@ function check(a, x) {
 //input 2 is a value 
 //check if array contains the value 
 //return true if the array === value else return false 
+
+Things I learned: 
+
+- If you put the return false inside the for loop the function will only check the first value if it meets the condition and will not continue through the loop. 
