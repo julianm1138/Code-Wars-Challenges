@@ -1,0 +1,44 @@
+Your task is to change the letters with diacritics:
+
+ą -> a,
+ć -> c,
+ę -> e,
+ł -> l,
+ń -> n,
+ó -> o,
+ś -> s,
+ź -> z,
+ż -> z
+and print out the string without the use of the Polish letters.
+
+//This challenge looks like it was made for OOP, so I went ahead and used an object to solve it. 
+
+
+
+
+
+
+function correctPolishLetters(string) {
+  const polishLetters = {
+    ą: 'a',
+    ć: 'c',
+    ę: 'e',
+    ł: 'l',
+    ń: 'n',
+    ó: 'o',
+    ś: 's',
+    ź: 'z',
+    ż: 'z'
+  };
+
+  let result = '';
+
+  for (const char of string) {
+    result += polishLetters[char] || char;
+  }
+
+  return result;
+}
+
+Things I learned: 
+- you can reference the current value with a for ... of loop (const char) or for loop (string[i])
