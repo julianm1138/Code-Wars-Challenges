@@ -1,0 +1,55 @@
+Your task is to create a change machine.
+
+The machine accepts a range of specified coins and notes, it returns change in 20p and 10p coins in the minimum amount of pieces. A 50p for example would return two 20p pieces and one 10p piece. The machine will always try and return change, if you input a 20p for example it will return "10p 10p".
+
+The machine accepts these coins and notes: £5, £2, £1, 50p, 20p. Any coins and notes which are not accepted by the machine will be returned. If you were to put a £20 note into the machine for example, it would be returned to you and not broken into change.
+
+This change machine is programmed to accept and distribute strings rather than numbers. The change will be returned as one string with the change separated by single spaces & no commas. The values of the string will be descending.
+
+
+
+
+
+
+
+function changeMe(moneyIn) {
+  const currency = {
+    '£5': 500,
+    '£2': 200,
+    '£1': 100,
+    '50p': 50,
+    '20p': 20
+  };
+
+  let totalChange = currency[moneyIn] || 0;
+
+  if (totalChange <= 0) {
+    return moneyIn;
+  }
+
+  const result = [];
+
+  while (totalChange >= 20) {
+    result.push('20p');
+    totalChange -= 20;
+  }
+
+  while (totalChange >= 10) {
+    result.push('10p');
+    totalChange -= 10;
+  }
+
+   const finalResult = result.join(' ');
+
+  return finalResult === '20p' ? '10p 10p' : finalResult;
+}
+
+
+Imagine we put in 1 euro. That should be 20p * 5. So we create an object that holds the currency types and their values. 
+Then we make the totalchange variable which is the value of moneyIn by looking up the value of the moneyIn in the currency object currency[property] returns the object's value. 
+While the value is >= 20 it adds an instance of '20p' to the array and subtracts a value of 20 from the totalchange until the value is 0.  
+As long as the value is greater than 20 it will add an instance of '20p' to the empty array and repeat that until the value is 0. Finally it joins the array into a string with spaces in between so the result is '20p 20p 20p 20p 20p'
+
+
+
+
