@@ -1,0 +1,14 @@
+Given a string, you have to return a string in which each character (case-sensitive) is repeated once.
+
+
+//normalize the input 
+//use map to return a new array 
+
+
+function doubleChar(str) {
+ return str.split('').map( char => char.repeat(2)).join('');
+}
+
+
+//forEach does not return a value 
+//explicit return must be used inside curly braces, otherwise contents of a function are implicitly returned 
