@@ -1,0 +1,9 @@
+
+It is recommended to map over the array of numbers and convert each number to the corresponding ascii character.
+
+
+var ArrowFunc = function(arr) {
+  return arr.map(element => String.fromCharCode(element)).join(''); 
+}
+
+
