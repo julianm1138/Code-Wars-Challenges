@@ -1,0 +1,19 @@
+Your task is to find the first element of an array that is not consecutive.
+
+By not consecutive we mean not exactly 1 larger than the previous element of the array.
+
+
+
+//We set up a for loop that keeps our indices within bounds. Then we set up a condition that checks for on/off or true/false. If it's true, it will return the next element in the sequence. 
+
+
+
+
+function firstNonConsecutive(arr) {
+  for (let i = 0; i < arr.length - 1; ++i) {
+     if (arr[i] + 1 !== arr[i + 1]) {  //we make this first condtion evaluate to false by manipulating arr[i]. If we started from the first value being arr[i] (1), it would make the statement true immediately which we don't want.
+      return arr[i + 1];
+    }
+  }
+  return null;
+}
