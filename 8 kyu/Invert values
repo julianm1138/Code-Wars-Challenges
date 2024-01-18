@@ -1,0 +1,20 @@
+
+Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
+
+
+
+
+
+function invert(array) {
+   return array.map( element => {
+     if (element > 0){
+       return element * -1;
+     } else {
+       return Math.abs(element);
+     }
+   })
+}
+
+//input array of numbers
+//switch all signs on the numbers
+//return new array 
