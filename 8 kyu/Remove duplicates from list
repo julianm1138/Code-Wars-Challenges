@@ -1,0 +1,22 @@
+Define a function that removes duplicates from an array of non negative numbers and returns it as a result.
+
+The order of the sequence has to stay the same.
+
+
+
+//The value will never be in the empty array so we specify that if the current element is not in the empty array, then we push the current element to the empty array. 
+//There will never be duplicates because the condition is that if the empty array has the current element it will push it but in the case that it does not it will not push it to the empty array. 
+//empty array []
+//[1, 2, 2, 3, 4]
+
+
+function distinct(a) {
+  const result = [];
+  for (let i = 0; i < a.length; i++){
+    if (!result.includes(a[i])) {
+      result.push(a[i])
+    } 
+  }
+  
+  return result;
+}
