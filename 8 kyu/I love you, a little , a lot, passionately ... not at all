@@ -1,0 +1,39 @@
+"I love you"
+"a little"
+"a lot"
+"passionately"
+"madly"
+"not at all"
+If there are more than 6 petals, you start over with "I love you" for 7 petals, "a little" for 8 petals and so on.
+
+When the last petal was torn there were cries of excitement, dreams, surging thoughts and emotions.
+
+Your goal in this kata is to determine which phrase the girls would say at the last petal for a flower of a given number of petals. The number of petals is always greater than 0.
+
+
+//Create an array or object 
+//Shift the index so that it lines up properly. For example, if you put in 7 for the index, and there are 5 indices normally in the array, you want the correct string to the index. 
+//So it should effectively shift the values to the left. 
+//Use % to span the length of the data and stay within range
+//Use bracket notation to return the string 
+
+
+
+const petals = [
+  "I love you",
+  "a little",
+  "a lot",
+  "passionately",
+  "madly",
+  "not at all",
+];
+
+function howMuchILoveYou(index) {
+  const normalizedIndex = (index - 1) % petals.length;
+  return petals[normalizedIndex];
+}
+
+
+I learned: 
+
+- Modulo % can be thought of as a tool for causing cyclic behavior
