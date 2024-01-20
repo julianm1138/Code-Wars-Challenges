@@ -1,0 +1,7 @@
+If the input array includes x return true else return false 
+
+
+
+function check(a,x){
+  return a.includes(x);
+};
