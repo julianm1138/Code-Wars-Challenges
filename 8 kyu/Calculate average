@@ -1,0 +1,16 @@
+Write a function which calculates the average of the numbers in a given list.
+
+Note: Empty arrays should return 0.
+
+//If the length of the array is 0 it should be empty and each array and object in JS has a unique ID even if they are identical. 
+
+function findAverage(array) {
+  
+  const sum = array.reduce((acc, currentVal) => acc + currentVal, 0);
+  const count = array.length;
+ if (count === 0){
+    return 0;
+ } else {
+  return sum/count;
+ }
+}
