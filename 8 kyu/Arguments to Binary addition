@@ -1,0 +1,21 @@
+Given an array add all the number elements and return the binary equivalent of that sum; to make the code bullet proof anything else than a number should be addeded as 0 since it can't be addeded
+
+//input array
+  //sum all elements
+  //output return sum in binary 
+
+//If the input array comtained booleans the tests failed so I use filter to exclude all booleans first
+//then get the sum
+//then convert the sum to binary
+
+
+
+function arr2bin(arr){
+  const keepNums = arr.filter(element => typeof element === 'number');
+  const sum = keepNums.reduce((acc, currentVal) => acc + currentVal, 0);
+  const result = sum.toString(2);
+  
+  return result; 
+}
+
+console.log(arr2bin([true,true,false,15]))
