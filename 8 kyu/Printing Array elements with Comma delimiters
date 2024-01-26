@@ -1,0 +1,14 @@
+Input: Array of elements
+
+["h","o","l","a"]
+
+Output: String with comma delimited elements of the array in th same order.
+
+"h,o,l,a"
+
+//if you join the array into a string with commas it solves the challenge
+//You could also create an empty string, loop through the array and concatenate each element with the string and then if the element is not the last one you can concatenate a comma in. 
+
+function printArray(array){
+  return array.join(',');
+}
