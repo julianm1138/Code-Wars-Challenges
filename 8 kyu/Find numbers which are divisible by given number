@@ -1,0 +1,20 @@
+Complete the function which takes two arguments and returns all numbers which are divisible by the given divisor. First argument is an array of numbers and the second is the divisor.
+
+//create an empty array to push values 
+//create a condition that checks if the current element has a remainder, and it doesn't that means it's divsible
+//If divisble, we push it to the empty array
+//Return the new array/result outside the scope of the for loop but still inside the function
+
+function divisibleBy(numbers, divisor){
+  const result = [];
+  
+  for (let i = 0; i < numbers.length; i++){
+   if (numbers[i] % divisor === 0){
+     result.push(numbers[i]);
+   }
+  }
+  return result;
+}
+//input 1 is an array of numbers 
+//input 2 is a number
+//output is an array of all numbers that are divisible by input 2
