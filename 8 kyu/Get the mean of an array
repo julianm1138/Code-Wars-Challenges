@@ -1,0 +1,14 @@
+Return the average of the given array rounded down to its nearest integer.
+
+The array will never be empty.
+
+//get count using .length
+//get sum using reduce
+//round down with Math.floor
+
+
+function getAverage(marks){
+  const count = marks.length;
+  const sum = marks.reduce((acc, currVal) => acc + currVal, 0);
+  return Math.floor(sum/count);
+}
