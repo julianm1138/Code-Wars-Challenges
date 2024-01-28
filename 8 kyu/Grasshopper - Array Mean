@@ -1,0 +1,9 @@
+var findAverage = function (nums) {
+  
+  const count = nums.length;
+  const sum = nums.reduce((acc, currVal) => acc + currVal, 0);
+  return sum/count;
+}
+
+//input array 
+//output the mean as a number
