@@ -1,0 +1,24 @@
+Create a method each_cons that accepts a list and a number n, and returns cascading subsets of the list of size n, like so:
+
+each_cons([1,2,3,4], 2)
+  #=> [[1,2], [2,3], [3,4]]
+
+each_cons([1,2,3,4], 3)
+  #=> [[1,2,3],[2,3,4]]
+
+
+//We can create an empty array and use logic to push 2 elements at a time to the array.
+//First we iterate through the input array n elements at a time by defining the stopping point to be the length of the array minus n.
+//Then we push n elements of the input array at a time to the empty array and return the result. 
+
+
+
+function each_cons(array, n) {
+  const result = [];
+  
+  for (let i = 0; i <= array.length - n; i++) {
+    result.push(array.slice(i, i + n));
+  }
+  
+  return result;
+}
