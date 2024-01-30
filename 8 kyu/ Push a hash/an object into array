@@ -1,0 +1,5 @@
+//I had to debug the push method missing parentheses
+
+
+items = []
+items.push({a: "b", c: "d"});
