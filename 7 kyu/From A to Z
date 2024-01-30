@@ -1,0 +1,28 @@
+Given a string indicating a range of letters, return a string which includes all the letters in that range, including the last letter.
+Note that if the range is given in capital letters, return the string in capitals also!
+
+Examples
+"a-z" ➞ "abcdefghijklmnopqrstuvwxyz"
+"h-o" ➞ "hijklmno"
+"Q-Z" ➞ "QRSTUVWXYZ"
+"J-J" ➞ "J"
+
+
+//We can use destructuring assignment to target the first and last index of the array when we split it. 
+//We store the first and last letter in a variable and select their unicode values with charCodeAt. We do this so we have a numerical values to compare in the for loop.
+//Finally, we use a for loop to continue to push the unicode values between the range and then convert it back to a string. 
+
+
+
+function gimmeTheLetters(range) {
+  const [start, end] = range.split('-');
+  const startCode = start.charCodeAt(0);
+  const endCode = end.charCodeAt(0);
+  
+  let result = '';
+  for (let i = startCode; i <= endCode; i++) {
+    result += String.fromCharCode(i);
+  }
+
+  return result;
+}
