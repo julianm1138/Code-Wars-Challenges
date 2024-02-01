@@ -1,0 +1,16 @@
+function closingInSum(n) {
+  const splitNumb = String(n).split('');
+  const arrOfNumb = [];
+
+  while (splitNumb.length > 0) {
+    const firstNumb = splitNumb.shift();
+    const lastNumb = splitNumb.pop();
+    if (lastNumb) {
+      arrOfNumb.push(firstNumb + lastNumb);
+    } else {
+      arrOfNumb.push(firstNumb);
+    }
+  }
+
+  return arrOfNumb.reduce((acc, item) => acc + Number(item), 0);
+}
