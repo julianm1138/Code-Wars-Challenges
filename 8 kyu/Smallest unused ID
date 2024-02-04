@@ -1,0 +1,31 @@
+You've got much data to manage and of course you use zero-based and non-negative ID's to make each data item unique!
+
+Therefore you need a method, which returns the smallest unused ID for your next new data item...
+
+Note: The given array of used IDs may be unsorted. For test reasons there may be duplicate IDs, but you don't have to find or remove them!
+
+//sort the array in case it is unsorted 
+//We initialize the smallest id to 1 with let as a starting point 
+//If the current element is the smallest element it will continue to update the smallest unused ID until the current element is greater than the smallest id/number, 
+which proves that it's missing a number in the sequence and instead of incrementing the count by 1 it will just return that missing number from the array. 
+
+function nextId(ids){
+ids.sort((a, b) => a - b);
+
+  let smallestUnusedID = 1;
+
+  // Iterate through the sorted array to find the current smallest ID (because it will increment by 1 unless the second condition is met)
+  for (let i = 0; i < ids.length; i++) {
+    if (ids[i] === smallestUnusedID) {
+      // If the current ID is equal to the expected ID, increment the expected ID
+      smallestUnusedID++;
+    } else if (ids[i] > smallestUnusedID) {
+      // If the current ID is greater than the expected ID, it is the smallest unused ID
+      return smallestUnusedID;
+    }
+    // If the current ID is less than the expected ID, continue checking the next ID
+  }
+
+  // If no gaps are found, the next unused ID is one greater than the last used ID
+  return smallestUnusedID;
+}
