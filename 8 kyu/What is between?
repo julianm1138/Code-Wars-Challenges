@@ -1,0 +1,19 @@
+Complete the function that takes two integers (a, b, where a < b) and return an array of all integers between the input parameters, including them.
+
+For example:
+
+a = 1
+b = 4
+--> [1, 2, 3, 4]
+
+//We can define an empty array and push the current element to it if it meets a certain condition. 
+//The condition is that starting from the first argument, if the first argument is less than or equal to the second argument we will continue to iterate.
+//In other words, we can set up the loop to make the arguments the iterators. 
+
+function between(a, b) {
+  const result = [];
+  for (let i = a; i <= b; i++){
+    result.push(i);
+  }
+  return result;
+}
