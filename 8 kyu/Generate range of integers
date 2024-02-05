@@ -1,0 +1,17 @@
+Implement the function generateRange which takes three arguments (start, stop, step) and returns the range of integers from start to stop (inclusive) in increments of step.
+
+//We can define and empty array and then create a for loop that includes the function's arguments as conditions in the loop.
+//We set the range in the for loop by setting i to the stat of the range and it will continue until it is equal to the end of the rnge. Increment each element by the step/third argument.
+//Finally we push everything in the context of the loop to the empty array and return the result. 
+
+
+function generateRange(min, max, step){
+  const result = [];
+  for (let i = min; i <= max; i += step){
+    result.push(i);
+  }
+  return result;
+}
+
+//input 3 integers
+//output new array of all values in the range incrementing by step 
