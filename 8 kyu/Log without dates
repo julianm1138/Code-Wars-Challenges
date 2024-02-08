@@ -1,0 +1,25 @@
+You will be given an array of events, which are represented by strings. The strings are dates in HH:MM:SS format.
+
+It is known that all events are recorded in chronological order and two events can't occur in the same second.
+
+Return the minimum number of days during which the log is written.
+
+/*Every array unless it's an empty array is the start of a new day and we need to check if at any point in the array, does the next timestamp exceed 24 hours (which indicates a new day rollover). 
+We must count how many times the rollover happens, if at all.*/
+
+
+//We set two counts. One for the start day and one for the minimum number of days where the log is written. 
+//Prev is set to 24 as a string to give the days a start point and ensure the loop begins (since 24 hours is greater than 23 hours). 
+//We use forEach to iterate each array element and if the element is less than or equal to the start point we add a count of 1 to days, because this would indicate a rollover. Otherwise we do nothing. 
+//That should return the minimum number of days during which the log is written, which is really a count of how many times in the array one day rolls over to the next, including the start of the first new day/the start point. 
+
+
+function checkLogs(log) {
+  let prev = "24:00:00"; 
+  let days = 0; 
+  log.forEach(t => {
+    if (t <= prev) days++;
+    prev = t;
+  });
+  return days;
+}
