@@ -1,0 +1,40 @@
+In abstract set theory, a construction due to von Neumann represents the natural numbers by sets, as follows:
+
+0 = [ ] is the empty set
+1 = 0 ∪ [ 0 ] = [ 0 ] = [ [ ] ]
+2 = 1 ∪ [ 1 ] = [ 0, 1 ] = [ [ ], [ [ ] ] ]
+n = n−1 ∪ [ n−1 ] = ...
+Write a function that receives an integer n and produces the representing set.
+
+//We need to create an array of structures where each structure is mapped to the index of the array before it. 
+//0 defines the first structure, which is just [].
+//We can solve this problem using recursion. 
+//We set a base case for when n is 0. 
+//If the base case is not met we will create the array of integers (the solution in the middle) as given in the examples. 2 = 1 ∪ [ 1 ] = [ 0, 1 ] = [ [ ], [ [ ] ] ].
+//In the next part of the code we will then create an array of those integers mapped to their structure.
+//So if we want to create [0 , 1] we use a for loop that goes up to n and push each element into its empty array. 
+//To convert each element into a structure we need to make another for loop that will iterate through those elements. 
+//
+
+
+
+
+function repSet(n) {
+  if (n === 0) {
+    return []
+  }
+
+  const list = []
+  for (let i = 0; i < n; i++) { list.push(i) }
+
+  let result = []
+
+  for (let i = 0; i < list.length; i++) {
+    const num = list[i]
+
+    let solution = repSet(num)
+    result.push(solution)
+  }
+
+  return result
+}
