@@ -10,11 +10,14 @@ Write a function that receives an integer n and produces the representing set.
 //0 defines the first structure, which is just [].
 //We can solve this problem using recursion. 
 //We set a base case for when n is 0. 
-//If the base case is not met we will create the array of integers (the solution in the middle) as given in the examples. 2 = 1 ∪ [ 1 ] = [ 0, 1 ] = [ [ ], [ [ ] ] ].
+//If the base case is not met we will create the array of integers for the length of n (the solution in the middle) as given in the examples. 2 = 1 ∪ [ 1 ] = [ 0, 1 ] = [ [ ], [ [ ] ] ].
 //In the next part of the code we will then create an array of those integers mapped to their structure.
 //So if we want to create [0 , 1] we use a for loop that goes up to n and push each element into its empty array. 
-//To convert each element into a structure we need to make another for loop that will iterate through those elements. 
-//
+//To convert each element into a structure we need to make another for loop that will iterate through those elements and push strucutres starting from 0 = [] to an empty array depending on n. 
+//Each element of [0, 1] is stored in num and then passed into the function repSet again. 
+//0 is passed into repSet and returns an empty array in the result array
+//1 is passed into repSet and creates an empty array in the first loop because it only has [1] in the list and [1] is converted to [0] which is then converted to [] and that is pushed to the result array. 
+//So the first element of the result array is [] and the second element is [[]] which all becomes [ [], [[]]] ] 
 
 
 
