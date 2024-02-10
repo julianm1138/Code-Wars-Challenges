@@ -1,0 +1,20 @@
+Complete the function that takes a non-negative integer n as input, and returns a list of all the powers of 2 with the exponent ranging from 0 to n ( inclusive ).
+
+//We can create an empty array and use the example cases to write our logic that pushes each value to our empty array. 
+//In each example case the elements of the result array are formed by taking 2 to the power of the current element when looping from 0 to n inclusive. 
+
+
+
+
+
+function powersOfTwo(n){
+
+  const result = [];
+  
+  for(let i = 0; i <= n; i++){
+    result.push(2 ** i);
+  }
+  return result;
+}
+//input is positive integer 
+//output a list of all powers of 2 with exponent ranging from 0 to n inclusive
