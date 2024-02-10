@@ -1,0 +1,31 @@
+To find the volume (centimeters cubed) of a cuboid you use the formula:
+
+volume = Length * Width * Height
+
+But someone forgot to use proper record keeping, so we only have the volume, and the length of a single side!
+
+It's up to you to find out whether the cuboid has equal sides (= is a cube).
+
+Return true if the cuboid could have equal sides, return false otherwise.
+
+Return false for invalid numbers too (e.g volume or side is less than or equal to 0).
+
+Note: side will be an integer
+
+
+//What is the defintion of a cube? All sides are equal. 
+//volume = length * width * height
+//input 1 is integer 
+//input 2 is integer 
+//return boolean if sides are equal 
+//write the edge cases first "Return false for invalid numbers (e.g volume or side is less than or equal to 0)."
+//if all sides of a cube are equal we could write that as the side argument, 1 side cubed. (side ** 3)
+//V = sides**3 
+//So we write a comparison between volume and all sides being equal (side**3) for implicit boolean return 
+
+function cubeChecker(volume, side){
+  if (volume <= 0 || side <= 0){
+    return false;
+  }
+  return volume === side**3;
+};
