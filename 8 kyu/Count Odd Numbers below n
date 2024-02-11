@@ -1,0 +1,16 @@
+Given a number n, return the number of positive odd numbers below n, EASY!
+
+Examples (Input -> Output)
+7  -> 3 (because odd numbers below 7 are [1, 3, 5])
+15 -> 7 (because odd numbers below 15 are [1, 3, 5, 7, 9, 11, 13])
+Expect large Inputs!
+
+
+
+//A regular loop here is inefficient for large inputs so we have to play around with mathematically manipulating the input.
+//If we divide the input by 2 and compare them to the examples, you'll notice that it is always at least the count of odd numbers.
+//So we can use math.floor to return the count of odd numbers. 
+
+function oddCount(n){
+  return Math.floor(n/2);
+}
