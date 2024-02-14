@@ -6,7 +6,7 @@ A latin square is an n × n array filled with the integers 1 to n, each occurrin
 //We can create a series of loops to solve this problem.
 //We can make three nested loops with the first being an outer loop at goes for n. For each iteration in the outer loop we will create a new array by defining an empty array inside the outer loop.
 //For each iteration's array it goes from [i] to n, so it will create four arrays.
-//In the 1st inner loop  array has one element less than the previous array. 
+//In the 1st inner loop  array pushes 1 to n with each array being one element less than the previous array. 
 //This is because it iterates from 1 to n and at each iteration 1 moves up to n number by number and not every iteration meets the first inner loop's condition. 
 //Lastly, in the 2nd inner loop based on iteration again, it will push the elements that were excluded to their respective arrays, giving unique combinations in each array. 
 [ [1, 2, 3, 4] 
