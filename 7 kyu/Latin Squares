@@ -1,0 +1,35 @@
+A latin square is an n × n array filled with the integers 1 to n, each occurring once in each row and column.
+
+
+
+//We need to create an array of arrays of length n with a unqiue order of elements in each inner array. 
+//We can create a series of loops to solve this problem.
+//We can make three nested loops with the first being an outer loop at goes for n. For each iteration in the outer loop we will create a new array by defining an empty array inside the outer loop.
+//For each iteration's array it goes from [i] to n, so it will create four arrays.
+//In the 1st inner loop  array has one element less than the previous array. 
+//This is because it iterates from 1 to n and at each iteration 1 moves up to n number by number and not every iteration meets the first inner loop's condition. 
+//Lastly, in the 2nd inner loop based on iteration again, it will push the elements that were excluded to their respective arrays, giving unique combinations in each array. 
+[ [1, 2, 3, 4] 
+  [2, 3, 4, 1]
+  [3, 4, 1, 2] 
+  [4, 1, 2, 3] ]
+
+
+function makeLatinSquare(n) {
+  let latinSquare = [];
+  for (let i = 1; i <= n; i++) {   
+    let row = [];                      //creates an array for each iteration 
+    for (let j = i; j <= n; j++) {     //creations a condition that pushes every value one less than the previous to each array. It goes from iterator up to and including n for each iteration of the outer loop.
+      row.push(j);
+    }
+    for (let j = 1; j < i; j++) {       //creates a condition that pushes every value that is not already inside each array to each of its arrays. It goes from iterator to previous iterator. 
+      row.push(j);
+    }
+    latinSquare.push(row);              //pushes the complete and unique arrays to the empty array
+  }
+  return latinSquare;
+}
+
+
+//The key to this one was that if you put an empty array inside the loop, it will create a new array/push the values for each iteration.
+//The other key is that we use a range concept (iterator to n) and then (iterator to previous iterator) to create unique orders in each array. 
