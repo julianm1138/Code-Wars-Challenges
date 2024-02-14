@@ -20,7 +20,7 @@ function makeLatinSquare(n) {
   for (let i = 1; i <= n; i++) {   
     let row = [];                      //creates an array for each iteration 
     for (let j = i; j <= n; j++) {     //creations a condition that pushes every value one less than the previous to each array. It goes from iterator up to and including n for each iteration of the outer loop.
-      row.push(j);
+      row.push(j);                      //Another way to think about it is that i is in the context/scope of the outer loop.
     }
     for (let j = 1; j < i; j++) {       //creates a condition that pushes every value that is not already inside each array to each of its arrays. It goes from iterator to previous iterator. 
       row.push(j);
