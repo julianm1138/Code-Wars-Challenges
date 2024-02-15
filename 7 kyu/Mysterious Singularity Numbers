@@ -1,0 +1,36 @@
+The point is that a natural number N (1 <= N <= 10^9) is given. You need to write a function which finds the number of natural numbers not exceeding N and not divided by any of the numbers [2, 3, 5].
+
+
+//create a count and if the current element from 0 to n is not divisible by 2, 3, or 5 then add 1 to the count. 
+
+function realNumbers(n) {
+  let count = 0;
+
+  for (let i = 0; i <= n; i++) {
+    if (i % 2 !== 0 && i % 3 !== 0 && i % 5 !== 0) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+
+/*The more efficient way is getting the least common multiple by starting with the single values and then multiplying 2, 3, and 5 by all combiiations such that 
+2
+3
+5
+2 * 3 = 6
+2 * 5 = 10
+3 * 5 = 15
+and the greatest value will be the product of the least two numbers multiplied by the greatest number. 
+(2 * 3) = 6
+6 * 5 = 30 
+*/
+
+//Then we can divide n by every LCM of 2, 3, an 5 and use Math.floor()
+//Lastly we account for over and under-counting by adding and subtracting expressions as needed until we get the desired result. 
+
+function realNumbers(n) {
+ return n - Math.floor(n / 2) - Math.floor(n / 3) - Math.floor(n / 5) + Math.floor(n / 6) + Math.floor(n / 10) + Math.floor(n / 15) - Math.floor(n / 30);
+}
