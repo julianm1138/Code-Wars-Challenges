@@ -1,3 +1,23 @@
+Create a function that returns the sum of the digits formed from the first and last digits, all the way to the center of the number.
+
+2520 ➞ 72
+
+
+
+//We need to make a function that for a given integer, concatenate the 1st and last index until you reach the center and then add all the combinations together. 
+//We can create a loop that goes for the length of the input but first we need to turn our input into an array so we can use array methods on it. 
+//Split the input into an array of strings.
+//Define an empty array
+//Create the loop. It should run through the whole number but instead of going from left to right we are going to use shift and pop to go from front to end until the input is 0. 
+//If it is the last element of the iteration we concatenate the first and last index, otherwise we push the first index to the empty array. 
+//Finally we use reduce to sum the elements. 
+
+
+
+
+
+
+
 function closingInSum(n) {
   const splitNumb = String(n).split('');
   const arrOfNumb = [];
@@ -14,3 +34,4 @@ function closingInSum(n) {
 
   return arrOfNumb.reduce((acc, item) => acc + Number(item), 0);
 }
+
