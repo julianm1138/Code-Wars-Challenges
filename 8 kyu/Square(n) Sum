@@ -1,0 +1,20 @@
+function squareSum(numbers) {
+  for (let i = 0; i < numbers.length; i++) {
+    numbers[i] = numbers[i] ** 2;
+    
+  }
+ const result = numbers.reduce((acc, currVal) => acc + currVal, 0)
+  console.log('squared array:', numbers);
+  console.log('sum of the squares:', result);
+  return result;
+}
+
+squareSum([1, 2, 2]);
+
+
+
+
+//[1, 2, 2] -> an integer the sum of all the elements to the 2nd power. 
+//[1, 2, 2] -> 1**2  +  2**2 + 2**2 = 9 
+//Reassigned the current element to the logic so I can see the results of the for loop on the original array. 
+//Console logged each operation 
