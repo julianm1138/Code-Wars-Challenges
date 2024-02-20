@@ -1,0 +1,32 @@
+Create a function called shortcut to remove the lowercase vowels (a, e, i, o, u ) in a given string.
+
+Examples
+"hello"     -->  "hll"
+"codewars"  -->  "cdwrs"
+"goodbye"   -->  "gdby"
+"HELLO"     -->  "HELLO"
+don't worry about uppercase vowels
+y is not considered a vowel for this kata
+
+
+//input is a string
+//output the same string with the vowels removed 
+//Vowels: [a, e, i, o, u]
+//"hello" -> "hll"
+/*We iterate the string and if the current element is not a vowel (we target everything that is not a vowel with the NOT operator 
+and if it includes the current element of the string we push it to the empty string). In other words, if it is not a vowel and if it is the current element we push it to the empty string.*/
+
+function shortcut (string) {
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  let result = '';
+  
+  
+  
+  for (let i = 0; i < string.length; i++){
+    if (!vowels.includes(string[i])){
+      result += string[i];
+    }
+  }
+  return result; 
+}
+
