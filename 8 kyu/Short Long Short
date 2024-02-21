@@ -21,5 +21,4 @@ const solution = (str1, str2) => {
   } else {
     return str1 + str2 + str1;
   }
-   console.log(solution("three", "two"))
 }
