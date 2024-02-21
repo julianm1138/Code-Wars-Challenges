@@ -4,7 +4,9 @@ The strings will not be the same length, but they may be empty ( zero length ).*
 
 
 
-//
+//We create two variables to hold the length of each input 
+//We create a main condition and then the else to handle the other case 
+//The empty string or letter casing had no effect on the solution 
 
 
 
