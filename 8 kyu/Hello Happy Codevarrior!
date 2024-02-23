@@ -1,0 +1,30 @@
+VVhat ?!?
+
+None of zese codevarriors seemz to remember hiz ovvn name !
+
+Kould you help ?
+
+var albert = new Warrior("Al")
+var boris  = new Warrior("Boris")
+
+albert.toString() --> "Hi! my name's Boris" <-- ohoh..
+
+
+//the constructor was not using any variable keyword, thus its scope was raiesd to global. Added let to fix the issue. 
+
+
+  function Warrior(n){
+    let name = n;  
+    this.name = function(n){
+      if( n ) name=n;
+      return name;
+    }
+  }
+
+  Warrior.prototype.toString = function(){
+      return "Hi! my name's "+this.name();
+  }
+
+const albert = new Warrior("Albert")
+console.log(albert.toString())
+
