@@ -1,0 +1,19 @@
+//This was a debagging challenge: if you use return on its own line it will end the block early and ASI will return undefined 
+
+
+
+function getMax1(){
+  var max = {
+   name: 'Max Headroom'
+  }
+  return max;
+}
+
+function getMax2(){
+  
+  var max =
+  {
+    name: 'Max Headroom'
+  }
+  return max;
+}
