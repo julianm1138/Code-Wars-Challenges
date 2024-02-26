@@ -1,0 +1,28 @@
+function rainAmount(mm){
+    if (rainAmount = 40) {
+         return "You need to give your plant " + {rainAmount - 40} + " mm of water"
+    };
+    if else {
+         return "Your plant has had more than enough water for today!"
+    };
+}
+
+
+
+
+//This was a debugging challenge that had a few things wrong with it 
+//First, the conditional was assigning a function to a value
+//Second, it looks like they were either trying to create an object or a template literal on line 3. Third, there was a space before the final string " mm of water" 
+//Last, if else is not valid syntax
+//So I went through each issue and console logged the results until I got valid syntax and made adjustments based on the test errors from there. 
+
+
+function rainAmount(mm){
+    if (mm < 40) {
+         return "You need to give your plant " + Number(40 - mm) + "mm of water"
+    } else {
+         return "Your plant has had more than enough water for today!"
+    }
+}
+
+console.log(rainAmount(39))
