@@ -1,0 +1,12 @@
+//Debugged syntax errors in the function keyword, closures and equality operators
+
+
+
+function myFirstKata(a, b) {
+  if (typeof(a) !== "number" || typeof(b) !== "number") {
+    return false;
+  } else {
+    return a % b + b % a;
+  
+}
+  }
