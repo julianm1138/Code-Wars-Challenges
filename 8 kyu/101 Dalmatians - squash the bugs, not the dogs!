@@ -1,18 +1,18 @@
-//This was a debugging challenge where the parameter parentheis and the function's scope was not enclosed properly/had invalid syntax. 
-//In addition to that, the conditional statements had some invalid syntax such as missing ? conditional operators and assigning values instead of using an equality operator 
+//This was a debugging challenge where the parameter parenthesis and the function's scope was not enclosed properly/had invalid syntax. 
+//In addition to that, the function name in the code and the test cases did not match, and the conditional statements had some invalid syntax such as missing ? conditional operators and assigning values instead of using an equality operator 
 
 
 
-function howManyDalmations(number){
+function howManyDalmatians(number){
   
-  var dogs = ["Hardly any", "More than a handful!", "Woah that's a lot of dogs!", "101 DALMATIONS!!!"];
+  var dogs = ["Hardly any", "More than a handful!", "Woah that's a lot of dogs!", "101 DALMATIANS!!!"];
   
   return number <= 10 ? dogs[0] : number <= 50 ? dogs[1] : number === 101 ? dogs[3] : dogs[2];
   
 
 }
 
-console.log(howManyDalmations(101))
+console.log(howManyDalmatians(101))
 
 //number of dogs will always be a number
 //there will always be at least 1 dog 
