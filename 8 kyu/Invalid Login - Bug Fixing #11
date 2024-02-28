@@ -1,0 +1,16 @@
+//This was a debugging categorized challenge to avoid injected code in a function that handles username and password input.
+//I used .includes to check if the inputs contanied the strings that would constitute injected code and returned the desired output based on their presence 
+
+
+
+
+function validate(username, password){
+  const checkUser = username.includes('||' || '//');
+  const checkPass = password.includes('||' || '//');
+  
+  if (checkUser || checkPass === true){
+    return "Wrong username or password!"
+  }
+  var database = new Database();
+  return database.login(username, password);
+}
