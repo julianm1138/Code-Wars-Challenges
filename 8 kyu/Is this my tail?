@@ -1,0 +1,18 @@
+//Debugging challenge - syntax errors
+
+
+
+
+function correctTail(body, tail){;
+  
+  const sub = body.substr(body.length - tail.length)
+  console.log('result:', sub)
+  if (sub === tail) {
+     return true              
+  } else {
+  return false
+}
+  }
+
+console.log(correctTail('Fox', 'x'))
+  
