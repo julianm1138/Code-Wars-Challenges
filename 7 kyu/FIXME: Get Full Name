@@ -1,0 +1,17 @@
+//This challenge was missing this. dot notation to reference each parameter in the constructor function. 
+
+
+
+
+
+class Dinglemouse{
+  constructor( firstName, lastName ){
+  
+    this.firstName = firstName;
+    this.lastName = lastName;
+    
+  }
+  getFullName(){
+    return this.firstName+" "+this.lastName
+  }
+}
