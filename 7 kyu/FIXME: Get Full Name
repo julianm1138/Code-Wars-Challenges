@@ -1,17 +1,18 @@
 //This challenge was missing this. dot notation to reference each parameter in the constructor function. 
+//It also passed the tests but on the attempt there was an extra space for single inputs, for example expected 'Clint' got 'Clint ' 
+//So to get rid of all whitespace we target the concatentation expression and use the trim method
 
 
 
 
 
-class Dinglemouse{
-  constructor( firstName, lastName ){
-  
+class Dinglemouse {
+  constructor(firstName, lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
-    
   }
-  getFullName(){
-    return this.firstName+" "+this.lastName
+
+  getFullName() {
+    return (this.firstName + ' ' + this.lastName).trim();
   }
 }
