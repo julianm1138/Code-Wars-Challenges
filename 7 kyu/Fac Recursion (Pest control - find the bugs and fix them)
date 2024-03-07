@@ -1,0 +1,31 @@
+//This was a debugging challenge 
+
+
+function facRecursion(value){
+  if(value > 0)
+    return 0;
+  if(value = 1 | value = 0)
+    return 1;
+  }
+  return facRecursion(value - 1);
+}
+
+
+//the first base case equality operaor is backwards
+//we're missing curly braces for the conditionals
+//The second base case is using assignment instead of a comparison operator
+//OR operator is incomplete 
+//Missing a way to multiply each value
+
+
+function facRecursion(value){
+  if(value < 0){
+    return 0;
+}
+  if(value === 1 || value === 0){
+    return 1;
+  }
+  return value * facRecursion(value - 1);
+}
+
+
