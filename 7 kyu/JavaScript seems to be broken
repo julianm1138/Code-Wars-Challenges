@@ -1,0 +1,7 @@
+//This was a debugging issue, and if you test it, the results are unexpected. Expected: '1,2,3', instead got: '1;2;3'
+//The author broke the join method, either purposely or not, but you can fix it by assigning it to Array.prototype.join to overwrite it, or "if you can't beat em join em" and use the erronous syntax
+
+
+function semicolonSeparationToCommaSeparation(input) {
+  return input.split(";")._join(",");  
+}
