@@ -1,0 +1,24 @@
+/*This was a debugging exercise where the sum was initialized to null, the for loop had some logic that doesn't loop through the input desireably, the assignment operator's syntax was backwards,
+and it was adding 1 to the current index*/
+
+
+
+function getSumOfDigits(integer) {
+  var sum = null;
+  var digits =  Math.floor(integer).toString();
+  for(var ix = 1; ix < digits.length; ix = sum + 1) {
+    sum =+ digits[ix + 1]);
+  }
+  return sum;
+}
+
+//Initialized sum to 0, used more conventional for loop logic, corrected the assignment operator, and removed the 1 added to the index. 
+
+function getSumOfDigits(integer) {
+  var sum = 0;
+  var digits =  Math.floor(integer).toString();
+  for(let ix = 0; ix < digits.length; ix++) {
+    sum += parseInt(digits[ix]);
+  }
+  return sum;
+}
