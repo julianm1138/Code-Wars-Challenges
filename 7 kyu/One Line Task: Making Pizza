@@ -1,0 +1,26 @@
+//This was a debugging challenge where we had to keep the same amount of lines of code and only modify one line of code. 
+//if you add + 1 to the switch's parameter it shifts the values over one and we get the desired output 
+
+//It helps to log the function in question to visualize everything better. 
+
+
+
+function makePizza(pieces) { //Let's make n pieces of Pizza ;-)
+  var result = "";
+  while ( pieces-- ){
+    var needSteps = 5;
+    while ( needSteps-- ) result += make( needSteps );
+  }
+  return result;
+}
+function make(step){
+  switch ( step + 1){
+    case 5: return "P";
+    case 4: return "i";
+    case 3: 
+    case 2: return "z";
+    case 1: return "a";
+  }
+}
+console.log(make(3))
+console.log((makePizza(5)))
