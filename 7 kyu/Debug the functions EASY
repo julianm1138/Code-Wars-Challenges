@@ -1,0 +1,24 @@
+//This was a debugging challenge where we have 3 functions that multiply, add, and reverse their inputs.
+
+
+function multi(arr) {
+  return arr * arr;
+}
+function add(arr) {
+  return arr + arr;
+}
+function reverse(str) {
+  return str.reverse();
+}
+
+//There's many ways to do it, but I used reduce and console logs to make sure everything was working right
+
+function multi(arr) {
+  return arr.reduce((a, b) => a * b)
+}
+function add(arr) {
+  return arr.reduce((a, b) => a + b)
+}
+function reverse(str) {
+  return str.split('').reverse().join('')
+}
