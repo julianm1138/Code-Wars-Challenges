@@ -1,0 +1,8 @@
+//This was a debugging regex challenge where it was missing the ending delimiter and the global and case insensitive flags. 
+
+
+
+
+function filterWords(phrase){
+  return phrase.replace(/(bad|mean|ugly|horrible|hideous)/gi,'awesome');
+}
