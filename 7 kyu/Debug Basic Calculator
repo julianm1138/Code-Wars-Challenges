@@ -1,0 +1,39 @@
+//This was a debugging challenge where there was some invalid snytax. 
+
+//I corrected the invalid syntax, combined everything into a conditional chain and then refactored for ES6. 
+
+
+
+
+var calculate = function calculate(a, o, b) {
+ 
+ if(o === "+") { 
+   return a + b;
+   } else if (o === "-") {
+     return a - b;
+   } else if (o === "*") {
+   return a * b;
+ } else if (o === "/" && b !== 0){ 
+   return a / b;
+   } else {
+     return null;
+ }
+  }
+
+//Arrow function for ES6
+
+const calculate = (a, o, b) => {
+ 
+ if(o === "+") { 
+   return a + b;
+   } else if (o === "-") {
+     return a - b;
+   } else if (o === "*") {
+   return a * b;
+ } else if (o === "/" && b !== 0){ 
+   return a / b;
+   } else {
+     return null;
+ }
+  }
+
