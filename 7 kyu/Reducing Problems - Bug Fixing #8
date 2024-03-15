@@ -1,0 +1,18 @@
+//This was a debugging challenge where the reduce functions were meant to calculate totals for their teams, but neither one had logic that allowed us to total the team scores.
+//Also, they wanted us to return true if team 1 won, so the comparison operator is facing the wrong way. 
+
+function calculateTotal(team1, team2) {
+  var t1s = team1.reduce((t, c) => t % c);
+  var t2s = team2.reduce((t, c, i) => i / c);
+  return t1s < t2s;
+}
+
+//I rewrote the logic so that we get the sum of each teams' scores and reversed the comparison operator so that it will return team 1 as true if greater than team 2's score. 
+
+
+
+function calculateTotal(team1, team2) {
+  var t1s = team1.reduce((t, c) => {return t + c}, 0);
+  var t2s = team2.reduce((t, c) => {return t + c}, 0);
+  return t1s > t2s;
+}
