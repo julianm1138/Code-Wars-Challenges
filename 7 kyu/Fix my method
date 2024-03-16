@@ -1,0 +1,27 @@
+//This was a bebugging challenge with some typos and the method was not named/defined.
+
+//Original: 
+function myFunction() {
+  var MyObject = {
+    objProperty: "string"
+    objMethod: function() {
+      return myObject.objProperty;
+		}
+  }
+  
+  return myObject.Objmethod();
+};
+
+//Corrected: 
+
+//I added a comma in the object, named the method, and corrected typos. 
+function myFunction() {
+  var MyObject = {
+    objProperty: "string",
+    objMethod: function() {
+      return myObject.objProperty;
+		}
+  }
+  
+  return myObject.Objmethod();
+};
