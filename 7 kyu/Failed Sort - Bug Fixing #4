@@ -1,0 +1,11 @@
+//This was a debugging challenge where sort was using division instead of substraction between the two arguments for the sort method. 
+
+var sortArray = function(value) {
+  return value.split('').sort((c, p) => c / p ).join('');
+}
+
+
+//Simply swapped a - sign for the / sign
+var sortArray = function(value) {
+  return value.split('').sort((c, p) => c - p ).join('');
+}
