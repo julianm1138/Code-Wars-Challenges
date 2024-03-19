@@ -1,0 +1,13 @@
+//This was a debugging challenge where the filter method's callback function had !parseInt, so it converted everything that was able to be converted into an integer into an integer and only kept that. 
+//0's are converted to truthy values, because of !parseInt. !parseInt('0') returns 0 which is falsy, and the negation of 0 is a truthy value, so it gets returned. 
+//If we use isNaN() that should keep everything that's not a number when the string gets joined back together again.
+
+
+
+var FilterNumbers = function(str) {
+  
+  return str.split('').filter(c => isNaN(c)).join('');
+}
+
+
+console.log(FilterNumbers("ff0e0eb00a0f"))
