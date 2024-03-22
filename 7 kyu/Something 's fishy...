@@ -1,0 +1,37 @@
+//This was a debugging challenge where the loop syntax was missing curly braces and variables were trying to be accessed outside of their respective scopes.
+
+function isTotal3() {
+	var simpleVariable = 1;
+	
+	for (var index = 0; index < 1; index++)
+		var variableInLoop = 1;
+		
+	(function defineAVariable() {
+		var variableInFunction = 1;
+	})();
+	
+	var result = simpleVariable + variableInLoop + variableInFunction;
+	
+	return result;
+}
+
+//Defined the variables in isTotal3 function's body, added curly braces 
+
+function isTotal3() {
+  
+  var simpleVariable = 1;
+  var variableInLoop;
+  var variableInFunction;
+	
+	
+	for (var index = 0; index < 1; index++){
+	  variableInLoop = 1;
+		}
+	(function defineAVariable() {
+		variableInFunction = 1;
+	})();
+	
+	var result = simpleVariable + variableInLoop + variableInFunction;
+	
+	return result;
+}
