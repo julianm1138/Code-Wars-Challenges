@@ -1,0 +1,14 @@
+//This was a debugging challenge where we were trying to only return text between quotation marks and nothing else.
+//The initial code has a wildcard character and the one or more quantifier. 
+
+var reg = /".+"/g;
+function getQuotes(string) {
+  return string.match(reg);
+}
+
+//In the updated code we use a capture group, negation symbol and quote (to negate quotes/quotation marks), and the one or more quantifier. 
+
+var reg = /"([^"])+"/g;
+function getQuotes(string) {
+  return string.match(reg);
+}
