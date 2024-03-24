@@ -1,5 +1,21 @@
+//This was a debugging challenge for a constructor where 20 was hardcoded to the constructor's method.
+
+
 function Character(name, opness) {
     this.name = name;
     this.opness = 20;
     this.attack = opness + ~~(Math.random()*20)+1;
+}
+
+//In the solution we allow opness property to take on the value of the parameter.
+//We create a prototype of the Character constructor and attach attack method to it, which randomizes the opness value and returns it. 
+
+
+function Character(name, opness){ //constructor function makes objects
+  this.name = name;               //accesses name parameter
+  this.opness = opness;           //access to opness parameter 
+}
+
+Character.prototype.attack = function(){     //method that returns the opness value and randomizes it
+  return this.opness + ~~(Math.random() * 20) + 1;    
 }
