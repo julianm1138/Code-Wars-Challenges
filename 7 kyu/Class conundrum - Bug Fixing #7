@@ -1,4 +1,4 @@
-//This was a debuggging challenge 
+//This was a debuggging challenge where it was returning undefined when the expected was 1, and it did not allow method chanining. 
 
 class List {
   constructor(type) {
@@ -14,3 +14,22 @@ class List {
     return item;
   }
 }
+
+//switching this.type into the template literal to target the 'List' instance, adding this.count++ to increment this.count, and finally returning 'this' allows for method chaining across the entire instance.  
+
+class List {
+  constructor(type) {
+    this.type = type;
+    this.items = [];
+    this.count = 0;
+  }
+  add(item) {
+    if ( typeof item != this.type )
+      return `This item is not of type: ${this.type}`;
+    
+
+    this.items.push(item);
+    this.count++;
+    return this;
+  }
+   }
