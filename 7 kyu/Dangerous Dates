@@ -1,0 +1,36 @@
+//This was a debugging challenge where we have to return a list of the next five dates after the input date. 
+//The default code outputs one day before and one month before the expected date, and is also missing the year.
+
+
+var nextFiveDays = function(date){
+    var day = date.getDate(),
+    month = date.getMonth(),
+    dates = [];
+
+    for (var i = 0; i <= 5; i++) {
+      dates.push(month + '/' + (day + i));
+    }
+    
+    return dates.join(', ');
+}
+
+
+//If we create a new variable for each piece of the date, use the built-in get__() methods, shift the 0 based indices, and tweak the loop we get the expected output. 
+
+var nextFiveDays = function(date){
+    var day = date.getDate(),
+    month = date.getMonth(),
+    year = date.getFullYear(),
+    dates = [];
+
+    for (var i = 0; i <= 4; i++) {
+      var nextDate = new Date(year, month, day + (i + 1));
+      var nextDay = nextDate.getDate(); 
+      var nextMonth = nextDate.getMonth() + 1; 
+      var nextYear = nextDate.getFullYear();
+      
+      dates.push(nextMonth + '/' + nextDay + '/' + nextYear);
+    }
+    
+    return dates.join(', ');
+}
