@@ -1,0 +1,32 @@
+//This was a debugging challenge which accessed the global variable 'The Window' when we needed to return 'Alpha' inside the object.
+
+
+name = 'The Window';
+
+var alpha = {
+    name : 'My Alpha',
+    getNameFunc : function() {
+        return function() {
+            return this.name;
+        };
+    }
+};
+
+
+
+
+//If we use an annonymous arrow function, it does not have a 'this' context and inherits it from the enclosing lexical context, so it will inherit it from the inner function. Which will get rid of the global scoping issue. 
+//You could also use the .bind method (.bind(this)) to specifically set the context of this to the value of the inner function instead of accessing the global scope. 
+
+name = 'The Window';
+
+name = 'The Window';
+
+var alpha = {
+    name : 'My Alpha',
+    getNameFunc : function() {
+        return () => {
+            return this.name;
+        };
+    }
+};
