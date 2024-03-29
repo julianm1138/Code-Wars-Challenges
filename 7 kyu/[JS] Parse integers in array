@@ -1,0 +1,13 @@
+//This was a debugging challenge where parseInt was not being called correctly and we were missing the map method's callback function. 
+
+
+var parseNumbers = function(intStrs) {
+  return intStrs.map(parseInt);
+}
+
+
+//I added a callback function to the map method and fixed the parseInt syntax. 
+
+var parseNumbers = function(intStrs) {
+  return intStrs.map(element => parseInt(element));
+}
