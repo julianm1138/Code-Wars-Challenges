@@ -1,0 +1,17 @@
+//This was a debugging challenge where the syntax was invalid. It looks corrrect at first if you use React a lot because in React you reference props/objects with curly braces and dot notation, just like here. 
+
+var data = [
+  {name: 'Joe', age: 20},
+  {name: 'Bill', age: 30},
+  {name: 'Kate', age: 23}
+]
+
+function getNames(data){
+  return data.map(function(item){item.name});
+}
+
+//I used an arrow function and removed the curly braces, so it should target the name property correctly now. 
+
+function getNames(data){
+  return data.map(item => item.name);
+}
