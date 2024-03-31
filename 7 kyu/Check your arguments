@@ -9,7 +9,7 @@ function objectType(obj = null) { //if no arguments are passed, defaults to null
 
 
 //This was a debugging/modification challenge where it kept returning '[Object null]' when the input was returning '[Object undefined]' 
-//This was due to setting the input to null if argument.length === 0. Because an undefined value by default has an argument length of 0 so it wouldn't be able to differentiate between Null and Undefined. 
+//This was due to setting the input to null even in the case that argument.length === 0. Because an undefined value by default has an argument length of 0 so it wouldn't be able to differentiate between Null and Undefined. 
 //If we remove the default behavior of when there are no arguments passed and place a conditional inside Object.prototype.toString.call that should return the correct object type for undefined. 
 
 
