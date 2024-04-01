@@ -1,0 +1,55 @@
+//This was a debugging challenge where the code was returning each string in the wrong orders because we need to return strings for attributes that are explicitly set. 
+
+class Dinglemouse {
+
+    constructor() {
+        this.name = this.age = this.sex = 0
+    }
+
+    setAge(age) {
+        this.age = age
+        return this
+    }
+
+    setSex(sex) {
+        this.sex = sex
+        return this
+    }
+
+    setName(name) {
+        this.name = name
+        return this
+    }
+
+    hello() {
+        return `Hello. My name is ${this.name}. I am ${this.age}. I am ${this.sex == 'M' ? "male" : "female"}.`
+    }
+
+}
+
+//If we define an empty object and then store each method result inside of it, we can use Object.values on the object and join the message together. 
+
+
+class Dinglemouse {
+  constructor() {
+    this.output = {};
+  }  
+  setAge(age) {
+    this.age = age;
+    this.output.age = ` I am ${age}.`;
+    return this;
+  }
+  setSex(sex) {
+    this.sex = sex;
+    this.output.sex = ` I am ${sex == 'M' ? "male" : "female"}.`;
+    return this;
+  }
+  setName(name) {
+    this.name = name;
+    this.output.name = ` My name is ${name}.`;
+    return this;
+  }
+  hello() {
+    return `Hello.` + Object.values(this.output).join('');
+  }
+}
