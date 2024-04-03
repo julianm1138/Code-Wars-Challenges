@@ -1,0 +1,11 @@
+function automaton(e) {
+  return {
+    'string': () => (e.match(/[aeiou]/ig) || []).length,
+    'number': () => Number.isInteger(e) && !/^.?$|^(..+?)\1+$/.test('1'.repeat(e)),
+    'object': () => {
+      const a = {};
+      for (const k in e) a[e[k]] = `${k}`
+      return a;
+    }
+  }[typeof e]()
+}
