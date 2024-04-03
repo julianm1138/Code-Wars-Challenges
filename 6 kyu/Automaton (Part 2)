@@ -1,11 +1,47 @@
+/*This was a debugging challenge in which the function needs to tell us how many vowels a string contains, tell us if a number input is a prime number, 
+and if the input is an object return an object with the original keys swapped.*/
+
+
 function automaton(e) {
-  return {
-    'string': () => (e.match(/[aeiou]/ig) || []).length,
-    'number': () => Number.isInteger(e) && !/^.?$|^(..+?)\1+$/.test('1'.repeat(e)),
-    'object': () => {
-      const a = {};
-      for (const k in e) a[e[k]] = `${k}`
-      return a;
-    }
-  }[typeof e]()
+	if (typeof e === "string") {
+		return e.replace(/[^aeiyuo]/g, "").length;
+	} else if (typeof e === "number") {
+		if (Math.round(e) != e + 1) return false;
+
+		for (var i = 2; i < e; i++) if (e % i < 1) return false;
+
+		return true;
+	} else if (typeof e === "object") {
+		var a = {};
+
+		for (var k in e) a[e[k]] = e[k] + "";
+
+		return a;
+	}
 }
+
+//There were some syntax errors and the logic was not outputting the expected results
+//I closed all the braces/fixed the syntax errors
+//The if statement checks if vowels are present and returns the number of vowels, otherwise it returns an empty array
+//The first else if statement uses regex to check if it is not a prime number
+//The last else statement uses object property look-up with assignment to swap the keys in each object 
+
+
+function automaton(e) {
+  if (typeof e === 'string') {
+    return (e.match(/[aeiou]/ig) || []).length;
+  } else if (typeof e === 'number') {
+    if (Number.isInteger(e) && !/^.?$|^(..+?)\1+$/.test('1'.repeat(e))) {
+      return true;
+    } else {
+      return false;
+    }
+  } else if (typeof e === 'object') {
+    const a = {};
+    for (const k in e) {
+      a[e[k]] = `${k}`;
+    }
+    return a;
+  }
+}
+
