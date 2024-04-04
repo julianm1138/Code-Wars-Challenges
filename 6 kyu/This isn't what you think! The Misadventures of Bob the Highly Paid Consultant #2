@@ -1,0 +1,53 @@
+//This was a debugging challenge for a code snippet that held a series of Async functions to handle adding items to a shopping cart. 
+//The issue was that each fucntion referenced the global object instead of its context.
+
+
+ShoppingCart.prototype.addButtonClicked = function(item) {
+  // Check if there's any of the item available
+  this.checkQuantityAsync(item, this.addButtonClicked1);
+};
+
+ShoppingCart.prototype.addButtonClicked1 = function({item, quantity}) {
+  // If the item was in stock, add one to our cart
+  if (quantity > 0) {
+    this.addToCartAsync(item, 1, this.addButtonClicked2);
+  }
+};
+
+ShoppingCart.prototype.addButtonClicked2 = function(success) {
+  // If it was added to the cart, then refresh the display
+  if (success) {
+    this.updateCartDisplayAsync(this.addButtonClicked3);
+  }
+};
+
+ShoppingCart.prototype.addButtonClicked3 = function(success) {
+  // Log the success or failure of our updates
+  this.showMessage(`${success? "Successfully" : "Unsuccessfully"} added item to cart`);
+};
+
+//If we use a series of techniques: binding, arrow function, and apply method for each of the functions that will reference the correct context for each item. 
+
+
+ShoppingCart.prototype.addButtonClicked = function(item) {
+  this.checkQuantityAsync(item, this.addButtonClicked1.bind(this));
+};
+
+ShoppingCart.prototype.addButtonClicked1 = function({item, quantity}) {
+  if (quantity > 0) {
+    this.addToCartAsync(item, 1, (...params) => this.addButtonClicked2(...params));
+  }
+};
+
+ShoppingCart.prototype.addButtonClicked2 = function(success) {
+  if (success) {
+    var context = this;
+    this.updateCartDisplayAsync(function(){
+      context.addButtonClicked3.apply(context, arguments)
+    });
+  }
+};
+
+ShoppingCart.prototype.addButtonClicked3 = function(success) {
+  this.showMessage(`${success? "Successfully" : "Unsuccessfully"} added item to cart`);
+};
