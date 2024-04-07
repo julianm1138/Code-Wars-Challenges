@@ -34,3 +34,25 @@ return false
 Your friend doesn't know what the letters l and e from smi(le) look like in sign language.
 So he cannot say that those letters are not r or k from smi(rk) because he wouldn't know
 So your friend cannot figure out if you are fooling him.
+
+
+//We only need to solve a single condition and then return the opposite boolean for the other scenario.
+//If all the letters in both words match, then it must be false, so we will loop through one of the words and check if the current letter is not equal to the other word's current letter. 
+//If so, then if the current letter includes the letters my friend knows, or if the current letter 
+
+function gaslighting(shirtWord,yourWord,friendsLetters) {
+
+  for (i=0; i < shirtWord.length ; i++){
+    
+    //Only if the letters are different
+    if (shirtWord[i] != yourWord[i]){
+
+          // If the current letter on the shirt includes the letters my friend knows or if the current letter of the word I said includes the letters my friend knows, return true, else return false
+          if (friendsLetters.includes(shirtWord[i]) || friendsLetters.includes(yourWord[i]) )
+            return true;
+          }
+      }
+  }
+  return false;
+  }
+  
