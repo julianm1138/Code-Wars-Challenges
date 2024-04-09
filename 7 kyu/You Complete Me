@@ -23,3 +23,18 @@ Examples:
 (aba) => aba + ba => ababa
 
 (aab) => aab + aa => aabaa
+
+
+
+//The first time I read the directions for "reads the same forward as backward" palindrome jumped out at me, so I knew we would need to implement a palindrome in the solution. 
+//Loop through the string 
+//Create a conditional if the str at (i) is a palindrome, return the str concatenated with the substring str.slice(i), rerverse it and join it, and that passes the tests. 
+
+const complete = str =>{
+  for (let i = 1; i <= str.length; i++) {
+    if (str.slice(i) == [...str.slice(i)].reverse().join(''))
+    return str + [...str.slice(0,i)].reverse().join('')
+  }
+} 
+
+
