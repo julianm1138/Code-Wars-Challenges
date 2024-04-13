@@ -1,0 +1,26 @@
+Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+
+Examples:
+Input: 42145 Output: 54421
+
+//We know we need to iterate over each digit to be able to sort it but sort() only works on arrays.
+//Turn the input into an array and save it in a variable 
+//Use sort() on the array. a - b sorts least to greatested but we want greatest to least so b - a instead and save it in a variable. 
+//Join the sorted array back together into a string and convert it back to an integer. There are many ways of doing this but I used the unary plus operator. 
+
+//I added console logs to clearly show what each line of code is doing in the console. 
+
+function descendingOrder(n){
+  const arr = String(n).split('').map(Number);
+  console.log('Convert input into an array:', arr);
+  
+  const sortedArr = arr.sort((a, b) => {
+    return b - a;
+  });
+  console.log('Sorted array:', sortedArr);
+  
+  const result = +sortedArr.join('');
+  console.log('Join sorted array back together and convert to an integer:');
+  
+  return result;
+}
