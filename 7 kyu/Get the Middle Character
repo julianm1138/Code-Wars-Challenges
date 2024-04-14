@@ -1,0 +1,41 @@
+You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
+
+#Examples:
+
+Kata.getMiddle("test") should return "es"
+
+Kata.getMiddle("testing") should return "t"
+
+
+
+//We know if the length of the string is odd then it returns the middle character of the string, but if it's even it returns the middle two characters.
+//We can check for odd length and print information in the console based on the condition that the string length is odd. 
+//If the string length is odd then to find the middle letter's index we divide the length by 2 and then round up to the nearest whole number, then subtract by 1 to correct for 0 based index. 
+//I like to specfiy what each line of code is doing, hence the console logs. 
+//If we return the string at the index the expression Math.ceil(s.length / 2) - 1 creates, that will be the middle character. s[middleIndex]
+//Now we need an expression to find the middle two charcaters for even length strings. 
+//If we divide the string length by 2 and subtract 1 for 0 based index it gives us the first center-most character, and if we simply add 1 to that expression it gives us the next character. 
+//Silce() returns the actual string, so all we need to do is adjust the value we add or subtract for the zero based index and it will extract the two characters we need. 
+
+
+
+
+function getMiddle(s) {
+  const isOddLength = s.length % 2 === 1;
+  
+  if (isOddLength) {
+    const middleIndex = Math.ceil(s.length / 2) - 1;
+    console.log('Calculated the index of the middle character for odd length:', middleIndex);
+    console.log(`The middle character for the string ${s} is:`);
+    return s[middleIndex];
+  } else {
+    const middleChars = s.slice(s.length / 2 - 1, s.length / 2 + 1);
+    console.log('Calculated the strings for even length:', middleChars);
+    console.log(`The two middle characters for the string ${s} are:`);
+    return middleChars;
+  }
+}
+
+console.log(getMiddle("test"));
+
+
