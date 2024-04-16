@@ -1,0 +1,24 @@
+Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
+
+//We know we need to count the instances of "x" and "o" and if the number of "x" === number of "o" return true.
+//We want to count x and o regardless of casing so we convert the whole string into lowercase. 
+//We can define two counters, loop through the string, and add 1 to each counter depending on the current character. 
+//Finally we use implicit return for the boolean value, and we get our solution. 
+
+function XO(str) {
+  str = str.toLowerCase();
+  
+  let oCount = 0;
+  let xCount = 0;
+  
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === "o") {
+      oCount += 1;
+    } else if (str[i] === "x") {
+      xCount += 1;
+    }
+  }
+  
+  return oCount === xCount;
+}
+
