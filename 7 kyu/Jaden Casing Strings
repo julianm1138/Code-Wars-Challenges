@@ -1,0 +1,19 @@
+//We know we need to capitalize the first letter of each word in the string. 
+//We use 'this' keyword to make sure we're targeting the prototype. 
+//We can create an array using split() and then map() to target the first letter of each word and turn it to upper case.
+//We then concatenate each of those capitalized letters with the rest of the string, excluding the first letter of the original string. 
+//Finally, join the new array back together to form the new string. 
+
+
+
+String.prototype.toJadenCase = function() {
+  return this.split(' ').map(item => item[0].toUpperCase() + item.slice(1)).join(' ')
+};
+
+
+
+//"How can mirrors be real if our eyes aren't real" -> "How Can Mirrors Be Real If Our Eyes Aren't Real"
+//Input a string and output a new string where every letter of each word is capitalized 
+//split(' ') into an array
+/*Map each element at the 0 index and uppercase it, then concatenate with the rest of the 
+string excluding the first letter of each word. Join the array back together.*/
