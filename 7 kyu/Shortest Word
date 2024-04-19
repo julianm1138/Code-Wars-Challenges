@@ -1,0 +1,23 @@
+Simple, given a string of words, return the length of the shortest word(s).
+
+String will never be empty and you do not need to account for different data types.
+
+//We know we need to get the length of each string and then get the shortest length.
+//First we split the string into an array of strings so we can map/iterate over the strings with .length
+//Then we use Math.min() on each length
+//return the .length of the string that has Math.min(element.length) 
+
+
+function findShort(s){
+ s = s.split(' ');
+ const lengthArr = s.map( element => (element.length));
+ console.log('Array of each string\'s length:', lengthArr)
+
+ const result = Math.min(...lengthArr);
+ console.log('The shortest length:', result)
+ return result;
+}
+findShort("this is a sentence")
+//"this is a sentence" -> 1
+//"bitcoin take over the world maybe who knows perhaps" -> 3
+
