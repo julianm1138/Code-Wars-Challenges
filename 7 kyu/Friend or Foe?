@@ -1,0 +1,27 @@
+Make a program that filters a list of strings and returns a list with only your friends name in it.
+
+If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
+
+Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
+
+
+//We know we need to return a new array where if the element.length === 4 return that element and exlucde all other elements from the new array.
+//There are two ways we can solve this, one with map and one with filter. 
+//The first solution that came to mind was map(). We can return undefined and then use filter for all falsy values. 
+//The shorter and more straightforward is to use filter() which will return a new array where we don't need to specify which value to return other than element.length === 4. 
+
+
+
+
+function friend(friends){
+  
+ return friends.map(element => element.length === 4 ? element : undefined).filter(Boolean);
+  
+}
+
+
+function friend(friends){
+
+ return friends.filter(element => element.length === 4);
+  
+}
