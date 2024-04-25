@@ -1,0 +1,39 @@
+Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
+
+Your task is to write a function maskify, which changes all but the last four characters into '#'.
+
+Examples (input --> output):
+"4556364607935616" --> "############5616"
+     "64607935616" -->      "#######5616"
+               "1" -->                "1"
+                "" -->                 ""
+
+
+//We know we need to iterate from the first charcater in the input string to the 4th to last character and replace all those with a hash. 
+//We can loop through the string and specify the start of the string to string.length - 4 and effectively replace every character specified by appending hash to the empty string.
+//Finally, we append the masked string with the last four characters of the string using slice()
+
+
+
+
+
+
+function maskify(cc) {
+
+ let maskedStr = '';
+ for (let i = 0; i < cc.length - 4; i++){
+   
+    maskedStr += '#';
+ }
+  
+  console.log(`All the charcaters for the string ${cc} \n masked from the first character to the 4th to \n last character:`, maskedStr)
+  console.log('The appended string:')
+  
+  return maskedStr += cc.slice(-4);
+  
+  
+  
+  }
+console.log(maskify('4556364607935616'))
+
+//12345 -> #2345
