@@ -1,0 +1,29 @@
+Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
+
+
+//We know we need to get every unqiue letter in both strings sorted in lexicograpgical order, and join them together.
+//We can use the same expression in three places within the function along with method chaining to achieve this.
+//First we reassign s1 and s2 to an expression that removes all duplicates from the strings. 
+//The expression splits the string into an array, then uses new Set() which produces a Set object. We use brackets and spread to copy the contents of the object and remove duplicates, then join them. 
+//In the result, we concatenate the s1 and s2 with removed duplicates, use sort() to sort lexicographically, and join them into the new string. 
+
+
+
+
+
+function longest(s1, s2) { 
+  
+ s1 = [...new Set(s1.split(''))].join('');
+ console.log(`All duplicates removed for s1:`, s1)
+  
+ s2 = [...new Set(s2.split(''))].join('');
+ console.log(`All duplicates removed for s2:`, s2)
+  
+ const result = [...new Set((s1 + s2).split(''))].sort().join('')
+ console.log(`All duplicates removed for joined string and sorted:`)
+ return result; 
+  
+}
+
+
+  console.log(longest("aretheyhere", "yestheyarehere"))
