@@ -1,0 +1,30 @@
+To be a senior, a member must be at least 55 years old and have a handicap greater than 7. In this croquet club, handicaps range from -2 to +26; the better the player the lower the handicap.
+
+Input
+Input will consist of a list of pairs. Each pair contains information for a single potential member. Information consists of an integer for the person's age and an integer for the person's handicap.
+
+Output
+Output will consist of a list of string values (in Haskell and C: Open or Senior) stating whether the respective member is to be placed in the senior or open category.
+
+
+//We know that we need to make a condition that says if the age is >= 55 && the handicap > 7 return 'Senior' for the new array's element.
+//The main problem is the 2d array. We can use destructuring to extract the age and handicap from each array inside the data array and assign it to a variable. 
+//From there we can implement our conditional statement.
+
+//So to summarize, we pass in a 2d array that consists of arrays of 2 elements per array. The first element per array is age, and the second is handicap.
+//We use destructuring to assign each of those elements to their own variables and assign it back to each element of the original data array (memeber). 
+//From there we can access the first and second elements for our conditional statement. 
+
+
+function openOrSenior(data) {
+  return data.map(member => {
+    
+    const [age, handicap] = member;
+  
+    if (age >= 55 && handicap > 7) {
+      return 'Senior';
+    } else {
+      return 'Open';
+    }
+  });
+}
