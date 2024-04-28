@@ -12,7 +12,9 @@ Calculate the sum of the numbers in the nth row of this triangle (starting at in
 2 --> 3 + 5 = 8
 
 
-
+//My first thought is to create a loop and increment by 2 but that wasn't working. If we try to solve using mathematical patterns instead, we can try powers. 
+//If the argument is 2 and and we try squaring we get 2 * 2 = 4
+//But if the argument is 2 and we try cubing we get 2 * 2 = 4 * 2 = 8 which outputs the correct result. The pattern is applicable to every argument. 
 
 
 
@@ -21,21 +23,7 @@ Calculate the sum of the numbers in the nth row of this triangle (starting at in
 
 
 function rowSumOddNumbers(n) {
-  let start = 1; // Starting odd number for the first row
-  for (let i = 0; i < n; i++) {  //i stops at 1 because n === 2 
-    let rowSum = 0;
-    console.log(`Row Number ${i + 1}:`);
-    for (let j = 0; j <= i; j++) {//The condition is true and it would go on forever but i stops at 1 because n === 2. 
-      let oddNumber = start + (2 * j); // Generate each odd number in the row
-      console.log(`Odd number ${j + 1} in row ${i + 1}: ${oddNumber}`);
-      
-      
-     console.log( rowSum += oddNumber)
-    }
-    console.log(`Sum of row ${i + 1}: ${rowSum}`);
-    console.log('---'); // Separate rows with ---
-    start += 2 * (i + 1); // Calculate the starting odd number for the next row
-  }
+  return n * n * n;
   
 }
 
