@@ -1,0 +1,54 @@
+Given the triangle of consecutive odd numbers:
+
+             1
+          3     5
+       7     9    11
+   13    15    17    19
+21    23    25    27    29
+...
+Calculate the sum of the numbers in the nth row of this triangle (starting at index 1) e.g.: (Input --> Output)
+
+1 -->  1
+2 --> 3 + 5 = 8
+
+
+
+
+
+
+
+
+
+
+function rowSumOddNumbers(n) {
+  let start = 1; // Starting odd number for the first row
+  for (let i = 0; i < n; i++) {  //i stops at 1 because n === 2 
+    let rowSum = 0;
+    console.log(`Row Number ${i + 1}:`);
+    for (let j = 0; j <= i; j++) {//The condition is true and it would go on forever but i stops at 1 because n === 2. 
+      let oddNumber = start + (2 * j); // Generate each odd number in the row
+      console.log(`Odd number ${j + 1} in row ${i + 1}: ${oddNumber}`);
+      
+      
+     console.log( rowSum += oddNumber)
+    }
+    console.log(`Sum of row ${i + 1}: ${rowSum}`);
+    console.log('---'); // Separate rows with ---
+    start += 2 * (i + 1); // Calculate the starting odd number for the next row
+  }
+  
+}
+
+rowSumOddNumbers(2);
+
+
+//Input is a positive integer -> positive integer 
+//Every number is odd and increments by 2 
+//Every n === number of elements 
+
+//n === 2 
+//2 elements that increment by 2 starting from the last integer in sequence 
+
+//n === 6 
+//6 elements 
+//Increments by 2 starting from the last integer in sequence 
