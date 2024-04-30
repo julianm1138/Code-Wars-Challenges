@@ -1,0 +1,25 @@
+Given an array of ones and zeroes, convert the equivalent binary value to an integer.
+
+Eg: [0, 0, 0, 1] is treated as 0001 which is the binary representation of 1.
+
+Examples:
+
+Testing: [0, 0, 0, 1] ==> 1
+Testing: [0, 0, 1, 0] ==> 2
+Testing: [0, 1, 0, 1] ==> 5
+
+
+//The formula to convert binary to base 10 is to iterate over the binary number, starting from the final digit and multiply each digit by 2 raised to the power of a 0 based index. 
+//However, implementing this into JS is pretty complicated and there are built in methods and functions we can use instead. 
+//We just need to convert the array into a string so we can pass that string into the parseInt function.
+//First argument is the number we want to convert to base 10, and the second argument is the original base of the number. 
+//In other words, if you specify the string and the base it was originally in, it will convert that string to base 10 and output an integer in base 10.
+
+
+
+const binaryArrayToNumber = arr => {
+  
+ const binaryStr = arr.join('')
+ 
+ return parseInt(binaryStr, 2);
+}
