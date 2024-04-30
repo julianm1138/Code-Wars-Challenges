@@ -1,0 +1,38 @@
+In a factory a printer prints labels for boxes. For one kind of boxes the printer has to use colors which, for the sake of simplicity, are named with letters from a to m.
+
+The colors used by the printer are recorded in a control string. For example a "good" control string would be aaabbbbhaijjjm meaning that the printer used three times color a, four times color b, one time color h then one time color a...
+
+Sometimes there are problems: lack of colors, technical malfunction and a "bad" control string is produced e.g. aaaxbbbbyyhwawiwjjjwwm with letters not from a to m.
+
+You have to write a function printer_error which given a string will return the error rate of the printer as a string representing a rational whose numerator is the number of errors and the denominator the length of the control string. Don't reduce this fraction to a simpler expression.
+
+The string has a length greater or equal to one and contains only letters from ato z.
+
+//We know that we need to return a fraction as a string where the numerator is the number of letters outside of the range a - m and denominator as the length of the input.
+//We can define three variables: one for the count of errors, one for the length of the string, and one that holds all the letters after m and name them accordingly. 
+//We set the numerator to 0, the denominator to input.length, and letters to an array of every letter after m. 
+//Then we set up a for loop to iterate the input string and set up a condition that says if the current element of the input includes one of the letters after m, we increase the numerator count by 1. 
+//Finally, we use string concatenation to combine the count and input string length with a "/" in between to output the fraction in string form.
+
+
+
+
+
+function printerError(s) {
+  
+  let numerator = 0;
+  
+  const denominator = s.length; 
+  
+  const letters = ['n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  
+  for (let i = 0; i < s.length; i++){
+    if (letters.includes(s[i])){
+      numerator += 1;
+    }
+    
+  }
+   return numerator + "/" + denominator;
+  
+}
+console.log(printerError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"))
