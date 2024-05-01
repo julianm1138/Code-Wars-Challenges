@@ -1,0 +1,35 @@
+There is a bus moving in the city which takes and drops some people at each bus stop.
+
+You are provided with a list (or array) of integer pairs. Elements of each pair represent the number of people that get on the bus (the first item) and the number of people that get off the bus (the second item) at a bus stop.
+
+Your task is to return the number of people who are still on the bus after the last bus stop (after the last array). 
+ 
+//We get an array of arrays where each array represents a stop and the first element is the people who get on the bus, and the second element is the people who get off. 
+//We know we need to keep track of how many people are on the bus. We can define a variable to keep track of that and name it accordingly. 
+//We make a for loop to iterate over each item in the outer array and use destructuring on each of those inner arrays to extract their values. 
+//Finally, we add the people who get off the bus to our 0 and subtract the people who get off also to our 0 which effectively creates a total. 
+
+
+
+
+
+
+
+var number = function(busStops){
+  
+ let peopleOnBus = 0; 
+
+ for (let i = 0; i < busStops.length; i++){
+   [onBus, offBus] = busStops[i]
+ 
+  
+  
+  peopleOnBus += onBus
+  peopleOnBus -= offBus
+   
+  }
+  return peopleOnBus
+  
+ 
+ 
+}
