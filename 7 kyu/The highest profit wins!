@@ -1,0 +1,38 @@
+Write a function that returns both the minimum and maximum number of the given list/array.
+
+//We know we need to return a new array with two values where the min value is the first element and max value is the second element. 
+//We can simply return a new array explicitly and specify the first element is the min and the second is the max. 
+//We use the spread operator to spread the contents of the array into the arguments of Max.min and Max.max. 
+
+
+function minMax(arr){
+  return [Math.min(...arr), Math.max(...arr)]
+}
+console.log(minMax([1, 2, 3, 4, 5]))
+
+
+//Alternatively, you could set the min and max value as variables and use a for loop to iterate over the array.
+//The conditions essentially say that if the current element is greater than 1, keep reassigning it to max variable and if less than 1, keep reassigning it to the smallest value in the array.
+
+
+function minMax(arr) {
+
+  let min = arr[0];
+  let max = arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    console.log(`Current element: ${arr[i]}, Current min: ${min}, Current max: ${max}`);
+    if (arr[i] < min) {
+      min = arr[i];
+      console.log(`New min found: ${min}`);
+    }
+    if (arr[i] > max) {
+      max = arr[i];
+      console.log(`New max found: ${max}`);
+    }
+  }
+
+  return [min, max];
+}
+
+console.log(minMax([1, 2, 3, 4, 5]));
