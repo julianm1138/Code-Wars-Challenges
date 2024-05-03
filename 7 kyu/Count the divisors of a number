@@ -1,0 +1,25 @@
+Count the number of divisors of a positive integer n.
+
+Random tests go up to n = 500000.
+
+//To handle large sample sizes, we use the square root of n. 
+//If n is or has a perfect square root, we add 1 to the count because its divisor and quotient are the same number. 
+//Then we iterate from 1 up to the square root of n and if there is no remainder, we add 2 to the count because we account for the unqiue divisor and quotient at each iterator. 
+
+
+
+function getDivisorsCnt(n) {
+  let counter = 0;
+
+  if (n % Math.sqrt(n) == 0) {
+    counter++;
+  }
+
+  for (let i = 1; i < Math.sqrt(n); i++) {
+    if (n % i == 0) {
+      counter += 2;
+    }
+  }
+
+  return counter;
+}
