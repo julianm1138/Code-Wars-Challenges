@@ -1,0 +1,25 @@
+Given two numbers and an arithmetic operator (the name of it, as a string), return the result of the two numbers having that operator used on them.
+
+a and b will both be positive integers, and a will always be the first number in the operation, and b always the second.
+
+The four operators are "add", "subtract", "divide", "multiply".
+
+//We need to be able to return each operator based on the arguments passed into the function.
+//To solve this problem, we can use an object to store each operator as well as the arguments passed into them from the function.
+//Then, we use object look-up by referencing the object, and then referencing the property of the object. The property of the object depends on what is passed into the function.
+
+
+
+
+function arithmetic(a, b, operator){
+  
+  const operators = {
+    add: a + b ,
+    subtract: a - b ,
+    multiply: a * b ,
+    divide: a / b
+  };
+  
+  return operators[operator];
+}
+ console.log(arithmetic(1, 2, 'add'))
