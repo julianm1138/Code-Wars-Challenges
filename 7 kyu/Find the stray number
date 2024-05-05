@@ -9,20 +9,24 @@ Examples
 [17, 17, 3, 17, 17, 17, 17] ==> 3
 
 
-
+//We know we need to return the only unique element in the array when every other element is the same. 
+//If the index of the current element is not equal to the last index of the current element, then that means it's a duplicate because it means that the element occurs at more than one place in the array.
+//Therefore, the opposite of that would be if the index of the current element is equal to the last index of the curent element, because it means the element happens only once in the array.
+//So we can use filter to return only the unqiue element and then index into what that element is to return it. 
 
 
 
 
 function stray(numbers) {
-  return numbers.filter((element, index) => 
-   element == numbers[index + 1])
-}
   
-console.log(stray([1, 1, 2]))
+  const uniqueNumber = numbers.filter((num, index) => numbers.indexOf(num) === numbers.lastIndexOf(num));
 
-//array.length % 2 === 1
-//[1, 1, 2] -> 2
-//numbers.filter((element, index) => element === element[index + 1])
 
-//[1, 1, 2]
+  return uniqueNumber[0];
+
+}
+
+
+console.log(stray([1, 1, 2]));
+
+
