@@ -1,0 +1,15 @@
+Complete the function to return true if the two arguments given are anagrams of each other; return false otherwise.
+
+//We know we need to check if every letter is the same, regardless of order and casing. 
+//If we normalize both of the inputs and then compare them, it should check if they both have the same letters.
+//We can normalize the inputs by sorting them both in the same order and then using a comparison operator.
+
+
+var isAnagram = function(test, original) {
+  
+ const sortTest = test.toLowerCase().split('').sort().join('')
+ const sortOriginal = original.toLowerCase().split('').sort().join('')
+ 
+ return sortTest === sortOriginal
+};
+console.log(isAnagram("Buckethead", "DeathCubeK"))
