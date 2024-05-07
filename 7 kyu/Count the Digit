@@ -1,0 +1,34 @@
+Take an integer n (n >= 0) and a digit d (0 <= d <= 9) as an integer.
+
+Square all numbers k (0 <= k <= n) between 0 and n.
+
+Count the numbers of digits d used in the writing of all the k**2.
+
+Implement the function taking n and d as parameters and returning this count.
+
+//We need to get the squares from 0 to n and add 1 to the count for every instance of d.
+//We can turn each square into a string and split it at d.
+//When we do this, it will create a subtrings of everything before and after d.
+//So in the case of n === 5 and d === 1, a new array is created for each square where if 1 occurs in the square it will return 2 elements.
+//This works because if we split it at d it will always return everything before and after d, even if it's nothing.
+//Which means that every occurrence of d will return an array with 2 elements, and every square that does not contain 1 will return a single element.
+//We can use this to our advantage and subtract 1 from each split array's length.
+//If the square has two elements, it contains d, so if we subtract 1 we will add 1 to the count.
+//If the square has one element, it does not contain d, so if we subtract 1 we will add nothing to the count. 
+
+
+
+
+function nbDig(n, d) {
+  let count = 0;
+
+  for (let i = 0; i <= n; i++) {
+    let square = (i ** 2).toString();
+    
+    count += square.split(d).length - 1;
+  }
+
+  return count;
+}
+
+console.log(nbDig(5, 1));
