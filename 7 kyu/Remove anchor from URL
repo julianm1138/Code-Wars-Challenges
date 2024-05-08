@@ -1,0 +1,21 @@
+Complete the function/method so that it returns the url with anything after the anchor (#) removed.
+
+Examples
+"www.codewars.com#about" --> "www.codewars.com"
+"www.codewars.com?page=1" -->"www.codewars.com?page=1"
+
+
+//We can identify the index of the anchor in the string, and then use a conditional that says if the anchor tag exists in the string, return the sliced string from the 0 index to the anchor tag's index.
+//Otherwise if the anchor tag does not exist, return the original string. 
+
+function removeUrlAnchor(url){
+  
+  const anchorIndex = url.indexOf("#")
+  
+  if(anchorIndex !== -1){
+    return url.slice(0, anchorIndex )
+  } else {
+    return url
+  }
+  
+ }
