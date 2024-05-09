@@ -1,0 +1,58 @@
+n mathematics, the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n. For example: 5! = 5 * 4 * 3 * 2 * 1 = 120. By convention the value of 0! is 1.
+
+Write a function to calculate factorial for a given input.
+
+
+//We know we need to iterate from 5 to 1 and multiply each i by the next. 
+//With multiplication, order does not affect the result so we can make a loop that goes from 1 to and including n. Now we need a variable to keep track of the result's total value.
+//We define the starting point for the result to be 1 because 1 * i will not make the loop be stuck at 0, but if we started at 0 it would because anything times 0 is 0.
+//We use the assignment operator to update the result at each iteration. 
+
+
+function factorial(n){
+
+  let result = 1;
+
+  if(n < 0 || n > 12){
+    throw new RangeError('Value must be greater than 0 and less than or equal to 12')
+  }
+  
+  
+for (let i = 1; i <= n; i++){
+    
+console.log(result *= i)
+
+  }
+ return result;
+
+}
+  
+
+console.log(factorial(5))
+
+
+//Alternatively you could use a decrementing for loop but it is a little harder to read. 
+//Also if you use a decrementing for loop you have to specify to return 1 when n === 0 because once again anything times 0 is 0 so you'll be stuck returning 0. 
+
+function factorial(n){
+
+  let result = n;
+  
+  if(n === 0){
+    return 1;
+  }
+  
+  if(n < 0 || n > 12){
+    throw new RangeError('Value must be greater than 0 and less than or equal to 12')
+  }
+  
+  
+ for (let i = n - 1; i >= 1; i--) {
+    result *= i;
+  }
+ return result;
+
+}
+  
+
+console.log(factorial(0))
