@@ -1,0 +1,29 @@
+n this kata you get the start number and the end number of a region and should return the count of all numbers except numbers with a 5 in it. The start and the end number are both inclusive!
+
+Examples:
+
+1,9 -> 1,2,3,4,6,7,8,9 -> Result 8
+4,17 -> 4,6,7,8,9,10,11,12,13,14,16,17 -> Result 12
+
+
+//We know we need to iterate from start to end and count the presence of every number except any number that contains 5 in it. 
+//We can loop from start to end and convert each number to string and check if that string does not include '5' at all. 
+//If it does not, increment the count by 1. This should effectively remove all counts of any number that contains 5.
+
+
+
+
+function dontGiveMeFive(start, end) {
+  
+  let count = 0;
+  
+  for (let i = start; i <= end; i++) {
+    if (!String(i).includes('5')) {
+      count++;
+    }
+  }
+  
+  return count;
+}
+ 
+console.log((dontGiveMeFive(4,17)))
