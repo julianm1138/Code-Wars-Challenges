@@ -1,0 +1,17 @@
+You will be given an array and a limit value. You must check that all values in the array are below or equal to the limit value. If they are, return true. Else, return false.
+
+You can assume all values in the array are numbers.
+
+
+//We need to return a boolean for if the highest value in the array is below or eual to the limit value.
+//We can spread the array into Math.max() to get the largest value and use a comparison operator for implicit return. 
+
+
+
+function smallEnough(a, limit){
+  
+  return Math.max(...a) <= limit;
+
+}
+
+console.log(smallEnough([66, 101], 200))
