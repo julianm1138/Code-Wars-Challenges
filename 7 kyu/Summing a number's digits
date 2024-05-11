@@ -1,0 +1,34 @@
+Write a function named sumDigits which takes a number as input and returns the sum of the absolute value of each of the number's decimal digits.
+
+For example: (Input --> Output)
+
+10 --> 1
+99 --> 18
+-32 --> 5
+
+
+//We need to return the sum of abs value of each number in the number. 
+//We can get the sum by adding every number to 0, but the main problem is getting each number into their own individual numbers to add them to 0. 
+//First we need to make sure we are using the absolute value by the time we get there, so we use Math.abs() first. Then we want to add each number to 0 in result = 0 so we want to create an array of those numbers.
+//We can convert the number into an array by converting it to a string and splitting it into an array of string digits.
+//Then we need to iterate that array to convert each string digit to an integer so we have an array of integers. 
+//Then we loop over the array of integers and add each element in the array to 0. 
+
+
+
+function sumDigits(number) {
+  
+ let result = 0;
+  
+ const strArr = Math.abs(number).toString().split('');
+  
+ const arr = strArr.map(element => parseInt(element));  
+ 
+ for (let i = 0; i < arr.length; i++){
+   result += arr[i]
+  }
+
+  return result;
+  
+  }
+console.log(sumDigits(-10))
