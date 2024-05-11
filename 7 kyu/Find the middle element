@@ -1,0 +1,28 @@
+As a part of this Kata, you need to create a function that when provided with a triplet, returns the index of the numerical element that lies between the other two elements.
+
+The input to the function will be an array of three distinct numbers (Haskell: a tuple).
+
+For example:
+
+gimme([2, 3, 1]) => 0
+
+
+//So this function needs to return the index as an integer of the middle value in the triplet. 
+//We can create logic that will return nothing except the middle value by defining the max and min, and then select the index of that value in the array.
+//We can get the index of the value by using a for loop and place our conditional logic inside.
+//Finally we assign the result to be the index represented by i. 
+
+function gimme (triplet) {
+  
+ const maxVal = Math.max(...triplet);
+ const minVal = Math.min(...triplet);
+ let result = 0;
+ 
+ for (let i = 0; i < triplet.length; i++){
+  if (triplet[i] !== (maxVal) && triplet[i] !== (minVal)){
+    result = i;
+    }
+  }
+  return result;
+}
+
