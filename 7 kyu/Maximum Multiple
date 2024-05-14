@@ -1,0 +1,38 @@
+Given a Divisor and a Bound , Find the largest integer N , Such That ,
+
+Conditions :
+N is divisible by divisor
+
+N is less than or equal to bound
+
+N is greater than 0.
+
+Notes
+The parameters (divisor, bound) passed to the function are only positive values .
+It's guaranteed that a divisor is Found .
+Input >> Output Examples
+divisor = 2, bound = 7 ==> return (6)
+
+
+//We can loop from 0 to the bound and return the greatest number that meets the conditions. 
+
+
+
+
+function maxMultiple(divisor, bound){
+ 
+  let result = 0;
+  
+  for (let i = 0; i <= bound; i++){
+    if(i % divisor === 0 && i <= bound && i > 0){
+      
+      result = i;
+      
+    }
+    
+  }
+  
+  return result;
+}
+console.log((maxMultiple(2,7)))
+console.log((maxMultiple(3,10)))
