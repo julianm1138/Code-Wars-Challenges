@@ -1,0 +1,25 @@
+Your mission:
+Write a function called checkCoupon which verifies that a coupon code is valid and not expired.
+
+A coupon is no more valid on the day AFTER the expiration date. All dates will be passed as strings in this format: "MONTH DATE, YEAR".
+
+
+//This problem has two parts to it: make sure the coupon entered is equal to the correct coupon and make sure the current date is less than or equal to the expiration date.
+//We can use the new Date contructor to convert each date into a value of milliseconds.
+//After that we can use implicit return for both the coupon code and the expiration date.
+
+
+
+function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
+  
+  
+  currentDate = new Date(currentDate)
+  console.log(currentDate)
+  expirationDate = new Date(expirationDate)
+  
+  return enteredCode === correctCode && currentDate <= expirationDate;
+}
+
+
+
+
