@@ -1,0 +1,57 @@
+Given a string, capitalize the letters that occupy even indexes and odd indexes separately, and return as shown below. Index 0 will be considered even.
+
+For example, capitalize("abcdef") = ['AbCdEf', 'aBcDeF']. See test cases for more examples.
+
+The input will be a lowercase string with no spaces.
+
+
+//We need to return an array of strings with 2 elements. Both elements first element has every even index uppercased and the second element has every odd index uppercased.
+//We can create 2 loops, one to handle the even indexed string and one to handle the odd.
+//If the index is even we add the uppercase letter to the even string, else we add the lowercase letter. We do the opposite in the second loop and return our resulting strings as an array.
+
+
+function capitalize(s){
+  
+  let evenStr = '';
+  
+  for (let i = 0; i < s.length; i++){
+    if (i % 2 === 0){
+      evenStr += s[i].toUpperCase();
+    } else {
+      evenStr += s[i];
+    }
+  }
+  
+  let oddStr ='';
+  
+  for (let i = 0; i < s.length; i++){
+    if (i % 2 === 1){
+      oddStr += s[i].toUpperCase();
+    } else {
+      oddStr += s[i];
+    }
+  }
+  
+  return [evenStr, oddStr];
+};
+
+
+//We can also shorten it to this, but I prefer the longer version because it's more clear for what is happening at each step.
+
+
+function capitalize(s) {
+  let evenStr = '';
+  let oddStr = '';
+
+  for (let i = 0; i < s.length; i++) {
+    if (i % 2 === 0) {
+      evenStr += s[i].toUpperCase();
+      oddStr += s[i];
+    } else {
+      evenStr += s[i];
+      oddStr += s[i].toUpperCase();
+    }
+  }
+
+  return [evenStr, oddStr];
+}
