@@ -1,0 +1,42 @@
+The first input array is the key to the correct answers to an exam, like ["a", "a", "b", "d"]. The second one contains a student's submitted answers.
+
+The two arrays are not empty and are the same length. Return the score for this array of answers, giving +4 for each correct answer, -1 for each incorrect answer, and +0 for each blank answer, represented as an empty string (in C the space character is used).
+
+If the score < 0, return 0.
+
+
+//We need to return the total score based on comparing each element based on position in each array. So we iterate through the first array and check if the curent element === second array's current element.
+//I used a for loop and made a condition for each time we subtract or add points to the score.
+//Finally we say if the score is less than 0 return 0, else return the score.
+
+
+
+
+
+
+
+
+function checkExam(array1, array2) {
+  
+ let score = 0;
+  
+ 
+  for (let i = 0; i < array1.length; i++){
+    if (array2[i] === ""){
+      score += 0;
+    } else if(array1[i] === array2[i]){
+      score += 4;
+    } else {
+      score -= 1;
+    }
+  }
+   if (score < 0){
+      return 0;
+    } else {
+      return score; 
+    }
+   
+}
+
+
+console.log((checkExam(["b", "c", "b", "a"], ["" , "a", "a", "c"])))
