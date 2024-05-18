@@ -1,25 +1,37 @@
-// Return the nth triangular number
-function triangular( n ) {
+Triangular numbers are so called because of the equilateral triangular shape that they occupy when laid out as dots. i.e.
+
+1st (1)   2nd (3)    3rd (6)
+*          **        ***
+           *         **
+                     *
+You need to return the nth triangular number. You should return 0 for out of range values:
+
+For example: (Input --> Output)
+
+0 --> 0
+2 --> 3
+3 --> 6
+-10 --> 0
+
+//The pattern is except for negative numbers and 1, the count of the previous term + n, however, iterating over large numbers is inefficient.
+//Instead if we can solve the first case, that is finding a way to return 1 mathematically and then also return 3 for thr 2nd term, then we solved the problem.
+//For n === 1  n / 1 === 1 but n === 2 n / 1 is not 3 so that doesn't work.
+//what if we increase the dominator to 2? n / 2 but returns 0.5 for n === 1. If we add 1: n + 1 / 2 that works for n === 1 but not for n === 2. Let's try to do operations on the numerator with n to output 3
+//Add n to the numerator so far:    n + n + 1 / 2 = 5 / 2   doesn't work
+//Divide n by the numerator so far:  n / n + 1 / 2 = 3 / 2 doesn't work
+//Multiply n by the numerator so far:   n * n + 1 / 2 = 6 / 2 = 3     
+ 
+
+
+function triangular(n) {
   
   if(n < 0){
     return 0;
-  }
+  }           
   
-  let count = 0;
-  
-  count += ;
-  
-  return count;
-  
- //always the previous count + n
+return (n * (n + 1)) / 2;
+ 
 }
-console.log(triangular( 1 ))
+console.log(triangular(6))
 
-//Integer representing ordinal number -> integer
 
-//4th (10)   5th (15)   6th ()
-//****       *****      ******
-//***        ****       *****
-//**         ***
-//*          **
-//           *
