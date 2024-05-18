@@ -1,0 +1,25 @@
+// Return the nth triangular number
+function triangular( n ) {
+  
+  if(n < 0){
+    return 0;
+  }
+  
+  let count = 0;
+  
+  count += ;
+  
+  return count;
+  
+ //always the previous count + n
+}
+console.log(triangular( 1 ))
+
+//Integer representing ordinal number -> integer
+
+//4th (10)   5th (15)   6th ()
+//****       *****      ******
+//***        ****       *****
+//**         ***
+//*          **
+//           *
