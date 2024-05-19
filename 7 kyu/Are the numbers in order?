@@ -1,0 +1,26 @@
+In this Kata, your function receives an array of integers as input. Your task is to determine whether the numbers are in ascending order. 
+
+//We need to return a boolean if the array is in ascending order.
+//What we can do is sort the array and check if the array argument is equal to the sorted array.
+/*However, .sort() will use the exact same object reference, so if we compare the original array to the sorted with ===, they would be the same regardless of content or logic inside each array, 
+because JS recognizes them as the same object and will always return true because of that. 
+So we need to create a copy of the sorted array using spread operator, which will create a new reference in memory.
+Finally, we need to use JSON.stringify because === checks reference types as opposed to contents or other logic.
+So when we convery the arrays to string representations they can both be checked if they equal each other. 
+
+So to summarize, when using comparison operator on two arrays JS will always check reference type as opposed to inner logic or content of the arrays.  If you want to compare arrays based on their contents, 
+you need to ensure they are different instances (different references), and then compare their content using methods like JSON.stringify or by iterating through their elements.
+
+The key take away is that JS uses reference type for array comparison as opposed to array contents.
+*/
+
+
+function inAscOrder(arr) {
+  
+  
+return JSON.stringify(arr) === JSON.stringify([...arr].sort((a,b) => a - b));
+  
+  
+}
+
+console.log(inAscOrder([1, 2, 4, 7, 19]))
