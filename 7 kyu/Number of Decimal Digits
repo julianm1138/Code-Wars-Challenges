@@ -1,0 +1,15 @@
+Determine the total number of digits in the integer (n>=0) given as input to the function. For example, 9 is a single digit, 66 has 2 digits and 128685 has 6 digits. Be careful to avoid overflows/underflows.
+
+All inputs will be valid.
+
+//We need to return an integer representing how many digits are inside of each input number. In other words, the length of each input number. 
+//We can get the length using .length property but the input would have to be a string for it to work.
+
+
+
+
+function digits(n) {
+  
+ return n.toString().length;
+  
+}
