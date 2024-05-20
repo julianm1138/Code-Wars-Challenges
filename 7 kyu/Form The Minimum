@@ -1,0 +1,19 @@
+Given a list of digits, return the smallest number that could be formed from these digits, using the digits only once (ignore duplicates).
+
+//We need to return an integer of the least possible value you can create with integers in the array, and we have to ignore duplicates.
+//In order to do this we can remove duplicates and then sort the array in ascending order.
+//Sorting the array in ascending order will ensure that every array will create the smallest possible number based on ordinal numbers. 
+//For example, if we put [2, 3, 1] in order from least to greatest it will always create the smallest number possible because you put the smallest number as the most significant digit.
+//Finally we join it to a string and divide by 1 to convert the string into a number.
+
+
+
+
+
+function minValue(values){
+  
+ const sortedArr = [...new Set(values)].sort((a, b) => a - b);
+
+ return sortedArr.join('')/1;
+  
+}
