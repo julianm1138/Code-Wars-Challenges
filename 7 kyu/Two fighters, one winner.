@@ -1,0 +1,53 @@
+Create a function that returns the name of the winner in a fight between two fighters.
+
+Each fighter takes turns attacking the other and whoever kills the other first is victorious. Death is defined as having health <= 0.
+
+Each fighter will be a Fighter object/instance. See the Fighter class below in your chosen language.
+
+Both health and damagePerAttack (damage_per_attack for python) will be integers larger than 0. You can mutate the Fighter objects.
+
+Your function also receives a third argument, a string, with the name of the fighter that attacks first.
+
+function Fighter(name, health, damagePerAttack) {
+        this.name = name;
+        this.health = health;
+        this.damagePerAttack = damagePerAttack;
+        this.toString = function() { return this.name; }
+}
+
+
+//We need to make a function that will reference properties from whatever objects are created in the constructor provided. 
+//We can create an attacker and defender, alternate their roles, and subtract health value from the current defender until they reach 0. 
+//First we create our attacker and defneder and figure out who starts the fight with a comparison + ternary.
+//Next create a loop that will keep the fight going as long as each object's health property is above 0, and subtract the attacker's damage points from the defender's health points.
+//If the defender health reaches 0 or drops below 0 return the winner's name.
+//Last we use array destructuring to alternate roles throughout the while loop.
+
+
+
+
+
+
+
+
+
+function declareWinner(fighter1, fighter2, firstAttacker) {
+ let attacker = firstAttacker === fighter1.name ? fighter1 : fighter2;
+  let defender = firstAttacker === fighter1.name ? fighter2 : fighter1;
+
+ 
+  while (fighter1.health > 0 && fighter2.health > 0) {
+    //refernce whatever objects are created
+    defender.health -= attacker.damagePerAttack;
+    
+   
+    if (defender.health <= 0) {
+      return attacker.name;
+    }
+
+   
+    [attacker, defender] = [defender, attacker];
+ }
+
+}
+
