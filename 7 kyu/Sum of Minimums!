@@ -1,0 +1,19 @@
+Given a 2D ( nested ) list ( array, vector, .. ) of size m * n, your task is to find the sum of the minimum values in each row.
+
+//We need the sum of the minimum value in each array.
+//To get this we can sort each inner array in ascending order and add up the first element of those sorted arrays.
+//We can use map to perform the sort and adding each first element of the sortedArr to the result. 
+
+
+
+function sumOfMinimums(arr) {
+  
+  let result = 0;
+  
+  const sortedArr = arr.map(element => element.sort((a, b) => a - b));
+  
+  sortedArr.map(element => result += element[0]);
+  
+  return result;
+  
+}
