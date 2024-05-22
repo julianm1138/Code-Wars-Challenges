@@ -1,0 +1,27 @@
+Complete the function power_of_two/powerOfTwo (or equivalent, depending on your language) that determines if a given non-negative integer is a power of two. From the corresponding Wikipedia entry:
+
+a power of two is a number of the form 2n where n is an integer, i.e. the result of exponentiation with number two as the base and integer n as the exponent.
+
+You may assume the input is always valid.
+
+//We need to return true if 2 ** n is a power of 2.
+//We can define a power of 2 as being any even number when divided by 2 continuously will eventually evaluate to 1. 
+//So we can handle our base cases first for when n is a negative number or 0. 
+//Then we can use a while loop to keep dividing n by 2 until it is 1 if n is even. 
+//The loop will exit when n becomes 1.
+
+
+
+function isPowerOfTwo(n){
+    
+  if (n <= 0) {
+    return false;
+  }
+
+  while (n % 2 === 0) {
+    n = n / 2;
+  }
+
+
+  return n === 1;
+  }
