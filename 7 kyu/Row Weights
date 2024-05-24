@@ -1,0 +1,31 @@
+Several people are standing in a row divided into two teams.
+The first person goes into team 1, the second goes into team 2, the third goes into team 1, and so on.
+
+Task
+Given an array of positive integers (the weights of the people), return a new array/tuple of two integers, where the first one is the total weight of team 1, and the second one is the total weight of team 2.
+
+
+//So we need to alternate the each team member between team 1 and team 2, where the first element of the array starts at team 1, then alternates from there.
+//Each element of the input array is the weight of the respective places.
+//So we can make two counts, loop through the array and make a condition where if it is the first element (i = 0) add it to team 1's count, else to team 2's count.
+//We make the condition to check if i is even because the first element starts at i = 0 and then it alternates from there.
+//Return our new array.
+
+
+
+function rowWeights(array){
+  
+  let team1Weight = 0;
+  
+  let team2Weight = 0;
+  
+  for (let i = 0; i < array.length; i++){
+    if (i % 2 === 0){
+      team1Weight += array[i];
+    } else {
+      team2Weight += array[i];
+    }
+  }
+  return [team1Weight, team2Weight]
+}
+console.log(rowWeights([100,50]))
