@@ -1,0 +1,39 @@
+We want to generate a function that computes the series starting from 0 and ending until the given number.
+
+//We need to output a string with every iterator up to n and concatenate it with the result.
+//We handle the edge cases listed in the challenge first.
+//Then we make our for loop and define a sequence and the result.
+//One line calculates the result and the other creates the string sequence.
+//Finally return the sequence concatenated with the result.
+
+
+
+var SequenceSum = (function() {
+  function SequenceSum() {}
+
+  SequenceSum.showSequence = function(count) {
+    if (count === 0){
+      return `0=0`
+    }
+    
+    if(count < 0){
+      return `${count}<0`
+    }
+    
+    let sequence = '';
+    
+    let result = 0;
+    
+    for (let i = 0; i <= count; i++) {
+     
+      result += i;
+      sequence += (i === 0) ? `${i}` : `+${i}`;
+    }
+    
+   return `${sequence} = ${result}`;
+  };
+
+  return SequenceSum;
+})();
+
+
