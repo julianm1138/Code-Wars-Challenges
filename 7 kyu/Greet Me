@@ -1,0 +1,22 @@
+Write a method that takes one argument as name and then greets that name, capitalized and ends with an exclamation point.
+
+Example:
+
+"riley" --> "Hello Riley!"
+"JACK"  --> "Hello Jack!"
+
+
+//We have to select the first element of the input string and remove it, and make sure the whole string is lowercase just in case there are cases where the input are not the same case.
+//We can use slice to remove the first element and then target the first element of the string to make it uppercase.
+
+
+
+
+var greet = function(name) {
+
+  const newStr = name.slice(1).toLowerCase();
+  console.log(newStr)
+  const firstLetter = name[0].toUpperCase();
+  
+  return `Hello ${firstLetter + newStr}!`
+};
