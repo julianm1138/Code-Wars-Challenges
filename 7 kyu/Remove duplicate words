@@ -1,0 +1,27 @@
+Your task is to remove all duplicate words from a string, leaving only single (first) words entries.
+
+Example:
+
+Input:
+
+'alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta'
+
+Output:
+
+'alpha beta gamma delta'
+
+
+//We can use filter + indexOf to remote duplicates from arrays, so we just need to convert the string into an array first.
+
+
+
+
+function removeDuplicateWords (s) {
+ 
+ const arr = s.split(' ');
+  
+ return arr.filter((element, index) =>  arr.indexOf(element) === index).join(' ');
+  
+}
+
+
