@@ -24,4 +24,12 @@ function removeDuplicateWords (s) {
   
 }
 
+//Alternatively you can use new Set to remove duplicates. We just have to make sure we use split(' ') on the string inside the new array. 
+
+function removeDuplicateWords (s) {
+ 
+return [...new Set(s.split(' '))].join(' ');
+  
+}
+
 
