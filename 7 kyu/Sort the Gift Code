@@ -1,0 +1,14 @@
+Write a function called sortGiftCode/sort_gift_code/SortGiftCode that accepts a string containing up to 26 unique alphabetical characters, and returns a string containing the same characters in alphabetical order.
+
+Examples (Input -- => Output):
+"abcdef"                      -- => "abcdef"
+"pqksuvy"                     -- => "kpqsuvy"
+"zyxwvutsrqponmlkjihgfedcba"  -- => "abcdefghijklmnopqrstuvwxyz"
+
+//We just need to return a new string sorted in alphabetical order but we need to convert the string to an array first so that we can ues sort method on it.
+
+
+
+function sortGiftCode(code){
+  return code.split('').sort().join('');
+}
