@@ -1,0 +1,31 @@
+If　a = 1, b = 2, c = 3 ... z = 26
+
+Then l + o + v + e = 54
+
+and f + r + i + e + n + d + s + h + i + p = 108
+
+So friendship is twice as strong as love :-)
+
+Your task is to write a function which calculates the value of a word based off the sum of the alphabet positions of its characters.
+
+The input will always be made of only lowercase letters and will never be empty.
+
+//We need to map each alphabet character to a value starting from a = 1 and ending at z = 26. 
+//With chatCodeAt we don't need to actually map it because it already has been mapped for us, we just have to adjust the index.
+//.charCodeAt() returns a value for each character, and for 'a' it would return 97. So if we subtract 96 we would get a's value to be 1. 
+//We can loop through the string and add each value of the adjusted charCodeAt to add the correct value for each character to the result = 0.
+
+
+
+function wordsToMarks(string){
+  
+  let result = 0;
+  
+  
+  for(let i = 0; i < string.length; i++){
+   result += string[i].charCodeAt() - 96;
+  }
+  
+  return result;
+  
+}
