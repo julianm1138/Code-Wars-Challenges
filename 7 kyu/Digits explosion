@@ -1,0 +1,25 @@
+Given a string made of digits [0-9], return a string where each digit is repeated a number of times equals to its value.
+
+Examples
+"312" should return "333122"
+
+//We need to return a string where each digit in the original string is repeated the number of times equal to its value.
+//The repeat method can take either a string or number as an argument and repeat the target for that amount of times.
+//We can loop through the string and create an empty string to create our result string.
+//Then we add each new string to the empty string using repeat.
+//We target the current element in the loop and repeat that element for the value equal to that element. 
+//So if the current element was "3" we target it with repeat and use "3" as an argument so the ouput should be "333".
+
+
+
+
+function explode(s) {
+  
+  let result = '';
+  
+  for (let i = 0; i < s.length; i++){
+    result += s[i].repeat(s[i])
+  }
+  return result;
+}
+console.log(explode("312"))
