@@ -1,0 +1,17 @@
+Find the greatest common divisor of two positive integers. The integers can be large, so you need to find a clever solution.
+
+The inputs x and y are always greater or equal to 1, so the greatest common divisor will always be an integer that is also greater or equal to 1.
+
+
+//We can solve this using the Euclidean algorithm and array destructuring. 
+//As long as b is not 0 we swap the values to keep having the smaller number on the left and keep dividing the largest by the smaller number until the remainder is 0.
+//When the remainder is 0 the other value will be the GCD.
+
+
+// [a, b] = [b, a % b];      [48, 18] = [18, 48 % 18] =      [18, 12] = [12, 18 % 12]    = [12, 6] = [6, 12 % 6]   =  [6, 0] 
+
+function gcd(a, b) {
+    while (b !== 0) {
+    }
+    return a;
+}
