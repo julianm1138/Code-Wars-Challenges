@@ -1,0 +1,47 @@
+Write a function that accepts fight string consists of only small letters and return who wins the fight. When the left side wins return Left side wins!, when the right side 
+wins return Right side wins!, in other case return Let's fight again!.
+
+
+
+//We need to add up the corresponding letters and values and return the string on which side won depending on which side has the greater count.
+//We make two objects to map the characters to their values.
+//We set up 2 counts.
+//Set up a for loop where if the current character in the string exists in each object, add its value to the corresponding count.
+//Conditional returns the winner as a string.
+
+
+
+
+
+function alphabetWar(fight){
+  
+  const rightWeapons = {
+    'm': 4,
+    'q': 3,
+    'd': 2,
+    'z' : 1
+  };
+  
+   const leftWeapons = {
+    'w': 4,
+    'p': 3,
+    'b': 2,
+    's' : 1
+  };
+  
+  
+  let rightCount = 0;
+  let leftCount = 0;
+  
+  
+ for (let i = 0; i < fight.length; i++) {
+    let char = fight[i];
+    if (char in rightWeapons) {
+      rightCount += rightWeapons[char];
+    } else if (char in leftWeapons) {
+      leftCount += leftWeapons[char];
+    }
+  }
+  return (rightCount > leftCount) ? "Right side wins!" : (leftCount > rightCount)  ? "Left side wins!" : "Let's fight again!";
+}
+console.log(alphabetWar("z"))
