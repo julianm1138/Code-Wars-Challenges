@@ -1,0 +1,19 @@
+Given an array of integers , Find the maximum product obtained from multiplying 2 adjacent numbers in the array.
+
+//We need to find the product of every adjacent element in the array and return the max value of them. 
+//We can use map to find the product of the current element and the next element of the original array.
+//We also need to use slice to avoid an out of bounds error from map. ([index + 1] will try to access the next element even if one does not exist.)
+//Finally we use Math.max to get the max value.
+
+
+
+
+function adjacentElementsProduct(array) {
+  
+  const arr = array.slice(0, -1).map((element, index) => element * array[index + 1]);
+  console.log(arr)
+  
+  return Math.max(...arr)
+  
+}
+console.log(adjacentElementsProduct([5, 8]))
