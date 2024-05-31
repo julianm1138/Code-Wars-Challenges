@@ -1,0 +1,10 @@
+Create a function add(n)/Add(n) which returns a function that always adds n to any number
+
+//We can define an outer function to accept n and an inner function to add n to any number.
+
+
+function add(n) {
+  return function addN(x){
+   return x + n; 
+}
+  }
