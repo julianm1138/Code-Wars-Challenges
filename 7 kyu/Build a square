@@ -1,0 +1,31 @@
+I will give you an integer. Give me back a shape that is as long and wide as the integer. The integer will be a whole number between 1 and 50.
+
+Example
+n = 3, so I expect a 3x3 square back just like below as a string:
+
++++
++++
++++
+
+//We can create a loop to go up to the integer and for each iterator add "+" to an empty string. That creates our first 3 plus signs for the sqaure.
+//To get a 3 x 3 we can use the repeat method to create the last 3 and concatenate with newline to create the 3 x 3 square.
+//Tests fail when there is a newline at the end of the string, so we can use the trim method to get rid of that final newline.
+
+
+
+
+
+
+
+function generateShape(integer){
+  
+  let result = "";
+  
+  
+  for (let i = 1; i <= integer; i++){
+   result += "+".repeat(integer) + "\n";
+  }
+  return result.trim();
+}
+
+console.log(generateShape(3))
