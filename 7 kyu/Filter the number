@@ -1,0 +1,20 @@
+Your task is to return a number from a string.
+
+Details
+You will be given a string of numbers and letters mixed up, you have to return all the numbers in that string in the order they occur.
+
+//Given a string that may or may not have other characters besides numbers, we need to return the numbers inside the string as an integer.
+//We can use the array method filter.
+//First we convert the string to an array.
+//Then we can pass the string array into filter and if the current character is a number we will keep it in the array, and then join it. 
+//Finally we use unary plus operator to convert the string into a number.
+
+
+
+var filterString = function(string) {
+  
+  const stringArr = string.split('');
+  
+  return +stringArr.filter((element) => !isNaN(element)).join('');
+  
+}
