@@ -1,0 +1,27 @@
+Given a string s, your task is to return another string such that even-indexed and odd-indexed characters of s are grouped and the groups are space-separated.
+Even-indexed group comes as first, followed by a space, and then by the odd-indexed part.
+
+//We can make an even and an odd group and loop through the string.
+//If the index is even add it to the even group, else add to the odd group.
+//Concatenate both groups with a template literal. 
+
+
+
+
+
+function sortMyString(string) {
+  
+  let evenGroup = '';
+ 
+  let oddGroup = '';
+   
+  for (let i = 0; i < string.length; i++){
+    if(i % 2 === 0){
+      evenGroup += string[i];
+    } else {
+      oddGroup += string[i];
+    }
+  }
+  return `${evenGroup} ${oddGroup}`;
+}
+console.log(sortMyString("CodeWars"))
