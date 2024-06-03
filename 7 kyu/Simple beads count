@@ -1,0 +1,22 @@
+Two red beads are placed between every two blue beads. There are N blue beads. After looking at the arrangement below work out the number of red beads.
+
+@ @@ @ @@ @ @@ @ @@ @ @@ @
+
+Implement count_red_beads(n) (in PHP count_red_beads($n); in Java, Javascript, TypeScript, C, C++ countRedBeads(n)) so that it returns the number of red beads.
+If there are less than 2 blue beads return 0.
+
+
+//The key to this problem is realizing the spaces between each blue bead. 
+//From end to end, there is a single blue bead which means there is always 1 less spaces than there are blue beads.
+//We can represent that with n - 1. Then, in between in each of those spaces are two red beads for every blue bead. 
+//Since there is always one less space than n, if we calculate n - 1 we get the amount of spaces in each set of beads.
+//Then we multiply that amount of spaces by 2 (number of red beads in each space to fill up the spaces).
+
+
+ if (n < 2){
+   return 0;
+ }
+  return (n - 1) * 2;
+  
+}
+console.log((countRedBeads(634)))
