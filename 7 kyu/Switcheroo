@@ -1,0 +1,18 @@
+Given a string made up of letters a, b, and/or c, switch the position of letters a and b (change a to b and vice versa). Leave any incidence of c untouched.
+
+//We can loop through the string and replace every instance of 'a' with 'b' and vice versa. Else leave the current element as is. 
+//We can use map to make this slightly cleaner than a for loop, we just have to split the string into an array first.
+
+
+
+function switcheroo(x){
+
+ return x.split('').map(element => {
+   if (element === 'a') return 'b';
+   if (element === 'b') return 'a';
+   return element;
+ }).join('');
+  }
+  
+ 
+console.log((switcheroo('abc')))
