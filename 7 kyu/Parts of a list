@@ -1,0 +1,28 @@
+Write a function partlist that gives all the ways to divide a list (an array) of at least two elements into two non-empty parts.
+
+//We can use a for loop for the input array and use slice inside of an array to create the two parts.
+//Finally we will push the two parts array to an empty array.
+//The first part will use slice(0, i) go from the first element until the last for each iteration to slice out 0 to i and exclude anything else outside of that.
+//The second part will use slice(i) to slice out every element up to i. 
+
+
+
+
+
+
+
+function partlist(arr) {
+  
+  
+  let result = [];
+  
+  for (let i = 1; i < arr.length; i++){
+    result.push([arr.slice(0, i).join(' '), arr.slice(i).join(' ')])
+    console.log(`first part:`, arr.slice(0, i))
+    console.log(`second part:`, arr.slice(i))
+  }
+
+  return result;
+  
+}
+console.log(partlist(["I", "wish", "I", "hadn't", "come"]))
