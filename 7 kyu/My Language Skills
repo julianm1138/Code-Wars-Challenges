@@ -1,0 +1,31 @@
+You are given a dictionary/hash/object containing some languages and your test results in the given languages. Return the list of languages where your test score is at least 60, in descending order of the scores.
+
+//We need to return an array of the properties when the values are >= 60 in descending order.
+//We can accomplish this by converting the object into an array using Object.entries() and then using filter, sort, and map along with array destructuring.
+//Filter will keep every key inside of the array where the value is >= 60.
+//Sort will access the second element of each of the filtered arrays and sort in descending order.
+//map will return an array of the properties left over from the above steps.
+
+
+
+
+
+function myLanguages(results) {
+
+  
+  const input = Object.entries(results);
+  console.log(input)
+  
+  const filteredArr = input.filter(([firstElement, secondElement]) => secondElement >= 60);
+  console.log(filteredArr)
+
+  const sortedArr = filteredArr.sort((a, b) => b[1] - a[1]);
+  console.log(sortedArr)
+  
+  const result = sortedArr.map(([firstElement, secondElement]) => firstElement);
+ 
+  return result;
+
+}
+                    
+console.log(myLanguages({"Java" : 10, "Ruby" : 80, "Python" : 65}))
