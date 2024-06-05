@@ -1,0 +1,31 @@
+Given an array of integers , Find the minimum sum which is obtained from summing each Two integers product.
+
+//We need to mutliply the largest value in the array times the minimum value and keep doing that.
+//We can create an algorithm with a for loop to do this.
+//First we sorted the array.
+//Then our for loop must iterate half the length of the sorted array to make sure only the least element is multiplied by the largest, and then the second least by the second largest and so on.
+//Now we can multiply the current element by sortedArr[sortedArr.length - 1 - i ] which will always start at the end with .length - 1
+//And shift the index closer to the array.length / 2 and will exit the loop from there.
+
+
+
+
+
+
+function minSum(arr) {
+  
+  let sum = 0;
+  
+  const sortedArr = arr.sort((a, b) => a - b);
+  console.log(sortedArr)
+
+  
+  for (let i = 0; i < sortedArr.length / 2; i++){
+    sum += sortedArr[i] * sortedArr[sortedArr.length - 1 - i ];
+  }
+  
+  return sum;
+  
+}
+
+console.log(minSum([5,4,2,3]))
