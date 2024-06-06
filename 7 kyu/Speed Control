@@ -1,0 +1,29 @@
+Given s and x the task is to return as an integer the *floor* of the maximum average speed per hour obtained on the sections of x. If x length is less than or equal to 1 return 0 since the car didn't move.
+
+//Take care of the edge case where if x is less than 2 return 0.
+//We need to return the floor of the max average speed.
+//First, we need the change in distances, which we can get with a for loop. We use x.length - 1 to keep in bounds.
+//Next we need to pass each of the change in distances into the equation provided to get the avg speeds:  (3600 * delta_distance) / s. We can do that using map.
+//Last, we use Math max, floor, and abs methods along with map on the same line to get the floor of the max average speed. 
+
+
+
+
+
+function gps(s, x) {
+  
+  if (x.length < 2){
+    return 0;
+  }
+  
+  let deltaDistances = [];
+  
+  for(let i = 0; i < x.length - 1; i++){
+    deltaDistances.push(x[i] - x[i + 1]);
+  }
+  const avgSpeeds = deltaDistances.map((element => (3600 * element) / s));
+  
+  return Math.max(...avgSpeeds.map( element => Math.floor(Math.abs(element))))
+}
+
+console.log(gps(15, [0.0, 0.19, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.25]))
