@@ -1,0 +1,30 @@
+Friday 13th or Black Friday is considered as unlucky day. Calculate how many unlucky days are in the given year.
+
+Find the number of Friday 13th in the given year.
+
+Input: Year in Gregorian calendar as integer.
+
+Output: Number of Black Fridays in the year as an integer.
+
+
+//We can use the new Date() constructor to dynamically create every 13th of every month of every year inputted.
+//First we loop from 0 to 12 to represent every month in the year.
+//Then we define our new date which generates every 13th of the month by using the year parameter.
+//If the day is Friday, which is represented by a 5, add 1 to the count, then return the count. 
+
+
+
+
+
+function unluckyDays(year){
+  let count = 0;
+  
+  for(let month = 0; month < 12; month++){
+    let date = new Date(year, month, 13);
+    
+    if (date.getDay() === 5){
+      count += 1;
+    }
+  }
+  return count;
+}
