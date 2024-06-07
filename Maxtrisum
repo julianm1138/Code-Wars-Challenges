@@ -1,0 +1,24 @@
+//We need to return the max sum of triplets without duplicates.
+//First we remove duplicates using new Set()
+//Then we sort the array to get the three max values at the beginning of the array.
+//Then we use silce to get an array of the three max values only.
+//Then we sum those values.
+
+
+
+
+function maxTriSum(numbers){
+  
+ numbers = [...new Set(numbers)];
+  
+ const sortedArr = numbers.sort((a, b ) => b - a);
+  
+ const maxThree = sortedArr.slice(0, 3);
+ console.log(maxThree)
+  
+ return maxThree.reduce((acc, currentVal) => acc + currentVal, 0);
+  
+}
+
+console.log((maxTriSum([2,1,8,0,6,4,8,6,2,4])))
+
