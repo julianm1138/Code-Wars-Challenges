@@ -1,0 +1,20 @@
+You will be given an array of objects (hashes in ruby) representing data about developers who have signed up to attend the coding meetup that you are organising for the first time.
+
+Your task is to return the number of JavaScript developers coming from Europe.
+
+
+//We need to iterate through the array and count every continent === "Europe" and language property === "JavaScript"
+//We can use a for... of loop to iterate the array and dot notation to access the specific property of each object
+
+
+function countDevelopers(list) {
+  
+  let result = 0;
+
+  for(const element of list){
+    if(element.continent === "Europe" && element.language === "JavaScript"){
+      result += 1;
+    }
+  }
+  return result; 
+}
