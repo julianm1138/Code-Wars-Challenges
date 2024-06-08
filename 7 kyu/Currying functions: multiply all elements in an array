@@ -1,0 +1,21 @@
+To complete this Kata you need to make a function multiplyAll/multiply_all which takes an array of integers as an argument. 
+This function must return another function, which takes a single integer as an argument and returns a new array.
+The returned array should consist of each of the elements from the first array multiplied by the integer.
+
+//We can basically follow the directions here and define an outer function that takes an array as an argument and nest another function that takes an integer as an argument and multiples each element by the integer.
+//We need to return the inner function so it has access to the outer function's argument.
+
+
+
+
+
+
+
+
+function multiplyAll(array) {
+  
+  function makeNewArr(integer){
+    return array.map(element => element * integer)
+  }
+  return makeNewArr;
+}
