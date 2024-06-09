@@ -1,0 +1,29 @@
+Find the number with the most digits.
+
+If two numbers in the argument array have the same number of digits, return the first one in the array.
+
+//We can compare the lengths of each of the digits if they are strings, and use a for loop to get the longest string.
+//We convert the array to an array of string using map.
+//We can set up longest to be the first element.
+//Iterate through the array of strings, and if the current element's length is greater than the length of the first element, reassign longest to be that string.
+//By the end of the loop, it should have the longest string inside that variable, so we just need to return it as a number. 
+
+
+
+
+
+function findLongest(array){
+  
+  const strArr = array.map(element => element.toString());
+  
+  let longest = strArr[0];
+  
+  for (let i = 0; i < strArr.length; i++){
+    if (strArr[i].length > longest.length){
+      longest = strArr[i]
+    }
+   }
+  return Number(longest);
+}
+
+console.log(findLongest([1000, 2000, 2400]))
