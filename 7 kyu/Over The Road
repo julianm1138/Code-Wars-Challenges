@@ -1,0 +1,18 @@
+Example (address, n --> output)
+Given your house number address and length of street n, give the house number on the opposite side of the street.
+
+//To solve this, you can think of getting an expression to represent the total number of houses (2n)
+//Subtract the address by the total number of houses, and add 1. 
+//When you subtract the address from the total number of houses, you find the distance between the houses.
+//When you add 1, due to the layout where one side of the street is odd ascending and the other side is even descending, it increases the house number to the house opposite of your address.
+
+
+
+
+
+function overTheRoad(address, n){
+
+  return 2 * n - address + 1;   
+  
+}
+console.log(overTheRoad(2, 3))
