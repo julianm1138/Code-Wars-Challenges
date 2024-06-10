@@ -1,0 +1,26 @@
+Given a mixed array of number and string representations of integers, add up the non-string integers and subtract the total of the string integers.
+
+Return as a number.
+
+//We need to subtract the total of real integers from the total of string integers.
+//To do this, we can create two arrays, where one contains the real numbers and the other contains the string numbers and sum them both up. Finally, we can subtract them. 
+//We create the first array using filter and keep all numbers in the array, then we use reduce to get the sum of those real numbers.
+//Then we do the same with the string numbers with one extra step to convert each string to a number, and subtract the sums. 
+
+
+
+
+
+function divCon(x){
+
+ const realNumArr = x.filter(element => typeof element === "number");
+ const numSum = realNumArr.reduce((acc, currVal) => acc + currVal, 0);
+ 
+ 
+ const strNumArr = x.filter(element => typeof element === "string");
+ const convertStr = strNumArr.map(element => Number(element));
+ const strSum = convertStr.reduce((acc, currVal) => acc + currVal, 0);
+ 
+ return numSum - strSum;
+  
+}
