@@ -24,3 +24,16 @@ function divCon(x){
  return numSum - strSum;
   
 }
+
+//We can optimize this code by using reduce's currentVal argument to handle the type check and string to number conversion.
+//We check if the current value is a number or string with the ternary operator
+
+function divCon(x){
+
+ const numSum = x.reduce((acc, currVal) => typeof currVal === "number" ? acc + currVal : acc, 0);
+ const stringSum = x.reduce((acc, currVal) => typeof currVal === "string" ? acc +  Number(currVal) : acc, 0);
+
+ return numSum - stringSum;
+  
+}
+
