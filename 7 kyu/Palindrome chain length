@@ -1,0 +1,42 @@
+Write a function which takes a positive integer and returns the number of special steps needed to obtain a palindrome. The special step is: "reverse the digits, and add to the original number". If the resulting number is not a palindrome, repeat the procedure with the sum until the resulting number is a palindrome.
+
+If the input number is already a palindrome, the number of steps is 0.
+
+//We need to check if the number is a palindrome and if it is return 0. If is it not, we add the reverse version of the number 
+//to the original number until it becomes a palindrome and return the count of times it took to add those reverse of itself to become a palindrome.
+//We can make a function to check if a number is a palindrome and define a count which will be our result. 
+//While the input is not a palindrome, we want to reassign n to be n + the reverse of itself and simultaneously increment the count by 1 each iteration.
+//We also want to reassign reverseNum to be the new reverseNum on each iteration.
+//If the original number is a palindrome, nothing will be added to the result.
+
+
+
+
+
+var palindromeChainLength = function(n) {
+  
+  let result = 0; 
+  let reverseNum = n.toString().split('').reverse().join('');
+  
+  function isPalindrome(n){
+    
+  let strNum = n.toString();
+
+    return strNum === reverseNum;
+    
+  }
+  
+  while(!isPalindrome(n)){
+    n = n + parseInt(reverseNum, 10);
+    reverseNum = n.toString().split('').reverse().join(''); 
+    result += 1;
+  }
+  return result;
+ }
+
+//Palindrome: if the first element === last element && everything in between is equal: true else: false
+//input integer -> output number of steps to become palindrome
+//Check if number is palindrome 
+//if palindrome, return 0
+//steps: loop reverse digits, add to n until palindrome.
+//count for the number of steps
