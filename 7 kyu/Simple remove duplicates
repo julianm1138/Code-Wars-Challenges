@@ -1,0 +1,11 @@
+Remove the duplicates from a list of integers, keeping the last ( rightmost ) occurrence of each element.
+
+//Instead of removing the last (right-most) duplicate elements using indexOf, we can use lastIndexOf to remove the first (left-most) duplicate elements.  
+
+
+
+function solve(arr) {
+  
+  return arr.filter((element, index) => arr.lastIndexOf(element) === index)
+  
+}
