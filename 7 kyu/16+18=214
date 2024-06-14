@@ -1,0 +1,39 @@
+In simple terms, our method does not like the principle of carrying over numbers and just writes down every number it calculates :-)
+
+You may assume both integers are positive integers.
+
+//So given two numbers: let's say 16  + 18 we need to add the right most digit and repeat for the both of the numbers and return the concatenated version of the sum of each right-most digit. 
+//We can convert each input to a string to be able to loop through them.
+//We have to loop starting from the right-most digits and we can do that using the length of each of the inputs.
+//The max length is 2 for 16 and 18.
+//We start the loop from i = 1 because we want to go from the last element [length - 1] to the first element [length - i] || 0 to check for out of bounds numbers.
+//We set up our 2 digits with digit 1 being num1's last digit and digit 2 being num2's last digit.
+//On each iteration we get the sum of each least significant digit, which is digit 1 + digit 2
+//Finally we reassign the empty string result to each sum as a string, concatenated together.
+//Return the concateneated sums as a number. 
+
+
+
+
+
+
+function add(num1, num2) {
+  
+   num1 = num1.toString();
+   num2 = num2.toString();
+  
+   let result = '';
+   let maxLength = Math.max(num1.length, num2.length)
+  
+   for (let i = 1; i <= maxLength; i++){
+     
+     let digit1 = Number(num1[num1.length - i] || 0);
+     let digit2 = Number(num2[num2.length - i] || 0);
+     
+    
+     let sum = digit1 + digit2
+     result = sum.toString() + result;
+   }
+  return Number(result);
+}
+console.log(add(16, 18))
