@@ -1,4 +1,3 @@
-
 Count the number of occurrences of each character and return it as a (list of tuples) in order of appearance. For empty output return (an empty list).
 
 Consult the solution set-up for the exact data structure implementation depending on your language.
@@ -6,6 +5,38 @@ Consult the solution set-up for the exact data structure implementation dependin
 Example:
 
 orderedCount("abracadabra") == [['a', 5], ['b', 2], ['r', 2], ['c', 1], ['d', 1]]
+
+
+//We can use a set to create the first elements of each tuple and use a count of each character of the set to create the second elements of each tuple.
+//So we have to create a set, and count how many of each character there is in the set.
+//We store the result in an empty array.
+//Loop through each char in the set with a for... of loop and define the count in it.
+//Loop through the input string and if the current element is one of the set's characters, add + 1 to its count.
+//Push each set char, along with its count to the empty array.
+
+
+
+const orderedCount = function (text) {
+  let result = [];
+  let set = [...new Set(text)];
+  
+  for (let char of set) {
+    let count = 0;
+  
+    for (let i = 0; i < text.length; i++) {
+      if (text[i] === char) {
+        count++;
+      }
+    }
+    
+    result.push([char, count]);
+  }
+  
+  return result;
+}
+
+console.log(orderedCount("abracadabra"));  // Output: [['a', 5], ['b', 2], ['r', 2], ['c', 1], ['d', 1]]
+
 
 
 
