@@ -1,0 +1,25 @@
+An infinite number of shelves are arranged one above the other in a staggered fashion.
+The cat can jump either one or three shelves at a time: from shelf i to shelf i+1 or i+3 (the cat cannot climb on the shelf directly above its head).
+Find the minimum number of jumps to go from start to finish
+
+
+
+//We can only go i + 3 or i + 1, so as long as we are between start and finish/less than the finish, we add 3 to i else add 1 to i, and every time either of those happen, we increase the count by 1.
+
+
+
+
+function solution(start, finish){ 
+  
+  let result = 0;
+  
+  for(let i = start; i < finish;){
+    if(i + 3 <= finish){
+      i += 3; 
+    } else {
+      i += 1;
+    }
+    result += 1;
+  }
+  return result;
+}
