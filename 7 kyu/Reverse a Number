@@ -1,0 +1,31 @@
+Given a number, write a function to output its reverse digits. (e.g. given 123 the answer is 321)
+
+Numbers should preserve their sign; i.e. a negative number should still be negative when reversed.
+
+//We run into the issue where if the number is negative and convert it into a string it carries the negative sign with it which outputs NaN when you join the reversed string back together.
+//We can solve that by making the number positive/remove the negative sign when the number is less than 0 and then make it negative again after it gets reversed. 
+
+
+
+//My first solution:
+
+function reverseNumber(n) {
+  
+  if(n < 0){
+    return (n * -1).toString().split('').reverse().join('') * -1;
+    } else {
+    return Number(n.toString().split('').reverse().join(''));
+}
+  }
+console.log(reverseNumber(-21))
+
+
+//More readable solution:
+
+
+function reverseNumber(n) {
+  const reversedStr = Math.abs(n).toString().split('').reverse().join('');
+  const reversedNumber = Number(reversedStr);
+  
+  return n < 0 ? -reversedNumber : reversedNumber;
+}
