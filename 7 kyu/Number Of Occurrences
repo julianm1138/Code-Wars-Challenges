@@ -1,3 +1,23 @@
 Write a function that returns the number of occurrences of an element in an array.
 
 This function will be defined as a property of Array with the help of the method Object.defineProperty, which allows to define a new method directly on the object (more info about that you can find on MDN).
+
+//To get the number of occurences of each element in an array, we can use forEach to check if each item in the array is equal to the element being checked in the value: function.
+//If so, incremenet its count by 1 and return its count.
+
+
+
+
+Object.defineProperty(Array.prototype, 'numberOfOccurrences',{ 
+  value : function numberOfOccurrences(element) {
+    
+    let count = 0;
+    
+    this.forEach(item => {
+      if (item === element){
+        count++;
+      }
+    })
+    return count;
+  }
+});
