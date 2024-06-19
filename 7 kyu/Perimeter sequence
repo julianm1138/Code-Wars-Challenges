@@ -1,3 +1,22 @@
 The blocksize is a by a and a ≥ 1.
 
 What is the perimeter of the nth shape in the sequence (n ≥ 1) ?
+
+
+//The pattern is that when n === 1 the perimeter is 4 and the perimeter increaes by 4 every time n increases by 1.
+//Given this, we can set up a loop that starts at the first shape (when n === 1) and add 4 to the perimeter on each iteration up to n. 
+//We multiply the total perimeter of n by a to account for blocksize.
+
+
+
+function perimeterSequence(a, n) {
+  
+    let perimeter = 0; 
+
+    for (let i = 1; i <= n; i++) {
+        perimeter += 4;     
+    }
+
+    return perimeter * a; 
+}
+console.log(perimeterSequence(3, 3))
