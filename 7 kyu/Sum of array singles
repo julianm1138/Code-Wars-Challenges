@@ -1,0 +1,21 @@
+For example, repeats([4,5,7,5,4,8]) = 15 because only the numbers 7 and 8 occur once, and their sum is 15. Every other number occurs twice.
+
+
+//I think the most straightforward way to solve this problem would be to create a new array that consists of elements of the original array that occur only once and then get the sum of those.
+//We can use filter to make the new array: if the index of the element is equal to the last index of that same element, then it is the only index. Therefore it is unique and should be added to the new array. 
+//Then we use reduce to get the sum. 
+
+
+
+
+
+
+function repeats(arr){
+  
+  const uniqueElements = arr.filter(element => arr.indexOf(element) === arr.lastIndexOf(element));
+  return uniqueElements.reduce((acc, currVal) => acc + currVal, 0);
+
+};
+console.log(repeats([4,5,7,5,4,8]))
+
+
