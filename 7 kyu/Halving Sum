@@ -1,0 +1,27 @@
+Given a positive integer n, calculate the following sum:
+
+n + n/2 + n/4 + n/8 + ...
+All elements of the sum are the results of integer division.
+
+
+//We can create a loop that cotinues as long as n >= 1 and divide each iteration by 2 and floor it.
+//Update the variable with each iteration and add the value of each iteration to the result with the assignment operator.
+
+
+
+
+
+
+
+function halvingSum(n) {
+    let result = 0;
+    let current = n;
+    
+    while (current >= 1) {
+        result += current;
+        current = Math.floor(current / 2);
+    }
+    
+    return result;
+}
+console.log(halvingSum(3))
