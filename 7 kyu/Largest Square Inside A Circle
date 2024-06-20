@@ -1,3 +1,17 @@
 Determine the area of the largest square that can fit inside a circle with radius r.
 
-//
+//We need to find the relationship between the given radius and the area of a square.
+//1 radius is equal to half a square side.
+//2 radii is equal to one full square side. Therefore, a square's side is 2r.
+//A square has four sides, there we can square 2r^2 to get 4r^2.
+//So the relationship between the circle radius and square area is 4r^2.
+
+//This expression gives us twice the expected value is each test so we can just divide it by 2. 
+
+
+function areaLargestSquare(r) {
+  
+  return (4*r**2)/2;
+  
+}
+console.log(areaLargestSquare(15))
