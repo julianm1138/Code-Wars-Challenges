@@ -1,0 +1,26 @@
+Given an array of integers, find the one that appears an odd number of times.
+
+There will always be only one integer that appears an odd number of times
+
+
+//All we have to do is keep a count of every element in the array and if the count is odd, return that element.
+//We can do this by creating an object to keep track of each element's count. 
+//To make the object we can loop through the array and assign each array element as the object's property (counts[element]) and assign each value to be the count.
+//We assign the value by using (counts[element] || 0) + 1   which says if the property is the array element or if the property is 0, add 1 to the property's value.
+//Lastly we can loop through our object's keys and if the value is odd, we return the property as a number.
+
+function findOdd(array) {
+
+  let counts = {};
+  
+  for(let element of array){
+    counts[element] = (counts[element] || 0) + 1; 
+  }
+
+  for(let key in counts){
+    if(counts[key] % 2 === 1){
+      return Number([key])
+    }
+  }
+}
+console.log(findOdd([1, 1, 2]))
