@@ -1,0 +1,19 @@
+It should remove all values from list a, which are present in list b keeping their order.
+
+arrayDiff([1,2],[1]) == [2]
+If a value is present in b, all of its occurrences must be removed from the other:
+
+arrayDiff([1,2,2,2,3],[2]) == [1,3]
+
+
+//We can iterate through the first array and keep all elements that are not included in the second array. 
+//We can use filter or a for loop;
+
+
+
+
+function arrayDiff(a, b) {
+  
+  return a.filter(element => !b.includes(element));
+  
+}
