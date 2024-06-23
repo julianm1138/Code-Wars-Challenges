@@ -1,0 +1,29 @@
+Given n, take the sum of the digits of n. If that value has more than one digit, continue reducing in this way until a single-digit number is produced. The input will be a non-negative integer.
+
+//We can use a while loop for digits less than 10 and turn each input into an array.
+//Then we define our sum and for loop for the array.
+//Then we add each element to the sum and assign n to be the sum.
+//If the sum is still >= 10 then the while loop will continue. 
+
+
+
+
+
+function digitalRoot(n) {
+  
+    while (n >= 10) {
+      
+        let numArr = n.toString().split('');
+  
+        let sum = 0;
+      
+        for (let i = 0; i < numArr.length; i++) {
+            sum += Number(numArr[i]);
+        }
+     
+        n = sum;
+    }
+   
+    return n;
+}
+console.log(digitalRoot(16))
