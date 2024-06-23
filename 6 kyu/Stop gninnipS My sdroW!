@@ -1,0 +1,28 @@
+Write a function that takes in a string of one or more words, and returns the same string, but with all words that have five or more letters reversed (Just like the name of this Kata).
+Strings passed in will consist of only letters and spaces.
+Spaces will be included only when more than one word is present.
+
+//In all cases, we need each string to be reversed if the length is >= 5.
+//We can make a condition to handle single word strings and one to handle multiple word strings.
+
+
+
+function spinWords(string){
+  
+  if(!string.includes(' ') && string.length >= 5){
+   return string.split('').reverse().join('');
+  }
+  
+  const strArr = string.split(' ');
+  
+  const result = strArr.map(element => {
+    if(element.length >= 5){
+      return element.split('').reverse().join('')
+    } else {
+      return element;
+    }
+  });
+  
+  return result.join(' ');
+}
+console.log(spinWords("Hey fellow warriors"))
