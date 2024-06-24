@@ -1,0 +1,22 @@
+Write a function that takes an integer as input, and returns the number of bits that are equal to one in the binary representation of that number. You can guarantee that input is non-negative.
+
+//So we need to convert the base 10 integer to binary and return the count of 1's. 
+//We can convert to binary using toString(2) and get the count using a for loop and check each character for '1'.
+
+
+
+var countBits = function(n) {
+  
+  let count = 0;
+  
+  n = n.toString(2);
+  
+  for(let i = 0; i < n.length; i++){
+    if(n[i].includes('1')){
+      count += 1;
+    }
+  }
+  return count;
+  
+};
+console.log(countBits(4))
