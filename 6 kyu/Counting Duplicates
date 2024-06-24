@@ -1,0 +1,29 @@
+Count the number of Duplicates
+Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+
+Example
+"abcde" -> 0 # no characters repeats more than once
+"aabbcde" -> 2 # 'a' and 'b'
+
+//We have to return the count of every character that has duplicates 
+//JS interprets upper and lower case as two different characters so we will normalize input using toLowerCase().
+//Next we split the input into an array to use filter on it.
+//We want to keep duplicates only because we want to get the count of every character that has duplicates. 
+//Then we use new Set() on the array of duplicates to get the accurate count of every character that has duplicates. 
+
+
+
+
+
+
+
+function duplicateCount(text){
+  
+  text = text.toLowerCase().split('');
+  
+  const duplicateArray = text.filter((element, index) => text.indexOf(element) !== text.lastIndexOf(element));
+  
+  return [...new Set(duplicateArray)].length;
+}
+
+console.log(duplicateCount("aA11"))
