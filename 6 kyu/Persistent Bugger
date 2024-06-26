@@ -1,0 +1,27 @@
+Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
+
+39 --> 3 (because 3*9 = 27, 2*7 = 14, 1*4 = 4 and 4 has only one digit, there are 3 multiplications)
+
+//So we need to return the count of the times you have to multiply each product before it gets to >= 10 (single digit).
+//We can solve this by using a while loop for >= 10 (as long as the num/input is more than a single digit) to create an array that continues to get the product of each updated number.
+//First we create the array of the num split into individual digits.
+//Then we iterate that array and update num to be the new product on each while loop iteration, and on every iteration increase count by 1.
+//The loop should exit when num is less than 10/a single digit. 
+
+
+function persistence(num) {
+   
+  let result = 0;
+ 
+  while(num >= 10){
+    const arr = num.toString().split('').map(element => Number(element));
+    
+    let product = 1;
+    
+    for(let i = 0; i < arr.length; i++){
+      num = product *= arr[i];
+    }
+     result += 1;
+  }
+  return result;
+}
