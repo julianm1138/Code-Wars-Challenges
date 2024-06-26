@@ -1,0 +1,29 @@
+In this kata you are required to, given a string, replace every letter with its position in the alphabet.
+
+If anything in the text isn't a letter, ignore it and don't return it.
+
+"a" = 1, "b" = 2, etc.
+
+//To solve this problem we can index the charCode value by subtracting 96 from the character code, because the lowercase alphabet starts at 97 in ASCII.
+//Then we set the input to all lowercase to only use the lowercase alphabet in ASCII.
+//Looping through the string, if the current character of the string is a letter we want to create an array of the indexed values. This is to avoid pushing any values that are not letters to the array. 
+
+
+
+
+
+function alphabetPosition(text) {
+  
+  text = text.toLowerCase();
+  
+  const letter = "abcdefghijklmnopqrstuvwxyz";
+  let resultArr = [];
+  
+  for(let i = 0; i < text.length; i++){
+  if (letter.includes(text[i])){
+     resultArr.push(text[i].charCodeAt() - 96);
+    }
+  }
+ return resultArr.join(" ");
+}
+console.log(alphabetPosition("The sunset sets at twelve"))
