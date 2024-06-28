@@ -1,0 +1,35 @@
+Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized 
+(known as Upper Camel Case, also often referred to as Pascal case). The next words should be always capitalized.
+
+Examples
+"the-stealth-warrior" gets converted to "theStealthWarrior"
+
+"The_Stealth_Warrior" gets converted to "TheStealthWarrior"
+
+"The_Stealth-Warrior" gets converted to "TheStealthWarrior"
+
+
+//There is the possibility that we see a string with both dashes and underscores, so it would be a good idea to change all delimiters to one type.
+//We can do this using a regex and we will replace all underscores with a dash.
+//Then we split each string based on the dash to split each word into an array based on the dash delimiters. 
+//Then we create a new array where the first element is as is because the first word should be capitalized only if the original was capitalized.
+//The second condition is to uppercase the first letter of each word and replace the first element of each array element with that uppercase letter.
+
+
+
+function toCamelCase(str){
+  
+  str = str.replace(/_/g, '-');
+  
+  let arr = str.split('-');
+  
+ const resultArr = arr.map((element, index) => {
+    if(index === 0){
+    return element;
+    } else {
+     return element[0].toUpperCase() + element.slice(1);
+    }
+  })
+ 
+ return resultArr.join('');
+}
