@@ -1,0 +1,28 @@
+Your code must return true or false (not 'true' and 'false') depending upon whether the given number is a Narcissistic number in base 10.
+
+
+A Narcissistic Number (or Armstrong Number) is a positive number which is the sum of its own digits, each raised to the power of the number of digits in a given base. 
+In this Kata, we will restrict ourselves to decimal (base 10).
+
+//We can solve this by getting the (length of the number) power of each individual digit, and then summing those values.
+//Split the value into an array of strings.
+//Create an array of the values.length power of each number.
+//Sum those values.
+//Implicit return. We have to join the value back into a string because we assigned the value to be an array initially.
+
+
+
+
+
+
+function narcissistic(value) {
+  
+  value = value.toString().split('');
+
+  const powerArr = value.map(element => element**(value.length));
+  
+  const sum = powerArr.reduce((acc, currVal) => acc + currVal, 0);
+  
+  return value.join('') === sum.toString();
+}
+console.log(narcissistic(153))
