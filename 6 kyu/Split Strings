@@ -1,0 +1,22 @@
+Complete the solution so that it splits the string into pairs of two characters. If the string contains an odd number of characters then it should replace the missing second character 
+of the final pair with an underscore ('_').
+
+//We can use slice to push pairs of the string into an array, and then run an odd string length check and reassign the last element to be concatenated with an underscore. 
+
+
+
+
+
+function solution(str){
+  
+  let arr = [];
+  
+    for (let i = 0; i < str.length; i += 2){
+    arr.push(str.slice(i, i + 2))
+  }
+    if(str.length % 2 === 1){
+        arr[arr.length - 1] = arr[arr.length - 1] + '_';
+    }
+  return arr;
+ }
+console.log(solution("abcdef"))
