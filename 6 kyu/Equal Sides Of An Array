@@ -1,0 +1,23 @@
+You are going to be given an array of integers. Your job is to take that array and find an index N where the sum of the integers to the left of N is equal to the sum of the integers to the right of N.
+
+
+//So given the sums of left and right sides of the array, we need to return the index of the element where the sum left is equal to the sum right. 
+//We can solve this by knowing that if the difference of the sum right and the current element is equal to the sum left, then that current element is the element where the left sum is equal to the right sum. 
+//All we ened to do is get the total sum, loop through the array, update the left and right sum on iteration and set the condition to return the index.
+//Left and right get updated on each iteration until it meets the condition.
+
+
+
+function findEvenIndex(arr) {
+    let sumLeft = 0;
+    let sumRight = arr.reduce((acc, val) => acc + val, 0);
+
+    for (let i = 0; i < arr.length; i++) {
+        if (sumLeft === sumRight - arr[i]) {
+            return i;
+        }
+        sumLeft += arr[i];
+        sumRight -= arr[i];
+    }
+    return -1;
+}
