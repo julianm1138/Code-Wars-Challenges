@@ -1,0 +1,26 @@
+Define a function that takes an integer argument and returns a logical value true or false depending on if the integer is a prime.
+
+Per Wikipedia, a prime number ( or a prime ) is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+
+//All primes numbers are greater than 1, and have no divisors between 1 and itself.
+//so we can solve this by going from the starting point (2) to the square root of the input to create an efficient range.
+//We are looking for numbers that are divisible so we can return false which only leaves true for prime numbers. 
+
+
+
+
+
+
+function isPrime(num) {
+
+  if(num < 2){
+    return false;
+  }
+  
+ for (let i = 2; i <= Math.sqrt(num); i++) {
+   if (num % i === 0){
+     return false;
+   }
+ }
+  return true;
+}
