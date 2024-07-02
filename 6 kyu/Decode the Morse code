@@ -1,0 +1,28 @@
+Your task is to implement a function that would take the morse code as input and return a decoded human-readable string.
+
+//MORSE_CODE[] dictionary comes built in to JS so we can access each key by iterating the string and looking up each character in the dictionary.
+//We just need to split it by spaces because the dictionary needs to look up each individual character and sometimes charcaters may be grouped together.
+//The other issue is that sometimes there will be empty strings because there may be more than one space between charcaters.
+//To fix this we can add a space instead of empty string where there are empty strings and use a regex and trim to remove all spaces and whitespace characters.
+
+
+
+decodeMorse = function(morseCode){
+  
+  let result = '';
+  
+  const chars = morseCode.split(' ');
+  
+  for(let i = 0; i < chars.length; i++){
+    
+    if(chars[i] === ''){
+      result += ' ';
+    } else {
+      result += MORSE_CODE[chars[i]];
+    }
+  }
+  result = result.replace(/ +/g, ' ').trim();
+  
+   return result
+}
+console.log(decodeMorse('.... . -.--   .--- ..- -.. .'))
