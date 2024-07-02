@@ -1,0 +1,22 @@
+Complete the solution so that the function will break up camel casing, using a space between words.
+
+//We can solve this by creating a new string, looping through the original string and checking if the current element is uppercase, and if it is, add a space to the new string, otherwise add the rest of the string. 
+//The loop should run element by element so adding the space should not replace the uppercase characters. 
+
+
+
+function solution(string) {
+  
+  let result = "";
+  
+  for(let i = 0; i < string.length;i++){
+    if(string[i] === string[i].toUpperCase()){
+      result += " ";
+    }
+    result += string[i];
+    
+  }
+  return result;
+}
+
+console.log(solution("camelCasing"))
