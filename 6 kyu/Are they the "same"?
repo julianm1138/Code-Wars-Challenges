@@ -3,9 +3,10 @@ Given two arrays a and b write a function comp(a, b) (or compSame(a, b)) that ch
 "Same" means, here, that the elements in b are the elements in a squared, regardless of the order.
 
 //We can solve this by taking the square root of every element in the second array and check if every element is equal in each array.
-//First sort the arrays and square root each element of the second array.
-//Then we can use every() to check if the current element is equal to each element in the second array.
-//First we check for falsy values in the arrays.
+//First check for falsy values in the arrays.
+//Then sort the arrays and square root each element of the second array.
+//Then we can use every() to check if the current element is equal to each element and position in the second array.
+
 
 
 
