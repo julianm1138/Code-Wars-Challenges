@@ -1,0 +1,24 @@
+Given two arrays a and b write a function comp(a, b) (or compSame(a, b)) that checks whether the two arrays have the "same" elements, with the same multiplicities 
+(the multiplicity of a member is the number of times it appears). 
+"Same" means, here, that the elements in b are the elements in a squared, regardless of the order.
+
+//We can solve this by taking the square root of every element in the second array and check if every element is equal in each array.
+//First sort the arrays and square root each element of the second array.
+//Then we can use every() to check if the current element is equal to each element in the second array.
+//First we check for falsy values in the arrays.
+
+
+
+function comp(array1, array2){
+  
+  if(!array1 || !array2){
+    return false;
+  }
+  
+  array1 = array1.sort((a, b) => a - b);
+  array2 = array2.sort((a, b) => a - b).map(Math.sqrt);
+  
+  return array1.every((value, index) => value === array2[index]);
+
+}
+console.log(comp([121, 144, 19, 161, 19, 144, 19, 11], [121, 14641, 20736, 361, 25921, 361, 20736, 361]))
