@@ -1,0 +1,24 @@
+You will be given an array of numbers. You have to sort the odd numbers in ascending order while leaving the even numbers at their original positions.
+
+//We can solve this by removing the odd numbers from the original array, sorting them, and then inserting them back into the original array.
+//To do this we can make a new array of odd elements and sort it. Then we can loop through the original array and replace each odd element with the element from the array of odd elements.
+//We need to define our own index for the odd array and increment on each iteration to stay within bounds.
+
+
+function sortArray(array) {
+  
+ let result = [];
+ let oddArr = array.filter(element => element % 2 !== 0).sort((a, b) => a - b);
+ let oddIndex = 0;
+  
+ for(let i = 0; i < array.length; i++){
+   if(array[i] % 2 !== 0){
+     result.push(oddArr[oddIndex]);
+     oddIndex ++;
+    } else {
+      result.push(array[i]);
+    }
+}
+  return result;
+  }
+console.log(sortArray([5, 3, 2, 8, 1, 4]))
