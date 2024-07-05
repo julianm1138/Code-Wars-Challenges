@@ -1,0 +1,28 @@
+Write a method that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the array.
+
+You will always get an valid array. And it will be always exactly one letter be missing. The length of the array will always be at least 2.
+The array will always contain letters in only one case.
+
+
+//We can solve this by creating a string of lowercase and uppercase alphabets and defining a start index that is the first element of the input array within the letters string.
+//From there we can loop through the array and check if the current letter is not equal to the next letter in the letters string.
+
+
+
+
+
+function findMissingLetter(array){
+  
+  const letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  
+  const startIndex = letters.indexOf(array[0]);
+  
+  
+  for (let i = 0; i < array.length; i++){
+    if(array[i] !== letters[startIndex + i]){
+      return letters[startIndex + i];
+    }
+  }
+  
+  
+}
