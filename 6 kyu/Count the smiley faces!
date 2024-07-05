@@ -1,0 +1,23 @@
+Given an array (arr) as an argument complete the function countSmileys that should return the total number of smiling faces.
+
+//We can make an array of every possible smiley face that can be formed and loop through the array to check if each element matches one of our smileyFaces array elements.
+
+
+
+function countSmileys(arr) {
+  
+  
+ const smileyFaces = [
+    ":)", ":D", ";)", ";D", ":~)", ":~D", ";~D", ":-)", ":-D", ";-)", ";-D", ";~)"
+  ];
+  
+  let result = 0;
+ 
+  for (const face of arr){
+    if(smileyFaces.includes(face)){
+      result += 1;
+    }
+  }
+ return result;
+}
+
