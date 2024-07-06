@@ -1,0 +1,18 @@
+The main idea is to count all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
+
+What if the string is empty? Then the result should be empty object literal, {}.
+
+//To keep track of the count of every character in the string we can loop through the string and explicitly create an object by assigning each key to be the count of each character.
+//Since our loop is looping through each character in the string and the object is empty, obj[char] will be undefined, so we assign it to be 0 with use of || and adds 1 to the key.
+//When the loop hits the same character it will add 1 to the key and should create an object of character counts. 
+
+
+function count(string) {
+  
+  const obj = {};
+  
+  for (const char of string){
+    obj[char] = (obj[char] || 0) + 1
+  }
+  return obj;
+}
