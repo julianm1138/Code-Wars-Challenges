@@ -1,0 +1,22 @@
+Examples:
+findNb(1071225) --> 45
+
+findNb(91716553919377) --> -1
+
+//We need to find how many cubes are needed in a sequence of n ** 3 + (n - 1) ** 3 + 1 ** 3 to equal m, else return -1. 
+//We can solve this by starting n at 0 and keeping track of the sum of n cubed. 
+//When the sum reaches m we can return the number where it does, else return -1.
+
+
+
+
+
+function findNb(m) {
+  let n = 0;
+  let sum = 0;
+  while (sum < m) {
+    n++;
+    sum += Math.pow(n, 3);
+  }
+  return sum === m ? n : -1;
+}
