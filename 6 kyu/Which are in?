@@ -1,0 +1,44 @@
+Given two arrays of strings a1 and a2 return a sorted array r in lexicographical order of the strings of a1 which are substrings of strings of a2.
+
+//We can solve this by checking if the element in a1 is included in any a2 elements. 
+//But we have to make sure the result array doesn't already have an a1 element in it to avoid duplciates. 
+
+
+
+function inArray(array1, array2) {
+  let result = [];
+  
+  for (let i = 0; i < array1.length; i++) {
+    for (let j = 0; j < array2.length; j++) {
+      if (array2[j].includes(array1[i])) {
+        if (!result.includes(array1[i])) {
+          result.push(array1[i]);
+        }
+      }
+    }
+  }
+
+  return result.sort();
+}
+ 
+
+
+
+//We can also use a set to get rid of duplicates while they are added to the set.
+
+
+
+function inArray(array1,array2){
+  
+  let result = new Set();
+  
+  for(let i = 0; i < array1.length; i++) {
+    for(let j = 0; j < array2.length; j++) {
+       if(array2[j].includes(array1[i])){
+         result.add(array1[i]);
+         break;
+       }
+        }     
+    }
+     return Array.from(result).sort();
+  }
