@@ -1,0 +1,36 @@
+A child is playing with a ball on the nth floor of a tall building. The height of this floor above ground level, h, is known.
+
+He drops the ball out of the window. The ball bounces (for example), to two-thirds of its height (a bounce of 0.66).
+
+His mother looks out of a window 1.5 meters from the ground.
+
+How many times will the mother see the ball pass in front of her window (including when it's falling and bouncing)?
+
+//While the height is greater than the height the window is located we can increment the pass by 1 and run the loop based on the factor of the bounce.
+//We create an if statement to count the subsequent passes. 
+
+
+
+
+function bouncingBall(h, bounce, window) {
+  
+  if (h <= 0 || bounce <= 0 || bounce >= 1 || window >= h) {
+    return -1;
+  }
+  
+  let passes = 0;
+
+  while (h > window) {
+    passes += 1; 
+    h *= bounce;
+    if (h > window) {
+      passes += 1; 
+    }
+  }
+
+  return passes;
+}
+
+console.log(bouncingBall(3.0, 0.66, 1.5)); 
+
+
