@@ -1,0 +1,39 @@
+Write a function that takes a string of braces, and determines if the order of the braces is valid. It should return true if the string is valid, and false if it's invalid.
+
+A string of braces is considered valid if all braces are matched with the correct brace.
+
+//We can solve this problem using a stack and an object. We can define each valid pair of braces to be a key-value pair.
+//Then we can loop through the string and check one by one if the character is a key. If so, add it to the stack.
+//Otherwise we will remove the current element from the stack and save it in a variable.
+//Then we use that variable for object look up and check if it has a value inside the object. If that value is not equal to the current character, return false.
+//So if the stack has any elements in it that means the braces inputted are invalid because otherwise the stack would be empty because it would just get filled up with left braces/characters with no matches in the object.
+
+
+
+function validBraces(string){
+  
+  let stack = [];
+  
+  const braces = {
+    "(": ")",
+    "{": "}",
+    "[": "]"
+  };
+  
+  for (const brace of string) {
+    if (brace in braces) {
+       stack.push(brace);
+      console.log(stack)
+    } else {
+      const lastOpened = stack.pop();
+      console.log(lastOpened)
+      
+      if (braces[lastOpened] !== brace) {
+        return false;
+      }
+    }
+  }
+  return stack.length === 0;
+}
+
+console.log(validBraces("()"));
