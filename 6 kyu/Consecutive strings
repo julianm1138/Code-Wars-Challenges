@@ -1,0 +1,31 @@
+You are given an array(list) strarr of strings and an integer k. Your task is to return the first longest string consisting of k consecutive strings taken in the array.
+
+
+//To get the first lognest string consisting of k consecutive strings from the array we can loop from 0 to array.length - k to stay within bounds.
+//Then we can create our concatenated strings up to k using slice and join. k acts as elements of the array.
+//Finally, we can use a conditional to check if the current string length is the greatest out of all the strings we create. 
+//If so, we assign the longest string to be the one with the longest length.
+
+
+
+
+function longestConsec(strarr, k) {
+  
+  if (k <= 0) {
+    return '';
+  }
+  
+  let longestStr = '';
+  
+  let maxLength = 0;
+  
+  for (let i = 0; i <= strarr.length - k; i++) {
+    let currentStr = strarr.slice(i, i + k).join('');
+  
+    if (currentStr.length > maxLength) {
+      maxLength = currentStr.length;
+      longestStr = currentStr;
+    }
+  }
+  return longestStr;
+}
