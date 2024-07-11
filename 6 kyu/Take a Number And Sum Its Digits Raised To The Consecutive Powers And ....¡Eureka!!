@@ -1,0 +1,31 @@
+//We need to create a function that takes an input range between a and b and returns an array of each number is equal to the sum of consecutive powers of each digit in the number.
+//To do this we can use a loop for the range a to b, and another loop for the powers of each number. 
+//If the sum is equal to the current number we add it to the result array. 
+
+
+
+
+function sumDigPow(a, b) {
+  
+  let result = [];
+  
+  for (let i = a; i < b; i++) {
+    
+  let sum = 0;
+  let digits = i.toString().split('');
+    
+  for (let j = 0; j < digits.length; j++) {
+  sum += digits[j] ** (j + 1);
+     
+  }
+       if (sum === i) {
+       result.push(i)
+     }
+  }
+ return result;
+}
+
+
+
+
+
