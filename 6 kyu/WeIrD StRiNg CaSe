@@ -1,0 +1,36 @@
+Write a function that accepts a string, and returns the same string with all even indexed characters in each word upper cased, and all odd indexed characters in each word lower cased. The indexing just explained is zero based, so the zero-ith index is even, therefore that character should be upper cased and you need to start over for each word.
+
+//We need to consider multiple words with spaces because the spaces count as indices.
+//To exclude spaces during the check for even or odd indices we can split the string into an array delimited by spaces.
+//Now we can use map to iterate each word and a for loop for iterate each character in each word.
+//Use conditional logic to create each new word.
+//return and join the modified words.
+
+
+
+
+
+
+
+
+
+function toWeirdCase(string){
+  
+  
+  const arr = string.split(' ');
+  
+  return arr.map(element => {
+    let word = '';
+    
+    for (let i = 0; i < element.length; i++) {
+     if (i % 2 === 0) {
+        word += element[i].toUpperCase();
+      } else {
+        word += element[i].toLowerCase();
+      }
+    }
+    return word
+  }).join(' ');
+  
+}
+console.log(toWeirdCase('This'))
