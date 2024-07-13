@@ -1,0 +1,22 @@
+Write a method (or function, depending on the language) that converts a string to camelCase, that is, all words must have their first letter capitalized and spaces must be removed.
+
+Examples (input --> output):
+"hello case" --> "HelloCase"
+"camel case word" --> "CamelCaseWord"
+
+
+//We can split into an array and check if element is truthy
+//If so return the first element of each element to upper case and concatenate it with the rest of the element to lower case.
+
+
+
+String.prototype.camelCase=function(){
+  
+  const arr = this.split(' ');
+  
+  return arr.map((element, index) => {
+    if (element) {
+      return element[0].toUpperCase() + element.substr(1).toLowerCase();
+    }
+  }).join('');
+}
