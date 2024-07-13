@@ -1,0 +1,58 @@
+Write an algorithm that will identify valid IPv4 addresses in dot-decimal format. IPs should be considered valid if they consist of four octets, with values between 0 and 255, inclusive.
+
+Valid inputs examples:
+Examples of valid inputs:
+1.2.3.4
+123.45.67.89
+Invalid input examples:
+1.2.3
+1.2.3.4.5
+123.456.78.90
+123.045.067.089
+Notes:
+Leading zeros (e.g. 01.02.03.04) are considered invalid
+Inputs are guaranteed to be a single string
+
+
+//We can split the input by '.' for delimiters and run multiple checks.
+//We need at least four groups of numbers so any array less than 4 is false.
+//We can use regex to check if each element includes a digit 0-10, check if the first element is '0' for cases such as '01.02.03.04'.
+//Finally, we can convert each element into a number and make sure it falls within the 0 to 255 range.
+//Return true if it passes these tests. 
+
+
+
+
+
+
+
+
+
+
+function isValidIP(str) {
+
+  const arr = str.split('.');
+
+  if (arr.length !== 4) {
+    return false;
+  }
+  
+  for (let element of arr) {
+    
+    if (!/^\d+$/.test(element)) {
+      return false;
+    }
+   
+    if (element.length > 1 && element[0] === '0') {
+      return false;
+    }
+
+    const num = Number(element);
+    if (num < 0 || num > 255) {
+      return false;
+    }
+  }
+
+  return true;
+}
+console.log(isValidIP("0.0.0.0"))
