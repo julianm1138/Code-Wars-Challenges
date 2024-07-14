@@ -1,0 +1,34 @@
+Write a function that will convert a string into title case, given an optional list of exceptions (minor words). The list of minor words will be given as a string with each word separated by a space. Your function should ignore the case of the minor words string -- it should behave in the same way even if the case of the minor word string is changed.
+
+
+//The question is: how can we make sure that every word is upper cased unless they are exceptions?
+//If it is the first word or if it is not included in the minorWords argument, it should be upper cased. 
+//Convert the strings into arrays, check undefined for second arguments, and iterate through the arrays.
+//If it is the first word or is not included in the minorWords array, we upper case that word, otherwise we add the word as it is. 
+//This should uppercase the first word and every word that isn't an exception/minor word. 
+
+
+function titleCase(title, minorWords) {
+  if (title === '') {
+    return '';
+  }
+  
+  const titleArr = title.toLowerCase().split(' ');
+
+  const minorArr = minorWords ? minorWords.toLowerCase().split(' ') : [];
+
+  let result = [];
+
+  for (let i = 0; i < titleArr.length; i++) {
+     titleArr[i];
+    if (i === 0 || !minorArr.includes(titleArr[i])) {
+    
+      titleArr[i] = titleArr[i].charAt(0).toUpperCase() + titleArr[i].slice(1);
+    }
+    result.push(titleArr[i]);
+  }
+  
+  return result.join(' ');
+}
+
+console.log(titleCase('a clash of KINGS', 'a an the of'));  
