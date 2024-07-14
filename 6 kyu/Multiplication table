@@ -1,0 +1,36 @@
+Your task, is to create N×N multiplication table, of size provided in parameter.
+
+For example, when given size is 3:
+
+1 2 3
+2 4 6
+3 6 9
+For the given example, the return value should be:
+
+[[1,2,3],[2,4,6],[3,6,9]]
+
+//To solve this, given the example, we need to realize that if we iterate from i = 1 to size, we'll get 1, 2, 3.
+//If we multiply each i by the size (i * size) we get the multiples of 3. But we need every multiple of i to size, not just every multiple of size. 
+//So we can use an outer loop to go from i to size to create our groups of (n/size).
+//Then use an inner loop to get the multiples of each size from i to size (i * j) and create a group with each.
+//first i * j  1 * 1, 2 * 1, 3 * 1   //second i * j  2 * 1, 2 * 2, 2 * 3   third i * j  3 * 1, 3 * 2, 3 * 3 and pushes each group to the result
+
+
+
+
+multiplicationTable = function(size) {
+  
+  let result = [];
+  
+  for (let i = 1; i <= size; i++) { 
+    let group = [];
+  
+    for (let j = 1; j <= size; j++) {
+      group.push(i * j);   
+  }
+    result.push(group);
+}
+    return result;
+  }
+console.log(multiplicationTable(3))
+
