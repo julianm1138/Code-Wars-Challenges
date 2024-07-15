@@ -1,0 +1,33 @@
+Task
+You need to return a string that looks like a diamond shape when printed on the screen, using asterisk (*) characters. Trailing spaces should be removed, and every line must be terminated with a newline character (\n).
+
+//We can solve this by realizing the pattern that the middle row of asterisks is equal to n and the rows on the top and bottom of n decrement by 2.
+//We can then construct the result string by looping up to n and creating the spaces and stars so that the stars decrement by 2 from n and the spaces are at their max value for the first iteration.
+//The bottom half of the diamond is a mirror of the top, and we don't need to worry about the middle row, so we just need to repeat stars i times.
+
+
+
+
+function diamond(n){
+  
+  if (n % 2 === 0 || n < 0) {
+    return null;
+  }
+  
+  let result = '';
+  
+  for (let i = 0; i < n; i += 2) {
+    let spaces = ' '.repeat((n - i) / 2);
+    let stars = '*'.repeat(i + 1);
+    result += spaces + stars + '\n';
+  }
+  
+   for (let i = n - 2; i > 0; i -= 2) {
+    let spaces = ' '.repeat((n - i) / 2);
+    let stars = '*'.repeat(i);
+    result += spaces + stars + '\n';
+  }
+  return result;
+  
+}
+console.log(diamond(5))
