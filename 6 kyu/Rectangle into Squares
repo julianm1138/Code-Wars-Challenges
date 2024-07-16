@@ -1,0 +1,37 @@
+The drawing below gives an idea of how to cut a given "true" rectangle into squares ("true" rectangle meaning that the two dimensions are different).
+
+Can you translate this drawing into an algorithm?
+
+You will be given two dimensions
+
+a positive integer length
+a positive integer width
+You will return a collection or a string (depending on the language; Shell bash, PowerShell, Pascal and Fortran return a string) with the size of each of the squares.
+
+
+//We need to get the size of each of the squares inside the given rectangle. 
+//To do this we can create a loop that goes for as long as at least one dimension is greater than 0 and push the difference of each of the smallest sides to an empty array.
+//The condition should update our squares until one dimension is 0.
+
+
+function sqInRect(lng, wdth){
+  
+  if (lng === wdth) {
+    return null;
+  }
+  
+  let result = [];
+  
+  while (lng > 0 && wdth > 0) {
+    let smallerSide = Math.min(lng, wdth);
+    result.push(smallerSide);
+    if (lng > wdth) {
+      lng -= smallerSide;
+    } else {
+      wdth -= smallerSide;
+    }
+  }
+  
+  return result;
+}
+
