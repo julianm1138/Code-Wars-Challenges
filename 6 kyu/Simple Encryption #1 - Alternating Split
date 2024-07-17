@@ -1,0 +1,61 @@
+Implement a pseudo-encryption algorithm which given a string S and an integer N concatenates all the odd-indexed characters of S with all the even-indexed characters of S, this process should be repeated N times.
+
+Together with the encryption function, you should also implement a decryption function which reverses the process.
+
+If the string S is an empty value or the integer N is not positive, return the first argument without changes.
+
+
+//So we have to solve two problems here: encryption of odd index characters concatenated with even index characters and decryption of the same encryption.
+//For encrypting the string we can use a while loop for n, then get an odd and even set of characters.
+//The for loop will create the encrypted strings and then we concatenate them.
+
+//For decrypting the string we can also use a while loop and decrement n.
+//Create a new array of input.length and define j to be the iterator.
+//We have two for loops: one for odd indexes and one for even to loop through the respective indices for the input. 
+//Each array index is assigned a character based on the array's index.
+
+
+
+
+function encrypt(text, n) {
+
+  let currentStr = text;
+  
+  while(n > 0) {
+    
+  let odd = '';
+  let even = '';
+  
+     for (let i = 0; i < text.length; i++) {
+    if (i % 2 === 1) {
+      odd += currentStr[i];
+    } else {
+      even += currentStr[i];
+    }
+  }
+     currentStr = odd + even;
+          n--;
+}
+  return currentStr;
+  
+}
+
+function decrypt(encryptedText, n) {
+  if (!encryptedText || n <= 0) return encryptedText;
+  const ans = new Array(encryptedText.length);
+
+  while (n--) {
+    let j = 0;
+    for (let i = 1; i < ans.length; i += 2) {
+      ans[i] = encryptedText[j++];
+    }
+    for (let i = 0; i < ans.length; i += 2) {
+      ans[i] = encryptedText[j++];
+    }
+    encryptedText = ans.join('');
+  }
+  return encryptedText;
+}
+
+
+console.log(decrypt(" Tah itse sits!", 3))
