@@ -1,0 +1,56 @@
+Input:
+The function will be given two parameters. Each parameter will be a string of multiple integers separated by a single space. Each string will contain the count of each race on the side of good and evil.
+
+The first parameter will contain the count of each race on the side of good in the following order:
+
+Hobbits, Men, Elves, Dwarves, Eagles, Wizards.
+The second parameter will contain the count of each race on the side of evil in the following order:
+
+Orcs, Men, Wargs, Goblins, Uruk Hai, Trolls, Wizards.
+All values are non-negative integers. The resulting sum of the worth for each side will not exceed the limit of a 32-bit integer.
+
+Output:
+Return "Battle Result: Good triumphs over Evil" if good wins, "Battle Result: Evil eradicates all trace of Good" if evil wins, or "Battle Result: No victor on this battle field" if it ends in a tie.
+
+
+
+//Given a string separated by spaces, we need to get the count of each of their worths. We can do this with muliplication.
+//Define the goodworth and evilworth based on position.
+//Parse the input.
+//Initialize the sums.
+
+//Loop through each of the parsed inputs and add the count of the worth. Each element is relative to its position/index and should match up correctly.
+//Run a conditional block for the output.
+
+
+
+function goodVsEvil(good, evil){
+  
+    const goodWorth = [1, 2, 3, 3, 4, 10];
+    const evilWorth = [1, 2, 2, 2, 3, 5, 10];
+  
+    const goodCounts = good.split(' ').map(Number);
+    const evilCounts = evil.split(' ').map(Number);
+  
+    let goodSum = 0;
+    let evilSum = 0;
+  
+  for (let i = 0; i < goodCounts.length; i++) {
+    
+      goodSum += (goodCounts[i] * goodWorth[i]);
+    }
+  
+  for (let i = 0; i < evilCounts.length; i++) {
+  
+      evilSum += (evilCounts[i] * evilWorth[i]);
+    }
+  
+  if (goodSum > evilSum) {
+    return 'Battle Result: Good triumphs over Evil';
+  } else if (evilSum > goodSum) {
+      return 'Battle Result: Evil eradicates all trace of Good';
+  } else {
+    return 'Battle Result: No victor on this battle field';
+  }
+}
+console.log(goodVsEvil('1 1 1 1 1 1', '1 1 1 1 1 1 1'))
