@@ -1,0 +1,37 @@
+your task is to find all the books of L with codes belonging to each category of M and to sum their quantity according to each category.
+
+//Given an array of books with a category and quantity in stock, and an array of possible categories A - Z, we need to return the stock of each category in a string.
+//We can make an empty object to store our categories and counts.
+//Loop through each book and destructure the book.
+//We only need to check the first element (letter matching the category) against the object properties.
+//If it exists in the object, we add the count variable to it.
+
+//Last we loop through the categories and push each category and object value to an empty array and join it with a hyphen as specified by the challenge.
+
+
+
+
+function stockList(l, m){
+
+  let obj = {};
+  
+  m.forEach(category => {
+    obj[category] = 0;
+  });
+  
+  l.forEach(book => {
+    let [code, count] = book.split(' ');
+    let category = code[0];
+    if (obj.hasOwnProperty(category)) {
+      obj[category] += Number(count);
+    }
+  });
+      
+  let result = [];
+  m.forEach(category => {
+    result.push(`(${category} : ${obj[category]})`);
+  });
+
+  return result.join(' - ');
+}
+    
