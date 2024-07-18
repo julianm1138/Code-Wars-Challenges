@@ -1,0 +1,26 @@
+ls = [0, 1, 3, 6, 10]
+ls = [1, 3, 6, 10]
+ls = [3, 6, 10]
+ls = [6, 10]
+ls = [10]
+ls = []
+The corresponding sums are (put together in a list): [20, 20, 19, 16, 10, 0]
+
+The function parts_sums (or its variants in other languages) will take as parameter a list ls and return a list of the sums of its parts as defined above.
+
+
+//The array has its first element removed on each iteration, but instead of using unshift we can simply subtract the current element from the current sum and push each result to the array.
+
+
+
+function partsSums(ls) {
+  let result = [];
+  let sum = ls.reduce((a, b) => a + b, 0);
+  
+  for (let i = 0; i <= ls.length; i++) {
+    result.push(sum);
+    sum -= ls[i] || 0; 
+  }
+  
+  return result;
+}
