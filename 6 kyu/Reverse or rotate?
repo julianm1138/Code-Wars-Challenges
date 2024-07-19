@@ -1,0 +1,35 @@
+The input is a string str of digits. Cut the string into chunks (a chunk here is a substring of the initial string) of size sz (ignore the last chunk if its size is less than sz).
+
+If the sum of a chunk's digits is divisible by 2, reverse that chunk; otherwise rotate it to the left by one position. Put together these modified chunks and return the result as a string.
+
+//We can solve this by creating an array of substrings of size sz, passing them through a conditional block, creating a new array of modified subtrings, and joining them together.
+//First handle invalid input. 
+//Our first loop creates a proper limit so we don't go past sz and increments by sz to create the correct substr size. Push each substr to chunks.
+//Our second loop iterates chunks, and our for... of loop computes the sum of each chunk.
+//Next we run each sum through our conditional block to know when to reverse the corresponding chunk or when to append the first character to the end of the chunk. Push each to result.
+//Join result.
+
+
+
+function revrot(str, sz) {
+  
+  if (sz <= 0 || str.length < sz) return ''; 
+  let chunks = [];
+  
+  for (let i = 0; i <= str.length - sz; i += sz) {
+    chunks.push(str.substr(i, sz));
+ }
+  let result = [];
+  for (let i = 0; i < chunks.length; i++) {
+     let sum = 0;
+    for (const digit of chunks[i]) {
+     sum += Number(digit);
+      }
+   if (sum % 2 === 0) {
+     result.push(chunks[i].split('').reverse().join(''));
+   } else {
+     result.push(chunks[i].slice(1) + chunks[i].charAt(0));
+ }
+    }
+ return result.join('');
+}
