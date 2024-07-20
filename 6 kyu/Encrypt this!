@@ -1,0 +1,36 @@
+Your message is a string containing space separated words.
+You need to encrypt each word in the message using the following rules:
+The first letter must be converted to its ASCII code.
+The second letter must be switched with the last letter
+Keepin' it simple: There are no special characters in the input.
+
+//We can solve this by using conditional checks for each word length to construct our strings.
+//The first possibility is the word length is 1 so we just need the charCode as a string.
+//The second possibility is word length is 2 so we take converted first letter and join it with the second letter.
+//The only other possibility is the word length is > 2 so we will construct a new string by concatenating the last letter + with the sliced word from 2 to -1 + the second letter.
+
+
+
+var encryptThis = function(text) {
+  
+  const strArr = text.split(' ');
+  
+  let arr = [];
+  
+  for (const word of strArr) {
+    
+      if (word.length === 1) {
+   arr.push(word[0].charCodeAt().toString());
+        
+  } else if (word.length === 2) {
+      arr.push(word[0].charCodeAt().toString() + word.charAt(1))
+  
+    } else {
+    const newSecondLetter = word.charAt(word.length - 1);
+    const newLastLetter = word.charAt(1);                                     
+     arr.push((word[0].charCodeAt() + ( newSecondLetter + word.slice(2, -1) + newLastLetter )));
+    } 
+}
+  return arr.join(' ');
+}
+console.log(encryptThis("A wise old owl lived in an oak"))
