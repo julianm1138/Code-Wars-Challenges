@@ -1,0 +1,57 @@
+This kata is designed to test your ability to extend the functionality of built-in classes. In this case, we want you to extend the built-in Array class with the following methods: square(), cube(), average(), sum(), even() and odd().
+
+//To solve this we just need to make sure we are using prototypes to exntend the Array class and then write out our methods that do not alter the original array.
+
+
+
+
+
+ Array.prototype.square = function() {
+    let result = [];
+    for (const element of this) {
+      result.push( element ** 2);
+    }
+    return result;
+  }
+  
+  Array.prototype.cube = function() {
+    let result = [];
+     for (const element of this) {
+      result.push(element ** 3)
+    }
+    return result;
+  }
+  
+  Array.prototype.average = function() {
+    
+     if (this.length === 0) {
+      return NaN;
+    }
+    
+    let sum = 0;
+    
+     for (const element of this) {
+      sum += element;
+    }
+    
+   return sum / this.length;
+    
+  }
+  
+  Array.prototype.sum = function() {
+    
+    let sum = 0;
+    
+     for (const element of this) {
+     sum += element;
+    }
+    return sum;
+  }
+  
+  Array.prototype.even = function () {
+  return this.filter(element => element % 2 === 0);
+  }
+  
+  Array.prototype.odd = function () {
+   return this.filter(element => element % 2 === 1);
+  }
