@@ -1,0 +1,56 @@
+Could you make a program that
+
+makes this string uppercase
+gives it sorted in alphabetical order by last name.
+When the last names are the same, sort them by first name. Last name and first name of a guest come in the result between parentheses separated by a comma.
+
+INPUT: s = "Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill"; 
+OUTPUT: "(CORWILL, ALFRED)(CORWILL, FRED)(CORWILL, RAPHAEL)(CORWILL, WILFRED)(TORNBULL, BARNEY)(TORNBULL, BETTY)(TORNBULL, BJON)"
+
+//We can solve this by splitting the input with semicolons as delimiters and iterate that array using map to tranform everything into uppercase.
+//Then we have to switch the order of the names to be surname first, which we can do with map and destructuring.
+//Finally, we can use map one more time with template literals to construct the outuput. 
+//Spread, sort, and join.
+
+//It just so happened that my function passed all tests while ignoring the case where the last names are the same, but to refactor for this we can use localeCompare for conditional checks inside of sort.
+
+function meeting(s) {
+  const arr = s.split(';');
+  let newArr = [];
+  
+  for (let name of arr) {
+    newArr.push(name.split(':').map(element => element.toUpperCase())); 
+  }
+
+  newArr.sort((a, b) => {
+    if (a[1] === b[1]) {
+ 
+      return a[0].localeCompare(b[0]);
+    }
+    
+    return a[1].localeCompare(b[1]);
+  });
+
+  const result = newArr.map(([firstName, lastName]) => `(${lastName}, ${firstName})`).join('');
+
+  return result;
+}
+
+
+//Here is the function that doesn't check for edge cases: 
+
+function meeting(s) {
+
+  const arr = s.split(';');
+  let newArr = []
+  
+  for (let name of arr) {
+    newArr.push(name.split(':').map(element => element.toUpperCase())) 
+  }
+  
+  const surnameFirst = newArr.map(([firstName, lastName]) => [lastName, firstName]);
+  
+  const names = surnameFirst.map(([lastName, firstName]) => `(${lastName}, ${firstName})`);
+
+  return [...names].sort().join('');
+}
