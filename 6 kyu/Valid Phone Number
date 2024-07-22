@@ -1,0 +1,22 @@
+Write a function that accepts a string, and returns true if it is in the form of a phone number.
+Assume that any integer from 0-9 in any of the spots will produce a valid phone number.
+Only worry about the following format:
+(123) 456-7890 (don't forget the space after the close parentheses)
+
+
+//We can split the input using a space as the delimiter. This checks for the presence of a space character after the first group of numbers. If it's not there, the tests will fail because there will be no space to split the string by.
+//Then we can use regex for string format matching and test each apart of the phone number. Both tests have to be truthy in order to return true for the correct format.
+
+
+
+function validPhoneNumber(phoneNumber){
+  
+  const arr = phoneNumber.split(' ');
+ 
+  return (/^\(\d{3}\)$/.test(arr[0]) && /^\d{3}\-\d{4}$/.test(arr[1]));
+
+}
+  console.log(validPhoneNumber("(123)456-7890"))
+  
+
+  
