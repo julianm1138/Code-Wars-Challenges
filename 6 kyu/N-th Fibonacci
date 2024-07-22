@@ -1,0 +1,20 @@
+I would like for you to write me a function that, when given a number n (n >= 1 ), returns the nth number in the Fibonacci Sequence.
+
+//We can solve this by creating a fibonacci sequence up to and including n and then reurning the element index equal to n.
+//Define the mutable array with the first two fibonacci numbers.
+//While the length of the array is less than or equal to n generate the next number using the formula (n - 1) + (n - 2). 
+//Index into the array and adjust the index as needed to get the correct number for n. 
+
+
+
+function nthFibo(n) {
+
+    let seq = [0, 1];
+  
+    while (seq.length <= n) {
+    let next = seq[seq.length - 1] + seq[seq.length - 2];
+    seq.push(next);
+  }
+  return seq[n - 1];
+}
+console.log(nthFibo(5))
