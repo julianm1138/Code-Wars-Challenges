@@ -1,0 +1,22 @@
+Assume "#" is like a backspace in string. This means that string "a#bc#d" actually is "bd"
+
+Your task is to process a string with "#" symbols.
+
+//We can solve this using a stack. 
+//We loop through the string and check if the character is '#'. If so, that means the last character added to the stack should not be included in the result.
+//Else we add the character like normal. This should remove every pair where the second element is '#' from the stack.
+
+
+function cleanString(s) {
+    
+    let stack = [];
+
+    for (let char of s) {
+        if (char === '#') {
+            stack.pop();
+        } else {
+            stack.push(char);
+        }
+    }
+    return stack.join('');
+}
