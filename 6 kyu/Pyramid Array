@@ -1,0 +1,23 @@
+Write a function that when given a number >= 0, returns an Array of ascending length subarrays.
+
+//We can solve this by creating a starting sub array of size n and decreasing the length by 1 while the array length is greater than 1.
+//We need to push a copy of each iteration to the result, lest we push the final state of the array n times.
+//Reverse the result.
+
+
+
+function pyramid(n) {
+ 
+    let result = [];
+
+    let arr = new Array(n + 1).fill(1);
+  
+    while(arr.length > 1) {
+       
+      arr.length = arr.length - 1;
+       
+      result.push([...arr]);
+}
+    return result.reverse();
+  }
+    console.log(pyramid(3))
