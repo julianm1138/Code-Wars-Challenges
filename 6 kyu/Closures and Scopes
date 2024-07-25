@@ -1,0 +1,41 @@
+We want to create a function, which returns an array of functions, which return their index in the array. For better understanding, here an example:
+
+var callbacks = createFunctions(5); // create an array, containing 5 functions
+
+callbacks[0](); // must return 0
+callbacks[3](); // must return 3
+We already implemented that function, but when we actually run the code, the result doesn't look like what we expected. Can you spot, what's wrong with it? A test fixture is also available
+
+//The issue is happening because the function is pushing the final state of i instead of pushing every state of i.
+//We can fix this and get the desired output by changing the var keyword in the loop to the let keyword.
+//Using the let keyword will create a block scope around every i and return each one instead of just returning the final state/final one.
+
+
+function createFunctions(n) {
+  var callbacks = [];
+
+  for (let i = 0; i < n; i++) {
+    callbacks.push(function() {
+      return i;
+    });
+  }
+  
+  return callbacks;
+}
+console.log(createFunctions(5))
+
+//We can also solve this by employing an IIFE to create a scope around each iterator/i as well. 
+
+function createFunctions(n) {
+  var callbacks = [];
+
+  for (var i = 0; i < n; i++) {
+    (function(i) {
+      callbacks.push(function() {
+        return i;
+      });
+    })(i);
+  }
+  
+  return callbacks;
+}
