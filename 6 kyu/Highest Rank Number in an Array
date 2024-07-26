@@ -1,0 +1,46 @@
+Complete the method which returns the number which is most frequent in the given input array. If there is a tie for most frequent number, return the largest number among them.
+
+Note: no empty arrays will be given.
+
+Examples
+[12, 10, 8, 12, 7, 6, 4, 10, 12]              -->  12
+[12, 10, 8, 12, 7, 6, 4, 10, 12, 10]          -->  12
+[12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10]  -->   3
+
+
+//We can solve this by creating an object to keep count of each number using number: count key-value pairs.
+//Then we use a maxValue and highestValue variable, and loop through the object.
+//The first condition is checking for the maxValue and assigns the highestValue to that property that has it.
+//The second condition is checking for when the current value is equal to the maxValue, if so we use Math.max to get the highest value and key. 
+
+
+function highestRank(arr){
+  
+  const count = {};
+
+  arr.forEach(element => {
+    if (count[element]) {
+      count[element]++;
+    } else {
+      count[element] = 1;
+    }
+  });
+
+  
+  let maxValue = 0;
+  let highestValue = null;
+  
+  for (const key in count) {
+    
+    const value = count[key];
+    
+   if (maxValue < value) {
+     maxValue = value;
+     highestValue = Number(key);
+    
+   } else if (value === maxValue) {
+     highestValue =  Math.max(value, Number(key));
+   }
+ }
+  return highestValue;
+}
