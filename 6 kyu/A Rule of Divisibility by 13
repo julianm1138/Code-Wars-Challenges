@@ -1,0 +1,42 @@
+Multiply
+
+the right most digit of the number with the left most number in the sequence shown above,
+the second right most digit with the second left most digit of the number in the sequence.
+The cycle goes on and you sum all these products. Repeat this process until the sequence of sums is stationary.
+
+//We can solve this by multiplying each number in the sequence by each of the reversed digits in n.
+//We use i % sequence.length to keep the sequence wrapping back to the start of n.
+//We use two variables to keep track of the starting value of n and each previous result calculated inside the loop.
+//Given while (result !== prevResult), the loop should exit when these two values are the same.
+//Update each variable in the while loop.
+
+
+
+function thirt(n) {
+  
+  const sequence = [1, 10, 9, 12, 3, 4];
+  
+  let result = n;
+  
+  let prevResult = -1;
+  
+ 
+  while (result !== prevResult) {
+    
+    const reverseN = result.toString().split('').reverse().map(Number);
+    
+    let sum = 0;
+    
+    for (let i = 0; i < reverseN.length; i++) {
+      
+      const index = i % sequence.length;
+      
+      sum += reverseN[i] * sequence[index];
+    }
+    prevResult = result;
+    result = sum;
+ }
+    
+    return result;
+  }
+  console.log(thirt(8529))
