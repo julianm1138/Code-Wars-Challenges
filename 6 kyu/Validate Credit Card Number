@@ -1,0 +1,47 @@
+Given a positive integer of up to 16 digits, return true if it is a valid credit card number, and false if it is not.
+
+//We can basically follow the instructions given in the kata for the Luhn Algorithm:
+//Check if the digits have an even or odd length. If even, double the values at every other index starting with the first even index. If odd, double the values at every other index starting at the first odd index.
+//Now we check that array of doubled values and if any values in the array is greater than 9 subtract 9 from it and get the sum of all the new elements. 
+//Finally check for divisibility by 10.
+
+function validate(n){
+  
+  const arr = n.toString().split('').map(Number);
+  
+  let doubledValues = [];
+  
+  for (let i = 0; i < arr.length; i++) {
+    if (arr.length % 2 === 0) {
+      
+      if (i % 2 === 0) {
+          doubledValues.push(arr[i] * 2);
+      } else {
+        doubledValues.push(arr[i]);
+      }
+        } else {
+        if (i % 2 === 1) {
+             doubledValues.push(arr[i] * 2);
+        } else {
+          doubledValues.push(arr[i]);
+      } 
+    } 
+}
+  
+  const result = doubledValues.map(number => {
+        if (number > 9) {
+         return number - 9;
+        }
+        return number;
+      }).reduce((acc, currentVal) => acc + currentVal, 0);
+  
+  return result % 10 === 0;
+  }
+console.log(validate(2121)) 
+
+//if even double every other digit starting from the first
+//if odd double every  other digit starting from the second
+//if a number is > 9 subtract 9 from it
+//sum all final digits
+//divide result by 10
+//return result % 2 === 0
