@@ -1,0 +1,38 @@
+Given an integer, return a string with dash '-' marks before and after each odd digit, but do not begin or end the string with a dash mark.
+
+Ex:
+
+274 -> '2-7-4'
+6815 -> '68-1-5'
+
+//We can solve this by constructing a new string and then using regex to replace all duplicates dashes in sequence, and all leading and trailing dashes.
+//Convert the input to absolute value to prevent NaN error with spltting it into an array.
+//Split into an array of numbers.
+//Iterate over each number and check if the character is odd, if so assign '-' current array element '-' to the new string. If the current character is even, just add the string like normal.
+//Use regex to clean the new string.
+
+
+function dashatize(num) {
+ 
+  let newStr = '';
+  
+  num = Math.abs(num);
+  
+  const numArr = num.toString().split('').map(Number);
+  
+  for (let i = 0; i < numArr.length; i++) {
+    if (numArr[i] % 2 === 1) {
+      newStr += '-';
+      newStr += numArr[i];
+      newStr += '-';
+    } 
+    if (numArr[i] % 2 === 0) {
+      newStr += numArr[i];
+    }
+  }
+  
+  const result = newStr.replace(/^-|-$/g, '').replace(/(-)\1+/g, '$1')
+  return result;
+}
+console.log(dashatize(-1))
+console.log(dashatize(6815))
