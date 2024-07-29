@@ -1,0 +1,31 @@
+which takes numbers num1 and num2 and returns 1 if there is a straight triple of a number at any place in num1 and also a straight double of the same number in num2.
+
+If this isn't the case, return 0
+
+//We can solve this by keeping track of the digit that has a triple in num1 and checking if the double/duplicate in num2 is also that same digit.
+//Return 1 if the number that was a triple in num1 is also the number that was a double in num2, otherwise for all other cases return 0. 
+
+
+function tripledouble(num1, num2) {
+  
+  let num = new Set();
+  
+  num1 = num1.toString();
+  
+  num2 = num2.toString();
+  
+  for (let i = 0; i < num1.length - 2; i++) {
+    if (num1[i] === num1[i + 1] && num1[i + 1] === num1[i + 2]) {
+      num.add(num1[i])
+    }  
+  }
+  
+  for (let i = 0; i < num2.length - 1; i++) {
+    
+    if (num2[i] === num2[i + 1] && num.has(num2[i])) {
+       return 1;
+    }  
+  }
+    return 0;
+}
+console.log(tripledouble(10560002, 100))
