@@ -1,0 +1,32 @@
+Given an array describing the color of each glove, return the number of pairs you can constitute, assuming that only gloves of the same color can form pairs.
+
+//Since we need to count the pairs of each color of glove, and each pair has 2 gloves, if we divide the number of gloves by 2, it will give us how many pairs there are.
+//Create an object to keep count of each color.
+//Divide each count by 2. Math.floor for possible decimals. 
+
+
+
+
+function numberOfPairs(gloves) 
+{
+  let result = 0;
+  
+  const colorCount = {};
+  
+  for (const glove of gloves) {
+   if (colorCount[glove]) {
+     colorCount[glove]++;
+   } else {
+     colorCount[glove] = 1;
+   }
+ }
+  
+  for (const color in colorCount) {
+    result += Math.floor(colorCount[color] / 2);
+  }
+
+   return result;
+}
+  
+console.log(numberOfPairs(['red','red']))
+console.log(numberOfPairs(["red", "red", "red", "red", "red", "red"]))
