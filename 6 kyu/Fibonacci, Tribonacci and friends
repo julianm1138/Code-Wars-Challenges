@@ -1,0 +1,22 @@
+You have to build a Xbonacci function that takes a signature of X elements - and remember each next element is the sum of the last X elements - and returns the first n elements of the so seeded sequence.
+
+//As stated, starting from the signature, we have to get the sum of the last X elements to get the next number of the sequence.
+//Similar to other Fibonacci problems, we can set our result to begin with the input sequence.
+//Then we create the next number in the sequence by looping from the length of the sequence up to n (this ensures that we start with an array that is the same as the signature) and use slice with -signature.length to always get the last n elements of the signature on each iteration of the loop. Sum each of those last two elements with reduce and add each number to the result (signature that was inputted).
+
+
+
+function Xbonacci(signature,n){
+  
+  let result = signature.slice(0, n);
+  
+    for (let i = signature.length; i < n; i++) {
+       let nextNumber = result.slice(-signature.length).reduce((acc, currVal) => acc + currVal, 0);
+    
+      result.push(nextNumber)
+    }
+    
+    return result;
+}
+
+console.log((Xbonacci([0,1],10))) 
