@@ -1,0 +1,19 @@
+However, Johnny would like to know the minimal amount of people that participated this year just by counting all the handshakes.
+
+Help Johnny by writing a function, that takes the amount of handshakes and returns the minimal amount of people needed to perform these handshakes (a pair of farmers handshake only once).
+
+//We can solve this using the combinatorial formula n(n - 1) / 2 because we need 2 people minimum to get 1 handshake.
+//Start our people counter at 2 people minimum.
+//While every unique combination is less than the number of handshakes, increase the number of people by 1.
+
+
+
+function getParticipants(handshakes) {
+    let people = 2; 
+    while (people * (people - 1) / 2 < handshakes) {
+        people++;
+    }
+    return people;
+}
+
+console.log(getParticipants(6)); // Expected output: 4
