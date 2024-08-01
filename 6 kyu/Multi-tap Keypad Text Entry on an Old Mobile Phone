@@ -1,0 +1,52 @@
+For this assignment, write code that can calculate the amount of button presses required for any phrase, with the following requirements:
+
+Punctuation can be ignored for this exercise.
+Likewise, the phone doesn't distinguish between upper and lowercase characters (but you should allow your module to accept input in either form, for convenience).
+Tested phrases contain letters (A-Z and a-z), digits (0-9), and special characters # and *.
+
+//We can solve this by creating a nested object, an outer object to represent the keypad itself and inner object to denote which character you get and how many key presses to get that character.
+//Initialize the count.
+//Normalize the input for same casing.
+//Loop through the input.
+//Check for spaces which only count as +1. Check for numbers which count as +4. We use the if else condition so that the code stops execution for spaces at the first condition and not accumulate 1 + 4 since spaces are also NaN.
+//Loop through the object and check if the character in the phrase is present in the object. If so, add its corresponding value to the count.
+
+
+function presses(phrase) {
+  const keypad = {
+    '2': { 'A': 1, 'B': 2, 'C': 3 },
+    '3': { 'D': 1, 'E': 2, 'F': 3 },
+    '4': { 'G': 1, 'H': 2, 'I': 3 },
+    '5': { 'J': 1, 'K': 2, 'L': 3 },
+    '6': { 'M': 1, 'N': 2, 'O': 3 },
+    '7': { 'P': 1, 'Q': 2, 'R': 3, 'S': 4 },
+    '8': { 'T': 1, 'U': 2, 'V': 3 },
+    '9': { 'W': 1, 'X': 2, 'Y': 3, 'Z': 4 },
+    '0': { ' ': 1 },
+    '#': { '#': 1 },
+    '*': { '*': 1 },
+    '1': {}
+  };
+
+  let result = 0;
+  phrase = phrase.toUpperCase();
+
+  for (const char of phrase) {
+    if (char === ' ') {
+      result += 1;
+    } else if (!isNaN(char)) {
+      result += 4;
+    } else {
+      for (const number in keypad) {
+        if (keypad[number][char] !== undefined) {
+          result += keypad[number][char];
+          break;
+        }
+      }
+    }
+  }
+
+  return result;
+}
+
+console.log(presses('WHERE DO U WANT 2 MEET L8R')); 
