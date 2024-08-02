@@ -1,0 +1,25 @@
+Modify the kebabize function so that it converts a camel case string into a kebab case.
+
+//We can solve this by defining an empty string to construct our kebab-case string, adding each first character as a lower case string, then adding a hyphen followed by each uppercase character.
+//Otherwise if the current character is not a number we can add it to the result as well.
+
+
+
+function kebabize(str) {
+  let result = '';
+
+  for (let i = 0; i < str.length; i++) {
+    let currentChar = str[i];
+    
+    if (currentChar === currentChar.toUpperCase() && currentChar !== currentChar.toLowerCase()) {
+      if (i > 0) {
+        result += '-';
+      }
+      result += currentChar.toLowerCase();
+    } else if (!/\d/.test(currentChar)) {
+      result += currentChar;
+    }
+  }
+
+  return result;
+}
