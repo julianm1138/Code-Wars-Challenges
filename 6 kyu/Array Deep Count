@@ -1,0 +1,23 @@
+You are given an array. Complete the function that returns the number of ALL elements within an array, including any nested arrays.
+
+//We can solve this by recursively counting the nested arrays and updating the count (arr.length).
+//Check if the current element is an array, and if so we call deepCount with that element which will add the current length to the count.
+//So we're just looping through the array and adding up the array lengths.
+
+
+
+function deepCount(arr) {
+  let count = arr.length; 
+
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      
+      count += deepCount(arr[i]);
+    }
+  }
+
+  return count;
+}
+
+console.log(deepCount([[[[[[[[[]]]]]]]]])); // Output: 8
+
