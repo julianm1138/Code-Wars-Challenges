@@ -1,0 +1,31 @@
+//We can solve this by splitting the input into an array using spaces and hyphens as delimiters, creating a helper function to make the abbreviated strings, and checking if each segment of the string is a space or hyphen. If it is, add it to the result, else add the abbreviated word created with the abbreviateSegment function to the result. This should construct a new string with the abbreviated words and the spaces and/or hyphens in their original position.
+
+
+function abbreviate(string) {
+  
+  let segments = string.split(/(\s+|-)/); 
+  let result = '';
+  console.log(segments)
+  
+function abbreviateSegment(segment) {
+
+    let firstChar = segment[0];
+    let lastChar = segment[segment.length - 1];
+    let innerLength = segment.length - 2;
+    return `${firstChar}${innerLength}${lastChar}`;
+  }
+  
+  segments.forEach(segment => {
+    if (segment === ' ' || segment === '-') {
+      result += segment;
+    } else {
+      result += abbreviateSegment(segment);
+    }
+  });
+  
+ 
+  return result;
+}
+
+console.log(abbreviate("You need, need not want, to complete this code-wars mission")); 
+
