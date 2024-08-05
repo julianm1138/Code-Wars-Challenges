@@ -1,0 +1,32 @@
+Write a function that, given a depth n, returns n top rows of Pascal's Triangle flattened into a one-dimensional list/array.
+
+
+//We can hold all the rows to be created inside of a 2D array. 
+//We can represent each row of Pascals Triangle by looping from 0 to n, where i = 0 is the first row. 
+//We know that the first and last element of each row is 1, so we can assign row[0] = 1 to be the first element of all rows. 
+//The number of elements in i is i + 1 so we can assign row[i] = 1 to be the last element of all rows that are created. (A new row is created for every i and [i] always ends up being the last element of each row).
+//Then we use a second loop to add the top left element to the top right element. 
+//Push each new row to the triangle and flatten it.
+
+
+//We assign row[j] because row[j] is everythign that row[0] and row[i] is not and should fill in the sums for every j element. j is never 0 or i. 
+
+
+function pascalsTriangle(n) {
+  const triangle = [];
+  
+  for (let i = 0; i < n; i++) {
+    const row = [];
+    row[0] = 1; 
+    row[i] = 1;
+
+    for (let j = 1; j < i; j++) {
+    row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+    }   
+    
+    triangle.push(row);
+  }
+  
+  return triangle.flat();
+}
+pascalsTriangle(4)
