@@ -1,0 +1,63 @@
+choose a text in capital letters including or not digits and non alphabetic characters,
+
+shift each letter by a given number but the transformed letter must be a letter (circular shift),
+replace each digit by its complement to 9,
+keep such as non alphabetic and non digit characters,
+downcase each letter in odd position, upcase each letter in even position (the first character is in position 0),
+reverse the whole result.
+Example:
+your text: "BORN IN 2015!", shift 1
+
+1 + 2 + 3 -> "CPSO JO 7984!"
+
+4 "CpSo jO 7984!"
+
+5 "!4897 Oj oSpC"
+
+
+//We can solve this by modeling the code based on the instructions. 
+//First we need to replace every letter with the next + n value and replace every digit with 9 - digit.
+//We can do this part with a for... of loop.
+//Define a way to keep the characters in bounds to avoid unexpected ASCII values. We can use ((nextLetterCode - 97) % 26 + 26) % 26 + 97 which 0 indexes the ASCII for the alphabet, wraps it within bounds with % 26, adds 26 to address possible negative values, % 26 to keep every negative in bounds, and add 97 to convert it back to ASCII code.
+//Then we can run a for loop to check even and odd indices and reverse the result. 
+
+
+
+
+
+function playPass(s, n) {
+  
+  let str = '';
+  
+  const letter = /^[a-z]$/;
+  
+  const number = /\d/;
+  
+  s = s.toLowerCase(); 
+  
+  for (const char of s) {
+    const nextLetterCode = char.charCodeAt() + n;
+    
+    const wrappedCode = ((nextLetterCode - 97) % 26 + 26) % 26 + 97;
+    
+    if (letter.test(char)) {
+      str += String.fromCharCode(wrappedCode);
+    } else if (number.test(char)) {
+      str += 9 - Number(char);
+    } else {
+      str += char;
+  }
+}
+  
+  let result = '';
+  
+  for (let i = 0; i < str.length; i++) {
+    if (i % 2 === 0) {
+      result += str[i].toUpperCase();
+    } else {
+      result += str[i].toLowerCase();
+    }
+  }
+
+  return result.split('').reverse().join('');
+}
