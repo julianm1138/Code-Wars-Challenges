@@ -1,0 +1,33 @@
+You'll have to translate a string to Pilot's alphabet
+
+
+//We can do this by using the built in NATO dictionary to return a new string replacing the letters with the new words.
+//We will uppercase the whole string to use the built in NATO dictionary, because each look up has to be an uppercase letter such as: NATO['A'] -> Alfa
+//Then we split the string based on all non-alphanumeric characters and trim the empty strings out of the array as well.
+//Loop through the string array, and loop through each letter in each word and check if the NATO look up is a truthy value, if so push the NATO word to the empty array.
+//Else push any other character
+//Join the new array based on spaces.
+
+
+function toNato(words) {
+
+  let result = [];
+  
+  words = words.toUpperCase();
+  
+  const strArr = words.split(/([^\w]+)/).map(str => str.trim());
+  
+  for (let i = 0; i < strArr.length; i++) {
+    
+    for (const char of strArr[i]) {
+     
+      if (NATO[char]) {
+        result.push(NATO[char])
+      } else {
+         result.push(char);
+      }
+    } 
+  }
+  return result.join(' ');
+}
+console.log(toNato('go for it!'))
