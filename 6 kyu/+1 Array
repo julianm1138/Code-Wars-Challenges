@@ -1,0 +1,40 @@
+Given an array of integers of any length, return an array that has 1 added to the value represented by the array.
+
+the array can't be empty
+only non-negative, single digit integers are allowed
+Return nil (or your language's equivalent) for invalid inputs.
+
+//We can solve this by handling two cases: the first is when the digit is less than 9 and the other is when the digit is greater than 9.
+//We make a copy of the array and loop from the end to the front.
+//If the digit is less than 9 we add 1 to the digit.
+//If the digit is greater than 9 we set that digit to 0 and make a new array where 1 is the first element and input the rest of the 0's to be the rest of the array. 
+
+
+
+function upArray(arr){
+  
+  
+  for (const num of arr) {
+    if (num < 0) {
+      return null;
+    } else if (num > 9) {
+      return null;
+    } else if (arr.length === 0) {
+      return null;
+    } 
+  }
+  
+let result = [...arr];
+
+  for (let i = result.length - 1; i >= 0; i--) {
+    if (result[i] < 9) {
+      result[i]++;
+      return result;
+    }
+    result[i] = 0;
+  }
+  return [1, ...result];
+}
+
+
+console.log(upArray(    [0,7]))
