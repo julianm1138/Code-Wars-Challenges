@@ -1,0 +1,56 @@
+For a given string s find the character c (or C) with longest consecutive repetition and return:
+
+[c, l]
+where l (or L) is the length of the repetition. If there are two or more characters with the same l return the first in order of appearance.
+
+For empty string return:
+
+["", 0]
+
+//To solve this we need to create an object that keeps track of the max consecutive length of sequences of the input string and return the [maxKey, maxVal]
+//Return return ["", 0];  for empty strings
+//Initialize the variables to keep track of each sequence.
+//Loop through the string and check if the current char is equal to the starting char, if so increment the count.
+//If the char does not exist in the object then add it to the object.
+//Reset the variables.
+
+//Initialize the variables for the maxVal and maxKey then loop through the object and return the maxVal and maxKey.
+
+
+function longestRepetition(s) {
+  if (s.length === 0) return ["", 0]; 
+
+  let count = {};
+  let currentChar = s[0];
+  let currentCount = 1;
+
+  for (let i = 1; i < s.length; i++) {
+    if (s[i] === currentChar) {
+      currentCount++;
+    } else {
+      if (!count[currentChar] || currentCount > count[currentChar]) {
+        count[currentChar] = currentCount;
+      }
+      currentChar = s[i];
+      currentCount = 1;
+    }
+  }
+
+  if (!count[currentChar] || currentCount > count[currentChar]) {
+    count[currentChar] = currentCount;
+  }
+
+  let maxVal = 0;
+  let maxKey = "";
+
+  for (let key in count) {
+    if (count[key] > maxVal) {
+      maxVal = count[key];
+      maxKey = key;
+    }
+  }
+
+  return [maxKey, maxVal];
+}
+
+console.log(longestRepetition("aabbbaa")); // Expected output: ['b', 3]
