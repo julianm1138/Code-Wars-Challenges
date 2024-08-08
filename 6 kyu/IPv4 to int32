@@ -1,0 +1,23 @@
+So 128.32.10.1 == 10000000.00100000.00001010.00000001
+
+Because the above IP address has 32 bits, we can represent it as the 32 bit number: 2149583361.
+
+Write a function ip_to_int32(ip) ( JS: ipToInt32(ip) ) that takes an IPv4 address and returns a 32 bit number.
+
+
+//We can accomplish this by converting each number in the IP to an octet, joining it, and converting that to base 10.
+//We use padStart to make sure each octet has 8 characters total.
+//When we join the array this counts as a BigInt, so that will give us the group of octets in scientific notation. To fix this, can use the BigInt function and specify we are working with a binary string to get the base 10 version of the 32 bit number (4 groups of 8 bits, or 4 bytes).
+//We wrap this in Number to get rid of the trailing 'n'.
+
+
+
+function ipToInt32(ip) {
+  
+  const octetArr = ip.split('.').map(Number).map(element => element.toString(2).padStart(8, '0'));
+  
+  const result = octetArr.join('');
+  
+  return Number(BigInt(`0b${result}`));
+  
+}
