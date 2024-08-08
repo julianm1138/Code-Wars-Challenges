@@ -1,0 +1,39 @@
+In this kata you have to write a method that folds a given array of integers by the middle x-times.
+
+//We can solve this by modeling the folding process using slice and continuing the folding process for as long as there are runs. We can decrement the runs by 1 for each iteration.
+//First get the middle index (splitting point), firsthalf (all elements from index 0 to the middle index), and second half (all elements past the middle index, and reverse it so the correct numbers line up). We also use the result variable here because the array length will change as the folds execute. 
+//Next push the sum of each half to an array, be sure to specify || 0 in case there is a middle index.
+//Reassign result to be the most recent array.
+
+
+
+function foldArray(array, runs)
+{
+  
+  let result = array;
+  
+  while (runs > 0) {
+    
+  const middleIndex = Math.ceil(result.length / 2);
+  const firstHalf = result.slice(0, middleIndex); 
+  const secondHalf = result.slice(middleIndex).reverse();
+    
+  let newArr = [];
+    
+  for (let i = 0; i < firstHalf.length; i++) {
+       newArr.push(firstHalf[i] + (secondHalf[i] || 0));
+  }
+    
+  result = newArr;
+     
+  runs--;
+       } 
+  return result;
+           }    
+              
+     
+                  
+
+                     
+ 
+  
