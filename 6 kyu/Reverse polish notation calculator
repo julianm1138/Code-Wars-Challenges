@@ -1,0 +1,55 @@
+Your job is to create a calculator which evaluates expressions in Reverse Polish notation.
+
+For example expression 5 1 2 + 4 * + 3 - (which is equivalent to 5 + ((1 + 2) * 4) - 3 in normal notation) should evaluate to 14.
+
+For your convenience, the input is formatted such that a space is provided between every token.
+
+Empty expression should evaluate to 0.
+
+Valid operations are +, -, *, /.
+
+//We can solve this by creating a stack that processes pairs of numbers with the correct operand as the loop gets to an operand.
+//Define the stack, split the input into an array of characters.
+//Loop through the array, if the character is a truthy value or 0, push onto the stack, else we pop off the first and second numbers and apply the correct operand depending on which one is in the array at that iteration.
+//The first element on the stack should be the accumulation of every operation. 
+
+
+
+
+function calc(expr) {
+  if (expr.length === 0) return 0;
+  
+  let stack = [];
+  
+  expr = expr.split(' ');
+  
+  for (const char of expr) {
+    
+    if (parseFloat(char) || parseFloat(char) === 0) {
+      stack.push(parseFloat(char));
+    } else {
+      
+      const b = stack.pop();
+      const a = stack.pop();
+      
+      switch (char) {
+          case '+':
+          stack.push(a + b);
+          break;
+          case '-':
+          stack.push(a - b);
+          break; 
+          case '*':
+          stack.push(a * b);
+          break;
+          case '/':
+          stack.push(a / b);
+          break; 
+      
+      }
+    }
+  }
+  return stack[0]
+}
+console.log(calc('3.5'))
+console.log(calc('1 3 -'))
