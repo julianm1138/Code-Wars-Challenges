@@ -1,0 +1,21 @@
+Reverse every other word in a given string, then return the string. Throw away any leading or trailing whitespace, while ensuring there is exactly one space between each word. Punctuation marks should be treated as if they are a part of the word in this kata.
+
+
+//We can solve this by splitting the string into spaces, if the index is odd push the reversed string to the result, if even, push as it is. Join and trim.
+
+
+function reverse(str){
+  
+  let result = [];
+  
+  const words = str.split(' ');
+
+  for (let i = 0; i < words.length; i++) {
+    if (i % 2 !== 0) {
+      result.push(words[i].split('').reverse().join(''));
+    } else {
+      result.push(words[i]);
+    }
+  }
+  return result.join(' ').trim();
+}
