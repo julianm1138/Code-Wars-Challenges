@@ -1,0 +1,15 @@
+You are given a complex object that has many deeply nested variables. You don't want to go the usual if obj.property == null route. Create a prototype method that given a nested path, either return the value or undefined.
+
+
+//We can use Lodash's get method to access nested objects, we just have to specify the object we are accessing and the value we are searching for.
+
+
+
+
+Object.prototype.hash = function(string) {
+  
+  const _ = require('lodash');
+  
+  return _.get(this, `${string}`);
+  
+}
