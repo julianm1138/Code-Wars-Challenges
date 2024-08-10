@@ -1,0 +1,33 @@
+6 * 21 = 126
+# 6 and 21 would be valid 'fangs' for a vampire number as the 
+# digits 6, 1, and 2 are present in both the product and multiplicands
+
+10 * 11 = 110
+# 110 is not a vampire number since there are three 1's in the
+# multiplicands, but only two 1's in the product
+Create a function that can receive two 'fangs' and determine if the product of the two is a valid vampire number.
+
+//We need to check if the concatenated multiplicands have the same digits as the product.
+//To solve this:
+//We can create a helper function to sort digits so that we can invoke it on the product and the concatenated mutliplicands. 
+//To sort the multiplicands joined together here we need to sort them individually first because the input are of number type.
+//Compare the two.
+
+
+
+
+function vampireTest(a, b) {
+   
+  function sortDigits(num) {
+    return num.toString().split('').sort().join('');
+  }
+  
+  const product = a * b;
+  
+  const sortedProduct = sortDigits(product);
+ 
+  const sortedMultiplicands = sortDigits(sortDigits(a) + sortDigits(b));
+  
+  return sortedProduct === sortedMultiplicands;
+}
+console.log(vampireTest(204,615))
