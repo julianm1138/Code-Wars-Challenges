@@ -1,0 +1,57 @@
+In this kata you have to implement a base converter, which converts positive integers between arbitrary bases / alphabets. Here are some pre-defined alphabets:
+
+var Alphabet = {
+  BINARY:        '01',
+  OCTAL:         '01234567',
+  DECIMAL:       '0123456789',
+  HEXA_DECIMAL:  '0123456789abcdef',
+  ALPHA_LOWER:   'abcdefghijklmnopqrstuvwxyz',
+  ALPHA_UPPER:   'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+  ALPHA:         'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+  ALPHA_NUMERIC: '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+};
+The function convert() should take an input (string), the source alphabet (string) and the target alphabet (string). You can assume that the input value always consists of characters from the source alphabet. You don't need to validate it.
+
+//We can solve this by converting all inputs into base 10 and then to the target.
+//Create two helper functions to map the indices to the positions of the alphabet and then the positions of the alphabet to the indices.
+//Create a map based on the source, loop through the string, and use exponent rules (decimal * source base + map[char]) to convert each character to decimal.
+//Construct the result based on remainders and use the reverseMap to look up the correct corresponding values for each result array.
+
+
+
+function convert(input, source, target) {
+  function createConversionMap(alphabet) {
+    const map = {};
+    for (let i = 0; i < alphabet.length; i++) {
+      map[alphabet[i]] = i;
+    }
+    return map;
+  }
+
+  function createReverseMap(alphabet) {
+    const map = {};
+    for (let i = 0; i < alphabet.length; i++) {
+      map[i] = alphabet[i];
+    }
+    return map;
+  }
+
+  let decimalValue = 0;
+
+  const sourceMap = createConversionMap(source);
+
+  for (let char of input) {
+    decimalValue = decimalValue * source.length + sourceMap[char];
+  }
+  
+  if (decimalValue === 0) return target[0];
+  
+  let result = [];
+  while (decimalValue > 0) {
+    result.push(decimalValue % target.length);
+    decimalValue = Math.floor(decimalValue / target.length);
+  }
+  
+  const reverseMap = createReverseMap(target);
+  return result.reverse().map(digit => reverseMap[digit]).join('');
+}
