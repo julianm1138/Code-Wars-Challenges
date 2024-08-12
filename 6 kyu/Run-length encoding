@@ -1,0 +1,38 @@
+Your task is to write such a run-length encoding. For a given string, return a list (or array) of pairs (or arrays) [ (i1, s1), (i2, s2), …, (in, sn) ], such that one can reconstruct the original string by replicating the character sx ix times and concatening all those strings. Your run-length encoding should be minimal, ie. for all i the values si and si+1 should differ.
+
+//We can solve this by keeping track of every sequence of characters and when the sequence ends, we add that count and character to the result.
+//First account for empty strings.
+//The result will be a 2D array.
+//Our logic will be: if the current character is not equal to the character before it, it means the sequence will end, and if the sequence for the current character ends, add it to the result.
+//Else, the count goes up by 1. For this reason the for loop starts at i = 1 (the second element)
+//Finally we need to add the final sequence outside of the loop because the string finishes and the last character will not re-enter the loop and get pushed to the result.
+
+
+
+
+var runLengthEncoding = function(str){
+  
+  if(str.length === 0) {
+    return [];
+  }
+  
+  let result = [];
+  
+  let currentChar = str[0];
+  
+  let count = 1;
+  
+  for (let i = 1; i < str.length; i++) {
+    if (str[i] === currentChar) {            //check for consecutive chars sequence and add +1 to the count
+      count++;                                //if the currentChar !== the character before it that means the sequence of chars is complete
+    } else {
+      result.push([count, currentChar]);     //push [count, currentChar] for each char of the string and reassign the currentChar to the next char in the loop and reset the count to 1.
+      currentChar = str[i];
+      count = 1;
+    }
+  }
+  result.push([count, currentChar]);
+  
+  return result;
+}
+console.log(runLengthEncoding("hello world!"))
