@@ -1,0 +1,36 @@
+Return the century of the input year. The input will always be a 4 digit string, so there is no need for validation.
+
+Examples
+"1999" --> "20th"
+"2011" --> "21st"
+"2154" --> "22nd"
+"2259" --> "23rd"
+"1124" --> "12th"
+"2000" --> "20th"
+
+//We can solve this by getting the century by dividing the input year by 100 and then writing logic to handle ordinal number cases.
+//First we can draw out a list of the first 21st ordinal numbers to examine the pattern: //1st 2nd 3rd 4th 5th 6th 7th 8th 9th 10th 11th 12th 13th 14th 15th 16th 17th 18th 19th 20th 21st
+//We will notice that every number that ends in 1, 2, or 3 get a specific suffix, otherwise end in "th." The only exception to this is every number between and not including 3 and 21. All those end in "th."
+//We can implement a conditional check to handle numbers between 3 and 21 and we need the century as a number to do this check. We also specify 1st, 2nd, and 3rd century suffixes becaues otherwise it would default to 'th' ending.
+//Now wen can implement a check for the last character to be 1, 2, or 3, because all was will get their unqiue suffixes, while everything else gets a "th" ending. Also, any default cases from the centuryNum will fall through to the final return case.
+
+
+
+
+
+function whatCentury(year) {
+  
+  const centuryNum = Math.ceil(Number(year) / 100);
+  
+  if (centuryNum === 1) return `${centuryNum}st`
+  if (centuryNum === 2) return `${centuryNum}nd`
+  if (centuryNum === 3) return `${centuryNum}rd`
+  if (centuryNum <= 4 || centuryNum <= 20) return `${centuryNum}th`
+  
+  const centuryStr = String(Math.ceil(Number(year) / 100));
+  
+  if (centuryStr[centuryStr.length - 1] === '1') return `${centuryStr}st`
+  if (centuryStr[centuryStr.length - 1] === '2') return `${centuryStr}nd`
+  if (centuryStr[centuryStr.length - 1] === '3') return `${centuryStr}rd`
+  return `${centuryStr}th`
+}
