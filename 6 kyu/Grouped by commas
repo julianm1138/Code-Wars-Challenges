@@ -1,0 +1,52 @@
+Finish the solution so that it takes an input n (integer) and returns a string that is the decimal representation of the number grouped by commas after every 3 digits.
+
+Assume: 0 <= n < 2147483647
+
+Examples
+       1  ->           "1"
+      10  ->          "10"
+     100  ->         "100"
+    1000  ->       "1,000"
+   10000  ->      "10,000"
+  100000  ->     "100,000"
+ 1000000  ->   "1,000,000"
+35235235  ->  "35,235,235"
+
+//We can solve this using the Intl object and access the currency style to get the desired comma format.
+//Then we regex to replace all '$', '.', and any digits after '.' with an empty string.
+
+
+
+function groupByCommas(n) {
+  
+  const formatter = Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
+  
+  return formatter.format(n).replace(/\$|\.\d+/g, '');
+  
+}
+
+//We can also solve this by using the string's length and % to create the first substring that may not consist of three digits and then add a comma and chunks of 3 for the rest of the string.
+
+
+
+function groupByCommas(n) {
+  n = String(n);
+  let result = '';
+  const length = n.length;
+  const remainder = length % 3;
+
+  if (remainder > 0) {
+    result += n.substring(0, remainder);
+  }
+
+  for (let i = remainder; i < length; i += 3) {
+    if (result) {
+      result += ',';
+    }
+    result += n.substring(i, i + 3);
+  }
+
+  return result;
+}
+
+console.log(groupByCommas(10000)); // Output: "10,000"
