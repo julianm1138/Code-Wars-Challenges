@@ -1,0 +1,68 @@
+You are given a secret message you need to decipher. Here are the things you need to know to decipher it:
+
+For each word:
+
+the second and the last letter is switched (e.g. Hello becomes Holle)
+the first letter is replaced by its character code (e.g. H becomes 72)
+there are no special characters used, only letters and spaces
+words are separated by a single space
+there are no leading or trailing spaces
+
+//We can solve this by tackling the number to char conversion, and then swapping the second and last characters.
+/We will need to use map to create the new array.
+//I created a helper function to convert the string digit to its actual character.
+//Check if each character is a number, if yes create a group of digits for each word, else exit the loop to avoid pushing empty strings.
+//The rest of the word will be created with slice with digits.length.
+//Convert the digits to the char: Check if digits is truthy, if yes run the digits through the helper function, else empty string.
+//Concatenate the char with the rest of the word.
+
+//The last step is to switch the second with the last character.
+//We can do this using map and destructuring. 
+
+
+function decipherThis(str) {
+  
+  const strArr = str.split(' ');
+ 
+  
+   const digitsToChar = strArr.map(element => {
+    
+    let digits = '';
+    
+    for (let i = 0; i < element.length; i++) {
+      if (!isNaN(element[i])) {
+        digits += element[i]
+      } else {
+        break;
+      }
+    }
+    
+    const restOfWord = element.slice(digits.length);
+    
+    const charFromCode = digits ? convertCodeToChar(digits) : '';
+    
+    return charFromCode + restOfWord;
+     
+  })
+ 
+   const swapChars = digitsToChar.map(element => {
+     
+    let chars = element.split('');
+     
+    [ chars[1], chars[chars.length - 1]] = [chars[chars.length - 1], chars[1]];
+     
+     return chars.join('');
+   });
+  
+  const result = swapChars.join(' ');
+  
+  return result;
+  
+  
+  function convertCodeToChar(charCode) {
+    
+    charCode = Number(charCode);
+    
+   return charCode = String.fromCharCode(charCode);
+  }
+}
