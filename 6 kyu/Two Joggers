@@ -1,0 +1,38 @@
+Your job is to complete the function nbrOfLaps(x, y) that, given the length of the laps for Bob and Charles, finds the number of laps that each jogger has to complete before they meet each other again, at the same time, at the start.
+
+The function takes two arguments:
+
+The length of Bob's lap (larger than 0)
+The length of Charles' lap (larger than 0)
+
+The function should return an array (Tuple<int, int> in C#) containing exactly two numbers:
+
+The first number is the number of laps that Bob has to run
+The second number is the number of laps that Charles has to run
+
+//We can solve this by using LCM divided by lap length to find the common point where both joggers will be back at the start point simultaneously. 
+//To find lcm we need to use the formula LCM (x, y) = |x *  y| / GCD (x * y). 
+//This means we also need the GCD which we can get using the Euclidean Algorithm. This algorithm works by taking a % b until the remainder is 0. 
+//To create a GCD helper function we can use variables to keep track of the GCD. While b !== 0 assign temp to be b, assign b to be a % b, and assign a to be temp. Everytime the loop restarts with the new set of numbers we will eventually get the GCD as a.
+//Now that we have a function that caluclates the GCD, we can make a function that gets the LCM. 
+//Return the LCM divided by lap length for each jogger to get the number of laps they have to complete before they meet each other again.
+
+
+
+var nbrOfLaps = function (x, y) {
+  
+  return [lcm(x, y) / x, lcm(x, y) / y];
+  
+  function lcm(a, b) {
+    return Math.abs(a * b) / gcd(a, b);
+  }
+  
+  function gcd(a, b) {
+    while (b !== 0) {
+      let temp = b;
+      b = a % b;
+      a = temp;
+    }
+    return a;
+  }
+} 
