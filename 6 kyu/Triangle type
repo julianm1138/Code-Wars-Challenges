@@ -1,0 +1,46 @@
+In this kata, you should calculate the type of triangle with three given sides a, b and c (given in any order).
+
+If each angle is less than 90°, this triangle is acute and the function should return 1.
+
+If one angle is strictly 90°, this triangle is right and the function should return 2.
+
+If one angle is more than 90°, this triangle is obtuse and the function should return 3.
+
+If three sides cannot form a triangle, or one angle is 180° (which turns the triangle into a segment) - the function should return 0.
+
+
+//We can solve this by getting the angles of each input side, using .some() and .every() to check the above conditions on each list of angles, and conditionally return the results.
+//We can get the angles by passing Cosine of the angle opposite to the given side through arc cosine and converting it to angles from radians by using 180 / PI. We turn that into a helper function.
+//Now use the methods to check if every angle is less than 90 (acute), any angle is greater than 90 (obtuse), any angle is equal to 90 (right), and any angle is less than or equal to 0 or greater than or equal to 180 (invalid).
+//Handle invalid cases first to remove possible overlapping conditions for invalid triangles. 
+
+
+
+
+function triangleType(a, b, c) {
+  
+  
+  function getAngles(a, b, c) {
+    
+    const angleA =  Math.acos((b**2 + c**2 - a**2) / (2*b*c)) * (180 / Math.PI);
+    const angleB =  Math.acos((a**2 + c**2 - b**2) / (2*a*c)) * (180 / Math.PI);
+    const angleC =  Math.acos((a**2 + b**2 - c**2) / (2*a*b)) * (180 / Math.PI);
+    
+    return [angleA, angleB, angleC];
+  }
+
+  const angles = getAngles(a, b, c);
+
+ const acute = angles.every(angle => angle < 90);
+ const obtuse = angles.some(angle => angle > 90);
+ const right = angles.some(angle => angle === 90);
+ const invalid = angles.every(angle => angle <= 0 || angle >= 180);
+  
+ if (invalid) return 0;
+ if (acute) return 1;
+ if (obtuse) return 3;
+ if (right) return 2;
+ 
+  return 0;
+}
+console.log(triangleType(2, 4, 6))
