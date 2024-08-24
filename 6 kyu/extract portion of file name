@@ -1,0 +1,22 @@
+You have to extract a portion of the file name as follows:
+
+Assume it will start with date represented as long number
+Followed by an underscore
+You'll have then a filename with an extension
+it will always have an extra extension at the end
+
+//We can use two replace groups one for the part before the string we want to kep and one for the part after the string we want to keep.
+//      (\d+) matches all digits   _ matches the underscore.
+//      \.   matches the period    [^.]* matches every character that is not the period through negation of the period [^.] and one or more occurences * 
+//      $ mark the end of the string.
+//We just need to chain the two replace groups to clean the file name. 
+
+
+
+class FileNameExtractor {
+    static extractFileName (dirtyFileName) {
+      
+     return dirtyFileName.replace(/(\d+)_/, '').replace(/\.([^.]*$)/, '');
+       
+    }
+}
