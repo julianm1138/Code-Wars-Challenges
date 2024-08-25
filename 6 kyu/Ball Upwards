@@ -1,0 +1,38 @@
+The height h of the ball at each time t is given by h = v*t - 0.5*g*t*t where g is Earth's gravity (g ~ 9.81 m/s**2). A device is recording at every tenth of second the height of the ball. For example with v = 15 km/h the device gets something of the following form: (0, 0.0), (1, 0.367...), (2, 0.637...), (3, 0.808...), (4, 0.881..) ... where the first number is the time in tenth of second and the second number the height in meter.
+
+Task
+Write a function max_ball with parameter v (in km per hour) that returns the time in tenth of second of the maximum height recorded by the device.
+
+
+
+
+//We can solve this by using the equation of kinematics where height = initial velocity * time - 1/2(accerlation) * time**2 to get the time at the max height. 
+//Convert from km/h to m/s because the equation is in the units of meters and seconds. I like to use a helper function for this.
+
+//The time at the highest point would be when the velocity is 0, so if we can get the equation to solve for time when velocity is at 0, we can get the answer because that time at max height would be the answer.
+
+// We can rearrange the equation height = initial velocity * time - 1/2(acceleration) * time**2  into a kinematic equation using constants and varibales. 
+// Initial velocity is given to us as a constant and derivative of time in this case is 1, therefore velocity (v0) * time (1) = velocity(v0) 
+// 1/2 * acceleration is a constant coefficient because 1/2 * g is a constant of the original equation, and derivative of time**2 = time * 2 so we can mulitply 1/2 * g * (time * 2). Which gives us -g * t.
+// So the velocity equation derived from height = initial velocity * time - 1/2(accerlation) * time**2 is v = v0 -g * t.
+
+//Now we can set v to 0 and solve for t:   (0 = v0 - g * t) = (g * t = v0 ) = t = v0 / g
+//So the result would be v0 / 9.81 and the kata needs us to round it. 
+
+
+function maxBall(v0) {
+  
+  function convertToMS (v) {
+    const distance = v * 1000;
+    const time = 3600;
+    
+    return (distance / time);
+  }
+  
+  const maxT = convertToMS(v0) / 9.81;
+
+  const result = Math.round(maxT * 10);
+
+  return result;
+}
+console.log(maxBall(15))
