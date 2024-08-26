@@ -1,0 +1,25 @@
+Let's use the Hofstadter Female and Male sequences to demonstrate this technique. You'll want to create two functions F and M such that the following equations are true:
+
+F(0) = 1
+M(0) = 0
+F(n) = n - M(F(n - 1))
+M(n) = n - F(M(n - 1))
+
+
+//When 0 is passed into F() it should return 1, and when 0 is passed into M() it should return 0. 
+//When a variable is passed into either function it should return n minus the alternate function with the alternate function with n - 1 as an argument being passed into the last function.
+//So when a variable is passed into F() it should return n - M( F(n - 1) ) and when a variable is passed into M() it should return n - F( M(n - 1) ).
+//Define the base cases and recursive cases for each function given the above information. 
+
+
+function F(n) { 
+
+  if (n === 0) return 1;
+  return n - M(F(n - 1));
+}
+
+function M(n) { 
+  if (n === 0) return 0;
+  return n - F(M(n - 1));
+
+}
