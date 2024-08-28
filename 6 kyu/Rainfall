@@ -1,0 +1,48 @@
+Task:
+function: mean(town, strng) should return the average of rainfall for the city town and the strng data or data1 (In R and Julia this function is called avg).
+function: variance(town, strng) should return the variance of rainfall for the city town and the strng data or data1.
+
+//We can solve this by creating a helper function to get each town's rainfall data. This function splits the input data into lines, loops through each line and destructures the name of the town and the data associated with the town. Then it checks if the town passed into the function is present in any of the strings and if it is it will split the data into the month and numerical value. Finally, it loops through the array of monthlyData and pushes each numerical value to an array.
+
+//Mean is calculated by summing the numerical values and dividing the sum by the number of values.
+//Variance is calculated by substracting each numerica value by the mean and squaring it, then getting the mean of those values.
+
+
+function getTownRainfallData(town, strng) {
+  let values = [];
+  let rainData = strng.split('\n');
+
+  for (let i = 0; i < rainData.length; i++) {
+    const [name, data] = rainData[i].split(':');
+    if (town === name) {
+      let monthlyData = data.split(',');
+      for (let j = 0; j < monthlyData.length; j++) {
+        let value = parseFloat(monthlyData[j].split(' ')[1]);
+        values.push(value);
+      }
+    
+    }
+  }
+  
+  return values;
+}
+
+function mean(town, strng) {
+  const values = getTownRainfallData(town, strng);
+  if (values.length === 0) return -1;
+
+  const meanResult = values.reduce((acc, currVal) => acc + currVal, 0) / values.length;
+  return meanResult;
+}
+
+function variance(town, strng) {
+  const values = getTownRainfallData(town, strng);
+  if (values.length === 0) return -1;
+
+  const meanValue = mean(town, strng);
+  const varianceResult = values
+    .map(value => (value - meanValue) ** 2)
+    .reduce((acc, currVal) => acc + currVal, 0) / values.length;
+
+  return varianceResult;
+}
