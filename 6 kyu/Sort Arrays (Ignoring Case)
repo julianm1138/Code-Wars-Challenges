@@ -1,0 +1,22 @@
+Sort the given array of strings in alphabetical order, case insensitive. For example:
+
+["Hello", "there", "I'm", "fine"]  -->  ["fine", "Hello", "I'm", "there"]
+["C", "d", "a", "B"])              -->  ["a", "B", "C", "d"]
+
+//We have to sort without mutating the original array so we can us sort's callback function.
+//We can check proper sorting order for each word in the array with a conditional statement: if a.toLowerCase() < b.toLowerCase() put a first for each comparison.
+
+
+
+
+
+
+sortme = function( names ){
+  
+ return names.sort((a, b) => { 
+   if (a.toLowerCase() < b.toLowerCase()) {
+   return -1
+ }
+ });
+}
+console.log(sortme(["Hello","there","I'm","fine"]))
