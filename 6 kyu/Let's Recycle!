@@ -1,0 +1,32 @@
+Task
+You will be given a list of objects. Each object has type, material, and possibly secondMaterial. The existing materials are: paper, glass, organic, and plastic.
+
+Your job is to sort these objects across the 4 recycling bins according to their material (and secondMaterial if it's present), by listing the type's of objects that should go into those bins.
+
+//We can solve this by representing the bins as arrays and looping through the input array of objects, and if the type is included in either the material or secondMaterial, it will be pushed to it's correposnding bin.
+
+
+function recycle(array) {
+  const paper = [];
+  const glass = [];
+  const organic = [];
+  const plastic = [];
+  
+  
+  for (const objects of array) {
+     
+    if (objects.material === 'paper' || objects.secondMaterial === 'paper') {
+      paper.push(objects.type);
+    }
+      if (objects.material === 'glass' || objects.secondMaterial === 'glass') {
+        glass.push(objects.type);
+      } 
+      if (objects.material === 'organic' || objects.secondMaterial === 'organic') {
+        organic.push(objects.type);
+      }
+    if (objects.material === 'plastic' || objects.secondMaterial === 'plastic') {
+      plastic.push(objects.type);
+    }
+  }
+  return [paper, glass, organic, plastic];
+}
