@@ -1,0 +1,27 @@
+Write a function that receives two strings and returns n, where n is equal to the number of characters we should shift the first string forward to match the second. The check should be case sensitive.
+
+//We can solve this by creating a count for how many iterations it takes for the first string to equal the second while adding the last character to the start of the string.
+//First check for valid string rotation: if we concatenate the first string with itself at some point it should equal the second if it is a valid rotation, so we can negate this for the check. Also if the string lengths are different they cannot be a valid rotation.
+//While the first is not equal to the second we can reassign the first to be its last character (now at the front) + the whole string excluding the final character.
+//Increment result. 
+
+
+function shiftedDiff(first,second){
+    
+  let result = 0;
+    
+   if (!(first + first).includes(second) || first.length !== second.length) {
+      return -1;
+    }
+  
+    while (first !== second) {
+      
+      first = first.slice(-1) + first.slice(0, -1);
+      
+      result ++;     
+    }
+  
+  return result;
+}
+console.log(shiftedDiff("coffee","eecoff"))
+//"coffee", "eecoff
