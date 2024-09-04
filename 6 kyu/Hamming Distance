@@ -1,0 +1,18 @@
+The Hamming Distance is a measure of similarity between two strings of equal length. Complete the function so that it returns the number of positions where the input strings do not match.
+
+// Since the strings are of equal length we can solve this by comparing each string one character at a time, and when we run across any characters not equal to each other, increment the count.
+
+
+
+
+const hamming = (a, b) => {
+  
+  let result = 0;
+	
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) {
+      result++;
+    }
+  }
+    return result;
+}
