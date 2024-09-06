@@ -1,0 +1,40 @@
+Each exclamation mark's weight is 2; each question mark's weight is 3. Putting two strings left and right on the balance - are they balanced?
+
+If the left side is more heavy, return "Left"; if the right side is more heavy, return "Right"; if they are balanced, return "Balance".
+
+Examples
+"!!", "??"     -->  "Right"
+"!??", "?!!"   -->  "Left"
+"!?!!", "?!?"  -->  "Left"
+"!!???!????", "??!!?!!!!!!!"  -->  "Balance"
+
+
+//We can solve this by using variables to count the occurences of marks on the two right arguments and multiply each one by their given weights. 
+//Then we just need to get the total of the left marks and right marks and compare them.
+
+
+
+function balance(left,right){
+  
+  let leftExclamationCount = 0;
+  let leftQuestionMarkCount = 0;
+  let rightExclamationCount = 0;
+  let rightQuestionMarkCount = 0;
+  
+  for (const char of left) {
+    if (char === "!") leftExclamationCount += 1 * 2;
+    if (char === "?") leftQuestionMarkCount += 1 * 3;  
+  }
+
+  for (const char of right) {
+    if (char === "!") rightExclamationCount += 1 * 2;
+    if (char === "?")  rightQuestionMarkCount += 1 * 3;
+  }
+  
+  let totalLeft = leftExclamationCount + leftQuestionMarkCount;
+  let totalRight = rightExclamationCount + rightQuestionMarkCount;
+  
+  return totalLeft > totalRight ? "Left" : totalLeft < totalRight ? "Right" : "Balance";
+
+}
+console.log(balance("!!","??"))
