@@ -1,0 +1,48 @@
+Task:
+parameters: st a string of firstnames, we an array of weights, n a rank
+
+return: the firstname of the participant whose rank is n (ranks are numbered from 1)
+
+
+//We can solve this by calculating the winning numbers and then creating an object to store the name and winning number as key value pairs so that we can reference the names based on n.
+//First handle edge cases where st.length is 0 and n > namesArr.length
+//Calculate winning numbers with map: convert each name to lowercase and define the sum variable, then loop over each letter of each name and add the value of each letter to the sum.
+//Add each sum of values with its name length.
+//To get the winning numbers multiply each sum by each corresponding weight number.
+//We can then use an object to store the information.
+
+//Sort the array of winning numbers where if they are equal, sort alphabetically, else sort in descending order.
+//Finally access the winningNumbers array at n - 1 (since n starts from 1) and reference the object to return the name.
+
+
+
+
+
+function rank(st, we, n) {
+  const namesArr = st.split(',');
+
+  if (st.length === 0) return "No participants";
+  if (n > namesArr.length) return "Not enough participants";
+  
+  const winningNumbers = namesArr.map((name, i) => {
+    const lowerName = name.toLowerCase();
+    let som = 0;
+    for (const letter of lowerName) {
+      som += letter.charCodeAt() - 96;
+    }
+    som += name.length;
+    const winningNumber = som * we[i];
+    return { name, winningNumber };
+  });
+
+  winningNumbers.sort((a, b) => {
+    if (b.winningNumber === a.winningNumber) {
+      return a.name.localeCompare(b.name);
+    }
+    return b.winningNumber - a.winningNumber;
+  });
+
+  return winningNumbers[n - 1].name;
+}
+console.log(rank("COLIN,AMANDBA,AMANDAB,CAROL,PauL,JOSEPH", [1, 4, 4, 5, 2, 1], 4));
+
