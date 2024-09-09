@@ -1,0 +1,33 @@
+Given a string "abc" and assuming that each letter in the string has a value equal to its position in the alphabet, our string will have a value of 1 + 2 + 3 = 6. This means that: a = 1, b = 2, c = 3 ....z = 26.
+
+You will be given a list of strings and your task will be to return the values of the strings as explained above multiplied by the position of that string in the list. For our purpose, position begins with 1.
+
+nameValue ["abc","abc abc"] should return [6,24] because of [ 6 * 1, 12 * 2 ]. Note how spaces are ignored.
+
+//We can solve this by using charCode - 96 to assign each letter to its own value, creating a sum for each string, and then multiplying each sum by i + 1.
+//We can do this with a for of loop and map.
+
+
+function wordValue(a) {
+  
+ let sumArr = [];
+  
+  for (const str of a) {
+   
+    let sum = 0;
+    
+    for (const char of str) {
+      
+      let value = char.charCodeAt() - 96;
+      
+      if (value < 1 || value > 26) {
+        } else {
+        sum += value; 
+      } 
+    }
+     sumArr.push(sum);
+  }
+  return sumArr.map((sum, i) => {
+   return sum * (i + 1);
+  });
+}
