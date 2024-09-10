@@ -1,0 +1,51 @@
+You need to create a function that will validate if given parameters are valid geographical coordinates.
+
+Valid coordinates look like the following: "23.32353342, -32.543534534". The return value should be either true or false.
+
+Latitude (which is first float) can be between 0 and 90, positive or negative. Longitude (which is second float) can be between 0 and 180, positive or negative.
+
+Coordinates can only contain digits, or one of the following symbols (including space after comma) __ -, . __
+
+// We can solve this by splitting the input by comma and trimming whitespace in order to check if the input is a valid float or number. We also need to use multiple conditional checks to make sure we pass all tests.
+//After we split and trim the array we can check if the array is length two ( in order to make sure we have two valid floats)
+//We can then make a helper function to check for valid coordinate formats.
+//Pass the lat and lon inputs into the helper function.
+//Use parseFloat() on lat and lon so we can check for false cases:
+//Check if lat and lon are valid numbers, if they fall within correct range
+//Else return true
+
+
+function isValidCoordinates(coordinates) {
+  const arr = coordinates.split(',').map(part => part.trim());
+
+  // Ensure there are exactly two values: latitude and longitude
+  if (arr.length !== 2) return false;
+  
+  const lat = arr[0];
+  const lon = arr[1];
+
+  // Check if either latitude or longitude contains any invalid characters
+  // or more than one decimal point
+  const isInvalidFormat = (str) => {
+    return !/^[-]?\d+(\.\d+)?$/.test(str); // Regex to match valid number formats
+  }
+
+  if (isInvalidFormat(lat) || isInvalidFormat(lon)) {
+    return false;
+  }
+
+  // Parse the latitude and longitude to floats
+  const latitude = parseFloat(lat);
+  const longitude = parseFloat(lon);
+
+  // Ensure both are valid numbers and within the correct range
+  if (
+    isNaN(latitude) || isNaN(longitude) || // Check for valid numbers
+    latitude < -90 || latitude > 90 ||   
+    longitude < -180 || longitude > 180   
+  ) {
+    return false;
+  }
+
+  return true;
+}
