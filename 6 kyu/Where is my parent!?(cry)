@@ -1,0 +1,24 @@
+-Uppercase letters stands for mothers, lowercase stand for their children, i.e. "A" mother's children are "aaaa".
+-Function input: String contains only letters, uppercase letters are unique.
+Task:
+Place all people in alphabetical order where Mothers are followed by their children, i.e. "aAbaBb" => "AaaBbb".
+
+//We can solve this by sorting the input into alphabetical order.
+//Convert each character to lowercase inside the sort function to check for cases where they are equal inside the original array.
+//Due to ASCII values of lowercase being greater than ASCII values for uppercase every time, even if the characters are the same, the test a < b return -1 will be the correct order every time. This is because the condition, no matter whether a or b are any combination of upper or lowercase, the ASCII values will cause the corresponding value to be placed in the correct order. 
+//The ASCII values are the key.
+//Else we want to do a sort by ASCII values and check if a < b and return a (-1) if true else return b (1)
+
+
+function findChildren(dancingBrigade) {
+  const sortedString = dancingBrigade.split('').sort((a, b) => {
+    const lowerA = a.toLowerCase();
+    const lowerB = b.toLowerCase();
+    
+   if (lowerA === lowerB) {
+      if (a < b) return -1;
+    }
+    return lowerA < lowerB ? -1 : 1;
+  }).join('');
+
+console.log(findChildren("beeeEBb"));
