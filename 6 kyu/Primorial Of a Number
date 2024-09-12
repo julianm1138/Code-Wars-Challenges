@@ -1,0 +1,30 @@
+Given a number N , calculate its primorial.
+
+//We can solve this by getting the first n prime numbers and multiplying them by each other.
+//First we can make a helper function to check if a number is prime: if it is greater than 1 or divisible by any number that is not itself, it is not prime, otherwise it is prime.
+//Now we can create an array of the first n prime numbers by defining i = 2 (2 is the first prime number) and count = 0 (this will keep track of 0 to n). Our condition will check if i is prime using the helper function.
+//After we have our array of first n primes, use reduce.
+
+function numPrimorial(n){
+  
+  function isPrime(num) {
+    if (num < 2) return false;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) return false;
+    }
+        return true;
+    }
+  
+   let primes = [];
+  
+   for (let i = 2, count = 0; count < n; i++) {
+    if (isPrime(i)) {
+      primes.push(i);
+      count++;
+    }
+  }
+  const result = primes.reduce((acc, currVal) => acc * currVal, 1);
+  
+  return result;
+}
+console.log(numPrimorial(3))
