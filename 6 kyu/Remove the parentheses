@@ -1,0 +1,38 @@
+Remove the parentheses
+In this kata you are given a string for example:
+
+"example(unwanted thing)example"
+Your task is to remove everything inside the parentheses as well as the parentheses themselves.
+
+The example above would return:
+
+"exampleexample"
+
+//Since parentheses can be nested we want to set up a variable to keep track of the position of parentheses.
+//The strategy is that any time the value of the variable is 0, this indicates the abscence of any parentheses and so we will add every part of the string that meets this condition.
+//If the current includes the opening parenthesis we will increment the variable regardless of how much nesting there is, so that any time there is a value greater than 0 it will not add those characters to the result. 
+
+//The key is setting up a variable to keep track of on and off (1 or 0) and set up condtiions to create the result string. (If 0 add to the result string, but if > 0 start keeping track of parentheses with the counter).
+
+
+
+
+
+
+
+function removeParentheses(s) {
+  let result = '';
+  let openParentheses = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i].includes('(')) {
+      openParentheses++;
+    } else if (s[i].includes(')')) {
+      openParentheses--;
+    } else if (openParentheses === 0) {
+      result += s[i];
+    }
+  }
+
+  return result;
+}
