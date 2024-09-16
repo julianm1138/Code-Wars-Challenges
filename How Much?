@@ -1,0 +1,38 @@
+"Imagine I have between m and n Zloty..." (or did he say Quetzal? I can't remember!)
+"If I were to buy 9 cars costing c each, I'd only have 1 Zloty (or was it Meticals?) left."
+"And if I were to buy 7 boats at b each, I'd only have 2 Ringglets (or was it Zloty?) left."
+Could you tell me in each possible case:
+
+how much money f he could possibly have ?
+the cost c of a car?
+the cost b of a boat?
+
+
+//There is the possibility that m be greater than b in the input, so we can correct that with destructuring.
+//We can solve this by looping through the range and checking if each value has a remainder of 2 (for b) and 1 (for c). Given modular congruences, if they pass the tests we will subtract 2 and 1 from the value respectively and divide by their respective divisors as given to us in the problem. 
+//Using this approach helps us eliminate computations that check every value from m to n and helps keep the solution efficient. 
+//Given the tests pass we push the results to the array for each value of f.
+
+
+function howMuch(m, n) {
+  
+  let result = [];
+  
+  if (m > n) [m, n] = [n, m];
+  
+  for (let f = m; f <= n; f++) {
+    
+    if (f % 7 === 2) {
+      let b = (f - 2) / 7;
+    
+    if (f % 9 === 1) {
+      let c = (f - 1) / 9;
+      
+    result.push([`M: ${f}`,`B: ${b}`,`C: ${c}`]);
+    }
+  }
+}
+  return result;
+}
+console.log(howMuch(10000, 9950))
+
