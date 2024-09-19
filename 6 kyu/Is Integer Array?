@@ -1,0 +1,23 @@
+Write a function with the signature shown below:
+
+function isIntArray(arr) {
+  return true
+}
+returns true  / True if every element in an array is an integer or a float with no decimals.
+returns true  / True if array is empty.
+returns false / False for every other input.
+
+//We can solve this by checking if every input is an array and checking if everything inside the array is an integer.
+//Our first condition checks if the input is an array at all.
+//JS considers floats without decimals as integers
+//The every method will pass the test for empty arrays because the array contains nothing to fail the test
+
+
+
+
+function isIntArray(arr) {
+  
+  if (!Array.isArray(arr)) return false;
+  
+  return arr.every(element => Number.isInteger(element));
+}
