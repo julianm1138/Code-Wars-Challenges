@@ -1,0 +1,42 @@
+Task
+The function travel will take two parameters r (addresses' list of all clients' as a string) and zipcode and returns a string in the following format:
+
+zipcode:street and town,street and town,.../house number,house number,...
+
+The street numbers must be in the same order as the streets where they belong.
+
+If a given zipcode doesn't exist in the list of clients' addresses return "zipcode:/"
+
+
+//We are given a string containing full addresses separated by commas (r) and a zipcode. We can tell by the expected output format "zipcode:street and town,street and town,.../house number,house number,..." street and town are a list as well as house number is also a list. 
+//If we can put streets and towns and house numbers into their own lists we can use them in the return format.
+//First we need to check if the zipcode in r matches the input zipcode because only addresses with matching zipcodes need to be added to the output string.
+//We can loop through the array of strings and split each string into an array of parts. Now we have an array of the address parts.
+//From there we can get the zip with slice.
+
+//Now we check if the current zip is the input zipcode and if so we will add the houseNumber and streetAndTown to their respective arrays.
+//Now if there is more than one street in the streets array we will return the desired output format because all checks are done inside the loop. 
+//The only other possibility is the given zipcode will not exist in r.
+
+function travel(r, zipcode) {
+  let arr = r.split(',');
+  let streets = [];
+  let houseNumbers = [];
+
+  for (const address of arr) {
+    const parts = address.split(' ');
+    const zip = parts.slice(-2).join(' ');
+
+    if (zip === zipcode) {
+      const houseNum = parts[0];
+      const streetAndTown = parts.slice(1, -2).join(' ');
+      streets.push(streetAndTown);
+      houseNumbers.push(houseNum);
+    }
+  }
+  if (streets.length > 0) {
+    return `${zipcode}:${streets.join(',')}/${houseNumbers.join(',')}`;
+  }
+    return `${zipcode}:/`;
+  }
+
