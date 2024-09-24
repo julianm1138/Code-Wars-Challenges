@@ -1,0 +1,23 @@
+Implement a function that receives a string, and lets you extend it with repeated calls. When no argument is passed you should return a string consisting of space-separated words you've received earlier.
+
+Note: There will always be at least 1 string; all inputs will be non-empty.
+
+For example:
+
+createMessage("Hello")("World!")("how")("are")("you?")()
+
+//Since we are using multiple calls for each input string instead of passing every input string into the same top-level function, we need a secondary function to handle each repeat call to createMessage (the top-level function) and push each argument into an array.
+//We can define that array with the first argument, then declare the helper function where if the next argument is not undefined, will push every following argument into the array. Where if it is undefined, we will join the array together by spaces. 
+//Return the helper function to continue internal chaining and return the helper function in the outer function to access it from there.
+
+const createMessage = (str) => {
+  const messages = [str];
+
+  const messageArr = (arg) => {
+    if (arg === undefined) return messages.join(" ");
+    messages.push(arg);
+    return messageArr;
+  };
+
+  return messageArr;
+};
