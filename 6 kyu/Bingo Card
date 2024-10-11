@@ -1,0 +1,54 @@
+After yet another dispute on their game the Bingo Association decides to change course and automate the game.
+
+Can you help the association by writing a method to create a random Bingo card?
+
+Bingo Cards
+A Bingo card contains 24 unique and random numbers according to this scheme:
+
+5 numbers from the B column in the range 1 to 15
+5 numbers from the I column in the range 16 to 30
+4 numbers from the N column in the range 31 to 45
+5 numbers from the G column in the range 46 to 60
+5 numbers from the O column in the range 61 to 75
+Task
+Write the function get_card()/getCard(). The card must be returned as an array of Bingo style numbers:
+
+[ 'B14', 'B12', 'B5', 'B6', 'B3', 'I28', 'I27', ... ]
+
+// We can solve this by using an object to call a helper function that will get n random numbers n times.
+// The helper function will use a set to hold random numbers within a range (for the varying Bingo card ranges given).
+// Return the set as an array so we're able to modify it later.
+
+//Our object will hold each BINGO letter as a property with the function that will generate a random unique number and the count of its calls as the value.
+//Loop through the object and destruct the array values. 
+//Push each formatted array to the result array and flatten it.
+
+
+function getCard() {
+    const getRandom = (min, max, count) => {
+        const uniqueNums = new Set();
+        while (uniqueNums.size < count) {
+            uniqueNums.add(Math.floor(Math.random() * (max - min + 1) + min));
+        }
+        return Array.from(uniqueNums);
+    };
+
+    const bingoCard = {
+        "B": [() => getRandom(1, 15, 5), 5],
+        "I": [() => getRandom(16, 30, 5), 5],
+        "N": [() => getRandom(31, 45, 4), 4],
+        "G": [() => getRandom(46, 60, 5), 5],
+        "O": [() => getRandom(61, 75, 5), 5]
+    };
+
+    let result = [];
+    for (const letter in bingoCard) {
+        const [func, callCount] = bingoCard[letter];
+        result.push(func().map(number => `${letter}${number}`));
+    }
+
+    return result.flat();
+}
+
+
+
