@@ -1,0 +1,36 @@
+Create a function nextVersion, that will take a string in parameter, and will return a string containing the next version number.
+
+For example:
+
+Current           ->  Next version
+"1.2.3"           ->  "1.2.4"
+"0.9.9"           ->  "1.0.0"
+"1"               ->  "2"
+"1.2.3.4.5.6.7.8" ->  "1.2.3.4.5.6.7.9"
+"9.9"             ->  "10.0"
+Rules
+All numbers, except the first one, must be lower than 10: if there are, you have to set them to 0 and increment the next number in sequence.
+
+You can assume all tests inputs to be valid.
+
+// These inputs all follow a specific repeating pattern: where every integer in the version is greater than 10 it becomes 0, otherwise they simply increment the last integer by 1. 
+// If we start at the final number and increment the last integer by 1 by default, and if any element reaches 10 set it to 0, and then continue to increment each number, it should solve our problem.
+// Now we just need to apply this algorithm to every number in the string.
+
+
+function nextVersion(version){
+  
+ let arr = version.split('.').map(Number);
+ let lastNumIndex = arr.length - 1;
+  arr[lastNumIndex] = arr[lastNumIndex] + 1;
+  for (let i = lastNumIndex; i > 0; i--) {
+    
+  if (arr[i] === 10) {
+    arr[i] = 0;
+    arr[i - 1] += 1;
+ }
+  }
+  return arr.join('.');
+}
+
+console.log(nextVersion("9.9"))
