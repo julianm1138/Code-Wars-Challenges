@@ -1,0 +1,43 @@
+You have to create a function for generating random and unique image filenames.
+
+Create a function for generating a random 6 character string which will be used to access the photo URL.
+
+To make sure the name is not already in use, you are given access to an PhotoManager object.
+
+You can call it like so to make sure the name is unique
+
+// at this point, the website has only one photo, hosted on the 'ABCDEF' url
+photoManager.nameExists('ABCDEF'); // returns true
+photoManager.nameExists('BBCDEF'); // returns false
+Note: We consider two names with same letters but different cases to be unique.
+
+
+// We can solve this by creating an array of 6 random integers within the ascii value ranges of lower and uppercase letters, and converting those into strings.
+// Run the loop up to 6.
+// Initialize 50% chance of upper or lowercase
+// Assign the random value to be within their respective ranges for lower and uppercase: Math.random() * (upper - lower + 1)) + lower
+// Convert each random integer into a string and join.
+
+function generateName() {
+  
+  let integers = [];
+  
+  for (let i = 0; i < 6; i++) {
+    
+   let randomASCII;
+    
+   const casing = Math.random() < 0.5;
+  
+    if (casing) {
+       randomASCII = Math.floor(Math.random() * (90 - 65 + 1)) + 65;
+     } else {
+       randomASCII = Math.floor(Math.random() * (122 - 97 + 1)) + 97;
+  }
+         integers.push(randomASCII);
+}
+       const str = integers.map(integer => {
+          return String.fromCharCode(integer);
+        }).join('');
+  
+    return str;
+}
