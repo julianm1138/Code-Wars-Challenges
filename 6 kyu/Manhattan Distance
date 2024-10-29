@@ -1,0 +1,24 @@
+Manhattan Distance
+Manhattan distance is the distance between two points in a grid (like the grid-like street geography of the New York borough of Manhattan) calculated by only taking a vertical and/or horizontal path.
+
+Complete the function that accepts two points and returns the Manhattan Distance between the two points.
+
+The points are arrays or tuples containing the x and y coordinate in the grid. You can think of x as the row in the grid, and y as the column.
+
+Examples
+* Input [1, 1], [1, 1] => Output 0
+* Input [5, 4], [3, 2] => Output 4
+* Input [1, 1], [0, 3] => Output 3
+
+// The first element of each Cartesian coordinates are x, and the second element of each are y.
+// We can find the Manhattan Distance by getting the sum of absolute differences of the x and y coordinates, that is |x1| - |x2| + |y1| - |y2|.
+// "...the distance between two points is instead defined to be the sum of the absolute differences of their respective Cartesian coordinates..."
+
+
+function manhattanDistance(pointA, pointB){
+  
+  const differenceX = Math.abs(pointA[0] - pointB[0]);
+  const differenceY = Math.abs(pointA[1] - pointB[1]);
+  
+  return differenceX + differenceY;
+}
