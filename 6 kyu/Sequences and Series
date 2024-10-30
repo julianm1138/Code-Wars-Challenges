@@ -1,0 +1,35 @@
+Have a look at the following numbers.
+
+ n | score
+---+-------
+ 1 |  50
+ 2 |  150
+ 3 |  300
+ 4 |  500
+ 5 |  750
+Can you find a pattern in it? If so, then write a function getScore(n)/get_score(n)/GetScore(n) which returns the score for any positive number n.
+
+Note Real test cases consists of 100 random cases where 1 <= n <= 10000
+
+// The pattern is a ratio of the first score + 25 : 1, in other words an increase of 25 beginning with a ratio of 50 : 1.
+// We can solve this in linear time by using 25 * i * i + 1, because 25 * 1 * (1 + 1) = 50 and the pattern should continue from there.
+
+function getScore(n) {
+
+  let result = 0;
+  
+  for (let i = 1; i <= n; i++) {
+    result = 25 * i * (i + 1);
+  }
+  return result;
+}
+console.log(getScore(3))
+
+// We can solve this in constant time by skipping iterating completely and using the formula alone and using n itself in all instances of i.
+
+function getScore(n) {
+
+  return 25 * (n) * (n + 1);
+  
+}
+console.log(getScore(3))
