@@ -1,0 +1,24 @@
+Task :
+Given a List [] of n integers , find minimum number to be inserted in a list, so that sum of all elements of list should equal the closest prime number.
+
+// We can solve this by tracking the state of the sum and while the sum is not prime we increase it by 1 and also increase a separate count by 1. 
+
+function minimumNumber(numbers){
+  
+  let sum = numbers.reduce((acc, currentVal) => acc + currentVal, 0);
+  let count = 0;
+  while (!isPrime(sum)) {
+    count++;
+    sum++;
+}
+    
+  function isPrime(number) {
+    if (number <= 1) return false;
+    for (let i = 2; i < number; i++) {
+       if (number % i === 0) return false;
+  }
+    return true;
+  }
+  return count;
+}
+console.log(minimumNumber([2,12,8,4,6]))
