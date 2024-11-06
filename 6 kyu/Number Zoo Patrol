@@ -1,0 +1,25 @@
+Task:
+Write a function that takes a shuffled list of unique numbers from 1 to n with one element missing (which can be any number including n). Return this missing number.
+
+Note: huge lists will be tested.
+
+Examples:
+[1, 3, 4]  =>  2
+[1, 2, 3]  =>  4
+[4, 2, 3]  =>  1
+
+// Since one number is missing from the sequence we can assume that the expected length is the current length + 1.
+// The expected sum can be calculated by taking the expected number of elements in the sequence current length + 1 * (current Length + 1 + 1) / 2
+// We can solve this by subtracting the expected sum from the actual sum.
+
+
+
+
+function findNumber(array) {
+  
+  const expectedSum = (array.length + 1) * (array.length + 2) / 2;
+
+  const currentSum = array.reduce((acc, currVal) => acc + currVal, 0);
+  
+  return expectedSum - currentSum;
+  }
