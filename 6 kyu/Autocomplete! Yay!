@@ -1,0 +1,23 @@
+The autocomplete function will take in an input string and a dictionary array and return the values from the dictionary that start with the input string. If there are more than 5 matches, restrict your output to the first 5 results. If there are no matches, return an empty array.
+
+// The first thing we can do is clean the input of non-alphabetical characters.
+// Given that the input and dictionary can be different cases we will convert the clean input and the dictionary element to lowercase for comparison.
+// Check if each dictionary element starts with the clean input and if the result has 5 elements break the loop. 
+
+
+function autocomplete(input, dictionary){
+  
+  let result = [];
+  
+  let cleanInput = input.replace(/[^a-zA-Z]/g, "").toLowerCase();
+  
+   for (let i = 0; i < dictionary.length; i++) {
+     
+    if (dictionary[i].toLowerCase().startsWith(cleanInput)) {
+      result.push(dictionary[i])
+    }
+     if (result.length === 5) break;
+  }
+ return result;
+}
+console.log(autocomplete('ai', ['airplane','airport','apple','ball']))
