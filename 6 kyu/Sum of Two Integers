@@ -1,0 +1,30 @@
+Task
+Given Two integers a , b , find The sum of them , BUT You are not allowed to use the operators + and -
+
+Notes
+The numbers (a,b) may be positive , negative values or zeros .
+
+Returning value will be an integer .
+
+Javascript: the Array reduce methods are disabled, along with eval, require, and module .
+
+
+// We can solve this using bitwise operators to perform low-level addition without the additive operators. 
+// Every time we use XOR we get the binary sum of the two decimal numbers without any carry.
+// Every time we use AND we get every carry.
+// If we shift each carry left using << we eventually modify x by carrying all bits to replace the value of x. The process repeats until y is 0, which means all carries have been shifted left and accumulated into the decimal sum.
+// In other words on each iteration x is updated to be the sum without any carries and y is updated to be the carry shifted left.
+
+
+function add(x, y) {
+  
+  while (y !== 0) {
+    let binarySum = x ^ y;
+    let carry = ((x & y) << 1);
+    x = binarySum;
+    y = carry;
+    
+  }
+ console.log(x)
+}
+console.log(add(5,3))
