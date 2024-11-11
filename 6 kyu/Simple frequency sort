@@ -1,0 +1,38 @@
+In this kata, you will sort elements in an array by decreasing frequency of elements. If two elements have the same frequency, sort them by increasing value.
+
+solve([2,3,5,3,7,9,5,3,7]) = [3,3,3,5,5,7,7,2,9]
+-- We sort by highest frequency to lowest frequency.
+-- If two elements have same frequency, we sort by increasing value
+
+/* We can solve this by storing the frequency of each number, creating an array of [number, frequency], 
+sorting that by highest to lowest frequency (index 1 of each subarray), else sort in ascending order by number (index 0 of each subarray).
+Last, build the result array by filling it with the num frequency times
+
+*/
+
+function solve(arr){
+  let obj = {};
+  for (let i in arr) {
+    if (obj[arr[i]]) {
+      obj[arr[i]]++; 
+    } else {
+      obj[arr[i]] = 1;
+    }
+  }
+  
+ let freqArr = [];
+  for (let item in obj) {
+    freqArr.push([Number(item), obj[item]])
+  }
+  freqArr.sort((a, b) =>  {
+    if (b[1] !== a[1]) {
+      return b[1] - a[1]
+    } else {
+      return a[0] - b[0]
+    }
+  })
+  
+  const result = freqArr.map(([num, freq]) => Array(freq).fill(num))
+                 .reduce((acc, val) => acc.concat(val), []);
+  return result;
+  }
