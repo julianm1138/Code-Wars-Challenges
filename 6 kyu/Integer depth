@@ -1,0 +1,29 @@
+The depth of an integer n is defined to be how many multiples of n it is necessary to compute before all 10 digits have appeared at least once in some multiple.
+
+Write a function named computeDepth which computes the depth of its integer argument.Only positive numbers greater than zero will be passed as an input.
+
+// If the size of a set === the count of the digits (10 digits), that means that at multiple i we will have reached the integer depth.
+// We create a set for every individual digit.
+// Take each value and split it into individual digits.
+// Loop through those digits and if the set size === 10 return i.
+// The for loop will have no upper bound because the exit condition is when the set size === 10
+
+
+
+function computeDepth (x){
+  
+  let set = new Set();
+  
+    for (let i = 1; ; i++) {
+      
+      let digits = (x * i).toString().split('')
+     
+      digits.forEach(digit => set.add(digit));
+       if (set.size === 10) {
+        return i;
+      }
+      
+    }
+ 
+  }
+console.log(computeDepth(42))
