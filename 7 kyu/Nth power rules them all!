@@ -1,0 +1,11 @@
+You are provided with an array of positive integers and an additional integer n (n > 1).
+
+Calculate the sum of each value in the array to the nth power. Then subtract the sum of the original array.
+
+// If we get the sum of the powers of the array values minus the sum of the array values that should give us the answer.
+
+function modifiedSum(a, n) {
+  const powerSum = a.map(value => value ** n).reduce((acc, currVal) => acc + currVal, 0);
+  const sum = a.reduce((acc, currVal) => acc + currVal, 0);
+  return powerSum - sum;
+}
