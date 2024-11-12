@@ -1,0 +1,17 @@
+20_year_estimate = one_year_total * 20
+
+Your function should return the 20 year estimate of the stairs climbed using the formula above.
+
+// The formula/answer is the total of all steps in a year times 20, and weeklyStairs is an array of weekdays each containing an array of steps
+// We can get the sum of each of those weekday steps using map and reduce.
+// Then we get the total sum of all the steps and multiply by 20.
+
+
+
+function stairsIn20(weeklyStairs) {
+ const sumOfSteps = weeklyStairs.map(weekday => {
+  return weekday.reduce((acc, steps) => acc + steps, 0);
+ });
+ const totalSum = sumOfSteps.reduce((acc, steps) => acc + steps, 0);
+ return totalSum * 20;
+}
