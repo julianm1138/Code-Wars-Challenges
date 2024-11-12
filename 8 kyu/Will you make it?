@@ -1,0 +1,18 @@
+Considering these factors, write a function that tells you if it is possible to get to the pump or not.
+
+Function should return true if it is possible and false if not.
+
+
+// We can calculate the amount of gallons remaining * miles per gallon to get the total amount of mileage available.
+// If the mileage available is >= distance to the pump that means there is more than or enough mileage to reach the pump.
+// Return mileageAvailable >= distanceToPump;
+
+
+
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+   
+  const mileageAvailable = fuelLeft * mpg;
+  return mileageAvailable >= distanceToPump;
+  
+};
+console.log((zeroFuel(55, 25, 2)))
