@@ -1,0 +1,16 @@
+Clock shows h hours, m minutes and s seconds after midnight.
+
+Your task is to write a function which returns the time since midnight in milliseconds.
+
+// We can assume that the clock starts at midnight, so if we calculate how many milliseconds are in each unit of time and multiply by the units of time, and get the sum that should be the solution. 
+
+
+function past(h, m, s){
+  
+  let msPerHour = 3600000;
+  let msPerMin = 60000;
+  let msPerSec = 1000;
+  
+  return msPerHour * h + msPerMin * m + msPerSec * s;
+}
+console.log(past(1,1,1))
