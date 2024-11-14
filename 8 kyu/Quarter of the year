@@ -1,0 +1,28 @@
+Given a month as an integer from 1 to 12, return to which quarter of the year it belongs as an integer number.
+
+For example: month 2 (February), is part of the first quarter; month 6 (June), is part of the second quarter; and month 11 (November), is part of the fourth quarter.
+
+Constraint:
+
+1 <= month <= 12
+
+// We can solve this by associating each quarter with the month. Every quarter has 3 months because 12 months / 4 quarters = 3 months / quarter.
+// Next iterate through the object and return i for the given month.
+
+
+const quarterOf = (month) => {
+  
+  let quartersOfYear = {
+  1: [1, 2, 3],
+  2: [4, 5, 6],
+  3: [7, 8, 9],
+  4: [10, 11, 12]
+  };
+  
+  for (let i in quartersOfYear) {
+      if (quartersOfYear[i].includes(month)) {
+        return parseInt(i);
+      }
+  }
+  
+}
