@@ -1,0 +1,16 @@
+Take an array and remove every second element from the array. Always keep the first element and start removing with the next element.
+
+Example:
+["Keep", "Remove", "Keep", "Remove", "Keep", ...] --> ["Keep", "Keep", "Keep", ...]
+
+None of the arrays will be empty, so you don't have to worry about that!
+
+// Every second element happens to be at an odd index, so if we filter the array to only keep even-indexed elements that will give us the answer.
+
+function removeEveryOther(arr) {
+
+  return arr.filter((_, index) => {
+   return index % 2 === 0
+  });
+
+}
