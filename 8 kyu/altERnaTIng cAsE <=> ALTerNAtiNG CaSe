@@ -1,0 +1,18 @@
+Define String.prototype.toAlternatingCase (or a similar function/method such as to_alternating_case/toAlternatingCase/ToAlternatingCase in your selected language; see the initial solution for details) such that each lowercase letter becomes uppercase and each uppercase letter becomes lowercase.
+
+
+// We can loop through the string and alternate checking each character for upper or lowercase to construct the correct string. 
+
+String.prototype.toAlternatingCase = function () {
+  
+  let str = '';
+  for (let char of this) {
+    if (char === char.toUpperCase()) {
+      str += char.toLowerCase();
+    } else if (char === char.toLowerCase()) {
+      str += char.toUpperCase();
+    }
+  }
+  return str;
+  }
+console.log("12345".toAlternatingCase())
