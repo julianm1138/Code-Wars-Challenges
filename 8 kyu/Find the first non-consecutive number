@@ -2,18 +2,21 @@ Your task is to find the first element of an array that is not consecutive.
 
 By not consecutive we mean not exactly 1 larger than the previous element of the array.
 
+// If the current element is not equal to the previous element + 1 then it is not consecutive, so we should return that element. 
+// In all other cases the array will be completely consecutive so return null. 
 
 
-//We set up a for loop that keeps our indices within bounds. Then we set up a condition that checks for on/off or true/false. If it's true, it will return the next element in the sequence. 
+function firstNonConsecutive (arr) {
 
-
-
-
-function firstNonConsecutive(arr) {
-  for (let i = 0; i < arr.length - 1; ++i) {
-     if (arr[i] + 1 !== arr[i + 1]) {  //we make this first condtion evaluate to false by manipulating arr[i]. If we started from the first value being arr[i] (1), it would make the statement true immediately which we don't want.
-      return arr[i + 1];
+  for (const i in arr) {
+   
+    if (i == 0) continue;
+    if (arr[i] !== arr[i - 1] + 1) {
+      return arr[i];
     }
   }
-  return null;
-}
+    return null;
+} 
+
+
+
