@@ -1,0 +1,19 @@
+Write a function which takes a number and returns the corresponding ASCII char for that value.
+
+Example:
+
+65 --> 'A'
+97 --> 'a'
+48 --> '0
+
+// On the JS String object we have a method which will retreive the corresponding character from a base-10.
+
+function getChar(c){
+  return String.fromCharCode(c);
+}
+
+
+
+
+
+
