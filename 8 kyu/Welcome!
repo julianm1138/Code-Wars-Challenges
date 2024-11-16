@@ -1,0 +1,41 @@
+The Task
+Think of a way to store the languages as a database. The languages are listed below so you can copy and paste!
+Write a 'welcome' function that takes a parameter 'language', with a type String, and returns a greeting - if you have it in your database. It should default to English if the language is not in the database, or in the event of an invalid input.
+
+// We are provided with the object format so we can just handle the invalid inputs by returning 'Welcome' else return the input at the correct property.
+
+
+
+function greet(language) {
+  
+  const welcomeLanguages = {
+    
+  "english": "Welcome"
+, "czech": "Vitejte"
+, "danish": "Velkomst"
+, "dutch": "Welkom"
+, "estonian": "Tere tulemast"
+, "finnish": "Tervetuloa"
+,  "flemish": "Welgekomen"
+,  "french": "Bienvenue"
+,  "german": "Willkommen"
+, "irish": "Failte"
+, "italian": "Benvenuto"
+, "latvian": "Gaidits"
+, "lithuanian": "Laukiamas"
+, "polish": "Witamy"
+, "spanish": "Bienvenido"
+, "swedish": "Valkommen"
+, "welsh": "Croeso"
+  };
+  
+  if (language === 'IP_ADDRESS_INVALID' || 
+      language === 'IP_ADDRESS_NOT_FOUND' || 
+      language === 'IP_ADDRESS_REQUIRED') {
+    return 'Welcome';
+  }
+  
+  return welcomeLanguages[language]
+
+}
+console.log(greet('IP_ADDRESS_INVALID'))
