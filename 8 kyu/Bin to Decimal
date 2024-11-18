@@ -1,0 +1,7 @@
+Complete the function which converts a binary number (given as a string) to a decimal number.
+
+// parseInt is a built in function that can convert a string into a number and takes a second argument to specify base.
+
+function binToDec(bin) {
+  return parseInt(bin, 2);
+}
