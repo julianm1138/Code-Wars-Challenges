@@ -1,0 +1,47 @@
+Numbers ending with zeros are boring.
+
+They might be fun in your world, but not here.
+
+Get rid of them. Only the ending ones.
+
+1450 -> 145
+960000 -> 96
+1050 -> 105
+-1050 -> -105
+
+// Without regex we can solve this by making a helper function to turn the number into an array, a helper function to loop backwards in the array and pop from the array if the current value is 0.
+// Conditional check for negative numbers and return divided by -1 to convert the answer back into a negative number.
+// Otherwise divide by 1 to turn the answer back into a number.
+
+
+
+function noBoringZeros(n) {
+  
+  if (n === 0) return 0;
+  
+  function makeNumArr(num) {
+     return num.toString().split('').map(Number);
+  } 
+  
+  if (n < 0) {
+   const positiveInput = Math.abs(n);
+   const newArr = makeNumArr(positiveInput)
+    return removeZeros(newArr)/-1;
+  }
+  
+  return removeZeros(makeNumArr(n));
+  
+  function removeZeros(arr) {
+  
+  for (let i = arr.length - 1 ; i > 0; i--) {
+    if (arr[i] === 0) {
+      arr.pop();
+    } else {
+      break;
+  }
+}
+    return arr.join('')/1;
+  }
+
+  }
+console.log(noBoringZeros(-105))
