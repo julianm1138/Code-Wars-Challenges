@@ -1,0 +1,32 @@
+Create a function that accepts a list/array and a number n, and returns a list/array of the first n elements from the list/array.
+
+// We can solve this by using slice to go from 0 to n range.
+
+
+function take(arr, n) {
+  
+  return arr.slice(0, n);
+  
+}
+
+
+// We can also solve this with a counter
+
+function take(arr, n) {
+  
+  let counter = n;
+  let result = [];
+  
+  if (n === 0) return [];
+  
+  for (let i in arr) {
+    
+   result.push(arr[i]);
+    counter--;
+    if (counter === 0) {
+      break;
+    }
+  }
+  return result;
+}
+console.log(take([0, 1, 2, 3, 5, 8, 13], 3))
