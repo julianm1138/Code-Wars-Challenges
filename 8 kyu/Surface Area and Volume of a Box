@@ -1,0 +1,15 @@
+Write a function that returns the total surface area and volume of a box as an array: [area, volume]
+
+// The formula for the area of a rectangular prism is 2 (wl + hl + wh) and volume of a rectangular prism is whl.
+// Depth is equal to the length.
+// These formulas also pass for tests for cubes.
+
+
+function getSize(width, height, depth) {
+  
+  const area = 2 * ((width * depth) + (height * width) + (height * depth));
+  const volume = width * height * depth;
+  
+  return [area, volume];
+}
+console.log(getSize(10, 10, 10))  //[area, volume]
