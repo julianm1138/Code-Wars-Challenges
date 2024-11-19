@@ -1,0 +1,17 @@
+When provided with a letter, return its position in the alphabet.
+
+Input :: "a"
+
+Output :: "Position of alphabet: 1"
+
+Note: Only lowercased English letters are tested
+
+// Since only lowercase are tested we just need to return the current ascii value and substract the value of lowercase 'a'.
+// Then return the expression in a template literal.
+
+
+function position(letter){
+  
+  return `Position of alphabet: ${letter.charCodeAt() - 96}`;
+ 
+}
