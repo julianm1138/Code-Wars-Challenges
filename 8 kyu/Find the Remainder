@@ -1,0 +1,15 @@
+Task:
+Write a function that accepts two integers and returns the remainder of dividing the larger value by the smaller value.
+
+Division by zero should return NaN.
+
+// We need to get the remainder of the max / min
+
+function remainder(n, m){
+ 
+  let max = Math.max(n, m);
+  let min = Math.min(n, m);
+  return max % min;
+  
+}
+
