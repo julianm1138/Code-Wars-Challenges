@@ -1,0 +1,21 @@
+Determine if the poker hand is flush, meaning if the five cards are of the same suit.
+
+Your function will be passed a list/array of 5 strings, each representing a poker card in the format "5H" (5 of hearts), meaning the value of the card followed by the initial of its suit (Hearts, Spades, Diamonds or Clubs). No jokers included.
+
+Your function should return true if the hand is a flush, false otherwise.
+
+
+// We can solve this by checking if each card's suit is equal to the target suit.
+// Define the suit variable which will get the final character of each string/card.
+// Using the every method, check if every card's suit equals the first card's suit.
+
+function isFlush(cards) {
+  
+ 
+  const firstCardSuit = cards[0][cards[0].length - 1];
+  
+
+  return cards.every(card => card[card.length - 1] === firstCardSuit);
+
+}
+console.log(isFlush([  "QD", "4D", "10D", "KD", "5D" ]))
