@@ -1,0 +1,18 @@
+Write a function that accepts a sequence of Reindeer names, and returns a sequence with the Reindeer names sorted by their last names.
+
+Notes:
+It's guaranteed that each string is composed of two words, separated by a single space
+In case of two identical last names, keep the original order
+
+// We can solve this using the sort method.
+// First, we need to be able to access the last names of each reindeer, so split every two names into arrays so we can access the last names.
+// Then we can use localCompare to compare each last name alphabetically.
+
+function sortReindeer(reindeerNames) {
+  
+  const nameArr = reindeerNames.map(reindeerName => reindeerName.split(' '));
+  const sortedArr = nameArr.sort((a, b) =>  a[1].localeCompare(b[1]));
+  const result = sortedArr.map(element => element.join(' '))
+ return result;
+  
+}
