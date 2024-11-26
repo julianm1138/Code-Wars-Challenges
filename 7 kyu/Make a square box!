@@ -1,0 +1,21 @@
+Given a number as a parameter (between 2 and 30), return an array containing strings which form a box.
+
+// Given the example we can tell that the first part of the square is '-' repeted n times, the parts in between are '-' + ' ' repeated n - 2 times + '-' (this sequence is repeated n - 2 times), and the final part is just '-' repeted n times again.
+// We can define an array and complete each part step by step which will build the result.
+
+
+
+
+function box(n) {
+   
+  let result = [];
+ 
+ result.push('-'.repeat(n))
+  
+  for (let i = 0; i < n - 2; i++) {
+    result.push('-' + ' '.repeat(n - 2) + '-');
+ }
+  result.push('-'.repeat(n));
+  
+  return result;
+}
