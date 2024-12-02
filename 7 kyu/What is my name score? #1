@@ -1,0 +1,26 @@
+With this kata, write a function nameScore(name) to work out the score of a name that is passed to the function.
+
+The output should be returned as an object:
+
+{'Mary Jane':20}
+
+// Since spaces do not have a score, we can get rid of them by splitting the string.
+// Now since we are given alpha which has groups of letters alphabetically, we can check if each character is included in the group, and if it is, increase the count by the letter's/group's value.
+
+
+
+function nameScore(name){
+
+  let count = 0;
+
+  const nameArr = name.toUpperCase().split(' ');
+ 
+  for (const name of nameArr) {
+    for (const letter of name) {
+        for (const group in alpha) { 
+            if (group.includes(letter)) count += alpha[group];       
+        }
+     }
+ }
+  return {[name]: count};
+}
