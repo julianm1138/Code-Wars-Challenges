@@ -1,0 +1,31 @@
+Your task is to write function which takes string and list of delimiters as an input and returns list of strings/characters after splitting given string.
+
+Example:
+
+multipleSplit('Hi, how are you?', [' ']) => ['Hi,', 'how', 'are', 'you?']
+multipleSplit('1+2-3', ['+', '-']) => ['1', '2', '3']
+List of delimiters is optional and can be empty, so take that into account.
+
+Important note: Result cannot contain empty string.
+
+// It looks like we have to replace all delimiter non-spaces with a space, so we can make a new string by checking if the current character is a delimiter and not a space.
+// Then remove all repeated spaces, all leading trailing spaces, and split using space as delimiter
+
+function multipleSplit(string, delimiters=[]){
+  
+  if (string === '') return [];
+  if (delimiters.length === 0) return string.split(' ').join(' ').split();
+
+  let newStr = '';
+   for (const char of string) {
+     if (delimiters.includes(char) && char !== ' ') {
+     newStr += ' '
+     } else {
+       newStr += char;
+   }
+ }
+    return newStr.replace(/\s+/g, ' ').trim().split(' ')
+  
+  }
+
+  console.log(multipleSplit('Hi, how are you?', [' ']))
