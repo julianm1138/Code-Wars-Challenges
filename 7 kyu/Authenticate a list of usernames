@@ -1,0 +1,27 @@
+Given an array of strings representing a list of usernames, return true only if all usernames comply with your company's guidelines. Return false otherwise.
+
+The guidelines say that the username is valid only if:
+
+it is between 6-10 characters long;
+contains at least 1 lowercase letter;
+contains at least 1 number;
+contains only numbers and lowercase letters.
+
+
+// We can loop through the string and write conditions to check each rule and return false if they don't match any rules.
+// Else return true
+
+
+
+
+function authList(arr) {
+  
+  
+  for (const str of arr) {
+    if (!str.length <= 6 && str.length >= 10 || !/[a-z]/.test(str) ||  !/\d/.test(str) || !/^[a-z0-9]+$/.test(str)) {
+      return false;
+  }   
+    }
+   return true;
+  
+  }
