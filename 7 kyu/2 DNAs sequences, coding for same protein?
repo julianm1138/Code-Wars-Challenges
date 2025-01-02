@@ -1,0 +1,35 @@
+Your goal in this kata is to define if two differents DNAs sequences code for exactly the same protein. Your function take the 2 sequences you should compare. For some kind of simplicity here the sequences will respect the following rules:
+
+It is a full protein sequence beginning with a Start codon and finishing by an Stop codon
+It will only contain valid tri-nucleotide.
+The translation hash is available for you under a translation hash $codons [Ruby] or codons [Python and JavaScript].
+
+
+// We can solve this by creating triplets for each DNA sequence and looking them up in the codon hashmap provided by JS.
+// Compare the triplets' value in the hashmap.
+
+
+
+function codeForSameProtein(seq1,seq2){
+  
+  function makeTriplets(sequence) {
+    let result = [];
+    for (let i = 0; i < sequence.length; i += 3) {
+      result.push(sequence.substr(i, 3));
+    }
+    return result;
+  }
+  
+  const tri1 = makeTriplets(seq1);
+  const tri2 = makeTriplets(seq2);
+
+  
+  for (let i = 0; i < tri1.length; i++) {
+    if (codons[tri1[i]] === codons[tri2[i]]) {
+  } else {
+    return false;
+  }
+}
+  return true;
+
+}
