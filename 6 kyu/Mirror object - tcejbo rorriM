@@ -1,0 +1,31 @@
+Mirror - Mirror
+Can you mirror the properties on an object?
+
+Given an object with properties with no value
+
+abc: -
+arara: -
+xyz: -
+Return a new object that have the properties with its mirrored key!
+
+abc: cba
+arara: arara
+xyz: zyx
+
+
+// We can solve this by returning a new object where each value is the original object's key reversed. 
+
+
+
+
+const mirror = obj => {
+  
+  let newObject = {};
+  
+  for (let key in obj) {
+    let mirroredKey = key.split('').reverse().join('');
+    newObject[key] = mirroredKey;
+  }
+  
+  return newObject;
+};
