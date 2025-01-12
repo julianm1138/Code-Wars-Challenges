@@ -1,0 +1,40 @@
+For this Kata, you need to write a function that takes a string of characters and returns the length, as an integer value, of the longest alphanumeric palindrome that can be formed by combining the characters in any order. You are free to use the characters as many times as it appears in that string. The function should not be case-sensitive.
+
+
+// Palindromes are symmetrical, which means if you have at least 2 of the same character then a palindrome will eventually be formed if you check every combination. 
+// If a pair exists, it is possible for some combination of the string to form a palindrome with that pair. 
+// Pairs are even, so if the count of the letter in the string is even we can add it to the possible max length.
+// If we have any odd count of letters then the max length palindrome will be the even count + 1 so that one character can sit in the middle of the symmetrical halves. 
+
+
+function longestPalindrome(str) {
+  
+  const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+  
+  let freqMap = {};
+  let maxLength = 0;
+  for (const char of cleanStr) {
+    if (freqMap[char] === undefined) {
+      freqMap[char] = 1;
+    } else {
+      freqMap[char]++;
+    }
+   }
+  let isOdd = false;
+  
+    for (const value of Object.values(freqMap)) {
+      if (value % 2 === 0) {
+        maxLength += value;
+      } else {
+        maxLength += value - 1;
+        isOdd = true;
+      }
+      
+    }
+  if (isOdd) {
+    maxLength += 1;
+  }
+  
+  return maxLength;
+}
+console.log(longestPalindrome("Hannah"))
