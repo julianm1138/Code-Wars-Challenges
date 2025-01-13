@@ -1,0 +1,30 @@
+Explanation:
+
+In the first case, the suffixes of the string are ababaa, babaa, abaa, baa, aa and a. The similarities of each of these strings with the string ababaa are 6,0,3,0,1,1 respectively. Thus the answer is 6 + 0 + 3 + 0 + 1 + 1 = 11.
+
+For the second case, the answer is simply 3 + 0 + 0 = 3.
+
+// We need to compare each suffix substring of the original string to the exact position (index) of the original string and return the sum of all matches. 
+
+
+
+function stringSuffix(s) {
+  let sum = 0;
+  
+  for (let i = 0; i < s.length; i++) {
+    let substring = s.substr(i, s.length);      // Create substrings
+     
+    for (let j = 0; j < substring.length; j++) {
+     
+      if (substring[j] === s[j]) {              // Check each substring current index against each of the input string's current index
+        sum += 1;
+      } else {
+        break;
+      }
+    }
+     
+  }
+  return sum;
+}
+
+console.log(stringSuffix("ababaa"));
