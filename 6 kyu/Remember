@@ -1,0 +1,54 @@
+Write a function that takes a string and returns an array of the repeated characters (letters, numbers, whitespace) in the string.
+
+If a charater is repeated more than once, only show it once in the result array.
+
+Characters should be shown by the order of their first repetition. Note that this may be different from the order of first appearance of the character.
+
+Characters are case sensitive.
+
+// We can solve this by using a map or object to keep track of character frequencies.
+// If the character frequency is exactly 2 (to avoid duplicate charcaters pushed to the result) we push it to the result.
+// This should maintain the correct order because as we are checking each charcater in the string sequentially. 
+
+
+function remember(str) {
+  
+  let map = new Map();
+  let result = [];
+  for (const char of str) {
+    if (!map.has(char)) {
+      map.set(char, 1);
+    } else {
+      map.set(char, map.get(char) + 1);
+      if (map.get(char) === 2) {
+        result.push(char)
+      }
+    }
+  }
+    return result;
+}
+console.log(remember('Pippi'))
+
+// We can also solve this using sets. 
+// Loop through the string to keep the correct order.
+// Use one set to keep track of duplicates. When we add duplicates to the set it will ignore duplicates but still keep correct order.
+// Use another set to keep track of each character. 
+
+
+function remember(str) {
+  
+  let charSet = new Set(); 
+  let result = new Set(); 
+
+  for (const char of str) {
+    if (charSet.has(char)) {   // Check if there's a duplicate character
+      
+      result.add(char);        // If yes, add it to the result
+    } else {
+   
+      charSet.add(char);      // Otherwise add it to the set keeping track of all characters
+    }
+  }
+  return Array.from(result)
+  }
+console.log(remember('pippi'))
