@@ -1,0 +1,34 @@
+You get a string with the content of a csv-file. The columns are separated by semicolons.
+The first line contains the names of the columns.
+Write a method that sorts the columns by the names of the columns alphabetically and incasesensitive.
+
+
+
+// We need to sort the first line and make sure the columns underneath stay in the correct order. 
+// We can do this by getting the first line, sorting while keeping track of each of the indices in it.
+// Then we can match each cell with the sorted header. 
+
+
+
+
+function sortCsvColumns(csvFileContent) {
+
+  const lines = csvFileContent.split('\n');              // Get each line
+  
+  const headers = lines[0].split(';');                   // Get the first line
+  
+  const sortedIndices = [...headers.keys()].sort((a, b) => headers[a].localeCompare(headers[b]))     // Sort the headers while keeping track of their index order
+  
+  const sortedHeader = sortedIndices.map(index => headers[index]);  // Use the index order to sort the headers          
+  
+  const sortedRows = lines.slice(1).map(row => {      // Get the rows after the header only 
+    const cells = row.split(';');                     // Still getting the rows after the header 
+    return sortedIndices.map(index => cells[index]).join(';')     // Use the index order to sort the cells
+
+  });
+  
+  return [sortedHeader.join(';'), ...sortedRows].join('\n');     // Combine the header and the rows
+
+
+  
+}
