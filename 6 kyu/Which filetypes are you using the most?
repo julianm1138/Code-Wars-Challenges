@@ -1,0 +1,39 @@
+Given a List/Array of Filenames (strings) files return a List/Array of string(s) containing the most common extension(s). If there is a tie, return a sorted list of all extensions.
+
+// We can solve this with a frequency map. 
+// First extract the filetype.
+// Make the frequency map.
+// Loop through the frequency map and get the max count.
+// Destruct the object and push each file type that has the max count. 
+
+
+
+function solve(files) {
+  
+  const frequencyMap = {};
+    let maxCount = 0;
+    let result = [];
+
+ 
+   files.forEach(file => {
+     const dotIndex = file.lastIndexOf('.');       // Get the index to slice
+     const fileType = file.slice(dotIndex);        // Slice from the index
+     frequencyMap[fileType] = (frequencyMap[fileType] || 0) + 1;    // Make the frequency map
+   });
+  
+  Object.values(frequencyMap).forEach(count => {      // Loop through the frequency map and get the max count.
+    if (count > maxCount) maxCount = count;
+  });
+  
+  for (const [fileType, count] of Object.entries(frequencyMap)) {    // Destruct the object and push each file type that has the max count. 
+    if (count === maxCount) result.push(fileType);
+  }
+    
+  return result.sort();                                               // Problem constraints require sorting.
+  }
+  
+  
+
+
+  
+  
