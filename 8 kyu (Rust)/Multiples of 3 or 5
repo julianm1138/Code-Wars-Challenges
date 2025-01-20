@@ -1,0 +1,19 @@
+Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
+
+Additionally, if the number is negative, return 0.
+
+Note: If the number is a multiple of both 3 and 5, only count it once.
+
+// We can solve this iterateively by checking if each integer is divisible by 3 or 5, or we can also solve it with the sum of arthimetic series formula.
+
+
+// Iterative solution
+fn solution(num: i32) -> i32 {
+  let mut sum = 0;
+  for i in 0..num {
+      if i % 3 == 0 || i % 5 == 0 {
+          sum += i;
+      }  
+    }
+     sum
+}
