@@ -17,3 +17,19 @@ fn solution(num: i32) -> i32 {
     }
      sum
 }
+
+
+// 
+
+fn solution(num: i32) -> i32 {
+    if num <= 0  {        // Handle negative numbers 
+        return 0;
+    }
+    
+  sum_multiples(3, num) + sum_multiples(5, num) - sum_multiples(15, num)    // Directly calculate sum of multiples accounting for overlap with 15
+}
+
+fn sum_multiples(multiple: i32, num: i32) -> i32 {       // Helper function to calculate sum of multiples less than the given number. 
+    let p = (num - 1) / multiple;                        // Get the largest multiple less than the given number. 
+    multiple * p * (p + 1) / 2                           // Use the sum of arthmetic series formula to get the sum of multiples less than the given number.
+}
