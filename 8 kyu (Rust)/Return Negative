@@ -1,0 +1,15 @@
+In this simple assignment you are given a number and have to make it negative. But maybe the number is already negative?
+
+
+// If the integer is already negative, return the value as is else return the negative signed version of the integer.
+
+
+
+
+fn make_negative(n: i32) -> i32 {
+    if n <= 0 {
+        n
+    } else {
+        -n
+    }  
+}
