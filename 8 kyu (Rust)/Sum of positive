@@ -1,0 +1,18 @@
+Task
+You get an array of numbers, return the sum of all of the positives ones.
+
+// We can solve this by iterating the array and checking if the current number is greater than zero, if yes add to the sum.
+
+
+
+
+
+fn positive_sum(slice: &[i32]) -> i32 {
+    let mut sum = 0;
+    for num in slice {
+        if num > &0 {
+            sum += num
+        }
+    }
+    sum
+}
