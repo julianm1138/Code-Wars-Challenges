@@ -1,0 +1,14 @@
+Write a function that accepts an integer n and a string s as parameters, and returns a string of s repeated exactly n times.
+
+// We can solve this by looping up to count and concatenating the source string to te result.
+
+
+
+fn repeat_str(src: &str, count: usize) -> String {
+  let mut result = String::new();
+    
+  for _ in 0..count {
+      result += src;
+    }
+    result
+}
