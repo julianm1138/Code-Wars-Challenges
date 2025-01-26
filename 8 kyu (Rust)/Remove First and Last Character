@@ -1,0 +1,18 @@
+Your goal is to create a function that removes the first and last characters of a string. You're given one parameter, the original string. You don't have to worry about strings with less than two characters.
+
+
+// We can solve this by looping through the string and pushing any characters that are not at the first or last index to the result.
+
+
+pub fn remove_char(s: &str) -> String {
+
+    let mut result = String::new();
+   
+   for (i, c) in s.chars().enumerate() {
+       
+     if i != 0 && i != s.len() - 1 {
+         result.push(c);
+       }
+ }
+    result
+}
