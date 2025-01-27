@@ -1,0 +1,13 @@
+Complete the square sum function so that it squares each number passed into it and then sums the results together.
+
+// We can solve this by looping the vector and accumulating the sum of each number's square. 
+
+
+
+fn square_sum(vec: Vec<i32>) -> i32 {
+    let mut sum = 0;
+   for num in &vec {
+       sum += num * num;
+    }
+    sum
+}
