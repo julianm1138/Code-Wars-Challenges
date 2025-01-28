@@ -1,0 +1,13 @@
+Given an array of integers your solution should find the smallest integer.
+
+// We can solve this by iterating the array, applying min to find the smallest value and unwrapping it. 
+// Return type is i32 so dereference the answer to match the types.
+
+
+
+
+
+
+fn find_smallest_int(arr: &[i32]) -> i32 {
+   *arr.iter().min().unwrap()
+}
