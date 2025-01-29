@@ -1,0 +1,8 @@
+We need a function that can transform a string into a number.
+
+// We can use parse to convert from string to integer and since the challenge guarantees that all inputs will be representations of i32 data type we can use unwrap to extract the value from the Enum. 
+
+
+fn string_to_number(s: &str) -> i32 {
+   s.parse().unwrap()
+}
