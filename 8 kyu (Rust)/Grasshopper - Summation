@@ -1,0 +1,23 @@
+Write a program that finds the summation of every number from 1 to num. The number will always be a positive integer greater than 0. Your function only needs to return the result, what is shown between parentheses in the example below is how you reach that result and it's not part of it, see the sample tests.
+
+
+// We can solve this with a loop.
+// Loop from n to 1 and accumulate the sum in the process. 
+
+fn summation(n: i32) -> i32 {
+    
+    let mut result = 0;
+    let mut counter = n;
+    
+    while counter >= 1 {
+        result += counter;
+        counter -= 1;
+    }
+    result
+}
+
+// Or solve it using arithmetic sum formula.
+
+fn summation(n: i32) -> i32 {
+     n * (n + 1) / 2
+}
