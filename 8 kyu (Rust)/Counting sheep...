@@ -1,0 +1,17 @@
+Consider an array/list of sheep where some sheep may be missing from their place. We need a function that counts the number of sheep present in the array (true means present).
+
+
+// Iterate array and check if current element is truthy, if yes add 1 to result.
+
+
+fn count_sheep(sheep: &[bool]) -> u8 {
+    
+  let mut result = 0;
+    
+    for &animal in sheep {
+        if animal {
+         result += 1;
+        }
+    }
+    result
+}
