@@ -1,0 +1,19 @@
+Your task is to create a function that does four basic mathematical operations.
+
+The function should take three arguments - operation(string/char), value1(number), value2(number).
+The function should return result of numbers after applying the chosen operation.
+
+// We can implement this using match which checks the input and completes a function if the input matches.
+
+
+
+fn basic_op(operator: char, value1: i32, value2: i32) -> i32 {
+    
+   match operator {
+       '+' => value1 + value2,
+       '-' => value1 - value2, 
+       '*' => value1 * value2, 
+       '/' => value1 / value2, 
+       _ => panic!("Unsupported operator: {}", operator),
+    }
+}
