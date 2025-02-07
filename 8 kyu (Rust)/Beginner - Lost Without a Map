@@ -1,0 +1,14 @@
+Given an array of integers, return a new array with each value doubled.
+
+For example:
+
+[1, 2, 3] --> [2, 4, 6]
+
+
+// We can solve this with map.
+// Since we are being passed a borrowed Vector and expect an owned Vector we need to dereference the i32 references in order to order a vector of i32's.
+
+fn maps(values: &Vec<i32>) -> Vec<i32> {
+    
+    values.iter().map(|&num| num * 2).collect()
+}
