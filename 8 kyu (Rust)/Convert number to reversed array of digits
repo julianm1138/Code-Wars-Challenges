@@ -1,0 +1,13 @@
+Given a random non-negative number, you have to return the digits of this number within an array in reverse order.
+
+// We can solve this by converting the integer into a string, reversing the characters and converting the characters back into integers.
+
+
+fn digitize(n: u64) -> Vec<u8> {
+    
+    n.to_string()
+    .chars()
+    .rev()
+    .map(|c| c.to_digit(10).unwrap() as u8)
+    .collect()
+}
