@@ -1,6 +1,16 @@
 Write a function which converts the input string to uppercase.
 
+//ASCII is for English letters and other non-language specific characters
+//Unicode is for all language and non-language specific characters
+
 
 fn make_upper_case(s: &str) -> String {
     s.to_uppercase()
 }
+
+//or 
+
+fn make_upper_case(s: &str) -> String {
+    s.to_ascii_uppercase()
+}
+//This is more efficient if we are assuming there are non-english language characters inputted because it only checks what is necessary resulting in less parsing and overhead
