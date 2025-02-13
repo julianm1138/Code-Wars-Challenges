@@ -1,0 +1,20 @@
+Clock shows h hours, m minutes and s seconds after midnight.
+
+Your task is to write a function which returns the time since midnight in milliseconds.
+
+
+// We're given the hour, minute, and second and need the sum of these in milliseconds.
+// Convert seconds given to milliseconds. 1 millisecond = 1/1000 of a second which means there are 1000 ms in 1 s.
+// There are 60 seconds in a minute and 1000 ms in a second so 1000 * 60 = 60000 ms in 1 minute. 
+// There are 60 minutes in an hour and 60000 ms in 1 minute so 60 * 60000 = 3600000 ms in 1 hour. 
+
+// Multiply the input by each factor of milliseconds and sum them up.
+
+fn past(h: i32, m: i32, s: i32) -> i32 {
+   
+    let msPerSecond = 1000;
+    let msPerMinute = 60000;
+    let msPerHour = 3600000;
+    
+    (s * msPerSecond) + (m * msPerMinute) + (h * msPerHour)
+}
