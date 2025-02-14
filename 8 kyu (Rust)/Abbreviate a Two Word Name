@@ -1,0 +1,28 @@
+Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
+
+The output should be two capital letters with a dot separating them.
+
+It should look like this:
+
+Sam Harris => S.H
+
+patrick feeney => P.F
+
+
+// We can solve this by collecting the first initials for the input into a Vector, converting to uppercase and joining them with a "."
+
+
+
+
+
+fn abbrev_name(name: &str) -> String {
+   
+    let result: Vec<String> = name  //define type annotation 
+    .split_whitespace()             //split by whitespace
+    .filter_map(|word| word.chars().next())    //get the first character of each word
+    .map(|c| c.to_uppercase().collect())    //convert each character to uppercase and collect into a string
+    .collect();                     //collect into a Vector
+    
+    format!("{}", result.join("."))  //join Vector with period 
+
+}
