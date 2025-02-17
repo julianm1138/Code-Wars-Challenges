@@ -1,0 +1,17 @@
+Write a function which calculates the average of the numbers in a given array.
+
+Note: Empty arrays should return 0
+
+// We start by returning the empty array as 0 
+// Make an iterator to the input and get the sum, then divide by the input's length to get the average.
+
+
+
+
+fn find_average(slice: &[f64]) -> f64 {
+    if slice.is_empty() {
+        0.0
+    } else {
+     slice.iter().sum::<f64>() / slice.len() as f64
+    }
+}
