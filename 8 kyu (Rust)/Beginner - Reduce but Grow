@@ -1,0 +1,10 @@
+Given a non-empty array of integers, return the result of multiplying the values together in order.
+
+// We can solve this by using the fold method
+
+
+
+
+fn grow(nums: Vec<i32>) -> i32 {
+    nums.iter().fold(1, |acc, &num| acc * num)
+}
