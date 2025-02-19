@@ -1,0 +1,12 @@
+A hero is on his way to the castle to complete his mission. However, he's been told that the castle is surrounded with a couple of powerful dragons! each dragon takes 2 bullets to be defeated, our hero has no idea how many bullets he should carry.. Assuming he's gonna grab a specific given number of bullets and move forward to fight another specific given number of dragons, will he survive?
+
+Return true if yes, false otherwise :)
+
+// The ratio of bullets needed to kill 1 dragon is 2 bullets per 1 dragon. So multiply dragon * 2 to get the bullets needed.
+// If we have at least or more bullets than bullets needed we will survive, otherwise we will not survive.
+
+fn hero(bullets: u16, dragons: u16) -> bool {
+    
+    let bullets_needed = dragons * 2;
+    bullets_needed <= bullets
+}
