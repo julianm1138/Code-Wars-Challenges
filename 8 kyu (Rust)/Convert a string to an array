@@ -1,0 +1,13 @@
+Write a function to split a string and convert it into an array of words.
+
+// We can solve this by using split, converting the characters into strings, and then collecting them. 
+
+
+fn string_to_array(s: &str) -> Vec<String> {
+    
+   let result : Vec<String> = s.split(' ')
+    .map(|substr| substr.to_string())
+    .collect();
+    result
+    
+}
