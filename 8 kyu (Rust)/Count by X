@@ -1,0 +1,15 @@
+Create a function with two arguments that will return an array of the first n multiples of x.
+
+Assume both the given number and the number of times to count will be positive numbers greater than 0.
+
+Return the results as an array or list ( depending on language ).
+
+
+
+// Since we need to mutliply every n from 1 to n by x we can specify a range from 1 to n, then use map to multiply each integer in the range by x.
+
+
+
+fn count_by(x: u32, n: u32) -> Vec<u32> {
+    (1..=n).map(|integer| integer * x).collect()
+}
