@@ -1,0 +1,9 @@
+Build a function that returns an array of integers from n to 1 where n>0.
+
+Example : n=5 --> [5,4,3,2,1]
+
+// We can solve this by creating the range 1 to n and reversing it.
+
+fn reverse_seq(n: u32) -> Vec<u32> {
+    (1..=n).rev().collect()
+}
