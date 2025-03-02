@@ -1,0 +1,17 @@
+Rock Paper Scissors
+Let's play! You have to return which player won! In case of a draw return Draw!
+
+// We can solve this by mapping all possible Player 1 and Player 2 win scenarios with match. 
+
+
+
+fn rps(p1: &str, p2: &str) -> &'static str  {
+
+
+  match (p1, p2) {
+      (a, b) if (a == b) => "Draw!",
+       ("rock", "scissors") | ("scissors", "paper") | ("paper", "rock") => "Player 1 won!",
+        ("scissors", "rock") | ("paper", "scissors") | ("rock", "paper") => "Player 2 won!",
+        _ => "Invalid input!",
+    }
+}
