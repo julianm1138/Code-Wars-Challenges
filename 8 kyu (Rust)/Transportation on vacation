@@ -1,0 +1,26 @@
+Every day you rent the car costs $40. If you rent the car for 7 or more days, you get $50 off your total. Alternatively, if you rent the car for 3 or more days, you get $20 off your total.
+
+Write a code that gives out the total amount for different days(d).
+
+
+// Given the days we can output the cost of renting the car by taking the base cost and performing operations on that value.
+// if d >= 7 subtract 50 from the base cost, else if d >= 3 subtract 20 from the base cost, else return the base cost.
+// The discounts do not stack.
+
+
+
+fn rental_car_cost(d: u32) -> u32 {
+    
+    let base_cost = d * 40;      
+    
+    let total = base_cost;    
+    
+    if d >= 7 {
+       total - 50           
+    } else if d >= 3 {
+       total - 20            
+    } else {
+       total
+    }
+    
+}
