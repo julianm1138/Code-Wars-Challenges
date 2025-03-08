@@ -1,0 +1,13 @@
+Write function RemoveExclamationMarks which removes all exclamation marks from a given string.
+
+// We can solve this with replace method or iterating over the input chars and using filter.
+
+
+fn remove_exclamation_marks(input: &str) -> String {
+    input.replace("!", "")
+}
+
+fn remove_exclamation_marks(input: &str) -> String {
+    
+    input.chars().filter(|&c| c != '!').collect()
+}
