@@ -1,0 +1,44 @@
+Our football team has finished the championship.
+
+Our team's match results are recorded in a collection of strings. Each match is represented by a string in the format "x:y", where x is our team's score and y is our opponents score.
+
+For example: ["3:1", "2:2", "0:1", ...]
+
+Points are awarded for each match as follows:
+
+if x > y: 3 points (win)
+if x < y: 0 points (loss)
+if x = y: 1 point (tie)
+We need to write a function that takes this collection and returns the number of points our team (x) got in the championship by the rules given above.
+
+Notes:
+
+our team always plays 10 matches in the championship
+0 <= x <= 4
+0 <= y <= 4
+
+
+// We can solve this by destructing each string and create the total based on the conditions
+
+fn points(games: &[String]) -> u32 {
+
+    let mut total = 0;
+    
+    for game in games {
+        
+    let (home, away) = game.split_once(':').unwrap();
+           
+    let home: u32 = home.parse().unwrap();
+    let away: u32 = away.parse().unwrap();
+            
+    
+           if home > away {
+               total += 3;
+           } else if home < away {
+               total += 0;
+           } else {
+               total += 1;
+           }
+        }
+            total 
+    }
