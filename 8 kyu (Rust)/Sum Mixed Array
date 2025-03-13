@@ -1,0 +1,16 @@
+Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
+
+Return your answer as a number.
+
+
+// We can use the Either crate provided in the function so that if it's an i32 (Left) deference the value, and if it's a String (Right) parse the value.
+
+use either::Either;
+
+fn sum_mix(arr: &[Either<i32, String>]) -> i32 {
+
+    arr.iter().map(|num| match num {
+        Either::Left(n) => *n,
+        Either::Right(s) => s.parse().unwrap_or(0),
+        }).sum()
+}
