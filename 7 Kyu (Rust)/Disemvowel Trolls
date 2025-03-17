@@ -1,0 +1,21 @@
+Your task is to write a function that takes a string and return a new string with all vowels removed.
+
+
+// We can solve this by initializing a dynamically grown heap allocated string, turning the string into chars, converting each char to lowercase to make all chars the same case.
+// Then use match to check for vowels. If it's a vowel do nothing, else push to the result. This will build the result string without vowels by pushing only non-vowels to it.
+
+
+
+fn disemvowel(s: &str) -> String {
+    let mut result = String::new();
+
+    for c in s.chars() {
+        for lower_case_char in c.to_lowercase() {
+            match lower_case_char {
+                'a' | 'e' | 'i' | 'u' | 'o' => {}
+                _ => result.push(c),
+            }
+        }
+    }
+    result
+}
