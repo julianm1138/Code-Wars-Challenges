@@ -1,0 +1,18 @@
+In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+
+// We can solve this by converting the string slice into a vector of numbers and then extracting the min and max values.
+
+
+fn high_and_low(numbers: &str) -> String {
+
+    let numVec: Vec<i32> = numbers
+    .split_whitespace()                           //Split string slice by spaces into string slices
+    .filter_map(|x| x.parse::<i32>().ok())        //Convert each string slice into an i32, return the integer if parse is successful
+    .collect();                                   //collect into a Vec
+        
+    let min = numVec.iter().min().unwrap().to_string();   //Create immutable references, find the min or max value, and unwrap it from the Some variant.
+    let max = numVec.iter().max().unwrap().to_string();
+    
+    format!("{} {}", max, min)
+    
+}
