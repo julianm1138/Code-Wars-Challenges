@@ -1,0 +1,16 @@
+Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+
+// We can solve this by converting the integer into a vector of chars, sorting it, collecting it into a String and then parsing the String.
+
+fn descending_order(x: u64) -> u64 {
+  
+  //Vector of chars 
+    let mut char_vec: Vec<char> = 
+    x.to_string().chars().collect();
+    
+  //sort 
+    char_vec.sort_unstable_by(|a, b| b.cmp(a));
+    
+  //parse into integer 
+    char_vec.iter().collect::<String>().parse::<u64>().unwrap()
+}
