@@ -1,0 +1,15 @@
+Given an integral number, determine if it's a square number:
+
+// We can solve this by checking if the square root of n is equal to the square root of n rounded down to a whole number.
+// If they are equal then n must be a square number because if it wasn't it would be a float. 
+
+
+
+fn is_square(n: i64) -> bool {
+    
+    let sqrt = (n as f64).sqrt();
+    sqrt == sqrt.floor()
+   
+}
+ 
+ 
