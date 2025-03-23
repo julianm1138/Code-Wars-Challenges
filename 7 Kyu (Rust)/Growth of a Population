@@ -1,0 +1,17 @@
+In a small town the population is p0 = 1000 at the beginning of a year. The population regularly increases by 2 percent per year and moreover 50 new inhabitants per year come to live in the town. How many years does the town need to see its population greater than or equal to p = 1200 inhabitants?
+
+// We can solve this by updating the current population continously, and keeping track of the years until it exceeds the target p. 
+// This can be done with a while loop and updating the current population by using the current value * the percentage + aug.
+
+fn nb_year(p0: i32, percent: f64, aug: i32, p: i32)-> i32 {
+  
+    let mut current_population = p0;
+    let percentage = percent / 100 as f64;
+    let mut years = 0;
+    
+    while current_population < p {
+        
+       current_population = current_population + (current_population as f64 * percentage) as i32 + aug;
+       years += 1;
+    }
+}
