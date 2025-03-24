@@ -1,0 +1,19 @@
+You have to write a function printer_error which given a string will return the error rate of the printer as a string representing a rational whose numerator is the number of errors and the denominator the length of the control string. Don't reduce this fraction to a simpler expression.
+
+The string has a length greater or equal to one and contains only letters from a to z.
+
+
+// We can solve this by creating a numerator and a denominator and format to make a String.
+// To make the numerator we can split into chars and filter each char where if each char is not included in the range then count the number of those occurrences. 
+// To make the denominator we can get the count of chars in the str slice.
+
+
+
+fn printer_error(s: &str) -> String {
+  
+    
+    let numerator = s.chars().filter(|&c| !('a'..='m').contains(&c)).count();
+    let denominator = s.chars().count();
+    format!("{}/{}", numerator, denominator)
+    
+}
