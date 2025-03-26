@@ -1,0 +1,15 @@
+Given an array of ones and zeroes, convert the equivalent binary value to an integer.
+
+Eg: [0, 0, 0, 1] is treated as 0001 which is the binary representation of 1
+
+// We can solve this by using u32::from_str_radix to convert a string into decimal. 
+// In order to do that we need to convert the array slice of integers into a string. 
+
+
+
+fn binary_slice_to_number(slice: &[u32]) -> u32 {
+
+    let binaryStr = slice.iter().map(|&num| num.to_string()).collect::<String>();
+    u32::from_str_radix(&binaryStr, 2).unwrap_or(0)
+   
+} 
