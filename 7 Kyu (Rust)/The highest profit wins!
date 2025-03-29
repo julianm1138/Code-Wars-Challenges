@@ -1,0 +1,12 @@
+Write a function that returns both the minimum and maximum number of the given list/array.
+
+// We can solve this by using min and max methods and return the dereferenced values as a tuple.
+
+fn min_max(lst: &[i32]) -> (i32, i32) {
+    
+  let (min, max) = (
+      lst.iter().min().unwrap_or(&0), 
+      lst.iter().max().unwrap_or(&0)
+    );
+    (*min, *max)
+}
