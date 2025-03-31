@@ -1,0 +1,23 @@
+Create a function named divisors/Divisors that takes an integer n > 1 and returns an array with all of the integer's divisors(except for 1 and the number itself), from smallest to largest. If the number is prime return the string '(integer) is prime' (null in C#, empty table in COBOL) (use Either String a in Haskell and Result<Vec<u32>, String> in Rust).
+
+
+// We can solve this by creating a vector that holds all numbers in the range (exclusive of 1 and the integer) that are divisible by the integer.
+// if the vector is empty then that means the integer is prime.
+
+
+fn divisors(integer: u32) -> Result<Vec<u32>, String> {
+
+    let mut result = Vec::new();
+    
+    for num in 2..integer {
+        if integer % num == 0 {
+            result.push(num);
+        }
+    }
+    
+    if result.is_empty() {
+         return Err(format!("{} is prime", integer))
+ }
+    Ok(result)
+    
+}
