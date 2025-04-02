@@ -1,0 +1,17 @@
+You are given an odd-length array of integers, in which all of them are the same, except for one single number.
+
+Complete the method which accepts such an array, and returns that single different number.
+
+
+// We can solve this by using XOR  
+
+
+
+fn stray(arr: &[u32]) -> u32 {
+
+    let mut result = 0;
+    for &num in arr {
+      result ^= num;
+    }
+    result
+}
