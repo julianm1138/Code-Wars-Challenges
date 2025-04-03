@@ -1,0 +1,11 @@
+Finish the solution so that it sorts the passed in array of numbers. If the function passes in an empty array or null/nil value then it should return an empty array.
+
+// We can solve this by using sort, but since sort only works on mutable vectors we need to assign the vector to a mutable variable.
+
+
+fn sort_numbers(arr: &Vec<i32>) -> Vec<i32> {
+
+ let mut sorted_arr = arr.iter().map(|&num| num).collect::<Vec<i32>>();     // Assign the new vector to a mutable variable and use map to derefence the values in the vector slice.
+ sorted_arr.sort();   // sort the mutable vector of i32's (sort does not return the vector)
+ sorted_arr           // return the vector 
+}
