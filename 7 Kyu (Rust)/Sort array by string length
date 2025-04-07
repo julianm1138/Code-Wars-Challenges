@@ -1,0 +1,16 @@
+Write a function that takes an array of strings as an argument and returns a sorted array containing the same strings, ordered from shortest to longest.
+
+For example, if this array were passed as an argument:
+
+["Telescopes", "Glasses", "Eyes", "Monocles"]
+
+// We can solve this by sorting by the length of each string.
+
+
+fn sort_by_length(arr: &[String]) -> Vec<String> {
+    
+    let mut sorted = arr.to_vec();                // make this mutable so that we can rearrange the strings using sort_by
+    sorted.sort_by(|a, b| a.len().cmp(&b.len()));  
+    sorted
+   
+}
