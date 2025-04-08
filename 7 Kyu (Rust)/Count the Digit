@@ -1,0 +1,23 @@
+Take an integer n (n >= 0) and a digit d (0 <= d <= 9) as an integer.
+
+Square all numbers k (0 <= k <= n) between 0 and n.
+
+Count the numbers of digits d used in the writing of all the k**2.
+
+Implement the function taking n and d as parameters and returning this count.
+
+// We can solve this by converting d and the squared integers into strings and counting the squared integers that match d.  
+
+fn nb_dig(n: i32, d: i32) -> i32 {
+    
+    let mut result = 0;
+    
+    for num in 0..=n {   //loop through the range
+      let square_str = (num * num).to_string();    //convert each square to a string 
+        result += square_str.matches(&d.to_string()).count() as i32    //accumulate the count of squares matching with d
+    }
+    
+    result
+}
+        
+
