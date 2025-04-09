@@ -1,0 +1,19 @@
+In this kata you get the start number and the end number of a region and should return the count of all numbers except numbers with a 5 in it. The start and the end number are both inclusive!
+
+
+// We can solve this by checking if the current number in the range contains the digit 5 and not adding that to the count if it does.
+// Otherwise add 1 to the count.
+
+
+fn dont_give_me_five(start: isize, end: isize) -> isize {
+
+    let mut count = 0;
+    
+    for num in start..=end {
+          if num.to_string().contains('5') {
+            continue;
+        }  
+        count += 1;      
+    }
+    count
+}
