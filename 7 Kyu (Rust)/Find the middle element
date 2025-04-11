@@ -1,0 +1,19 @@
+As a part of this Kata, you need to create a function that when provided with a triplet, returns the index of the numerical element that lies between the other two elements.
+
+
+// Since the array is guaranteed to be 3 elements with a middle element, then that means the min and the max cannot the middle element. 
+// So to solve this we can get the min and max values, loop through the array and if the element is not min or max, return the index of that element.
+
+
+fn gimme(input_array: [i32;3]) -> usize {
+    
+    let min_value = *input_array.iter().min().unwrap();
+    let max_value = *input_array.iter().max().unwrap();
+    
+    for (index, &num) in input_array.iter().enumerate() {
+        if num != min_value && num != max_value {
+            return index;
+        }
+    }
+     1
+}
