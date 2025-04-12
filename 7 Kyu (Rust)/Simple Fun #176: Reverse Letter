@@ -1,0 +1,10 @@
+Given a string str, reverse it and omit all non-alphabetic characters.
+
+// We can solve this by filtering all non-alphabetic characters and reversing that.
+
+
+fn reverse_letters(s: &str) -> String {
+
+    s.chars().filter(|c| c.is_alphabetic()).rev().collect()
+    
+}
