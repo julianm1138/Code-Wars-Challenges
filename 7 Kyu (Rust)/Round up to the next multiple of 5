@@ -1,0 +1,10 @@
+Given an integer as input, can you round it to the next (meaning, "greater than or equal") multiple of 5?
+
+// We can solve this by rounding any integer divided by 5 up to the nearest integer and then multiplying by 5.
+
+
+fn round_to_next_5(n: i32) -> i32 {
+
+    (n as f32 / 5 as f32).ceil() as i32 * 5        //make sure types agree with each other
+
+}
