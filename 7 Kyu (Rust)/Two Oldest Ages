@@ -1,0 +1,16 @@
+The two oldest ages function/method needs to be completed. It should take an array of numbers as its argument and return the two highest numbers within the array. The returned value should be an array in the format [second oldest age,  oldest age].
+
+// We can solve this by sorting the array and returning the last two elements 
+
+
+
+fn two_oldest_ages(ages: &[u8]) -> [u8; 2] {
+
+    let mut age_vector = ages.to_vec();               // Need to convert the array into a vector to support the sort method.
+    
+    age_vector.sort();                                // Sort the vector 
+    
+    [age_vector[age_vector.len() - 2], age_vector[age_vector.len() - 1]]
+    
+
+}
