@@ -1,0 +1,28 @@
+Given a string, capitalize the letters that occupy even indexes and odd indexes separately, and return as shown below. Index 0 will be considered even.
+
+For example, capitalize("abcdef") = ['AbCdEf', 'aBcDeF']. 
+
+// We can solve this by checking index parity and pushing the correct character to the corresponding string.
+
+
+fn capitalize(s: &str) -> Vec<String> {
+    
+   let mut first_str = String::new();
+   let mut second_str = String::new();
+   
+    for (index, c) in s.chars().enumerate() {
+        if index % 2 == 0 {
+            first_str.extend(c.to_uppercase());
+            second_str.push(c);
+        } 
+    
+        if index % 2 != 0 {
+            second_str.extend(c.to_uppercase());
+            first_str.push(c);
+
+        } 
+    }
+    
+  vec![first_str, second_str]
+    
+ }
