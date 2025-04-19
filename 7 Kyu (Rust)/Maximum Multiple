@@ -1,0 +1,33 @@
+Task
+Given a Divisor and a Bound , Find the largest integer N , Such That ,
+
+Conditions :
+N is divisible by divisor
+
+N is less than or equal to bound
+
+N is greater than 0.
+
+
+// We can solve this with a loop in linear time and constant space or arithmetic for constant time and space. 
+
+
+fn max_multiple(divisor: u32, bound: u32) -> u32 {
+
+    let mut result = 0;
+    
+    for num in 0..=bound {
+       if num > 0 && num % divisor == 0 && num <= bound {
+           if num > result {
+               result = num;
+           }
+        }
+    } 
+    result
+}
+
+
+
+fn max_multiple(divisor: u32, bound: u32) -> u32 {
+    bound - (bound % divisor)                // (bound % divisor) gets us the minimum multiple before reaching the bound, for example 20 % 7 -> 7 * 2 = 14 so we need 6 more to reach 20.
+}                                            // Then subtract that from the bound to get the largest number divisble by the divisor 
