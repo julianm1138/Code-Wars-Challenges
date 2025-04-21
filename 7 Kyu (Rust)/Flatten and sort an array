@@ -1,0 +1,18 @@
+Challenge:
+
+Given a two-dimensional array of integers, return the flattened version of the array with all the integers in the sorted (ascending) order.
+
+
+// We can solve this by flattening the array and then sorting it
+
+
+fn flatten_and_sort(arr: &[Vec<i32>]) -> Vec<i32> {
+    
+    let mut flat_vec: Vec<i32> = arr.iter()          //make an iterator for the references 
+    .flat_map(|v| v.iter().copied()).collect();      //flatten the references, dereference by givin a copy of each reference and collect
+    
+    flat_vec.sort();                                 //sort 
+    flat_vec
+    
+}
+
