@@ -1,0 +1,21 @@
+You are given two arrays a1 and a2 of strings. Each string is composed with letters from a to z. Let x be any string in the first array and y be any string in the second array.
+
+Find max(abs(length(x) − length(y)))
+
+// We can solve this by getting the Maximum of the difference of mins and maxes of each vector (alternating) min a1 - max a2 and min a2 - max a1
+
+
+fn mx_dif_lg(a1: Vec<&str>, a2: Vec<&str>) -> i32 {
+    if a1.is_empty() || a2.is_empty() {
+        return -1;
+    }
+    
+    let min_str_length_a = a1.iter().map(|s| s.len()).min().unwrap_or(0);
+    let min_str_length_b = a2.iter().map(|s| s.len()).min().unwrap_or(0);
+    
+    
+    let max_str_length_a = a1.iter().map(|s| s.len()).max().unwrap_or(0);
+    let max_str_length_b = a2.iter().map(|s| s.len()).max().unwrap_or(0);
+
+    std::cmp::max((min_str_length_a as i32 - max_str_length_b as i32).abs(), (min_str_length_b as i32 - max_str_length_a as i32).abs() as i32)       
+}
