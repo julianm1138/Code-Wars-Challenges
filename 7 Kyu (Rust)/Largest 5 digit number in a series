@@ -1,15 +1,13 @@
 Complete the solution so that it returns the greatest sequence of five consecutive digits found within the number given. The number will be passed in as a string of only digits. It should return a five digit integer. The number passed may be as large as 1000 digits.
 
-
-
-
+// We can solve this by iterating 5 slices at a time and converting each to a u32. 
 
 fn largest_five_digit_number(num: &str) -> u32 {
     let mut max_num = 0;
 
-    for i in 0..=num.len() - 5 {
-        let part = &num[i..i + 5];
-        if let Ok(val) = part.parse::<u32>() {
+    for i in 0..=num.len() - 5 {               // This equation creates our range, always leave 5 more chars.
+        let part = &num[i..i + 5];             // Create the part by sliding right by 1 in each iteration 
+        if let Ok(val) = part.parse::<u32>() {    //parse to u32 if valid 
             if val > max_num {
                 max_num = val;
             }
