@@ -1,0 +1,14 @@
+Triangular numbers are so called because of the equilateral triangular shape that they occupy when laid out as dots.
+
+
+// We can solve this by using the triangle number formula which takes the base number (n) of dots and multiplies it by the next number.
+// Divide by 2 to address double counting.
+
+
+fn triangular(n: i32) -> i32 {
+    
+  if n < 0 {
+    return 0;
+  }          
+  (n + 1) * n / 2
+}
