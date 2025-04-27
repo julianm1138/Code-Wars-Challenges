@@ -1,1 +1,21 @@
 Given a list of digits, return the smallest number that could be formed from these digits, using the digits only once (ignore duplicates). Only positive integers in the range of 1 to 9 will be passed to the function.
+
+
+// We can solve this by using a set to get rid of duplicates, then sorting the iterators, then converting each digit into a string.
+// This creates the minimum value from the vector's digit because the most significant digit is the least digit.
+
+use std::collections::HashSet;
+use itertools::Itertools;
+
+fn min_value(mut_digits: Vec<i32>) -> i32 {
+
+    let mut set: HashSet<i32> = mut_digits.into_iter().collect();
+    
+    let concatenated: String = set.into_iter()
+    .sorted()
+    .map(|digit| digit.to_string())
+    .collect();
+    
+     concatenated.parse().unwrap_or(0)
+}
+
