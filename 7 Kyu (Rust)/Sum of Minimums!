@@ -1,1 +1,14 @@
 Given a 2D ( nested ) list ( array, vector, .. ) of size m * n, your task is to find the sum of the minimum values in each row.
+
+
+// We can solve this by looping through the 2D array, transforming each array into the min value, and then getting the sum of those min values.
+
+
+fn sum_of_minimums(numbers: [[u8; 4]; 4]) -> u8 {
+
+     numbers
+    .iter()
+    .map(|arr| *arr.iter().min().unwrap())
+    .sum()
+        
+    }
