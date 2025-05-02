@@ -5,6 +5,23 @@ We know the content of the evaporator (content in ml), the percentage of foam or
 The program reports the nth day (as an integer) on which the evaporator will be out of use.
 
 
+// We can solve this by incrementing the days while the threshold volume is less than the new content volume.
+
+
+fn evaporator(content: f64, evap_per_day: i32, threshold: i32) -> i32 {
+
+    let mut result = 0;
+    let mut new_content = content;
+    let threshold_volume = content * (threshold as f64 / 100.0);
+    
+    while threshold_volume < new_content {
+        new_content = new_content - new_content * (evap_per_day as f64 / 100.0);
+        result += 1;
+    }
+    result 
+}
+
+
 
 
 
