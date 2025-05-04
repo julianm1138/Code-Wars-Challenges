@@ -1,0 +1,14 @@
+Write a method that takes one argument as name and then greets that name, capitalized and ends with an exclamation point.
+
+// We can solve this by formatting a new string.
+
+
+fn greet(name: &str) -> String {
+
+    let mut chars = name.chars();                                            //Get chars from the string slice
+    let first_char = chars.next().unwrap().to_uppercase().next().unwrap();   //Get the first char and uppercase it
+    let substring = chars.as_str().to_lowercase();                           //Convert the rest of the string to lowercase
+    
+    format!("Hello {}{}!", first_char, substring)
+
+}
