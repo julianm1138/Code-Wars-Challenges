@@ -1,0 +1,18 @@
+Given an array of numbers, return a new array of length number containing the last even numbers from the original array (in the same order). The original array will be not empty and will contain at least "number" even numbers.
+
+// We can solve this by filtering even numbers and getting the last (number) even numbers. 
+// Reverse the result. 
+
+fn even_numbers(array: &Vec<i32>, number: usize) -> Vec<i32> {
+    
+    let mut evens = array
+    .iter()
+    .rev()
+    .filter(|&&num| num % 2 == 0)
+    .take(number)
+    .copied()
+    .collect::<Vec<i32>>();
+    evens.reverse();
+    evens
+  
+}
