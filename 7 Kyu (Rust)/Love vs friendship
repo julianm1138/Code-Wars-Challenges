@@ -1,0 +1,12 @@
+Your task is to write a function which calculates the value of a word based off the sum of the alphabet positions of its characters.
+
+The input will always be made of only lowercase letters and will never be empty.
+
+// We can solve this by converting each char into a u32, subtracting the ascii value of each and getting the sum.
+
+
+fn words_to_marks(s: &str) -> u32 {
+ 
+    s.chars().map(|c| c as u32 - 96).sum()
+
+}
