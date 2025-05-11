@@ -1,0 +1,17 @@
+I will give you an integer. Give me back a shape that is as long and wide as the integer. The integer will be a whole number between 1 and 50.
+
+// We can solve this by pushing the "+" repeated n times with a new line n times. 
+// Trim the last new line.
+
+fn generate_shape(n: i32) -> String {
+    
+   let mut result = String::new();
+    
+   for _ in 0..n {
+       
+   result.push_str(&"+".repeat(n as usize));
+   result.push('\n');
+   
+    }
+     result.trim_end().to_string()
+}
