@@ -1,0 +1,20 @@
+Given a string s, your task is to return another string such that even-indexed and odd-indexed characters of s are grouped and the groups are space-separated. Even-indexed group comes as first, followed by a space, and then by the odd-indexed part.
+
+// We can solve this by creating an evens and odds group 
+// then pushing the character to the correct group based on a parity/even/odd index check 
+
+
+fn sort_my_string(s: &str) -> String {
+
+    let mut evens = String::new();
+    let mut odds = String::new();
+   for (i, c) in s.chars().enumerate() {
+       if i % 2 == 0 {
+           evens.push(c);
+       } else {
+           odds.push(c);
+       }
+    }
+     format!("{} {}", evens, odds)
+}
+
