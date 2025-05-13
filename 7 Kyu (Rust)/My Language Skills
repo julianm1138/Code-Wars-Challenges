@@ -1,0 +1,19 @@
+You are given a dictionary-like object (implementation may vary by language) containing languages as keys and your corresponding test results as values. Return the list of languages where your score is at least 60, in descending order of the scores.
+
+// We can solve this by sorting the hashmap in descending order and then creating a new array based on each value being greater than or equal to 60. 
+
+use std::collections::HashMap;
+
+fn my_languages(results: HashMap<&str, i32>) -> Vec<&str> {
+    
+    
+    let mut result: Vec<&str> = Vec::new();
+    let mut items: Vec<_> = results.into_iter().collect();
+    
+    items.sort_by(|a, b| b.1.cmp(&a.1));
+    
+    for item in items {
+        if item.1 >= 60 {result.push(item.0)}
+    }
+    result
+}
