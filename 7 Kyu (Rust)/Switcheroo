@@ -1,0 +1,29 @@
+Given a string made up of letters a, b, and/or c, switch the position of letters a and b (change a to b and vice versa). Leave any incidence of c untouched.
+
+
+// We can solve this by building a new string that switches 'a' and 'b'.
+
+
+fn switcheroo(s: &str) -> String {
+
+    let mut result = String::new();
+    
+    for letter in s.chars() {
+        if letter == 'a' {result.push('b')}
+        else if letter == 'b' {result.push('a')}
+        else {result.push('c')}
+    } 
+    result 
+}
+
+// Or by using match 
+
+
+fn switcheroo (s: &str) -> String {
+    s.chars() 
+    .map(|c| match c {
+        'a' => 'b',
+        'b' => 'a',
+         _ => 'c',
+    }).collect()
+}
