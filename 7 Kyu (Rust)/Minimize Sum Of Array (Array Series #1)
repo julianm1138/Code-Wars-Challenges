@@ -1,0 +1,19 @@
+Given an array of integers , Find the minimum sum which is obtained from summing each Two integers product .
+
+
+// We can solve this by sorting the array and multiplying the first and last elements working inwards until there are no elements left.
+
+
+fn min_sum(xs: &[u64]) -> u64 {
+    
+    let mut vec = xs.to_vec();   //Array is immutable so we convert to vector so we can sort it 
+    vec.sort();
+    
+    let len = vec.len();
+    let mut result = 0;
+    
+    for i in 0..(len) / 2 {                    // For 4 elements we only need two iterations because we are processing 2 elements per iteration.
+        result += vec[i] * vec[len - 1 - i];
+    }
+    result
+}
