@@ -1,0 +1,23 @@
+Given a mixed array of number and string representations of integers, add up the non-string integers and subtract the total of the string integers.
+
+Return as a number.
+
+// We can solve this by iterating the array slice and checking if the current number is i32 or String with match.
+
+fn div_con(arr: &[Either<i32, String>]) -> i32 {
+
+    let mut total = 0;
+    
+    for num in arr {
+        match num {
+            Either::Left(num) => total += num,
+            Either::Right(s) => {
+                if let Ok(n) = s.parse::<i32>() {
+                    total -= n;
+                }
+                
+            }
+        }
+    }
+ total     
+}
