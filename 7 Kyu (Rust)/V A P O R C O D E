@@ -1,0 +1,23 @@
+Write a function that converts any sentence into a V A P O R W A V E sentence. a V A P O R W A V E sentence converts all the letters into uppercase, and adds 2 spaces between each letter (or special character) to create this V A P O R W A V E effect.
+
+Note that spaces should be ignored in this case.
+
+// We can solve this by creating a new string. 
+// Since we need to output a string that has two empty chars between each uppercase letter we can just convert everything to uppercase.
+// Unless it is an empty character, push the character and two spaces
+// Otherwise if c is an empty character, ignore it.
+
+fn vaporcode(s: &str) -> String {
+
+ let mut result = String::new();
+ 
+ for c in s.to_uppercase().chars() {
+     if c == ' ' {
+     continue;
+    } else {
+      result.push(c);
+      result.push_str("  ");
+    }
+}
+      result.trim_end().to_string()
+    }
