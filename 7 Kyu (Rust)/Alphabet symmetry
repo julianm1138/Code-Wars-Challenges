@@ -1,0 +1,45 @@
+Consider the word "abode". We can see that the letter a is in position 1 and b is in position 2. In the alphabet, a and b are also in positions 1 and 2. Notice also that d and e in abode occupy the positions they would occupy in the alphabet, which are positions 4 and 5.
+
+Given an array of words, return an array of the number of letters that occupy their positions in the alphabet for each word. 
+
+// We need the count of characters of each word, where their position in the string matches their position in the alphabet. 
+
+fn solve(strings: &[String]) -> Vec<usize> {
+    
+    let mut result: Vec<usize> = Vec::new();
+    
+    for word in strings {
+        let count = word
+        .to_lowercase()
+        .chars()
+        .enumerate()
+        .filter(|(i, c)| (*c as u8) == (i + 1) as u8 + 96)
+        .count();
+        result.push(count);
+      }
+        result
+    }
+
+
+//Solution with two loops 
+
+fn solve(strings: &[String]) -> Vec<usize> {
+    
+    let mut result: Vec<usize> = Vec::new();
+    
+    for word in strings {
+        
+        let mut current_count = 0;
+        
+        for (index, c) in word.to_lowercase().chars().enumerate() {
+          let ascii_position = (c as u8) - b'a' + 1;
+          if (index + 1) as u8 == ascii_position {current_count += 1}
+    }
+     result.push(current_count);     
+ }
+    result
+}
+
+    
+   
+
