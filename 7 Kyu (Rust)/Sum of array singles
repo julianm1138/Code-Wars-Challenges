@@ -1,0 +1,20 @@
+you will be given an array of numbers in which two numbers occur once and the rest occur only twice. Your task will be to return the sum of the numbers that occur only once.
+
+// We can solve this by creating a hashmap to store the counts and then filtering the integers in the vector based on the counts in the hashmap. 
+
+use::std::collections::HashMap;
+
+fn repeats(arr: &Vec<i32>) -> i32 {
+    
+    let mut counts = HashMap::new();
+    
+    for num in arr {
+        *counts.entry(num).or_insert(0) += 1
+    }
+    
+     arr
+    .into_iter()
+    .filter(|x| counts.get(x) == Some(&1))
+    .sum()
+    
+}
