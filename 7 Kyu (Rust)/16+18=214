@@ -1,0 +1,19 @@
+In simple terms, our method does not like the principle of carrying over numbers and just writes down every number it calculates 
+
+
+// We can solve this by padding each number with 0's based on their maximum length then adding each number's digits, convert back to a string and add it to the result string.
+
+fn add(num1: u32, num2: u32) -> u64 {
+    let mut s1 = format!("{:0>width$}", num1, width = num2.to_string().len().max(num1.to_string().len()));
+    let mut s2 = format!("{:0>width$}", num2, width = s1.len());
+    
+    s1.chars()
+    .zip(s2.chars())
+    .map(|(c1, c2)| {
+       (c1.to_digit(10).unwrap() + c2.to_digit(10).unwrap()).to_string()
+    })
+    .collect::<String>()
+    .parse::<u64>()
+    .unwrap()
+}
+
