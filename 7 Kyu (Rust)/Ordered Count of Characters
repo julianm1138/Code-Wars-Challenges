@@ -1,0 +1,24 @@
+Count the number of occurrences of each character and return it as a (list of tuples) in order of appearance. For empty output return (an empty list).
+
+// Since we need to keep order of appearence of charcaters we can use a vector to keep track of the order and a hashmap to keep track of the count of each character.
+
+
+
+use std::collections::HashMap;
+
+fn ordered_count(sip: &str) -> Vec<(char, i32)> {
+    
+    let mut map = HashMap::new();
+    let mut order = Vec::new();
+    
+    for c in sip.chars() {
+        let counter = map.entry(c).or_insert(0);
+        if *counter == 0 {order.push(c)}
+        *counter += 1;
+    }
+    
+   order.into_iter()               // Convert the vector of the correct character order into iterator
+    .map(|c| (c, map[&c]))         // Collect each ordered character and its corresponding map count 
+    .collect()
+    
+}
