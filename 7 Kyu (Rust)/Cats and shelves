@@ -1,0 +1,5 @@
+Input
+Start and finish shelf numbers (always positive integers, finish no smaller than start)
+
+Task
+Find the minimum number of jumps to go from start to finish
