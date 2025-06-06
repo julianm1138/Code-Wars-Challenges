@@ -1,0 +1,18 @@
+Write a program that outputs the top n elements from a list.
+
+Example:
+
+k = 2; list = [7, 6, 5, 4, 3, 2, 1]
+==> [6, 7]
+
+// We need to get the two greatest elements and then sort those elements 
+// We can solve this by sorting the list, getting the first two elements, and sorting those two elements.
+
+fn largest(n: usize, xs: &[i32]) -> Vec<i32> {
+
+    let mut nums: Vec<i32> = xs.to_vec();
+    nums.sort_by(|a, b| b.cmp(a));
+    nums.truncate(n);
+    nums.sort();
+    nums 
+}
