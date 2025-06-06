@@ -1,0 +1,18 @@
+You must implement a function that returns the difference between the largest and the smallest value in a given list / array (lst) received as the parameter.
+
+lst contains integers, that means it may contain some negative numbers
+if lst is empty or contains a single element, return 0
+lst is not sorted
+
+// We could sort it and get the first and last element, but instead we will get the min and max value. 
+
+fn max_diff(numbers: &[i32]) -> i32 {
+    
+    if numbers.len() < 2 { return 0 }
+
+    let mut min = numbers.iter().min().unwrap();
+    let mut max = numbers.iter().max().unwrap();
+    
+    max - min
+    
+}
