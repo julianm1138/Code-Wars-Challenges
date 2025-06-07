@@ -1,0 +1,21 @@
+Your task is to return to the function seven(m) (m integer >= 0) an array (or a pair, depending on the language) of numbers, the first being the last number m with at most 2 digits obtained by your function (this last m will be divisible or not by 7), the second one being the number of steps to get the result.
+
+1 - m = 371 -> 37 − (2×1) -> 37 − 2 = 35 ; thus, since 35 is divisible by 7, 371 is divisible by 7.
+
+// The purpose of the function is to reduce the integer down to less than 3 digits to make it easy to check if the integer is divisible by 7.
+// It uses the divisibility trick for 7 where the operation is n / 10 minus 2 * (n % 10).
+// n / 10 drops the last digit and n % 10 extracts the last digit. 
+
+
+fn seven(n: i64) -> (i64, i32) {
+    
+    let mut num = n;
+    let mut steps = 0;
+    
+    while num >= 100 {
+       
+       num = num / 10 - 2 * (num % 10);
+       steps += 1;
+    }
+    (num, steps)      
+}
