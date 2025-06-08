@@ -1,0 +1,12 @@
+Given an array/list of integers, find the Nth smallest element in the array.
+
+// We can solve this by sorting it and then returning the Nth - 1 element
+
+
+fn nth_smallest(nums: &[i32], pos: usize) -> i32 {
+    
+   let mut sorted_nums = nums.to_vec();
+    sorted_nums.sort();
+    
+    sorted_nums[pos - 1]
+}
