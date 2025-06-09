@@ -1,0 +1,17 @@
+Complete the function that takes two numbers as input, num and nth and return the nth digit of num (counting from right to left).
+
+// We can solve this by using the rev and the nth method to get the index of the integer requested. 
+
+fn find_digit(num: i32, nth: i32) -> i32 {
+  
+    if nth <= 0 { return -1 }
+    
+    num.abs()           //handle negative inputs
+    .to_string()        //heap-allocated string
+    .chars()            //char iterators
+    .rev()              //reverse the chars to get the correct right to left index
+    .nth((nth - 1) as usize)       //nth - 1 to get the correct index, cast to usize for index type agreement 
+    .and_then(|c| c.to_digit(10))  //handle the Option and convert the char back to base 10 integer
+    .unwrap_or(0) as i32           //handle out of bounds and return as i32
+   
+}
