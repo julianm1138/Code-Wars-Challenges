@@ -1,0 +1,28 @@
+John wants to know how many times he must go to the cinema so that the final result of System B, when rounded up to the next dollar, will be cheaper than System A.
+
+System A : 15 * 3 = 45
+System B : 500 + 15 * 0.90 + (15 * 0.90) * 0.90 + (15 * 0.90 * 0.90) * 0.90 ( = 536.5849999999999, no rounding for each ticket)
+
+// We can solve this by initializing the result, total_a, total_b, and current. Then get the loop condition. 
+// Result will be our answer
+// total_a will be system A where the total of tickets is accumulated based on the count of iterations the loop runs (just keep adding up tickets)
+// total_b will be system B which is the total of all current tickets (current * perc on each iteration) + card
+// current will be the current ticket on each iteration, which is the ticket * perc, where we multiply the previous current by perc and update it. 
+
+
+
+fn movie(card: i32, ticket: i32, perc: f64) -> i32 {
+    
+    let mut result = 0;
+    let mut total_a = 0.0;
+    let mut total_b = card as f64;
+    let mut current = ticket as f64;
+    
+    while total_b.ceil() >= total_a {
+        result += 1;
+        total_a += ticket as f64;
+        current *= perc;
+        total_b += current;    
+    }
+    result
+}
