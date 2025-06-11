@@ -1,0 +1,15 @@
+Given a positive number, determine if it is Automorphic or not. If it is, return "Automorphic", otherwise return "Not!!"
+
+// We can solve this by checking if the square of the input % a divisor (calculated using logorithm to get 10 ^ length of n) 
+
+fn automorphic(n: u64) -> String {
+
+  let digits = (n as f64).log10().floor() as u32 + 1;     //get the length of n
+  let divisor = 10u64.pow(digits);                        //get the divisor by raising 10 to the length of n
+    
+    if (n * n) % divisor == n {                          //check if the square of n % divisor == n (which is checking if the last n length digits of n * n == n)
+        "Automorphic".to_string()
+    } else {
+        "Not!!".to_string()
+    }
+}
