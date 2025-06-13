@@ -1,0 +1,33 @@
+Given a string, turn each character into its ASCII character code and join them together to create a number - let's call this number total1:
+
+'ABC' --> 'A' = 65, 'B' = 66, 'C' = 67 --> 656667
+Then replace any incidence of the number 7 with the number 1, and call this number 'total2':
+
+total1 = 656667
+              ^
+total2 = 656661
+              ^
+Then return the difference between the sum of the digits in total1 and total2
+
+// We can solve this by converting the string slice into a string of the concatenated ascii values, getting the sum of the digits for the regular case and the case where all 7's are replaced with 1.
+
+
+
+fn calc(s: &str) -> u32 {
+    
+    let ascii_string: String = s.chars()     // convert the str slice into a string of ascii values
+    .map(|c| (c as u8).to_string()).collect();
+    
+    let total_1: u32 = ascii_string         // get the sum of each of its digits 
+    .chars()
+    .map(|c| c.to_digit(10).unwrap())
+    .sum();
+    
+    
+    let total_2: u32 = ascii_string.replace("7", "1")    // replace all instances of 7 with 1 
+    .chars()
+    .map(|c| c.to_digit(10).unwrap())                    
+    .sum();                                        // get the sum of ecah of its digits
+    
+    total_1 - total_2                      // get the result
+}
