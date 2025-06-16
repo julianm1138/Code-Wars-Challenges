@@ -1,0 +1,22 @@
+
+Your task is to add up letters to one letter.
+
+The function will be given a Vec<char>, each one being a letter to add, and the function will return a char.
+
+
+// We can solve this by converting each character in the vector into 
+
+
+fn add_letters(letters: Vec<char>) -> char {
+    
+    if letters.is_empty() { return 'z'}
+    
+    let sum = letters.into_iter()
+    .map(|c| (c as u8) - b'a' + 1)   // use byte literal + 1 instead of 96 for more readability 
+    .sum::<u8>();
+    
+    let wrapped = if sum % 26 == 0 { 26 } else { sum % 26};    // check for 0 to handle when the sum % 26 is 0 (which returns tilde)
+    
+    (b'a' + wrapped - 1) as char
+ 
+}
