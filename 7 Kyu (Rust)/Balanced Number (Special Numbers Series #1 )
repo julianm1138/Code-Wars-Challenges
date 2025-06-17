@@ -1,0 +1,46 @@
+The task
+Given a number, find if it is balanced, and return the string "Balanced" or "Not Balanced" accordingly. The passed number will always be positive.
+
+
+
+// We can solve this by getting the left and right sum and checking if they are equal. 
+
+
+
+
+fn balanced_num(n: u64) -> String {
+
+  
+    let chars: Vec<char> = n.to_string().chars().collect();
+    
+    let length = chars.len();
+    
+    if length <= 2 {                        //return all cases that are already balanced (0 on either side)
+        return "Balanced".to_string()
+    }
+    
+    let middle = length / 2;
+    
+    let (left, right) = if length % 2 == 0 {           //check if the integer has an even length
+    (&chars[..middle - 1], &chars[middle + 1..])       //if yes exclude the two middle digits
+        
+    } else {
+        (&chars[..middle], &chars[middle + 1..])      //exclude the middle digit 
+    };
+    
+    
+    fn num_sum(slice: &[char]) -> u32 {                         //helper function to get the sum of left and right
+        slice.iter().map(|c| c.to_digit(10).unwrap()).sum()    
+    }
+        
+    if num_sum(left) == num_sum(right) {
+       "Balanced".to_string()
+    } else {
+         "Not Balanced".to_string()
+    }
+    
+
+}
+
+
+
