@@ -1,0 +1,22 @@
+Given a number, determine if it is tidy or not.
+
+Notes
+The number passed will always be positive.
+Return the result as a boolean.
+
+// A tidy number is always in ascending order so if we check if the input digit's is equal to the input's digits in ascending order we will get the boolean 
+
+fn tidy_number(n: u64) -> bool {
+    
+    let digits: Vec<u32> = n             // Convert the input to a vector of digits
+    .to_string()
+    .chars()
+    .map(|c| c.to_digit(10).unwrap())
+    .collect();
+     
+  let mut sorted_num = digits.clone();      // Clone and sort the vector of digits
+    sorted_num.sort();
+    sorted_num == digits          // Compare the sorted digits to the input digits to get the boolean output
+
+
+}
