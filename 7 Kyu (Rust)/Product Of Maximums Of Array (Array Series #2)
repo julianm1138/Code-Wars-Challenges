@@ -1,0 +1,12 @@
+Given an array/list [] of integers , Find the product of the k maximal numbers.
+
+
+// We need to find the max product of k numbers.
+// We can solve this by sorting the array in descending order and getting the product of the first k numbers in that array. 
+
+
+fn max_product(mut lst: Vec<i32>, k: i32) -> i32 {
+    lst.sort_unstable_by(|a, b| b.cmp(a)); 
+    lst.into_iter().take(k as usize).product()
+}
+
