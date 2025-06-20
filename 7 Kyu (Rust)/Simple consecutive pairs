@@ -1,0 +1,11 @@
+In this Kata your task will be to return the count of pairs that have consecutive numbers
+
+// We can solve this by using chunks_exact which will go over the array slice in chunks of two and ignore the final digit in odd length arrays.
+
+fn pairs(arr: &[i32]) -> usize {
+    
+    arr.chunks_exact(2)     // turn the arr into chunks of two i32's
+    .filter(|pair| (pair[0] - pair[1]).abs() == 1)     // keep all pairs where the absolute value of difference of the pairs is 1
+    .count() as usize   
+   
+}
