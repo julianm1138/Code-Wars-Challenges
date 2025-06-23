@@ -1,0 +1,28 @@
+John has a list of the first n donations: [14, 30, 5, 7, 9, 11, 15] He wants to know how much the next benefactor should give to the association so that the average of the first n + 1 donations should reach an average of 30. After doing the math he found 149. 
+
+The function should return the expected donation (rounded up to the next integer) that will permit to reach the average.
+
+Should the last donation be a non positive number (<= 0) John wants us either to throw an error or return such value so he will clearly see that his expectations are not great enough.
+
+
+// We know we need to value to the vector so that we will get the input average. 
+// We can call that value x. So x = newavg
+// We are working with our current values in the input vector slice so we can get the sum and we need to add x to this sum. So (arr_sum + x) = newavg
+// Additionally we need to use the other variable given to us which is the length of the vector and add 1 for the new value in the vector. So (arr_sum + x / arr_length + 1) = newavg
+
+//Since Rust cannot solve this equation for us we will extract the values and complete the operations manually. 
+
+
+fn new_avg(arr: &[f64], newavg: f64) -> Option<i32> {
+    
+    let arr_sum: f64 = arr.iter().sum();        //get the sum
+    let len_sum = arr.len() + 1;                //get the sum of the lengths
+    let new_total = newavg * len_sum as f64;      //multiply the right side by the len_sum to remove the denominator
+    let result = (new_total - arr_sum).ceil() as i32;   //solve for x and round up.
+    
+    if result >= 0 {
+         Some(result)
+    } else {
+        None
+    }        
+}
