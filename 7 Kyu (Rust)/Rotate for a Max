@@ -1,0 +1,27 @@
+Write function max_rot(n) which given a positive integer n returns the maximum number you got doing rotations similar to the above example.
+
+// We can solve this by checking the max value of each rotation. 
+// If we are iterating the input as a vector, rotations are done by removing the current digit and then pushing it. 
+
+
+fn max_rot(n: u64) -> u64 {
+ 
+    let mut max = n;                     // Start with the input as a max to be updated
+    
+    let mut loop_vec: Vec<u64> = n        // convert the input to a vector so we can work with the digits easily 
+    .to_string()
+    .chars()
+    .map(|num| num.to_digit(10).unwrap() as u64)
+    .collect();
+    
+       for i in 0..loop_vec.len() {             // loop the length of the input
+                      
+         let shifted = loop_vec.remove(i);       // remove the current digit and save it
+         loop_vec.push(shifted);                 // push it to the end of the vector 
+         let current_num = loop_vec.iter().fold(0, |acc, &d| acc * 10 + d);     // convert the vector to an integer
+         if current_num > max {        // check if it is greater than the current max
+             max = current_num;
+           }
+    }
+    max
+}
