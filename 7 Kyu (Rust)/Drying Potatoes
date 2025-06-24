@@ -1,0 +1,31 @@
+John bought potatoes: their weight is 100 kilograms. Potatoes contain water and dry matter. The water content is 99 percent of the total weight. He thinks they are too wet and puts them in an oven - at low temperature - for them to lose some water.
+
+At the output the water content is only 98%.
+
+What is the total weight in kilograms (water content plus dry matter) coming out of the oven?
+
+He finds 50 kilograms and he thinks he made a mistake: "So much weight lost for such a small change in water content!"
+
+Task
+Write function potatoes with
+
+int parameter p0 - initial percent of water-
+int parameter w0 - initial weight -
+int parameter p1 - final percent of water -
+potatoes should return the final weight coming out of the oven w1 truncated as an int.
+
+// We need to find the final total weight.
+// Since water mass only is being lost through evaporation, dry mass remains constant. 
+// Initial dry mass = initial weight * (1 - (initial percent water / 100))   <- which is the weight * what is left after we subtract the water content percentage
+// So the dry mass must = final weight * (1 - (final percent water / 100))  
+// Remove the denominator so final weight = dry mass / (1 - (final percent water / 100))
+
+
+
+fn potatoes (p0: i64, w0: i64, p1: i64) -> i64 {
+    
+  let initial_dry_mass = (100 - p0) * w0;
+  let final_dry_percentage = 100 - p1;
+   
+   initial_dry_mass / final_dry_percentage  
+}
