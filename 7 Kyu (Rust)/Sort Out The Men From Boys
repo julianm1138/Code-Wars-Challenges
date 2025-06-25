@@ -1,0 +1,30 @@
+Task
+Given an array/list [] of n integers , Separate The even numbers from the odds , or Separate the men from the boys
+
+
+// We can solve this by getting a vector of evens and odds, sorting them, and combining them.
+
+
+fn men_from_boys(xs: &[i16]) -> Vec<i16> {
+
+    let mut evens = xs                 
+    .iter()
+    .copied()
+    .filter(|num| num % 2 == 0)
+    .collect::<Vec<i16>>();
+    
+    evens.sort();
+    
+    let mut odds = xs
+    .iter()
+    .copied()
+    .filter(|num| num % 2 != 0)
+    .collect::<Vec<i16>>();
+    
+    odds.sort_by(|a, b| b.cmp(a));
+    
+    evens.extend(odds);
+    evens.dedup();
+
+    evens
+}
