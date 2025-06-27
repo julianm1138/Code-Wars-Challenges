@@ -1,0 +1,4 @@
+Output of function contain_all_rots(strng, arr) (or containAllRots or contain-all-rots):
+
+a boolean true if all rotations of strng are included in arr
+false otherwise
