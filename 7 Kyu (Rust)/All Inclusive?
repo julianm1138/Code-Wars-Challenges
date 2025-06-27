@@ -2,3 +2,16 @@ Output of function contain_all_rots(strng, arr) (or containAllRots or contain-al
 
 a boolean true if all rotations of strng are included in arr
 false otherwise
+
+// We can solve this by creating all rotations of the input string and checking if the input array has all of those rotations.
+
+
+fn contain_all_rots(strng: &str, arr: Vec<&str>) -> bool { 
+    
+    let len = strng.len();
+    
+    (0..len).all(|i| {       //iterate the string slice and check every rotation 
+        let rot = format!("{}{}", &strng[i..], &strng[..i]);
+        arr.contains(&rot.as_str())
+    })
+}
