@@ -1,0 +1,28 @@
+An ordered sequence of numbers from 1 to N is given. One number might have deleted from it, then the remaining numbers were mixed. Find the number that was deleted.
+
+Example:
+
+The starting array sequence is [1,2,3,4,5,6,7,8,9]
+The mixed array with one deleted number is [3,2,4,6,7,8,1,9]
+Your function should return Some(5).
+
+// We can solve this by sorting each list and checking each pair of numbers between list and mixed_list. 
+// If they are not equal, the value in list must be the missing number.
+// If the lengths are equal then no number was deleted. 
+// If the lengths are not equal and every number between the two sorted lists are equal, it means the greatest value is missing.
+
+fn find_deleted_number(list: &[u16], mixed_list: &[u16]) -> Option<u16> {
+
+    if list.len() == mixed_list.len() {
+        return None;
+    }
+    
+    let mut sorted_list: Vec<u16> = list.to_vec();
+    sorted_list.sort();
+    let mut sorted_mixed_list: Vec<u16> = mixed_list.to_vec();
+    sorted_mixed_list.sort();
+    
+    sorted_list.iter().zip(sorted_mixed_list.iter())
+    .find_map(|(a, b)| if a != b { Some(*a)} else { None })
+    .or_else(|| sorted_list.last().copied())
+}
