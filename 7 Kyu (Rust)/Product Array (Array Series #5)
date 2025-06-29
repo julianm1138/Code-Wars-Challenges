@@ -1,0 +1,19 @@
+Task
+Given an array/list [] of integers , Construct a product array Of same size Such That prod[i] is equal to The Product of all the elements of Arr[] except Arr[i].
+
+// We need to get the product of every number that is not the current number.
+// We can solve this by transforming the original input to replace its values with the products. 
+
+
+fn product_array(arr: &[u64]) -> Vec<u64> {
+
+    arr.iter().enumerate()       // make the iterator of &u64 and extract the indexes
+    .map(|(i, _)| {              // transform the reference to the vector 
+        arr.iter()               // make another iterator of the input
+        .enumerate()             // get the indexes again
+        .filter(|(j, _)| i != *j)     // exclude the current element from the current iteration 
+        .map(|(_, &val)| val)         // get the owned values
+        .product::<u64>()             // get the product 
+    })
+    .collect::<Vec<u64>>()
+}
