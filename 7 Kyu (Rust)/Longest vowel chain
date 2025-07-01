@@ -1,0 +1,22 @@
+The vowel substrings in the word codewarriors are o,e,a,io. The longest of these has a length of 2. Given a lowercase string that has alphabetic characters only (both vowels and consonants) and no spaces, return the length of the longest vowel substring. Vowels are any of aeiou.
+
+// We can solve this by making substrings of vowels and checking if the current substring is greater than 1.
+
+fn longest_vowel_chain(s: &str) -> usize {
+
+    let mut max = 0;                  // there may be no vowels present in the input
+    let mut current = String::new();  
+    
+    for c in s.chars() {            // iterator     
+      if "aeiou".contains(c) {      // check if the current character is a vowel, loop will continue to the next char if it meets this condition
+          current.push(c);          // push to current
+          
+          if current.len() > max {   // update max
+            max = current.len();
+        }
+    } else {
+        current.clear();         // clear current if there is no vowel in it or if we are starting a new substring.
+    }     
+}
+    max as usize
+}
