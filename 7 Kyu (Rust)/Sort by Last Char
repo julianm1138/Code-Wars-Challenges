@@ -1,0 +1,17 @@
+Given a string of words (x), you need to return an array of the words, sorted alphabetically by the final character in each.
+
+If two words have the same last letter, the returned array should show them in the order they appeared in the given string.
+
+All inputs will be valid.
+
+// We can solve this by sorting by the last character of each vector. 
+
+fn sort_by_last_char(s: &str) -> Vec<String> {
+
+    let mut words = s.split_whitespace().collect::<Vec<&str>>();     // vector of words
+    
+    words.sort_by(|a, b| a.chars().last().cmp(&b.chars().last()));  // sort by the last character 
+    
+    words.iter().map(|word| word.to_string()).collect::<Vec<String>>()  // transform str slice into String
+    
+}
