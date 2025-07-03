@@ -1,0 +1,23 @@
+Implement a function that takes two numbers m and n and returns an array of the first m multiples of the real number n. Assume that m is a positive integer.
+
+// We can solve this by looping through the range of m and multiplying each range number by n.
+
+
+fn multiples(m: i32, n: f64) -> Vec<f64> {
+    
+   let mut result = Vec::new();
+    
+    for num in 1..=m {
+        result.push(n * num as f64);
+    }
+    
+    result
+}
+
+//OR 
+
+fn multiples(m: i32, n: f64) -> Vec<f64> {    
+    
+ (1..=m).map(|num| num as f64 * n).collect()
+
+}
