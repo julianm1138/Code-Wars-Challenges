@@ -1,0 +1,17 @@
+A number is a Special Number if its digits only consists of 0, 1, 2, 3, 4 or 5
+
+Given a number, determine if it is a special number or not.
+
+// We can solve this by converting both the input and the interval into the same type and then checking if all the chars in the input are included in the interval.
+
+
+fn special_number(n: u64) -> String {
+
+    let interval = vec!['0','1', '2', '3', '4', '5'];
+    
+    if n.to_string().chars().into_iter().all(|c| interval.contains(&c)) {
+        "Special!!".to_string()
+    } else {
+        "NOT!!".to_string()
+    }
+}
