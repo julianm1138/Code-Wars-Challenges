@@ -1,0 +1,16 @@
+Create a function that accepts an array of names, and returns an array of each name with its first letter capitalized and the remainder in lowercase.
+
+// We can solve this by using map to transform the input.
+
+fn cap_me(arr: Vec<String>) -> Vec<String> {
+
+    arr.into_iter()           // iterator 
+       .map(|word| {          // transform input
+        let mut chars = word.chars();      // char iterator
+        match chars.next() {               // next gets the first char and returns an Option 
+            Some(first) => first.to_uppercase().collect::<String>() + &chars.as_str().to_lowercase(),   // add operator expects string slice
+            None => String::new(),
+          }
+        }).collect()
+
+}
