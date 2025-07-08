@@ -1,0 +1,16 @@
+Imagine you start on the 5th floor of a building, then travel down to the 2nd floor, then back up to the 8th floor. You have travelled a total of 3 + 6 = 9 floors of distance.
+
+Given an array representing a series of floors you must reach by elevator, return an integer representing the total distance travelled for visiting each floor in the array in order.
+
+
+// We can solve this by getting the absolute difference of each pair of floors in the array.
+    
+
+fn elevator_distance(floors: &[i16]) -> i16 {
+    floors.windows(2).map(|w| (w[0] - w[1]).abs()).sum()
+}
+
+
+
+
+
