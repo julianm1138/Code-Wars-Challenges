@@ -1,0 +1,27 @@
+The Collatz Conjecture states that for any positive natural number n, this process:
+
+if n is even, divide it by 2
+if n is odd, multiply it by 3 and add 1
+repeat
+will eventually reach n = 1.
+
+For example, if n = 20, the resulting sequence will be:
+
+[ 20, 10, 5, 16, 8, 4, 2, 1 ]
+
+// We can solve this by completing the calculations based on the conditions and counting each step. 
+
+fn collatz(mut n: u64) -> u64 {
+
+    let mut steps = 1;     // Start at 1 because we are not counting the input number
+    
+    while n != 1 {
+        if n % 2 == 0 {
+            n /= 2;
+        } else if n % 2 == 1 {
+            n = n * 3 + 1;
+        }
+        steps += 1;
+    }
+    steps
+}
