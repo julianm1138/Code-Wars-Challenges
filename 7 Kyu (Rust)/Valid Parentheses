@@ -1,0 +1,21 @@
+Write a function that takes a string of parentheses, and determines if the order of the parentheses is valid. The function should return true if the string is valid, and false if it's invalid.
+
+
+
+
+fn valid_parentheses(parens: &str) -> bool {
+
+    let mut stack = vec![];
+    let chars_vec: Vec<char> = parens.chars().collect();
+    
+   for c in chars_vec {
+       if c == '(' {
+           stack.push(c);
+       } else if c == ')' {
+           if stack.pop().is_none() {  //check if the stack is empty/ no opening parenthesis in the stack which means invalid string slice
+               return false;
+           }
+       }
+    }
+     stack.is_empty()
+}
