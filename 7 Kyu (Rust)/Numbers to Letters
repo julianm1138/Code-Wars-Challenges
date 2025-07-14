@@ -1,0 +1,23 @@
+Given an array of numbers (in string format), you must return a string. The numbers correspond to the letters of the alphabet in reverse order: a=26, z=1 etc. You should also account for '!', '?' and ' ' that are represented by '27', '28' and '29' respectively.
+
+All inputs will be valid.
+
+
+// We can solve this by converting each number into a u8 and subtracting the factor of 27 because a = 1 but we want a = 26. So 27 - 1 = 26. Therefore the factor to get the correct letter is 27.
+
+fn switcher(numbers: Vec<&str>) -> String {
+    
+    let factor = 27;
+    
+    numbers.into_iter().map(|num| {
+        let val = num.parse::<u8>().unwrap();    // convert to u8 so we can use a byte literal 
+        match val {        // handle special characters
+            27 => '!',
+            28 => '?',
+            29 => ' ',
+            1..=26 => (b'a' + (factor - val - 1)) as char,     // for all valid alphabetical numbers (1 to 26): byte literal 'a' + formula for reverse mapping gives us the correct character 
+            _ => '?',      
+        }
+    }).collect::<String>()
+}
+
