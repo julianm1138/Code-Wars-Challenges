@@ -1,0 +1,44 @@
+Definition
+An element is leader if it is greater than The Sum all the elements to its right side.
+
+Task
+Given an array/list [] of integers , Find all the LEADERS in the array.
+
+// We can solve this in a loop by getting the sum of everything beyond the current number and checking if the current number is greater than the sum.
+//O(n^2) solution 
+fn array_leaders(arr: &[i32]) -> Vec<i32> {
+
+   let vec = arr.to_vec();
+    
+   let mut result = vec![];
+    
+   for (i, num) in vec.iter().enumerate() {
+       let mut sum: i32 = vec[i + 1..].iter().sum();
+       
+       if vec[i] > sum {
+           result.push(vec[i]);
+       } 
+     sum = 0;
+       
+    }
+    
+    result
+}
+
+//O(n) solution 
+// start from the right of the array (because that's where the max sum already is) and get the running sum
+
+fn array_leaders(arr: &[i32]) -> Vec<i32> {
+    let mut result = Vec::new();
+    let mut sum = 0;
+
+    for &num in arr.iter().rev() {     
+        if num > sum {
+            result.push(num);
+        }
+        sum += num;
+    }
+
+    result.reverse();
+    result
+}
