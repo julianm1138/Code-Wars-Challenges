@@ -1,0 +1,21 @@
+Task
+Write a function that accepts str string and key number and returns an array of integers representing encoded str.
+
+Input / Output
+The str input string consists of lowercase characters only.
+The key input number is a positive integer.
+
+// We need to add the alphabetical positions of the msg to each digit in n in a repeating order, for the length of the msg.
+
+
+fn encode(msg: String, n: i32) -> Vec<i32> {
+    
+    let msg_nums: Vec<u8> = msg.chars().map(|c| c as u8 - b'a' + 1).collect();      // get the alphabetical numbers from the msg
+    
+    let key_digit: Vec<u8> = n.to_string().chars().map(|c| c.to_digit(10).unwrap() as u8).collect();   // convert each digit to u8
+    
+    let key: Vec<u8> = key_digit.iter().cycle().take(msg_nums.len()).copied().collect();  // to create the key, cycle() will repeat the key and take() will repeat it for the length of the message
+    
+    msg_nums.iter().zip(key.iter()).map(|(&n, &k)| (n + k) as i32).collect()      // add each alpahbetical number to its corresponding key digit
+
+}
