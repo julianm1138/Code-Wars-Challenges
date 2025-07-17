@@ -1,0 +1,22 @@
+In this Kata, you will be given two strings a and b and your task will be to return the characters that are not common in the two strings.
+
+// We can check if any char in either string are not included in the opposite string. 
+
+
+fn solve(a: &str, b: &str) -> String {
+
+    let mut result = String::new();
+    
+    for c in a.chars() {
+        if !b.contains(c) {
+            result.push(c);
+        }
+    }
+     for c in b.chars() {
+        if !a.contains(c) {
+            result.push(c);
+        }
+    }
+    result
+}
+
