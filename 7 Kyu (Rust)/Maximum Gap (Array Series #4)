@@ -1,0 +1,19 @@
+Task
+Given an array/list [] of integers , Find The maximum difference between the successive elements in its sorted form.
+
+
+fn max_gap(xs: &[i32]) -> i32 {
+
+    let mut arr: Vec<i32> = xs.to_vec();
+    arr.sort();
+ 
+    let mut max_difference = 0;
+    
+    for num in arr.windows(2) {
+        let difference = (num[0] - num[1]).abs();
+        if difference > max_difference {
+            max_difference = difference;
+        }
+    }
+    max_difference
+}
