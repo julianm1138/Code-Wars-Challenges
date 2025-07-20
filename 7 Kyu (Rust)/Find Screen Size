@@ -1,0 +1,13 @@
+Given an integer width and a string ratio written as WIDTH:HEIGHT, output the screen dimensions as a string written as WIDTHxHEIGHT.
+
+Note: The calculated height should be represented as an integer. If the height is fractional, truncate it.
+
+// We can get the correct dimensions by multiplying the width by the antecedent and then dividing that value by the consequent. 
+
+fn find_screen_height(width: u64, ratio: &str) -> String {
+    
+    let numbers: Vec<u64> = ratio.split(':').map(|num| num.parse().unwrap()).collect();
+    
+    format!("{width}x{}", (width as f64 / numbers[0] as f64 * numbers[1] as f64).floor())     // we need f64 to maintain accuracy 
+
+}
