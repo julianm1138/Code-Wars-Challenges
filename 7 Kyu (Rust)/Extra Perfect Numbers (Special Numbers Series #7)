@@ -1,0 +1,21 @@
+An extra perfect number is a positive integer whose first and last bits in binary representation are set (i.e., both are 1).
+
+Task
+Given a positive integer N, return all the extra perfect numbers in the range from 1 to N, inclusive.
+
+// We need to convert the numbers in the range of n into binary and then check if the first and last bit is 1. If yes, add to the vector.
+
+fn extra_perfect(n: u32) -> Vec<u32> {
+
+    let mut result = vec![];
+    
+    for num in 1..=n {      // the range
+         let binary = format!("{:b}", num);   // convert to binary 
+         if binary.chars().next().unwrap() == '1' && binary.chars().last().unwrap() == '1'{      //check if the first and last are '1'
+             result.push(num);
+        }   
+    }
+        result
+   }
+
+
