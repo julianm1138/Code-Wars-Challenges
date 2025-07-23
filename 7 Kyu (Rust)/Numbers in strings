@@ -1,0 +1,38 @@
+In this Kata, you will be given a string that has lowercase letters and numbers. Your task is to compare the number groupings and return the largest number. Numbers will not have leading zeros.
+
+For example, solve("gh12cdy695m1") = 695, because this is the largest of all number groupings.
+
+
+// We can solve this by collecting the groups of integers and then returning the greatest value.
+
+
+fn solve(s: &str) -> u32 {
+
+    let chars: Vec<char> = s.chars().collect();    // use vec for index access
+    
+    let mut nums = vec![];
+    let mut num = String::new();
+ 
+    for i in 0..=chars.len() - 1 {        //iterate vec
+        
+      let current = chars[i];
+        
+        if current.is_numeric() {           //if it's a number add to the current group
+          num.push(current);
+        } 
+            
+        if i < chars.len() - 1 {           //protect against out of bounds errors
+             let next = chars[i + 1];
+            
+            if current.is_numeric() && next.is_alphabetic() {     //if alphabetic that means it is the end of the group
+                nums.push(std::mem::take(&mut num));            //use take to avoid cloning when addressing string to vector moves
+        } 
+    }                 
+            if current.is_numeric() && i == chars.len() - 1 {     //make sure to push the last number if one exists 
+                  nums.push(std::mem::take(&mut num));
+        }
+            
+    }
+      
+    nums.iter().map(|x| x.parse::<u32>().unwrap()).max().unwrap() 
+}
