@@ -1,0 +1,11 @@
+Area of an arrow
+An arrow is formed in a rectangle with sides a and b by joining the bottom corners to the midpoint of the top edge and the centre of the rectangle.
+
+
+// We need the area of the arrow inside the rectangle. To calculate the area of an arrow we can observe the fractions inside the rectangle. 
+// If we divide the rectangle horizontally we have 1/2 of the area. If we divide again we get 1/4 of the area. 
+// The arrow's area is equivalent to 1/4 of the total area which means the area of the arrow is 1/4 of the total area.
+
+fn arrow_area(a: u32, b: u32) -> f64 {          
+a as f64 * b as f64 * 0.25      
+}
