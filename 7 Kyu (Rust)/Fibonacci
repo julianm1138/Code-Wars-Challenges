@@ -1,0 +1,21 @@
+Create function fib that returns n'th element of Fibonacci sequence (classic programming task).
+
+// We can solve this by calculating the fibonacci sequence iteratively. 
+// Add the base cases and move the new fibonacci number to b, and move the old b to a.
+
+fn fib(n:u32)->u32{
+
+    if n == 0 { return 0}
+    if n == 1 {return 1}
+    
+    let mut a = 0;     //a = f(n - 2)
+    let mut b = 1;     //b = f(n - 1)
+    
+    for _ in 2..=n {        // Execute the sequence this many times
+        let temp = b;       // Keep the old b so we can reassign to a
+         b = a + b;         // Assign to be f(n) = f(n - 2) + f(n - 1)
+         a = temp;          // Assign the old b to a
+        
+    }
+    b
+}
