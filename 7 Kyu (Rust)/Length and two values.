@@ -1,0 +1,17 @@
+Given an integer n and two other values, build an array of size n filled with these two values alternating.
+
+// We can solve this using the cycle method which creates an infinite iterator and take which gets the first n items of that iterator
+
+
+
+
+fn alternate<'a>(n: usize, first_value: &'a str, second_value: &'a str) -> Vec<&'a str> {
+
+    let mut values = vec![first_value, second_value];
+    
+    values.into_iter()
+    .cycle()
+    .take(n)
+    .collect::<Vec<&str>>()
+
+}
