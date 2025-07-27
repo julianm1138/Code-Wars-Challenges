@@ -1,0 +1,64 @@
+John knows that the rectangular room has a length of l meters, a width of w meters, a height of h meters. The standard width of the rolls he wants to buy is 52 centimeters. The length of a roll is 10 meters. He bears in mind however, that it’s best to have an extra length of wallpaper handy in case of mistakes or miscalculations so he wants to buy a length 15% greater than the one he needs.
+
+Last time he did these calculations he got a headache, so could you help John?
+
+Task
+Your function wallpaper(l, w, h) should return as a plain English word in lower case the number of rolls he must buy.
+
+Example:
+wallpaper(4.0, 3.5, 3.0) should return "ten"
+
+wallpaper(0.0, 3.5, 3.0) should return "zero"
+
+Notes:
+all rolls (even with incomplete width) are put edge to edge
+
+0 <= l, w, h (floating numbers); it can happens that w * h * l is zero
+
+the integer r (number of rolls) will always be less or equal to 20
+
+// We need to get the area of the room's walls, the area of one roll, find out how many rolls are needed to cover that area, and add the buffer (the area needed * 15%)
+
+fn wall_paper(l: f64, w: f64, h: f64) -> String {
+    
+    if l == 0.0 || w == 0.0 || h == 0.0 {            // check for 0.0 in the input
+        return "zero".to_string()
+    }
+    
+    let room_area = (h * w) * 2.0 + (l * h) * 2.0;
+    let roll_area = 0.52 * 10.0;      //converted 52 cm to meters
+    
+    let area_needed = room_area / roll_area;
+    let buffer = area_needed * 0.15;
+    let result = (area_needed + buffer).ceil() as usize;     //round up to account for floating point because you can only have whole rolls
+    
+    number_to_word(result).to_string()
+}
+
+fn number_to_word(n: usize) -> &'static str {     //helper to match the correct string
+    match n {
+        0 => "zero",
+        1 => "one",
+        2 => "two",
+        3 => "three",
+        4 => "four",
+        5 => "five",
+        6 => "six",
+        7 => "seven",
+        8 => "eight",
+        9 => "nine",
+        10 => "ten",
+        11 => "eleven",
+        12 => "twelve",
+        13 => "thirteen",
+        14 => "fourteen",
+        15 => "fifteen",
+        16 => "sixteen",
+        17 => "seventeen",
+        18 => "eighteen",
+        19 => "nineteen",
+        20 => "twenty",
+        _ => "unknown", 
+    }
+}
+
