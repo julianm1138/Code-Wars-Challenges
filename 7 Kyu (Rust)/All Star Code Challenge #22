@@ -1,0 +1,19 @@
+All Star Code Challenge #22
+
+Create a function that takes an integer argument of seconds and converts the value into a string describing how many hours and minutes comprise that many seconds.
+
+Any remaining seconds left over are ignored.
+
+Note:
+The string output needs to be in the specific form - "X hour(s) and X minute(s)"
+
+
+
+fn to_time(seconds: u32) -> String {
+     
+    let total_minutes = seconds / 60;       // divide by 60 to get the total minutes
+    let hours = total_minutes / 60;         // divide total minutes by 60 to get hours
+    let minutes = total_minutes % 60;       // get the remainder of the total minutes 
+
+    format!("{} hour(s) and {} minute(s)", hours, minutes)
+}
