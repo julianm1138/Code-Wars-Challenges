@@ -1,0 +1,20 @@
+Given a number return the closest number to it that is divisible by 10.
+
+Example input:
+
+22
+25
+37
+Expected output:
+
+20
+30
+40
+
+// We can solve this by rounding the number after dividing by 10, then multiply by 10 again to shift back to the correct place value. 
+
+fn closest_multiple_of_10(n: u32) -> u32 {
+    
+    ((n as f64 / 10.0).round() * 10.0) as u32
+
+}
