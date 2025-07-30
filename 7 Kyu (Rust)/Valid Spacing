@@ -1,0 +1,12 @@
+Your task is to write a function called valid_spacing() or validSpacing() which checks if a string has valid spacing. The function should return either true or false (or the corresponding value in each language).
+
+// We can solve this by using the regex crate to replace all extra spaces with one space and trim all leading and ending spaces.
+
+
+use regex::Regex;
+
+fn valid_spacing(s: &str) -> bool {   
+    
+    s ==  Regex::new(r"\s+").unwrap().replace_all(s.trim(), " ")
+    
+}
