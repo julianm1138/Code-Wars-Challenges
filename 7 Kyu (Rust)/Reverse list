@@ -1,0 +1,10 @@
+Write reverseList function that simply reverses lists.
+
+// We can use reverse() to solve this
+
+fn reverse_list(lst: &[i32]) -> Vec<i32> {
+
+    let mut result = lst.to_vec();       // reverse works on mutable lists
+    result.reverse();                    // reverse the list
+    result                               // return the list
+}
