@@ -1,0 +1,29 @@
+Happy Year is the year with only distinct digits , (e.g) 2018
+
+Task
+Given a year, Find The next happy year or The closest year You'll see your best friend
+
+// We can iterate from the input + 1 up to the u16 max and use a set to check if the length of the string is equal to the length of the original.
+// If there are duplicates the length will be different.
+
+use::std::collections::HashSet;
+
+fn next_happy_year(year: u16) -> u16 {
+    
+    for num in year + 1..=u16::MAX {
+
+        let mut set = HashSet::new();
+        let num_str = num.to_string();
+        let original_length = num_str.len();
+        
+        
+        for c in num_str.chars() {
+            set.insert(c);            // put the chars of each year in the set
+        }
+        
+        if set.len() == original_length {      // if this is true then it must be a happy year 
+            return num;
+        }
+    }
+    year                          // fallback condition 
+}
