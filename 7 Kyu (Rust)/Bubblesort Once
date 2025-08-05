@@ -1,0 +1,20 @@
+Task
+Given an array of integers, your function bubblesortOnce/bubblesort_once/BubblesortOnce (or equivalent, depending on your language's naming conventions) should return a new array equivalent to performing exactly 1 complete pass on the original array. Your function should be pure, i.e. it should not mutate the input array.
+
+// We can solve this by iterating a new vector of the list and swapping the numbers.
+
+
+fn bubblesort_once(lst: &[u32]) -> Vec<u32> {
+
+    let mut nums = lst.to_vec();       // make a new list to mutate
+    
+    for i in 0..nums.len() - 1 {       // iterate the range as indexes
+        
+        if nums[i] > nums[i + 1] {     // if the current is > than the next
+            let temp = nums[i];        // store the current so that when we reassign it does not get erased
+            nums[i] = nums[i + 1];     // reassign the current to be the next
+            nums[i + 1] = temp;        // reassign the next to be the current (that was stored)
+        }
+    }
+    nums
+}
