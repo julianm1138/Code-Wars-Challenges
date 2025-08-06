@@ -1,0 +1,13 @@
+You will be provided a string that lists many boat related items. If any of these items are "Fire" you must spring into action. Change any instance of "Fire" into "~~". Then return the string.
+
+// We can solve this with split and join. 
+// Split via "Fire" to get an iterator with "Fire" missing
+// collect into a vector to get a vector with "Fire" omitted 
+// use join to connect the string slice with "~~"
+
+
+
+fn fire_fight(s: &str) -> String {
+ 
+    s.split("Fire").collect::<Vec<&str>>().join("~~")
+}
