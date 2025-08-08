@@ -1,0 +1,25 @@
+In its most basic form a spoonerism is a two word phrase in which only the first letters of each word are swapped:
+
+"not picking" --> "pot nicking"
+
+Your task is to create a function that takes a string of two words, separated by a space: words and returns a spoonerism of those words in a string, as in the above example
+
+// We can solve this by extracting the first letters of both words and the rest of both words.
+// Then print them in a new string in the desired order. 
+
+
+
+
+fn spoonerize(words: &str) -> String {
+
+    let mut vec = words.split(" ").collect::<Vec<&str>>();
+    
+    let first_w_letter = vec[0].chars().next().unwrap();
+    let second_w_letter = vec[1].chars().next().unwrap();
+    
+    let first_w_rest = &vec[0][first_w_letter.len_utf8()..];
+    let second_w_rest = &vec[1][second_w_letter.len_utf8()..];
+    
+    format!("{}{} {}{}", second_w_letter, first_w_rest, first_w_letter, second_w_rest)
+
+}
