@@ -1,0 +1,12 @@
+Task:
+Your job is to write a function, which takes three integers a, b, and c as arguments, and returns True if exactly two of the three integers are positive numbers (greater than zero), and False - otherwise.
+
+// We can solve this with a combo of filter and count.
+// Filter every positive number and count exactly 2 of them.
+
+
+fn two_are_positive(a: i32, b: i32, c: i32) -> bool {
+
+    [a, b, c].iter().filter(|&&x| x > 0).count() == 2
+    
+}
