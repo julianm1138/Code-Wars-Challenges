@@ -1,0 +1,17 @@
+Your Task
+Complete the function pofi that returns 
+i
+i to the power of a given non-negative integer in its simplest form, as a string (answer may contain 
+i
+i).
+
+
+// We can solve this by setting up a mod 4 since the power's pattern repeats every 4 starting at index 0.
+
+
+    fn pofi(n: u32) -> &'static str {
+    
+        let powers = vec!["1", "i", "-1", "-i"];      // the repeating pattern for first four powers
+        
+        powers[(n % 4) as usize]                     // use mod 4 to handle every number past the boundaries of the powers.
+}
