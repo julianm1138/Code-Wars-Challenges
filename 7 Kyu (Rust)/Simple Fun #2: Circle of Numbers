@@ -1,0 +1,17 @@
+Task
+Consider integer numbers from 0 to n - 1 written down along the circle in such a way that the distance between any two neighbouring numbers is equal (note that 0 and n - 1 are neighbouring, too).
+
+Given n and firstNumber/first_number/first-number, find the number which is written in the radially opposite position to firstNumber.
+
+
+// We have the total distance of the circle as n.
+// We also have the number to find the radial opposite of as fst.
+
+// We can solve this by adding the distance needed to reach the oppposite of the radius to the given number. 
+// In cases where the first number would push the sum out of bounds we use modulo to loop back around and stay inside the bounds of n.
+
+fn circle_of_numbers(n: u32, fst: u32) -> u32 {
+    
+    (n / 2 + fst) % n 
+    
+}
