@@ -1,0 +1,22 @@
+Given a positive integer n: 0 < n < 1e6, remove the last digit until you're left with a number that is a multiple of three.
+
+Return n if the input is already a multiple of three, and if no such number exists, return null, a similar empty value, or -1.
+
+
+// We can solve this by dividing num by 10 until we have a multiple of three. 
+
+
+fn prev_mult_of_three(n: i32) -> i32 {
+    
+    let mut num = n;           // variable to update
+    
+    while num % 3 != 0 {          // loop while num is not a multiple of 3
+        
+       num = num / 10;           // divide by 10 and update variable 
+        
+      if num == 0 || num < 10 && num % 3 != 0 {      // edge cases 
+          return -1;
+        }
+    }
+    num   
+}
