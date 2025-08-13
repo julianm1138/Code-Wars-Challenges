@@ -1,0 +1,33 @@
+In this Kata, we are going to reverse a string while maintaining the spaces (if any) in their original place.
+
+"our code" => "edo cruo"
+-- Normal reversal without spaces is "edocruo". 
+-- However, there is a space at index 3, so the string becomes "edo cruo"
+
+
+// We can solve this with three steps: 
+1. saving the space indexes of the original string
+2. removing the spaces and reversing the original string
+3. inserting spaces at the saved indexes of the modified string. 
+
+
+fn solve(s: &str) -> String {
+   
+    let mut chars: Vec<char> = s.chars().collect();        // convert input into a vector of chars so we can iterate all chars easier 
+    
+    let space_indexes: Vec<usize> = chars               
+    .iter()
+    .enumerate()
+    .filter_map(|(i, &c)| if c == ' '{ Some(i) } else { None } )      // use filter map to transform all spaces into the index numbers
+    .collect();
+    
+    chars.reverse();                                                // reverse the original string slice
+    
+    chars.retain(|&c| c != ' ');                                    // remove all spaces from the original string slice 
+    
+    for &idx in &space_indexes {             // for each index in the indexes
+         chars.insert(idx, ' ');           // insert a space at the corresponding index
+    }
+   
+    chars.into_iter().collect()           
+}
