@@ -1,0 +1,28 @@
+Write a function that takes an array of unique integers and returns the minimum number of integers needed to make the values of the array consecutive from the lowest number to the highest number.
+
+[4, 8, 6] --> 2
+Because 5 and 7 need to be added to have [4, 5, 6, 7, 8]
+
+// We can solve this by sorting and then getting the difference between each number.
+// The difference - 1 will tell us how many numbers need to be added between each number so that the whole list is consecutive.
+
+
+
+fn consecutive(xs: &[i16]) -> i16 {
+    
+    if xs.is_empty() || xs.len() == 1 { return 0 }
+    
+    let mut numbers = xs.to_vec();
+    numbers.sort();
+
+    let mut count = 0;
+
+    for i in 0..numbers.len() - 1 {
+        let diff = numbers[i + 1] - numbers[i];
+        if diff > 1 {
+            count += diff - 1;
+        }
+    }
+
+    count
+}
