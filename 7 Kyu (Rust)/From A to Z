@@ -1,0 +1,11 @@
+Given a string indicating a range of letters, return a string which includes all the letters in that range, including the last letter.
+
+// We can solve this by getting the first and last character then using inclusive range to get the unicode scalar values from each char.
+
+fn gimme_the_letters(sp: &str) -> String {
+    
+    let start = sp.chars().nth(0).unwrap();
+    let end = sp.chars().nth(2).unwrap();
+    
+    (start..=end).collect()
+}
