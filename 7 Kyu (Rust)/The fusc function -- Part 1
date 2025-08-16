@@ -1,0 +1,22 @@
+The 4 rules above are sufficient to determine the value of fusc for any non-negative input n. For example, let's say you want to compute fusc(10).
+
+fusc(10) = fusc(5), by rule 3.
+fusc(5) = fusc(2) + fusc(3), by rule 4.
+fusc(2) = fusc(1), by rule 3.
+fusc(1) = 1, by rule 2.
+fusc(3) = fusc(1) + fusc(2) by rule 4.
+fusc(1) and fusc(2) have already been computed are both equal to 1.
+
+// Rule 3 is halving even numbers and rule 4 is breaking odd numbers into the sum of their lesser and greater parts until the base cases (rules 2 and 1) are reached.
+
+fn fusc(n: u32) -> u32 {
+    
+    if n == 0 { return 0; }
+    if n == 1 { return 1; }
+    
+    if n % 2 == 0 {
+      fusc(n / 2)         //half even numbers
+    } else { 
+     fusc(n / 2) + fusc(n / 2 + 1)     //n / 2 gets the lesser half, n / 2 + 1 gets the greater half
+    }
+}
