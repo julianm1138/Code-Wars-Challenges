@@ -1,0 +1,19 @@
+Your task is to return an output string that translates an input string s by replacing each character in s with a number representing the number of times that character occurs in s and separating each number with the sep character(s)
+
+// We can solve this by using a hashmap to get the count of each character, then use map to access each count and join it by the given delimiter
+
+use std::collections::HashMap;
+
+fn freq_seq(s: &str, sep: &str) -> String {
+
+    let mut freq = HashMap::new();
+    
+    for c in s.chars() {                             // iterate each character
+        *freq.entry(c).or_insert(0) += 1;            // entry checks if there is a character in the hashmap, if not insert 0, else increment by 1
+    }
+    
+    s.chars()                                       
+    .map(|c| freq[&c].to_string())                 // access the hashmap to get each count and convert to string
+    .collect::<Vec<_>>()                           // collect into vector so we can use join
+    .join(sep)
+}
